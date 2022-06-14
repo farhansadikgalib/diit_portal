@@ -493,7 +493,7 @@ class _HomePageState extends State<HomePage> {
                       width: 150,
                       height: 160,
                       child: InkWell(
-                        onTap: ()=>Get.toNamed('/TeacherAttendance'),
+                        onTap: ()=>Get.toNamed('/TakeandShowAttendence'),
                         child: Card(
                           elevation: 5,
                           color: Color(0xffF8EFEF),

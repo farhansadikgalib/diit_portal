@@ -1,51 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class TeacherDashbord extends StatelessWidget {
+class TakeandShowAttendence extends StatelessWidget {
+  const TakeandShowAttendence({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+
           children: [
             Padding(
-              padding: const EdgeInsets.only( left: 10, right: 10),
-              child: Container(
-                height: 200,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                    color: Color(0xffC4C4C4),
-                    borderRadius: BorderRadius.all(Radius.circular(20))),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Poly Bhumick',
-                      style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w300,
-                          fontFamily: "Poppins_B"),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'Lecturer of CSE',
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.black,
-                          fontFamily: "Poppins"),
-                    ),
-
-
-
-                  ],
-                ),
+              padding: const EdgeInsets.only(top: 100),
+              child: Text('Class Attendence',
+                style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.black,
+                    fontFamily: "Baloo"),
               ),
             ),
-            SizedBox(height: 50,),
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Text('Select your account type',
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.black,
+                    fontFamily: "Baloo"),
+              ),
+            ),
+            SizedBox(height: 100,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -53,7 +37,7 @@ class TeacherDashbord extends StatelessWidget {
                   width: 150,
                   height: 160,
                   child: InkWell(
-                    onTap: ()=>Get.toNamed('/SelectCourceAttendence'),
+                    onTap: ()=>Get.toNamed('/TeacherAttendance'),
                     child: Card(
                       elevation: 5,
                       color: Color(0xffF8EFEF),
@@ -73,7 +57,7 @@ class TeacherDashbord extends StatelessWidget {
                   width: 150,
                   height: 160,
                   child: InkWell(
-                    onTap: ()=>Get.toNamed(''),
+                    // onTap: ()=>Get.toNamed(''),
                     child: Card(
                       elevation: 5,
                       color: Color(0xffF8EFEF),
@@ -90,7 +74,7 @@ class TeacherDashbord extends StatelessWidget {
                   ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),

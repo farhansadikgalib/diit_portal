@@ -1,5 +1,8 @@
 import 'package:diit_portal/Screens/AuthScreen/ForgetPassPage.dart';
 import 'package:diit_portal/Screens/AuthScreen/LoginPage.dart';
+import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/course_selecta_attendence.dart';
+import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/studentname_attendencelist.dart';
+import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/take&show_attendence.dart';
 import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/teacher_attendance.dart';
 import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/teacher_deshboard.dart';
 import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Class_routine/Cse/cse_routine.dart';
@@ -79,12 +82,15 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/FacultyProfile', page: ()=>FacultyProfile()),
         GetPage(name: '/QuickPayment', page: ()=>QuickPayment()),
         GetPage(name: '/CSERoutine', page: ()=>CSERoutine()),
-
+          // question pdf //
         GetPage(name: '/pdf_viewPage', page: ()=> pdf_viewPage()),
 
         // Attendance //
+        GetPage(name: '/TakeandShowAttendence', page: ()=> TakeandShowAttendence()),
         GetPage(name: '/TeacherAttendance', page: ()=> TeacherAttendance()),
         GetPage(name: '/TeacherDashbord', page: ()=> TeacherDashbord()),
+        GetPage(name: '/SelectCourceAttendence', page: ()=> SelectCourceAttendence()),
+        GetPage(name: '/StudentNameAttendencelist', page: ()=> StudentNameAttendencelist()),
 
 
       ],
