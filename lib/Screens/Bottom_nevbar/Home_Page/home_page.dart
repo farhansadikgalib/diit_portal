@@ -1,3 +1,4 @@
+import 'package:diit_portal/BinaryClock/Clock.dart';
 import 'package:diit_portal/Screens/Weather/data_service.dart';
 import 'package:diit_portal/Screens/Weather/weather_model.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                         color: Color(0xff00DCA8),
                         borderRadius:
                             BorderRadius.only(topLeft: Radius.circular(5))),
-                    height: 200,
+                    height: MediaQuery.of(context).size.height/6,
                     width: double.maxFinite,
                     child: Row(
                       children: <Widget>[
@@ -147,6 +148,36 @@ class _HomePageState extends State<HomePage> {
                                 children: <Widget>[
                                   Padding(
                                     padding:
+                                    const EdgeInsets.only(top: 8, left: 15),
+                                    child: Text(
+                                      'Current  Temp',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontFamily: 'Poppins',
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 2,
+                                  ),
+                                  Padding(
+                                    padding:
+                                    const EdgeInsets.only(top: 8, left: 15),
+                                    child: Text(
+                                      "${(((_response!.tempInfo.temperature - 32) * 5) / 9).ceil()}° C",
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontFamily: 'Poppins',
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+
+                              Row(
+                                children: <Widget>[
+                                  Padding(
+                                    padding:
                                         const EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
                                       'Today’s Date',
@@ -172,64 +203,6 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ],
                               ),
-                              Row(
-                                children: <Widget>[
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(top: 8, left: 15),
-                                    child: Text(
-                                      'Current  Time',
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        fontFamily: 'Poppins',
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(top: 8, left: 15),
-                                    child: Text(
-                                      '${currentTime}',
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        fontFamily: 'Poppins',
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(top: 8, left: 15),
-                                    child: Text(
-                                      'Current  Temp',
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        fontFamily: 'Poppins',
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 2,
-                                  ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(top: 8, left: 15),
-                                    child: Text(
-                                      "${(((_response!.tempInfo.temperature - 32) * 5) / 9).ceil()}° C",
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        fontFamily: 'Poppins',
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
                             ],
                           ),
                         ),
@@ -245,6 +218,22 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
+                Card(
+                  elevation: 3,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Color.fromRGBO(204, 229, 204, 1),
+                        borderRadius:
+                        BorderRadius.only(topLeft: Radius.circular(5))),                    child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Clock(),
+                      ),
+                    ],
+                ),
+                  ),),
                 Card(
                   child: Container(
                     height: 65.0,
@@ -285,6 +274,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
+
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
