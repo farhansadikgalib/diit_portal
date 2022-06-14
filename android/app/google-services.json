@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1049471875856",
+    "project_id": "diit-portal",
+    "storage_bucket": "diit-portal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1049471875856:android:9a3935e508d2b8daec4395",
+        "android_client_info": {
+          "package_name": "com.farhan.diit_portal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1049471875856-a6oeqbs2sr697rg6vqiek6adcqijqh7r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.farhan.diit_portal",
+            "certificate_hash": "64c18ed4c5dfbc14b72b2d4926163aa1585508a2"
+          }
+        },
+        {
+          "client_id": "1049471875856-k91a2vthf69ilta0pckvebcn5363o8d6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6jft4HMh4m9HLgGICEI_PxtcId30zIZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1049471875856-k91a2vthf69ilta0pckvebcn5363o8d6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
