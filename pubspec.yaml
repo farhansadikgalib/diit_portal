@@ -55,8 +55,8 @@ dependencies:
   glass_kit: ^2.0.1
   # UI Design
 
-
-
+     #flutter toast
+  fluttertoast: ^8.0.9
 
 
 
