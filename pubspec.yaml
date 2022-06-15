@@ -52,6 +52,8 @@ dependencies:
   shimmer: ^2.0.0
 
   # UI Design
+  glassmorphism: ^3.0.0
+
   glass_kit: ^2.0.1
   # UI Design
 
