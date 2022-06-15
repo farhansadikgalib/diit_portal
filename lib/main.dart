@@ -1,7 +1,10 @@
 import 'package:diit_portal/Screens/AuthScreen/ForgetPassPage.dart';
 import 'package:diit_portal/Screens/AuthScreen/LoginPage.dart';
-import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/course_selecta_attendence.dart';
-import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/studentname_attendencelist.dart';
+import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/Student_attendance_view/student_attendance_detailes.dart';
+import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/Student_attendance_view/student_attendanceview_login.dart';
+import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/Student_attendance_view/student_course_%20attendanceview.dart';
+import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/Teacher_takeattendance/course_selecta_attendence.dart';
+import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/Teacher_takeattendance/studentname_attendencelist.dart';
 import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/take&show_attendence.dart';
 import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/teacher_attendance.dart';
 import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/teacher_deshboard.dart';
@@ -91,6 +94,10 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/TeacherDashbord', page: ()=> TeacherDashbord()),
         GetPage(name: '/SelectCourceAttendence', page: ()=> SelectCourceAttendence()),
         GetPage(name: '/StudentNameAttendencelist', page: ()=> StudentNameAttendencelist()),
+          // student view attendance //
+        GetPage(name: '/StudentViewAttendance', page: ()=> StudentViewAttendance()),
+        GetPage(name: '/CourseAttendanceView', page: ()=> CourseAttendanceView()),
+        GetPage(name: '/StudentAttendanceDetailes', page: ()=> StudentAttendanceDetailes()),
 
 
       ],

@@ -37,7 +37,7 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Container(
-                  color: Colors.amber,
+
                   height: MediaQuery
                       .of(context)
                       .size
