@@ -3,6 +3,7 @@ import 'package:diit_portal/Screens/Weather/data_service.dart';
 import 'package:diit_portal/Screens/Weather/weather_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_button/flutter_animated_button.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'package:getwidget/getwidget.dart';
@@ -65,12 +66,12 @@ class _HomePageState extends State<HomePage> {
                         color: Color(0xff00DCA8),
                         borderRadius:
                             BorderRadius.only(topLeft: Radius.circular(5))),
-                    height: 160,
+                    height: 160.h,
                     width: double.maxFinite,
                     child: Row(
                       children: <Widget>[
                         Expanded(
-                          flex: 2,
+                          flex: 3,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
@@ -99,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 52,
+                                    width: 52.w,
                                   ),
                                   Padding(
                                     padding:
@@ -128,7 +129,7 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 56,
+                                    width: 56.w,
                                   ),
                                   Padding(
                                     padding:
@@ -157,7 +158,7 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 2,
+                                    width: 2.h,
                                   ),
                                   Padding(
                                     padding:
@@ -186,7 +187,7 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 10,
+                                    width: 10.w,
                                   ),
                                   Padding(
                                     padding:
@@ -226,7 +227,7 @@ class _HomePageState extends State<HomePage> {
                   elevation: 3,
                   shadowColor: Colors.orange,
                   child: Container(
-                    height: 65.0,
+                    height: 65.0.h,
                     color: Colors.orangeAccent,
                     child: Row(
                       children: <Widget>[
@@ -234,12 +235,12 @@ class _HomePageState extends State<HomePage> {
                           margin: EdgeInsets.only(left: 20),
                           child: Image.asset(
                             'assets/calendar.png',
-                            height: 50,
-                            width: 50,
+                            height: 50.h,
+                            width: 50.w,
                           ),
                         ),
                         SizedBox(
-                          width: 50,
+                          width: 50.w,
                         ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -268,7 +269,7 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      height: 200,
+                      height: 200.h,
                       width: double.maxFinite,
                       child: GFCarousel(
                         autoPlay: true,
@@ -295,14 +296,14 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
                 Container(
-                  height: 50,
+                  height: 50.h,
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
                         AnimatedButton(
-                          height: 45,
-                          width: 125,
+                          height: 45.h,
+                          width: 125.w,
                           text: 'STUDENT PROTAL',
                           textStyle: (TextStyle(
                               fontSize: 14,
@@ -319,7 +320,7 @@ class _HomePageState extends State<HomePage> {
                           onPress: () {},
                         ),
                         SizedBox(
-                          width: 10,
+                          width: 10.w,
                         ),
                         AnimatedButton(
                           height: 45,
@@ -340,11 +341,11 @@ class _HomePageState extends State<HomePage> {
                           onPress: () {},
                         ),
                         SizedBox(
-                          width: 10,
+                          width: 10.w,
                         ),
                         AnimatedButton(
-                          height: 45,
-                          width: 125,
+                          height: 45.h,
+                          width: 125.w,
                           text: 'FACULTY MEMBER',
                           textStyle: (TextStyle(
                               fontSize: 14,
@@ -364,8 +365,8 @@ class _HomePageState extends State<HomePage> {
                           width: 10,
                         ),
                         AnimatedButton(
-                          height: 45,
-                          width: 125,
+                          height: 45.h,
+                          width: 125.w,
                           text: 'ACADEMIC RESULT',
                           textStyle: (TextStyle(
                               fontSize: 14,
@@ -382,11 +383,11 @@ class _HomePageState extends State<HomePage> {
                           onPress: () {},
                         ),
                         SizedBox(
-                          width: 10,
+                          width: 10.w,
                         ),
                         AnimatedButton(
-                          height: 45,
-                          width: 125,
+                          height: 45.h,
+                          width: 125.w,
                           text: 'NU PROTAL',
                           textStyle: (TextStyle(
                               fontSize: 14,
@@ -403,11 +404,11 @@ class _HomePageState extends State<HomePage> {
                           onPress: () {},
                         ),
                         SizedBox(
-                          width: 10,
+                          width: 10.w,
                         ),
                         AnimatedButton(
-                          height: 45,
-                          width: 125,
+                          height: 45.h,
+                          width: 125.w,
                           text: 'DIIT NOTICS',
                           textStyle: (TextStyle(
                               fontSize: 14,
@@ -428,14 +429,14 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 10.h
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      width: 150,
-                      height: 160,
+                      width: 140.h,
+                      height: 160.w,
                       child: InkWell(
                         onTap: () => Get.toNamed('/QuestionBank'),
                         child: Card(
@@ -446,11 +447,11 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Image.asset(
                                 "assets/ic_questionbank.png",
-                                height: 100,
-                                width: 100,
+                                height: 100.h,
+                                width: 100.w,
                               ),
                               SizedBox(
-                                height: 10,
+                                height: 10.h,
                               ),
                               Text(
                                 "Question Bank",
@@ -466,11 +467,11 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SizedBox(
-                      width: 20,
+                      width: 20.h,
                     ),
                     Container(
-                      width: 150,
-                      height: 160,
+                      width: 150.h,
+                      height: 160.w,
                       child: InkWell(
                         onTap: () => Get.toNamed('/ClassRoutine'),
                         child: Card(
@@ -485,7 +486,7 @@ class _HomePageState extends State<HomePage> {
                                 width: 100,
                               ),
                               SizedBox(
-                                height: 10,
+                                height: 10.h,
                               ),
                               Text(
                                 "Class  Routine",
@@ -503,14 +504,14 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
                 SizedBox(
-                  height: 15,
+                  height: 15.h,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      width: 150,
-                      height: 160,
+                      width: 140.h,
+                      height: 160.w,
                       child: InkWell(
                         onTap: () {},
                         child: Card(
@@ -521,11 +522,11 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Image.asset(
                                 "assets/ic_club.png",
-                                height: 100,
-                                width: 100,
+                                height: 100.h,
+                                width: 100.w,
                               ),
                               SizedBox(
-                                height: 10,
+                                height: 10.h,
                               ),
                               Text(
                                 "Club",
@@ -541,11 +542,11 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SizedBox(
-                      width: 20,
+                      width: 20.h,
                     ),
                     Container(
-                      width: 150,
-                      height: 160,
+                      width: 150.h,
+                      height: 160.w,
                       child: InkWell(
                         onTap: () => Get.toNamed('/TakeandShowAttendence'),
                         child: Card(
@@ -556,11 +557,11 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Image.asset(
                                 "assets/ic_attendance.png",
-                                height: 100,
-                                width: 100,
+                                height: 100.h,
+                                width: 100.w,
                               ),
                               SizedBox(
-                                height: 10,
+                                height: 10.h,
                               ),
                               Text(
                                 "Attendence",
@@ -578,11 +579,11 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 20.h,
                 ),
                 Container(
-                  width: 150,
-                  height: 160,
+                  width: 150.h,
+                  height: 160.w,
                   child: InkWell(
                     onTap: () => Get.toNamed('/QuickPayment'),
                     child: Card(
@@ -593,11 +594,11 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Image.asset(
                             "assets/payment.png",
-                            height: 100,
-                            width: 100,
+                            height: 100.h,
+                            width: 100.w,
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 10.h,
                           ),
                           Text(
                             "Quick Pay",
@@ -613,7 +614,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 20.h,
                 )
               ],
             ),

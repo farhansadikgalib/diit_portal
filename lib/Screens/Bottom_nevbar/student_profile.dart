@@ -1,9 +1,0 @@
-import 'package:flutter/material.dart';
-class StudentProfile extends StatelessWidget {
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}

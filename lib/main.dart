@@ -30,6 +30,7 @@ import 'package:diit_portal/Screens/SplashScreen/SplashScreenBinding.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 
@@ -48,64 +49,72 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return ScreenUtilInit(
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context,child){
 
-      title: 'DiiT Portal',
-      initialRoute: '/',
-      defaultTransition: Transition.leftToRight,
-      getPages: [
-        GetPage(name: '/', page: () => SplashScreen(), binding: SplashBinding()),
-        GetPage(name: '/LoginPage', page: ()=>LoginPage()),
-        GetPage(name: '/ForgetPassPage', page: ()=>ForgetPassPage()),
-        GetPage(name: '/DashBoard', page: () => Dashboard()),
-        GetPage(name: '/QuestionBankx', page: ()=> QuestionBankX()),
+        return GetMaterialApp(
 
-
-        // navigation bar //
-        GetPage(name: '/BottlomNavegatonBar', page: () => BottlomNavegatonBar()),
-        // home page //
-        GetPage(name: '/HomePage', page: () => HomePage()),
-        // question bank cse,bba,bthm, //
-        GetPage(name: '/QuestionBank', page: ()=>QuestionBank()),
-        GetPage(name: '/CseDepertment', page: ()=>CseDepertment()),
-        GetPage(name: '/BbaDepertment', page: ()=>BbaDepertment()),
-        GetPage(name: '/BthmDepertment', page: ()=>BthmDepertment()),
-        GetPage(name: '/MBADepertment', page: ()=>MBADepertment()),
-        // question bank close//
-
-        // Class Routine start //
-        GetPage(name: '/ClassRoutine', page: ()=>ClassRoutine()),
-        //class Routine close //
-
-        // home page close //
-        GetPage(name: '/StudentDashBoard', page: () => StudentDashBoard()),
-        GetPage(name: '/StudentNotification', page: () => AllNotification()),
-        GetPage(name: '/StudentProfile', page: () => StudentProfile()),
-
-        // horigental button//
-        GetPage(name: '/FacultyProfile', page: ()=>FacultyProfile()),
-        GetPage(name: '/QuickPayment', page: ()=>QuickPayment()),
-        GetPage(name: '/CSERoutine', page: ()=>CSERoutine()),
-          // question pdf //
-        GetPage(name: '/pdf_viewPage', page: ()=> pdf_viewPage()),
-
-        // Attendance //
-        GetPage(name: '/TakeandShowAttendence', page: ()=> TakeandShowAttendence()),
-        GetPage(name: '/TeacherAttendance', page: ()=> TeacherAttendance()),
-        GetPage(name: '/TeacherDashbord', page: ()=> TeacherDashbord()),
-        GetPage(name: '/SelectCourceAttendence', page: ()=> SelectCourceAttendence()),
-        GetPage(name: '/StudentNameAttendencelist', page: ()=> StudentNameAttendencelist()),
-          // student view attendance //
-        GetPage(name: '/StudentViewAttendance', page: ()=> StudentViewAttendance()),
-        GetPage(name: '/CourseAttendanceView', page: ()=> CourseAttendanceView()),
-        GetPage(name: '/StudentAttendanceDetailes', page: ()=> StudentAttendanceDetailes()),
+          title: 'DiiT Portal',
+          initialRoute: '/',
+          defaultTransition: Transition.leftToRight,
+          getPages: [
+            GetPage(name: '/', page: () => SplashScreen(), binding: SplashBinding()),
+            GetPage(name: '/LoginPage', page: ()=>LoginPage()),
+            GetPage(name: '/ForgetPassPage', page: ()=>ForgetPassPage()),
+            GetPage(name: '/DashBoard', page: () => Dashboard()),
+            GetPage(name: '/QuestionBankx', page: ()=> QuestionBankX()),
 
 
-      ],
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
-      ),
-      debugShowCheckedModeBanner: false,
+            // navigation bar //
+            GetPage(name: '/BottlomNavegatonBar', page: () => BottlomNavegatonBar()),
+            // home page //
+            GetPage(name: '/HomePage', page: () => HomePage()),
+            // question bank cse,bba,bthm, //
+            GetPage(name: '/QuestionBank', page: ()=>QuestionBank()),
+            GetPage(name: '/CseDepertment', page: ()=>CseDepertment()),
+            GetPage(name: '/BbaDepertment', page: ()=>BbaDepertment()),
+            GetPage(name: '/BthmDepertment', page: ()=>BthmDepertment()),
+            GetPage(name: '/MBADepertment', page: ()=>MBADepertment()),
+            // question bank close//
+
+            // Class Routine start //
+            GetPage(name: '/ClassRoutine', page: ()=>ClassRoutine()),
+            //class Routine close //
+
+            // home page close //
+            GetPage(name: '/StudentDashBoard', page: () => StudentDashBoard()),
+            GetPage(name: '/StudentNotification', page: () => AllNotification()),
+            GetPage(name: '/StudentProfile', page: () => StudentProfile()),
+
+            // horigental button//
+            GetPage(name: '/FacultyProfile', page: ()=>FacultyProfile()),
+            GetPage(name: '/QuickPayment', page: ()=>QuickPayment()),
+            GetPage(name: '/CSERoutine', page: ()=>CSERoutine()),
+            // question pdf //
+            GetPage(name: '/pdf_viewPage', page: ()=> pdf_viewPage()),
+
+            // Attendance //
+            GetPage(name: '/TakeandShowAttendence', page: ()=> TakeandShowAttendence()),
+            GetPage(name: '/TeacherAttendance', page: ()=> TeacherAttendance()),
+            GetPage(name: '/TeacherDashbord', page: ()=> TeacherDashbord()),
+            GetPage(name: '/SelectCourceAttendence', page: ()=> SelectCourceAttendence()),
+            GetPage(name: '/StudentNameAttendencelist', page: ()=> StudentNameAttendencelist()),
+            // student view attendance //
+            GetPage(name: '/StudentViewAttendance', page: ()=> StudentViewAttendance()),
+            GetPage(name: '/CourseAttendanceView', page: ()=> CourseAttendanceView()),
+            GetPage(name: '/StudentAttendanceDetailes', page: ()=> StudentAttendanceDetailes()),
+
+
+          ],
+          theme: ThemeData(
+            primarySwatch: Colors.orange,
+          ),
+          debugShowCheckedModeBanner: false,
+        );
+      },
     );
   }
 }

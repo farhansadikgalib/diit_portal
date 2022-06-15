@@ -20,15 +20,7 @@ class TakeandShowAttendence extends StatelessWidget {
                     fontFamily: "Baloo"),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: Text('Select your account type',
-                style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black,
-                    fontFamily: "Baloo"),
-              ),
-            ),
+
             SizedBox(height: 100,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -57,7 +49,7 @@ class TakeandShowAttendence extends StatelessWidget {
                   width: 150,
                   height: 160,
                   child: InkWell(
-                    // onTap: ()=>Get.toNamed(''),
+                    onTap: ()=>Get.toNamed('/StudentViewAttendance'),
                     child: Card(
                       elevation: 5,
                       color: Color(0xffF8EFEF),

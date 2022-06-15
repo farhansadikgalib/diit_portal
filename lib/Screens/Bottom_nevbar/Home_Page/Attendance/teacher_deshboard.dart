@@ -73,7 +73,7 @@ class TeacherDashbord extends StatelessWidget {
                   width: 150,
                   height: 160,
                   child: InkWell(
-                    onTap: ()=>Get.toNamed(''),
+                    onTap: ()=>Get.toNamed('/CourseAttendanceView'),
                     child: Card(
                       elevation: 5,
                       color: Color(0xffF8EFEF),

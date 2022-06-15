@@ -37,7 +37,8 @@ dependencies:
   #  State Management
   device_preview: ^1.1.0
 
-
+ # screen util #
+  flutter_screenutil: ^5.5.3+2
   #  State Management
   get: 4.6.1
   #  State Management
