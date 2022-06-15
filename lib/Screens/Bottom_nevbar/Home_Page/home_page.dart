@@ -323,8 +323,8 @@ class _HomePageState extends State<HomePage> {
                           width: 10.w,
                         ),
                         AnimatedButton(
-                          height: 45,
-                          width: 125,
+                          height: 45.h,
+                          width: 125.w,
                           text: 'TUTION FEES',
                           textStyle: (TextStyle(
                               fontSize: 14,
@@ -447,8 +447,8 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Image.asset(
                                 "assets/ic_questionbank.png",
-                                height: 100.h,
-                                width: 100.w,
+                                height: 100,
+                                width: 100,
                               ),
                               SizedBox(
                                 height: 10.h,
@@ -470,8 +470,8 @@ class _HomePageState extends State<HomePage> {
                       width: 20.h,
                     ),
                     Container(
-                      width: 150.h,
-                      height: 160.w,
+                      width: 150.w,
+                      height: 140.h,
                       child: InkWell(
                         onTap: () => Get.toNamed('/ClassRoutine'),
                         child: Card(
@@ -510,8 +510,8 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      width: 140.w,
-                      height: 160.h,
+                      width: 150.w,
+                      height: 140.h,
                       child: InkWell(
                         onTap: () {},
                         child: Card(
@@ -522,8 +522,8 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Image.asset(
                                 "assets/ic_club.png",
-                                height: 100.h,
-                                width: 100.w,
+                                height: 100,
+                                width: 100,
                               ),
                               SizedBox(
                                 height: 10.h,
@@ -545,8 +545,9 @@ class _HomePageState extends State<HomePage> {
                       width: 20.h,
                     ),
                     Container(
-                      width: 150.h,
-                      height: 160.w,
+
+                      width: 150.w,
+                      height: 140.h,
                       child: InkWell(
                         onTap: () => Get.toNamed('/TakeandShowAttendence'),
                         child: Card(
@@ -557,8 +558,8 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Image.asset(
                                 "assets/ic_attendance.png",
-                                height: 100.h,
-                                width: 100.w,
+                                height: 100,
+                                width: 100,
                               ),
                               SizedBox(
                                 height: 10.h,
@@ -583,7 +584,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Container(
                   width: 150.w,
-                  height: 160.h,
+                  height: 140.h,
                   child: InkWell(
                     onTap: () => Get.toNamed('/QuickPayment'),
                     child: Card(
@@ -594,8 +595,8 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Image.asset(
                             "assets/payment.png",
-                            height: 100.h,
-                            width: 100.w,
+                            height: 100,
+                            width: 100,
                           ),
                           SizedBox(
                             height: 10.h,
