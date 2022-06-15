@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
 
   WeatherResponse? _response;
 
-  final _dataService = DataService();
+  DataService _dataService = DataService();
 
   bool buttonselect = false;
   bool buttonbackcolor = true;
@@ -47,8 +47,6 @@ class _HomePageState extends State<HomePage> {
     'DIIT NOTICS',
   ];
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,6 +59,7 @@ class _HomePageState extends State<HomePage> {
               children: <Widget>[
                 Card(
                   elevation: 3,
+                  shadowColor: Color(0xff00DCA8),
                   child: Container(
                     decoration: BoxDecoration(
                         color: Color(0xff00DCA8),
@@ -79,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                                 padding:
                                     const EdgeInsets.only(top: 8, left: 15),
                                 child: Text(
-                                  '${_response!.weatherInfo.description.toUpperCase()}',
+                                  '${_response?.weatherInfo.description.toUpperCase()}',
                                   style: TextStyle(
                                     fontSize: 18,
                                     fontFamily: 'Poppins',
@@ -92,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                                     padding:
                                         const EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
-                                      'Sunrise',
+                                      'Sunrise'.toUpperCase(),
                                       style: TextStyle(
                                         fontSize: 15,
                                         fontFamily: 'Poppins',
@@ -121,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                                     padding:
                                         const EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
-                                      'Sunset',
+                                      'Sunset'.toUpperCase(),
                                       style: TextStyle(
                                         fontSize: 15,
                                         fontFamily: 'Poppins',
@@ -148,9 +147,9 @@ class _HomePageState extends State<HomePage> {
                                 children: <Widget>[
                                   Padding(
                                     padding:
-                                    const EdgeInsets.only(top: 8, left: 15),
+                                        const EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
-                                      "Today's Temp",
+                                      "Today's Temp".toUpperCase(),
                                       style: TextStyle(
                                         fontSize: 15,
                                         fontFamily: 'Poppins',
@@ -162,9 +161,9 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   Padding(
                                     padding:
-                                    const EdgeInsets.only(top: 8, left: 15),
+                                        const EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
-                                      "${(((_response!.tempInfo.temperature - 32) * 5) / 9).ceil()}° C",
+                                      "   ${(((_response!.tempInfo.temperature - 32) * 5) / 9).ceil()}° C",
                                       style: TextStyle(
                                         fontSize: 15,
                                         fontFamily: 'Poppins',
@@ -173,14 +172,13 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ],
                               ),
-
                               Row(
                                 children: <Widget>[
                                   Padding(
                                     padding:
                                         const EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
-                                      'Today’s Date',
+                                      'Today’s  Date'.toUpperCase(),
                                       style: TextStyle(
                                         fontSize: 15,
                                         fontFamily: 'Poppins',
@@ -219,23 +217,17 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Card(
+                  elevation: 3,
+                  shadowColor: Colors.orange,
+                  child: Clock(),
 
-                  child:
-                  // Container(
-                  //   decoration: BoxDecoration(
-                  //       color: Color.fromRGBO(99, 78, 119, 1),
-                  //       borderRadius:
-                  //       BorderRadius.only(topLeft: Radius.circular(5))),                    child: Row(
-                  //   children: [
-                      Clock(),
-                //     ],
-                // ),
-                //   ),
-               ),
+                ),
                 Card(
+                  elevation: 3,
+                  shadowColor: Colors.orange,
                   child: Container(
                     height: 65.0,
-                    color: Color(0xff3A95CB),
+                    color: Colors.orangeAccent,
                     child: Row(
                       children: <Widget>[
                         Container(
@@ -272,12 +264,10 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-
                       height: 200,
                       width: double.maxFinite,
                       child: GFCarousel(
@@ -306,144 +296,205 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Container(
                   height: 50,
-          
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
                         AnimatedButton(
-                          height: 50,
-                          width: 160,
+                          height: 45,
+                          width: 125,
                           text: 'STUDENT PROTAL',
-                          textStyle: (TextStyle(fontSize: 16,fontFamily: "Poppins",fontWeight: FontWeight.w400,color: Colors.white)),
+                          textStyle: (TextStyle(
+                              fontSize: 14,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black)),
                           isReverse: true,
                           selectedTextColor: Colors.black,
                           transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                          backgroundColor: Colors.purpleAccent,
-                          borderColor: Colors.black38,
+                          backgroundColor: Color(0xff00DCA8),
+                          borderColor: Colors.orangeAccent,
                           borderRadius: 10,
                           borderWidth: 2,
-                          onPress: () {  },
+                          onPress: () {},
                         ),
-                        SizedBox(width: 10,),
+                        SizedBox(
+                          width: 10,
+                        ),
                         AnimatedButton(
-                          height: 50,
-                          width: 160,
+                          height: 45,
+                          width: 125,
                           text: 'TUTION FEES',
-                          textStyle: (TextStyle(fontSize: 16,fontFamily: "Poppins",fontWeight: FontWeight.w400,color: Colors.white)),
+                          textStyle: (TextStyle(
+                              fontSize: 14,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black)),
                           isReverse: true,
                           selectedTextColor: Colors.black,
                           transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                          backgroundColor: Colors.purpleAccent,
-                          borderColor: Colors.black38,
+                          backgroundColor: Color(0xff00DCA8),
+                          borderColor: Colors.orangeAccent,
                           borderRadius: 10,
                           borderWidth: 2,
-                          onPress: () {  },
+                          onPress: () {},
                         ),
-                        SizedBox(width: 10,),
+                        SizedBox(
+                          width: 10,
+                        ),
                         AnimatedButton(
-                          height: 50,
-                          width: 160,
+                          height: 45,
+                          width: 125,
                           text: 'FACULTY MEMBER',
-                          textStyle: (TextStyle(fontSize: 16,fontFamily: "Poppins",fontWeight: FontWeight.w400,color: Colors.white)),
+                          textStyle: (TextStyle(
+                              fontSize: 14,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black)),
                           isReverse: true,
                           selectedTextColor: Colors.black,
                           transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                          backgroundColor: Colors.purpleAccent,
-                          borderColor: Colors.black38,
+                          backgroundColor: Color(0xff00DCA8),
+                          borderColor: Colors.orangeAccent,
                           borderRadius: 10,
                           borderWidth: 2,
-                          onPress: ()=>Get.toNamed('/FacultyProfile'),
+                          onPress: () => Get.toNamed('/FacultyProfile'),
                         ),
-                        SizedBox(width: 10,),
+                        SizedBox(
+                          width: 10,
+                        ),
                         AnimatedButton(
-                          height: 50,
-                          width: 160,
+                          height: 45,
+                          width: 125,
                           text: 'ACADEMIC RESULT',
-                          textStyle: (TextStyle(fontSize: 16,fontFamily: "Poppins",fontWeight: FontWeight.w400,color: Colors.white)),
+                          textStyle: (TextStyle(
+                              fontSize: 14,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black)),
                           isReverse: true,
                           selectedTextColor: Colors.black,
                           transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                          backgroundColor: Colors.purpleAccent,
-                          borderColor: Colors.black38,
+                          backgroundColor: Color(0xff00DCA8),
+                          borderColor: Colors.orangeAccent,
                           borderRadius: 10,
                           borderWidth: 2,
-                          onPress: () {  },
+                          onPress: () {},
                         ),
-                        SizedBox(width: 10,),
+                        SizedBox(
+                          width: 10,
+                        ),
                         AnimatedButton(
-                          height: 50,
-                          width: 160,
+                          height: 45,
+                          width: 125,
                           text: 'NU PROTAL',
-                          textStyle: (TextStyle(fontSize: 16,fontFamily: "Poppins",fontWeight: FontWeight.w400,color: Colors.white)),
+                          textStyle: (TextStyle(
+                              fontSize: 14,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black)),
                           isReverse: true,
                           selectedTextColor: Colors.black,
                           transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                          backgroundColor: Colors.purpleAccent,
-                          borderColor: Colors.black38,
+                          backgroundColor: Color(0xff00DCA8),
+                          borderColor: Colors.orangeAccent,
                           borderRadius: 10,
                           borderWidth: 2,
-                          onPress: () {  },
+                          onPress: () {},
                         ),
-                        SizedBox(width: 10,),
+                        SizedBox(
+                          width: 10,
+                        ),
                         AnimatedButton(
-                          height: 50,
-                          width: 160,
+                          height: 45,
+                          width: 125,
                           text: 'DIIT NOTICS',
-                          textStyle: (TextStyle(fontSize: 16,fontFamily: "Poppins",fontWeight: FontWeight.w400,color: Colors.white)),
+                          textStyle: (TextStyle(
+                              fontSize: 14,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black)),
                           isReverse: true,
                           selectedTextColor: Colors.black,
                           transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                          backgroundColor: Colors.purpleAccent,
-                          borderColor: Colors.black38,
+                          backgroundColor: Color(0xff00DCA8),
+                          borderColor: Colors.orangeAccent,
                           borderRadius: 10,
                           borderWidth: 2,
-                          onPress: () {  },
+                          onPress: () {},
                         ),
                       ],
                     ),
-                  ) ,
+                  ),
                 ),
                 SizedBox(
                   height: 10,
                 ),
                 Row(
-               mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
                       width: 150,
                       height: 160,
                       child: InkWell(
-                        onTap: ()=>Get.toNamed('/QuestionBank'),
+                        onTap: () => Get.toNamed('/QuestionBank'),
                         child: Card(
                           elevation: 5,
                           color: Color(0xffF8EFEF),
                           child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                               Image.asset("assets/ic_questionbank.png",height: 100,width: 100,),
-                              SizedBox(height: 10,),
-                              Text( "Question Bank",style: TextStyle(fontFamily: "Poppins",fontSize: 15,color: Colors.black,fontWeight: FontWeight.w300),),
+                              Image.asset(
+                                "assets/ic_questionbank.png",
+                                height: 100,
+                                width: 100,
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                "Question Bank",
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 15,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w300),
+                              ),
                             ],
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(width: 20,),
+                    SizedBox(
+                      width: 20,
+                    ),
                     Container(
                       width: 150,
                       height: 160,
                       child: InkWell(
-                        onTap: ()=>Get.toNamed('/ClassRoutine'),
+                        onTap: () => Get.toNamed('/ClassRoutine'),
                         child: Card(
                           elevation: 5,
                           color: Color(0xffF8EFEF),
                           child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                               Image.asset("assets/ic_routine.png",height: 100,width: 100,),
-                              SizedBox(height: 10,),
-                              Text( "Class  Routine",style: TextStyle(fontFamily: "Poppins",fontSize: 15,color: Colors.black,fontWeight: FontWeight.w300),),
+                              Image.asset(
+                                "assets/ic_routine.png",
+                                height: 100,
+                                width: 100,
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                "Class  Routine",
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 15,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w300),
+                              ),
                             ],
                           ),
                         ),
@@ -455,48 +506,75 @@ class _HomePageState extends State<HomePage> {
                   height: 15,
                 ),
                 Row(
-               mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
                       width: 150,
                       height: 160,
                       child: InkWell(
-                        onTap: (){},
+                        onTap: () {},
                         child: Card(
                           elevation: 5,
                           color: Color(0xffF8EFEF),
                           child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                               Image.asset( "assets/ic_club.png",height: 100,width: 100,),
-                              SizedBox(height: 10,),
-                              Text( "Club",style: TextStyle(fontFamily: "Poppins",fontSize: 15,color: Colors.black,fontWeight: FontWeight.w300),),
+                              Image.asset(
+                                "assets/ic_club.png",
+                                height: 100,
+                                width: 100,
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                "Club",
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 15,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w300),
+                              ),
                             ],
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(width: 20,),
+                    SizedBox(
+                      width: 20,
+                    ),
                     Container(
                       width: 150,
                       height: 160,
                       child: InkWell(
-                        onTap: ()=>Get.toNamed('/TakeandShowAttendence'),
+                        onTap: () => Get.toNamed('/TakeandShowAttendence'),
                         child: Card(
                           elevation: 5,
                           color: Color(0xffF8EFEF),
                           child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                               Image.asset("assets/ic_attendance.png",height: 100,width: 100,),
-                              SizedBox(height: 10,),
-                              Text( "Attendence",style: TextStyle(fontFamily: "Poppins",fontSize: 15,color: Colors.black,fontWeight: FontWeight.w300),),
+                              Image.asset(
+                                "assets/ic_attendance.png",
+                                height: 100,
+                                width: 100,
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                "Attendence",
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 15,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w300),
+                              ),
                             ],
                           ),
                         ),
                       ),
                     ),
-
                   ],
                 ),
                 SizedBox(
@@ -506,16 +584,29 @@ class _HomePageState extends State<HomePage> {
                   width: 150,
                   height: 160,
                   child: InkWell(
-                    onTap: ()=>Get.toNamed('/QuickPayment'),
+                    onTap: () => Get.toNamed('/QuickPayment'),
                     child: Card(
                       elevation: 5,
                       color: Color(0xffF8EFEF),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image.asset("assets/payment.png",height: 100,width: 100,),
-                          SizedBox(height: 10,),
-                          Text( "Quick Pay",style: TextStyle(fontFamily: "Poppins",fontSize: 15,color: Colors.black,fontWeight: FontWeight.w300),),
+                          Image.asset(
+                            "assets/payment.png",
+                            height: 100,
+                            width: 100,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "Quick Pay",
+                            style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontSize: 15,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w300),
+                          ),
                         ],
                       ),
                     ),
