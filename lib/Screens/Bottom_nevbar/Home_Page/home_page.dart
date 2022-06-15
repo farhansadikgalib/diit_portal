@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                         color: Color(0xff00DCA8),
                         borderRadius:
                             BorderRadius.only(topLeft: Radius.circular(5))),
-                    height: 150,
+                    height: 160,
                     width: double.maxFinite,
                     child: Row(
                       children: <Widget>[
@@ -150,7 +150,7 @@ class _HomePageState extends State<HomePage> {
                                     padding:
                                     const EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
-                                      'Current  Temp',
+                                      "Today's Temp",
                                       style: TextStyle(
                                         fontSize: 15,
                                         fontFamily: 'Poppins',
