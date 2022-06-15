@@ -66,12 +66,12 @@ class _HomePageState extends State<HomePage> {
                         color: Color(0xff00DCA8),
                         borderRadius:
                             BorderRadius.only(topLeft: Radius.circular(5))),
-                    height: 160.h,
+                    height: 125.h,
                     width: double.maxFinite,
                     child: Row(
                       children: <Widget>[
                         Expanded(
-                          flex: 3,
+                          flex: 2,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
@@ -323,8 +323,8 @@ class _HomePageState extends State<HomePage> {
                           width: 10.w,
                         ),
                         AnimatedButton(
-                          height: 45.h,
-                          width: 125.w,
+                          height: 45,
+                          width: 125,
                           text: 'TUTION FEES',
                           textStyle: (TextStyle(
                               fontSize: 14,
@@ -362,7 +362,7 @@ class _HomePageState extends State<HomePage> {
                           onPress: () => Get.toNamed('/FacultyProfile'),
                         ),
                         SizedBox(
-                          width: 10.w,
+                          width: 10,
                         ),
                         AnimatedButton(
                           height: 45.h,
@@ -434,37 +434,34 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        width: 150.w,
-                        height: 160.h,
-                        child: InkWell(
-                          onTap: () => Get.toNamed('/QuestionBank'),
-                          child: Card(
-                            elevation: 5,
-                            color: Color(0xffF8EFEF),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  "assets/ic_questionbank.png",
-                                  height: 100.h,
-                                  width: 100.w,
-                                ),
-                                SizedBox(
-                                  height: 10.h,
-                                ),
-                                Text(
-                                  "Question Bank",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 15,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w300),
-                                ),
-                              ],
-                            ),
+                    Container(
+                      width: 150.w,
+                      height: 140.h,
+                      child: InkWell(
+                        onTap: () => Get.toNamed('/QuestionBank'),
+                        child: Card(
+                          elevation: 5,
+                          color: Color(0xffF8EFEF),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                "assets/ic_questionbank.png",
+                                height: 100.h,
+                                width: 100.w,
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                              Text(
+                                "Question Bank",
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 15,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w300),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -472,37 +469,34 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       width: 20.h,
                     ),
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        width: 150.w,
-                        height: 160.h,
-                        child: InkWell(
-                          onTap: () => Get.toNamed('/ClassRoutine'),
-                          child: Card(
-                            elevation: 5,
-                            color: Color(0xffF8EFEF),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  "assets/ic_routine.png",
-                                  height: 100,
-                                  width: 100,
-                                ),
-                                SizedBox(
-                                  height: 10.h,
-                                ),
-                                Text(
-                                  "Class  Routine",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 15,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w300),
-                                ),
-                              ],
-                            ),
+                    Container(
+                      width: 150.h,
+                      height: 160.w,
+                      child: InkWell(
+                        onTap: () => Get.toNamed('/ClassRoutine'),
+                        child: Card(
+                          elevation: 5,
+                          color: Color(0xffF8EFEF),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                "assets/ic_routine.png",
+                                height: 100,
+                                width: 100,
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                              Text(
+                                "Class  Routine",
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 15,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w300),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -515,37 +509,34 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        width: 150.w,
-                        height: 160.h,
-                        child: InkWell(
-                          onTap: () {},
-                          child: Card(
-                            elevation: 5,
-                            color: Color(0xffF8EFEF),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  "assets/ic_club.png",
-                                  height: 100.h,
-                                  width: 100.w,
-                                ),
-                                SizedBox(
-                                  height: 10.h,
-                                ),
-                                Text(
-                                  "Club",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 15,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w300),
-                                ),
-                              ],
-                            ),
+                    Container(
+                      width: 140.w,
+                      height: 160.h,
+                      child: InkWell(
+                        onTap: () {},
+                        child: Card(
+                          elevation: 5,
+                          color: Color(0xffF8EFEF),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                "assets/ic_club.png",
+                                height: 100.h,
+                                width: 100.w,
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                              Text(
+                                "Club",
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 15,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w300),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -553,37 +544,34 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       width: 20.h,
                     ),
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        width: 150.w,
-                        height: 160.h,
-                        child: InkWell(
-                          onTap: () => Get.toNamed('/TakeandShowAttendence'),
-                          child: Card(
-                            elevation: 5,
-                            color: Color(0xffF8EFEF),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  "assets/ic_attendance.png",
-                                  height: 100.h,
-                                  width: 100.w,
-                                ),
-                                SizedBox(
-                                  height: 10.h,
-                                ),
-                                Text(
-                                  "Attendence",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 15,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w300),
-                                ),
-                              ],
-                            ),
+                    Container(
+                      width: 150.h,
+                      height: 160.w,
+                      child: InkWell(
+                        onTap: () => Get.toNamed('/TakeandShowAttendence'),
+                        child: Card(
+                          elevation: 5,
+                          color: Color(0xffF8EFEF),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                "assets/ic_attendance.png",
+                                height: 100.h,
+                                width: 100.w,
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                              Text(
+                                "Attendence",
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 15,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w300),
+                              ),
+                            ],
                           ),
                         ),
                       ),
