@@ -1,4 +1,3 @@
-
 import 'package:dropdown_button2/custom_dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -198,7 +197,6 @@ class _StudentProfileState extends State<StudentProfile> {
                 stops: [0.0, 0.39, 0.40, 1.0],
               ),
               blur: 15.0,
-
               elevation: 3.0,
               isFrostedGlass: true,
               shadowColor: Colors.black.withOpacity(0.20),
@@ -250,19 +248,22 @@ class _StudentProfileState extends State<StudentProfile> {
                           width: 5,
                         ),
                         Container(
-
                           alignment: Alignment.centerLeft,
-                            height: 40,
-                            width: 110,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              color: Colors.black12,
-                            ),
+                          height: 40,
+                          width: 110,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: Colors.black12,
+                          ),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 10),
-                            child: Text('Student ID',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 16),),
+                            child: Text(
+                              'Student ID',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w300, fontSize: 16),
+                            ),
                           ),
-                             ),
+                        ),
                       ],
                     ),
                   ),
@@ -396,7 +397,9 @@ class _StudentProfileState extends State<StudentProfile> {
                                 ),
                                 child: Text(
                                   'Point 3.95',
-                                  style: TextStyle(fontSize: 14,),
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                  ),
                                 ),
                               ),
                             ],
@@ -406,7 +409,6 @@ class _StudentProfileState extends State<StudentProfile> {
                   SizedBox(
                     height: 20,
                   ),
-
                   Spacer(),
                   Divider(
                     thickness: 1,

@@ -1,13 +1,13 @@
 
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:diit_portal/Screens/Bottom_nevbar/Notification/Notification.dart';
 import 'package:diit_portal/Screens/Bottom_nevbar/Student_Dashboard/dashboard.dart';
 import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/home_page.dart';
-import 'package:diit_portal/Screens/Bottom_nevbar/Student_Notifi/student_notification.dart';
 import 'package:diit_portal/Screens/Bottom_nevbar/Student_Profile/student_profile.dart';
 import 'package:flutter/material.dart';
-
-
 import '../App_Bar/app_bar.dart';
+
+
 class BottlomNavegatonBar extends StatefulWidget {
 
 
@@ -22,7 +22,7 @@ class _BottlomNavegatonBarState extends State<BottlomNavegatonBar> {
   List NavBarPageControlar = [
     HomePage(),
     StudentDashBoard(),
-    StudentNotification(),
+    AllNotification(),
     StudentProfile(),
   ];
 

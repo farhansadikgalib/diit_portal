@@ -18,10 +18,10 @@ import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Question_bank/dept_m
 import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Question_bank/pdf_view.dart';
 import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Question_bank/question_bank.dart';
 import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/quick_pay/Quick_pay.dart';
+import 'package:diit_portal/Screens/Bottom_nevbar/Notification/Notification.dart';
 import 'package:diit_portal/Screens/Bottom_nevbar/Student_Dashboard/dashboard.dart';
 import 'package:diit_portal/Screens/Bottom_nevbar/bottom_bev_bar.dart';
 import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/home_page.dart';
-import 'package:diit_portal/Screens/Bottom_nevbar/Student_Notifi/student_notification.dart';
 import 'package:diit_portal/Screens/Bottom_nevbar/Student_Profile/student_profile.dart';
 import 'package:diit_portal/Screens/Dashboard/Dashboard.dart';
 import 'package:diit_portal/Screens/QuestionBank/QuestionBank.dart';
@@ -78,7 +78,7 @@ class MyApp extends StatelessWidget {
 
         // home page close //
         GetPage(name: '/StudentDashBoard', page: () => StudentDashBoard()),
-        GetPage(name: '/StudentNotification', page: () => StudentNotification()),
+        GetPage(name: '/StudentNotification', page: () => AllNotification()),
         GetPage(name: '/StudentProfile', page: () => StudentProfile()),
 
         // horigental button//
@@ -102,7 +102,7 @@ class MyApp extends StatelessWidget {
 
       ],
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.orange,
       ),
       debugShowCheckedModeBanner: false,
     );

@@ -53,8 +53,8 @@ dependencies:
 
   # UI Design
   glassmorphism: ^3.0.0
-
   glass_kit: ^2.0.1
+  flutter_glow: ^0.2.0
   # UI Design
 
      #flutter toast
