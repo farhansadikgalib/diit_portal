@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                         color: Color(0xff00DCA8),
                         borderRadius:
                             BorderRadius.only(topLeft: Radius.circular(5))),
-                    height: MediaQuery.of(context).size.height/6,
+                    height: 150,
                     width: double.maxFinite,
                     child: Row(
                       children: <Widget>[
@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                                 padding:
                                     const EdgeInsets.only(top: 8, left: 15),
                                 child: Text(
-                                  '${_response!.weatherInfo.description}',
+                                  '${_response!.weatherInfo.description.toUpperCase()}',
                                   style: TextStyle(
                                     fontSize: 18,
                                     fontFamily: 'Poppins',
@@ -219,21 +219,19 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Card(
-                  elevation: 3,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Color.fromRGBO(204, 229, 204, 1),
-                        borderRadius:
-                        BorderRadius.only(topLeft: Radius.circular(5))),                    child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Clock(),
-                      ),
-                    ],
-                ),
-                  ),),
+
+                  child:
+                  // Container(
+                  //   decoration: BoxDecoration(
+                  //       color: Color.fromRGBO(99, 78, 119, 1),
+                  //       borderRadius:
+                  //       BorderRadius.only(topLeft: Radius.circular(5))),                    child: Row(
+                  //   children: [
+                      Clock(),
+                //     ],
+                // ),
+                //   ),
+               ),
                 Card(
                   child: Container(
                     height: 65.0,

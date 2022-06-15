@@ -23,6 +23,7 @@ class ClockColumn extends StatelessWidget {
           Container(
             child: Text(
               title,
+              style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.bold),
               // style: Theme.of(context).textTheme.display2,
             ),
           )
@@ -37,8 +38,8 @@ class ClockColumn extends StatelessWidget {
           return AnimatedContainer(
             duration: Duration(milliseconds: 475),
             curve: Curves.ease,
-            height: 40,
-            width: 30,
+            height: 25,
+            width: 20,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(5)),
               color: isActive
@@ -65,12 +66,12 @@ class ClockColumn extends StatelessWidget {
         ...[
           Text(
             int.parse(binaryInteger, radix: 2).toString(),
-            style: TextStyle(fontSize: 30, color: color),
+            style: TextStyle(fontSize: 18, color: color,fontWeight: FontWeight.bold),
           ),
           Container(
             child: Text(
               binaryInteger,
-              style: TextStyle(fontSize: 15, color: color),
+              style: TextStyle(fontSize: 18, color: color),
             ),
           )
         ]
