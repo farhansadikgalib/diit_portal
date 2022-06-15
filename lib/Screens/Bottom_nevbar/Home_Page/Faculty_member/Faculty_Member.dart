@@ -171,7 +171,7 @@ class FacultyProfile extends StatelessWidget {
                                 style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
                               ),
                               SizedBox(height: 5,),
-                              Text('BSc. in CSE (IUBAT) & MSc. in CS (JU)',
+                              Text('BSc. in CSE (IUBAT) & MSc. in CSE (JU)',
                                 style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
                               ),
                               SizedBox(height: 10,),
