@@ -66,12 +66,12 @@ class _HomePageState extends State<HomePage> {
                         color: Color(0xff00DCA8),
                         borderRadius:
                             BorderRadius.only(topLeft: Radius.circular(5))),
-                    height: 160.h,
+                    height: 125.h,
                     width: double.maxFinite,
                     child: Row(
                       children: <Widget>[
                         Expanded(
-                          flex: 3,
+                          flex: 2,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
@@ -435,8 +435,8 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      width: 140.h,
-                      height: 160.w,
+                      width: 150.w,
+                      height: 140.h,
                       child: InkWell(
                         onTap: () => Get.toNamed('/QuestionBank'),
                         child: Card(
@@ -510,8 +510,8 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      width: 140.h,
-                      height: 160.w,
+                      width: 140.w,
+                      height: 160.h,
                       child: InkWell(
                         onTap: () {},
                         child: Card(
@@ -582,8 +582,8 @@ class _HomePageState extends State<HomePage> {
                   height: 20.h,
                 ),
                 Container(
-                  width: 150.h,
-                  height: 160.w,
+                  width: 150.w,
+                  height: 160.h,
                   child: InkWell(
                     onTap: () => Get.toNamed('/QuickPayment'),
                     child: Card(
