@@ -5,9 +5,9 @@ import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/Student_a
 import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/Student_attendance_view/student_course_%20attendanceview.dart';
 import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/Teacher_takeattendance/course_selecta_attendence.dart';
 import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/Teacher_takeattendance/studentname_attendencelist.dart';
-import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/take&show_attendence.dart';
-import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/teacher_attendance.dart';
-import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/teacher_deshboard.dart';
+import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/Teacher_takeattendance/take&show_attendence.dart';
+import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/Teacher_takeattendance/teacher_attendance.dart';
+import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Attendance/Teacher_takeattendance/teacher_deshboard.dart';
 import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Class_routine/Cse/cse_routine.dart';
 import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Class_routine/class_routine.dart';
 import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/Faculty_member/Faculty_Member.dart';

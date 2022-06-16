@@ -544,6 +544,8 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       width: 20.h,
                     ),
+
+
                     Container(
 
                       width: 150.w,
@@ -582,6 +584,8 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   height: 20.h,
                 ),
+
+                // quick payment //
                 Container(
                   width: 150.w,
                   height: 140.h,
