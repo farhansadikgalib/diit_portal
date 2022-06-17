@@ -37,11 +37,11 @@ class LoginPage extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 50.0, right: 50),
                   child: Column(
                     children: <Widget>[
-                      // ElevatedButton(
-                      //     onPressed: () {
-                      //       Get.offAndToNamed('/BottlomNavegatonBar');
-                      //     },
-                      //     child: Text("Bypass Button")),
+                      ElevatedButton(
+                          onPressed: () {
+                            Get.offAndToNamed('/BottlomNavegatonBar');
+                          },
+                          child: Text("Bypass Button")),
 
                       Image.asset(
                         "assets/portallogo.png",

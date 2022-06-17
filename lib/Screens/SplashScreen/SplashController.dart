@@ -11,6 +11,9 @@ class SplashController extends GetxController {
     super.onInit();
     intitPlatformState();
     moveToNext();
+
+
+
   }
 
   Future<void> moveToNext() async {

@@ -217,12 +217,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                Card(
-                  elevation: 3,
-                  shadowColor: Colors.orange,
-                  child: Clock(),
-
-                ),
+                // Card(
+                //   elevation: 3,
+                //   shadowColor: Colors.orange,
+                //   child: Clock(),
+                //
+                // ),
                 Card(
                   elevation: 3,
                   shadowColor: Colors.orange,
