@@ -25,44 +25,42 @@ class BbaDepertment extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
+            SizedBox(height: 10,),
             Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 30,left: 15),
-                  child: Text(
-                    "Depertment",
-                    style: TextStyle(
-                        fontSize: 25,
-                        fontFamily: 'Baloo',
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-                SizedBox(height: 80,),
-                SizedBox(
-
-                  width: 200.0,
-                  child: DefaultTextStyle(
-                    style: const TextStyle(
-                      fontSize: 20.0,
+                Text(
+                  "Depertment Of BBA",
+                  style: TextStyle(
+                      fontSize: 25,
                       fontFamily: 'Baloo',
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-
-                    ),
-                    child: AnimatedTextKit(
-                      animatedTexts: [
-                        RotateAnimatedText('BACHELOR'),
-                        RotateAnimatedText('BUSINESS'),
-                        RotateAnimatedText('ADMINISTRATION'),
-
-                      ],
-                      onTap: () {
-                        print("Tap Event");
-                      },
-                    ),
-                  ),
+                      fontWeight: FontWeight.bold),
                 ),
+                // SizedBox(height: 80,),
+                // SizedBox(
+                //
+                //   width: 200.0,
+                //   child: DefaultTextStyle(
+                //     style: const TextStyle(
+                //       fontSize: 20.0,
+                //       fontFamily: 'Baloo',
+                //       color: Colors.black,
+                //       fontWeight: FontWeight.bold,
+                //
+                //     ),
+                //     child: AnimatedTextKit(
+                //       animatedTexts: [
+                //         RotateAnimatedText('BACHELOR'),
+                //         RotateAnimatedText('BUSINESS'),
+                //         RotateAnimatedText('ADMINISTRATION'),
+                //
+                //       ],
+                //       onTap: () {
+                //         print("Tap Event");
+                //       },
+                //     ),
+                //   ),
+                // ),
               ],
             ),
             SizedBox(

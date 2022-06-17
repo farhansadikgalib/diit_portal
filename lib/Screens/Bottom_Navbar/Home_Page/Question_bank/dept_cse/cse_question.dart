@@ -29,41 +29,41 @@ class _CseDepertmentState extends State<CseDepertment> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
+            SizedBox(height: 10,),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 30,left: 15),
-                  child: Text(
-                    "Depertment",
-                    style: TextStyle(
-                        fontSize: 25,
-                        fontFamily: 'Baloo',
-                        fontWeight: FontWeight.bold),
-                  ),
+                Text(
+                  "Depertment Of CSE",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontFamily: 'Baloo',
+                      fontWeight: FontWeight.bold),
                 ),
-      SizedBox(height: 80,),
-      SizedBox(
-
-        width: 200.0,
-        child: DefaultTextStyle(
-          style: const TextStyle(
-            fontSize: 20.0,
-            fontFamily: 'Baloo',
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-
-          ),
-          child: AnimatedTextKit(
-            animatedTexts: [
-              RotateAnimatedText('COMPUTER'),
-              RotateAnimatedText('SCIENCE'),
-              RotateAnimatedText('ENGINEERING'),
-
-            ],
-          ),
-        ),
-      ),
+      // SizedBox(height: 80,),
+      // SizedBox(
+      //
+      //   width: 200.0,
+      //   child: DefaultTextStyle(
+      //     style: const TextStyle(
+      //       fontSize: 20.0,
+      //       fontFamily: 'Baloo',
+      //       color: Colors.black,
+      //       fontWeight: FontWeight.bold,
+      //
+      //     ),
+      //     child: AnimatedTextKit(
+      //       animatedTexts: [
+      //         RotateAnimatedText('COMPUTER'),
+      //         RotateAnimatedText('SCIENCE'),
+      //         RotateAnimatedText('ENGINEERING'),
+      //
+      //       ],
+      //     ),
+      //   ),
+    //  ),
               ],
             ),
             SizedBox(
@@ -81,7 +81,7 @@ class _CseDepertmentState extends State<CseDepertment> {
                     elevation: 3,
                     child: Container(
                       alignment: Alignment.centerLeft,
-                      height: 70,
+                      height: 75,
                       width: double.infinity,
                       decoration: BoxDecoration(
                         border: Border(
@@ -100,7 +100,7 @@ class _CseDepertmentState extends State<CseDepertment> {
                               "${semestername[index]}",
                               style: TextStyle(
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 19,
+                                  fontSize: 18,
                                   fontFamily: 'Baloo'),
                             ),
                             GFButton(
@@ -109,11 +109,12 @@ class _CseDepertmentState extends State<CseDepertment> {
                               onPressed: () =>Get.toNamed('/pdf_viewPage'),
                               text: "Download",
                               textStyle: TextStyle(
-                                fontSize: 20,
+                                fontSize: 18,
                               ),
                               position: GFPosition.end,
                               icon: Icon(
                                 Icons.arrow_downward_outlined,
+                                size: 20,
                                 color: Colors.white,
                               ),
                               type: GFButtonType.solid,

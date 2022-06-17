@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 52.w,
+                                    width: 50.w,
                                   ),
                                   Padding(
                                     padding:
@@ -129,13 +129,13 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 56.w,
+                                    width: 50.w,
                                   ),
                                   Padding(
                                     padding:
                                         const EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
-                                      '06:50 PM',
+                                       '  06:44 PM',
                                       style: TextStyle(
                                         fontSize: 15,
                                         fontFamily: 'Poppins',
@@ -158,13 +158,13 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 2.h,
+                                    width: 32.h,
                                   ),
                                   Padding(
                                     padding:
                                         const EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
-                                      "   ${(((_response!.tempInfo.temperature - 32) * 5) / 9).ceil()}° C",
+                                      "${(((_response!.tempInfo.temperature - 32) * 5) / 9).ceil()}° C",
                                       style: TextStyle(
                                         fontSize: 15,
                                         fontFamily: 'Poppins',
@@ -187,7 +187,7 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 10.w,
+                                    width: 8.w,
                                   ),
                                   Padding(
                                     padding:
@@ -265,167 +265,158 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 200.h,
-                      width: double.maxFinite,
-                      child: GFCarousel(
-                        autoPlay: true,
-                        items: imageList.map(
-                          (url) {
-                            return Container(
-                              margin: EdgeInsets.all(8.0),
-                              child: ClipRRect(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5.0)),
-                                child: Image.asset(url,
-                                    fit: BoxFit.cover, width: double.maxFinite),
-                              ),
-                            );
-                          },
-                        ).toList(),
-                        onPageChanged: (index) {
-                          setState(() {
-                            index;
-                          });
-                        },
-                      ),
-                    ),
-                  ],
-                ),
                 Container(
-                  height: 50.h,
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        AnimatedButton(
-                          height: 45.h,
-                          width: 125.w,
-                          text: 'STUDENT PROTAL',
-                          textStyle: (TextStyle(
-                              fontSize: 14,
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.w400,
-                              color: Colors.black)),
-                          isReverse: true,
-                          selectedTextColor: Colors.black,
-                          transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                          backgroundColor: Color(0xff00DCA8),
-                          borderColor: Colors.orangeAccent,
-                          borderRadius: 10,
-                          borderWidth: 2,
-                          onPress: () {},
-                        ),
-                        SizedBox(
-                          width: 10.w,
-                        ),
-                        AnimatedButton(
-                          height: 45.h,
-                          width: 125.w,
-                          text: 'TUTION FEES',
-                          textStyle: (TextStyle(
-                              fontSize: 14,
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.w400,
-                              color: Colors.black)),
-                          isReverse: true,
-                          selectedTextColor: Colors.black,
-                          transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                          backgroundColor: Color(0xff00DCA8),
-                          borderColor: Colors.orangeAccent,
-                          borderRadius: 10,
-                          borderWidth: 2,
-                          onPress: () {},
-                        ),
-                        SizedBox(
-                          width: 10.w,
-                        ),
-                        AnimatedButton(
-                          height: 45.h,
-                          width: 125.w,
-                          text: 'FACULTY MEMBER',
-                          textStyle: (TextStyle(
-                              fontSize: 14,
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.w400,
-                              color: Colors.black)),
-                          isReverse: true,
-                          selectedTextColor: Colors.black,
-                          transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                          backgroundColor: Color(0xff00DCA8),
-                          borderColor: Colors.orangeAccent,
-                          borderRadius: 10,
-                          borderWidth: 2,
-                          onPress: () => Get.toNamed('/FacultyProfile'),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        AnimatedButton(
-                          height: 45.h,
-                          width: 125.w,
-                          text: 'ACADEMIC RESULT',
-                          textStyle: (TextStyle(
-                              fontSize: 14,
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.w400,
-                              color: Colors.black)),
-                          isReverse: true,
-                          selectedTextColor: Colors.black,
-                          transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                          backgroundColor: Color(0xff00DCA8),
-                          borderColor: Colors.orangeAccent,
-                          borderRadius: 10,
-                          borderWidth: 2,
-                          onPress: () {},
-                        ),
-                        SizedBox(
-                          width: 10.w,
-                        ),
-                        AnimatedButton(
-                          height: 45.h,
-                          width: 125.w,
-                          text: 'NU PROTAL',
-                          textStyle: (TextStyle(
-                              fontSize: 14,
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.w400,
-                              color: Colors.black)),
-                          isReverse: true,
-                          selectedTextColor: Colors.black,
-                          transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                          backgroundColor: Color(0xff00DCA8),
-                          borderColor: Colors.orangeAccent,
-                          borderRadius: 10,
-                          borderWidth: 2,
-                          onPress: () {},
-                        ),
-                        SizedBox(
-                          width: 10.w,
-                        ),
-                        AnimatedButton(
-                          height: 45.h,
-                          width: 125.w,
-                          text: 'DIIT NOTICS',
-                          textStyle: (TextStyle(
-                              fontSize: 14,
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.w400,
-                              color: Colors.black)),
-                          isReverse: true,
-                          selectedTextColor: Colors.black,
-                          transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                          backgroundColor: Color(0xff00DCA8),
-                          borderColor: Colors.orangeAccent,
-                          borderRadius: 10,
-                          borderWidth: 2,
-                          onPress: () {},
-                        ),
-                      ],
-                    ),
+                  width: double.maxFinite,
+                  child: GFCarousel(
+                    autoPlay: true,
+                    items: imageList.map(
+                      (url) {
+                        return Container(
+                           margin: EdgeInsets.only(left: 5,right: 5,top: 5,bottom: 10),
+                          child: ClipRRect(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(5.0)),
+                            child: Image.asset(url,
+                                fit: BoxFit.cover, width: double.maxFinite),
+                          ),
+                        );
+                      },
+                    ).toList(),
+                    onPageChanged: (index) {
+                      setState(() {
+                        index;
+                      });
+                    },
+                  ),
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      AnimatedButton(
+                        height: 45.h,
+                        width: 125.w,
+                        text: 'STUDENT PROTAL',
+                        textStyle: (TextStyle(
+                            fontSize: 14,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black)),
+                        isReverse: true,
+                        selectedTextColor: Colors.black,
+                        transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
+                        backgroundColor: Color(0xff00DCA8),
+                        borderColor: Colors.orangeAccent,
+                        borderRadius: 10,
+                        borderWidth: 2,
+                        onPress: () {},
+                      ),
+                      SizedBox(
+                        width: 10.w,
+                      ),
+                      AnimatedButton(
+                        height: 45.h,
+                        width: 125.w,
+                        text: 'TUTION FEES',
+                        textStyle: (TextStyle(
+                            fontSize: 14,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black)),
+                        isReverse: true,
+                        selectedTextColor: Colors.black,
+                        transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
+                        backgroundColor: Color(0xff00DCA8),
+                        borderColor: Colors.orangeAccent,
+                        borderRadius: 10,
+                        borderWidth: 2,
+                        onPress: () {},
+                      ),
+                      SizedBox(
+                        width: 10.w,
+                      ),
+                      AnimatedButton(
+                        height: 45.h,
+                        width: 125.w,
+                        text: 'FACULTY MEMBER',
+                        textStyle: (TextStyle(
+                            fontSize: 14,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black)),
+                        isReverse: true,
+                        selectedTextColor: Colors.black,
+                        transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
+                        backgroundColor: Color(0xff00DCA8),
+                        borderColor: Colors.orangeAccent,
+                        borderRadius: 10,
+                        borderWidth: 2,
+                        onPress: () => Get.toNamed('/FacultyProfile'),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      AnimatedButton(
+                        height: 45.h,
+                        width: 125.w,
+                        text: 'ACADEMIC RESULT',
+                        textStyle: (TextStyle(
+                            fontSize: 14,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black)),
+                        isReverse: true,
+                        selectedTextColor: Colors.black,
+                        transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
+                        backgroundColor: Color(0xff00DCA8),
+                        borderColor: Colors.orangeAccent,
+                        borderRadius: 10,
+                        borderWidth: 2,
+                        onPress: () {},
+                      ),
+                      SizedBox(
+                        width: 10.w,
+                      ),
+                      AnimatedButton(
+                        height: 45.h,
+                        width: 125.w,
+                        text: 'NU PROTAL',
+                        textStyle: (TextStyle(
+                            fontSize: 14,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black)),
+                        isReverse: true,
+                        selectedTextColor: Colors.black,
+                        transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
+                        backgroundColor: Color(0xff00DCA8),
+                        borderColor: Colors.orangeAccent,
+                        borderRadius: 10,
+                        borderWidth: 2,
+                        onPress: () {},
+                      ),
+                      SizedBox(
+                        width: 10.w,
+                      ),
+                      AnimatedButton(
+                        height: 45.h,
+                        width: 125.w,
+                        text: 'DIIT NOTICS',
+                        textStyle: (TextStyle(
+                            fontSize: 14,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black)),
+                        isReverse: true,
+                        selectedTextColor: Colors.black,
+                        transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
+                        backgroundColor: Color(0xff00DCA8),
+                        borderColor: Colors.orangeAccent,
+                        borderRadius: 10,
+                        borderWidth: 2,
+                        onPress: () {},
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(
@@ -434,14 +425,14 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      width: 150.w,
-                      height: 140.h,
-                      child: InkWell(
-                        onTap: () => Get.toNamed('/QuestionBank'),
-                        child: Card(
-                          elevation: 5,
-                          color: Color(0xffF8EFEF),
+                    InkWell(
+                      onTap: () => Get.toNamed('/QuestionBank'),
+                      child: Card(
+                        elevation: 5,
+                        color: Color(0xffF8EFEF),
+                        child: Container(
+                          width: 150.w,
+                          height: 140.h,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -467,16 +458,16 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SizedBox(
-                      width: 20.h,
+                      width: 10.h,
                     ),
-                    Container(
-                      width: 150.w,
-                      height: 140.h,
-                      child: InkWell(
-                        onTap: () => Get.toNamed('/ClassRoutine'),
-                        child: Card(
-                          elevation: 5,
-                          color: Color(0xffF8EFEF),
+                    InkWell(
+                      onTap: () => Get.toNamed('/ClassRoutine'),
+                      child: Card(
+                        elevation: 5,
+                        color: Color(0xffF8EFEF),
+                        child: Container(
+                          width: 150.w,
+                          height: 140.h,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -504,57 +495,57 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
                 SizedBox(
-                  height: 15.h,
+                  height: 10.h,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      width: 150.w,
-                      height: 140.h,
-                      child: InkWell(
+                    InkWell(
                         onTap: () {},
                         child: Card(
                           elevation: 5,
                           color: Color(0xffF8EFEF),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                "assets/ic_club.png",
-                                height: 100,
-                                width: 100,
-                              ),
-                              SizedBox(
-                                height: 10.h,
-                              ),
-                              Text(
-                                "Club",
-                                style: TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontSize: 15,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w300),
-                              ),
-                            ],
+                          child: Container(
+                            width: 150.w,
+                            height: 140.h,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  "assets/ic_club.png",
+                                  height: 100,
+                                  width: 100,
+                                ),
+                                SizedBox(
+                                  height: 10.h,
+                                ),
+                                Text(
+                                  "Club",
+                                  style: TextStyle(
+                                      fontFamily: "Poppins",
+                                      fontSize: 15,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w300),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
+
                     SizedBox(
-                      width: 20.h,
+                      width: 10.h,
                     ),
 
 
-                    Container(
-
-                      width: 150.w,
-                      height: 140.h,
-                      child: InkWell(
-                        onTap: () => Get.toNamed('/TakeandShowAttendence'),
-                        child: Card(
-                          elevation: 5,
-                          color: Color(0xffF8EFEF),
+                    InkWell(
+                      onTap: () => Get.toNamed('/TakeandShowAttendence'),
+                      child: Card(
+                        elevation: 5,
+                        color: Color(0xffF8EFEF),
+                        child: Container(
+                          width: 150.w,
+                          height: 140.h,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -582,18 +573,18 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
                 SizedBox(
-                  height: 20.h,
+                  height: 10.h,
                 ),
 
                 // quick payment //
-                Container(
-                  width: 150.w,
-                  height: 140.h,
-                  child: InkWell(
-                    onTap: () => Get.toNamed('/QuickPayment'),
-                    child: Card(
-                      elevation: 5,
-                      color: Color(0xffF8EFEF),
+                InkWell(
+                  onTap: () => Get.toNamed('/QuickPayment'),
+                  child: Card(
+                    elevation: 5,
+                    color: Color(0xffF8EFEF),
+                    child: Container(
+                      width: 150.w,
+                      height: 140.h,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

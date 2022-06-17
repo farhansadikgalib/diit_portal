@@ -1,9 +1,9 @@
 
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-import 'package:diit_portal/Screens/Bottom_nevbar/Notification/Notification.dart';
-import 'package:diit_portal/Screens/Bottom_nevbar/Student_Dashboard/dashboard.dart';
-import 'package:diit_portal/Screens/Bottom_nevbar/Home_Page/home_page.dart';
-import 'package:diit_portal/Screens/Bottom_nevbar/Student_Profile/student_profile.dart';
+import 'package:diit_portal/Screens/Bottom_Navbar/Notification/Notification.dart';
+import 'package:diit_portal/Screens/Bottom_Navbar/Student_Dashboard/dashboard.dart';
+import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/home_page.dart';
+import 'package:diit_portal/Screens/Bottom_Navbar/Student_Profile/student_profile.dart';
 import 'package:flutter/material.dart';
 import '../App_Bar/app_bar.dart';
 

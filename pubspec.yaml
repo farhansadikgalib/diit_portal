@@ -124,6 +124,11 @@ dependencies:
 
 
 
+  #Notification System
+  onesignal_flutter: ^3.3.1
+  #Notification System
+
+
 
 flutter_icons:
   image_path: "assets/icon/portal_logo.png"

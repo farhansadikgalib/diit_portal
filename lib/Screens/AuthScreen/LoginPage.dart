@@ -23,13 +23,13 @@ class LoginPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          IconButton(
-              onPressed: () {
-                Get.toNamed('/QuestionBankx');
-              },
-              icon: Icon(
-                Icons.multiple_stop_outlined,
-              )),
+          // IconButton(
+          //     onPressed: () {
+          //       Get.toNamed('/QuestionBankx');
+          //     },
+          //     icon: Icon(
+          //       Icons.multiple_stop_outlined,
+          //     )),
           Container(
             child: Form(
                 key: formkey,
@@ -37,11 +37,11 @@ class LoginPage extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 50.0, right: 50),
                   child: Column(
                     children: <Widget>[
-                      ElevatedButton(
-                          onPressed: () {
-                            Get.offAndToNamed('/BottlomNavegatonBar');
-                          },
-                          child: Text("Bypass Button")),
+                      // ElevatedButton(
+                      //     onPressed: () {
+                      //       Get.offAndToNamed('/BottlomNavegatonBar');
+                      //     },
+                      //     child: Text("Bypass Button")),
 
                       Image.asset(
                         "assets/portallogo.png",
