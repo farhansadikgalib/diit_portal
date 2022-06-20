@@ -81,11 +81,18 @@
 //   }
 // }
 
+
+
+
+
+
+
 import 'package:flutter/material.dart';
 import 'dart:async';
 
 //import OneSignal
 import 'package:onesignal_flutter/onesignal_flutter.dart';
+
 
 class AllNotification extends StatefulWidget {
   @override
@@ -97,7 +104,7 @@ class _AllNotificationState extends State<AllNotification> {
   String? _emailAddress;
   String? _smsNumber;
   String? _externalUserId;
-  bool _enableConsentButton = false;
+  bool _enableConsentButton = true;
 
   // CHANGE THIS parameter to true if you want to test GDPR privacy consent
   bool _requireConsent = true;
@@ -205,151 +212,7 @@ class _AllNotificationState extends State<AllNotification> {
     print("USER PROVIDED PRIVACY CONSENT: $userProvidedPrivacyConsent");
   }
 
-  void _handleGetTags() {
-    OneSignal.shared.getTags().then((tags) {
-      if (tags == null) return;
 
-      setState((() {
-        _debugLabelString = "$tags";
-      }));
-    }).catchError((error) {
-      setState(() {
-        _debugLabelString = "$error";
-      });
-    });
-  }
-
-  void _handleSendTags() {
-    print("Sending tags");
-    OneSignal.shared.sendTag("test2", "val2").then((response) {
-      print("Successfully sent tags with response: $response");
-    }).catchError((error) {
-      print("Encountered an error sending tags: $error");
-    });
-
-    print("Sending tags array");
-    var sendTags = {'test': 'value'};
-    OneSignal.shared.sendTags(sendTags).then((response) {
-      print("Successfully sent tags with response: $response");
-    }).catchError((error) {
-      print("Encountered an error sending tags: $error");
-    });
-  }
-
-  void _handlePromptForPushPermission() {
-    print("Prompting for Permission");
-    OneSignal.shared.promptUserForPushNotificationPermission().then((accepted) {
-      print("Accepted permission: $accepted");
-    });
-  }
-
-  void _handleGetDeviceState() async {
-    print("Getting DeviceState");
-    OneSignal.shared.getDeviceState().then((deviceState) {
-      print("DeviceState: ${deviceState?.jsonRepresentation()}");
-      this.setState(() {
-        _debugLabelString = deviceState?.jsonRepresentation() ?? "Device state null";
-      });
-    });
-  }
-
-  void _handleSetEmail() {
-    if (_emailAddress == null) return;
-
-    print("Setting email");
-
-    OneSignal.shared.setEmail(email: _emailAddress!).whenComplete(() {
-      print("Successfully set email");
-    }).catchError((error) {
-      print("Failed to set email with error: $error");
-    });
-  }
-
-  void _handleLogoutEmail() {
-    print("Logging out of email");
-
-    OneSignal.shared.logoutEmail().then((v) {
-      print("Successfully logged out of email");
-    }).catchError((error) {
-      print("Failed to log out of email: $error");
-    });
-  }
-
-  void _handleSetSMSNumber() {
-    if (_smsNumber == null) return;
-
-    print("Setting SMS Number");
-
-    OneSignal.shared.setSMSNumber(smsNumber: _smsNumber!).then((response) {
-      print("Successfully set SMSNumber with response $response");
-    }).catchError((error) {
-      print("Failed to set SMS Number with error: $error");
-    });
-  }
-
-  void _handleLogoutSMSNumber() {
-    print("Logging out of smsNumber");
-
-    OneSignal.shared.logoutSMSNumber().then((response) {
-      print("Successfully logoutEmail with response $response");
-    }).catchError((error) {
-      print("Failed to log out of SMSNumber: $error");
-    });
-  }
-
-  void _handleConsent() {
-    print("Setting consent to true");
-    OneSignal.shared.consentGranted(true);
-
-    print("Setting state");
-    this.setState(() {
-      _enableConsentButton = false;
-    });
-  }
-
-  void _handleSetLocationShared() {
-    print("Setting location shared to true");
-    OneSignal.shared.setLocationShared(true);
-  }
-
-  void _handleDeleteTag() {
-    print("Deleting tag");
-    OneSignal.shared.deleteTag("test2").then((response) {
-      print("Successfully deleted tags with response $response");
-    }).catchError((error) {
-      print("Encountered error deleting tag: $error");
-    });
-
-    print("Deleting tags array");
-    OneSignal.shared.deleteTags(['test']).then((response) {
-      print("Successfully sent tags with response: $response");
-    }).catchError((error) {
-      print("Encountered an error sending tags: $error");
-    });
-  }
-
-  void _handleSetExternalUserId() {
-    print("Setting external user ID");
-    if (_externalUserId == null) return;
-
-    OneSignal.shared.setExternalUserId(_externalUserId!).then((results) {
-      if (results == null) return;
-
-      this.setState(() {
-        _debugLabelString = "External user id set: $results";
-      });
-    });
-  }
-
-  void _handleRemoveExternalUserId() {
-    OneSignal.shared.removeExternalUserId().then((results) {
-      if (results == null) return;
-
-      this.setState(() {
-        _debugLabelString = "External user id removed: $results";
-      });
-    });
-  }
 
   void _handleSendNotification() async {
     var deviceState = await OneSignal.shared.getDeviceState();
@@ -364,8 +227,8 @@ class _AllNotificationState extends State<AllNotification> {
 
     var notification = OSCreateNotification(
         playerIds: [playerId],
-        content: "this is a test from OneSignal's Flutter SDK",
-        heading: "Test Notification",
+        content: "WoW baby WoW",
+        heading: "Fuck Notification",
         iosAttachments: {"id1": imgUrlString},
         bigPicture: imgUrlString,
         buttons: [
@@ -460,101 +323,15 @@ class _AllNotificationState extends State<AllNotification> {
   Widget build(BuildContext context) {
     return new MaterialApp(
       home: new Scaffold(
-          appBar: new AppBar(
-            title: const Text('OneSignal Flutter Demo'),
-            backgroundColor: Color.fromARGB(255, 212, 86, 83),
-          ),
           body: Container(
             padding: EdgeInsets.all(10.0),
             child: SingleChildScrollView(
               child: new Table(
                 children: [
-                  new TableRow(children: [
-                    new OneSignalButton(
-                        "Get Tags", _handleGetTags, !_enableConsentButton)
-                  ]),
-                  new TableRow(children: [
-                    new OneSignalButton(
-                        "Send Tags", _handleSendTags, !_enableConsentButton)
-                  ]),
-                  new TableRow(children: [
-                    new OneSignalButton("Prompt for Push Permission",
-                        _handlePromptForPushPermission, !_enableConsentButton)
-                  ]),
-                  new TableRow(children: [
-                    new OneSignalButton(
-                        "Print Device State",
-                        _handleGetDeviceState,
-                        !_enableConsentButton)
-                  ]),
-                  new TableRow(children: [
-                    new TextField(
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(
-                          hintText: "Email Address",
-                          labelStyle: TextStyle(
-                            color: Color.fromARGB(255, 212, 86, 83),
-                          )),
-                      onChanged: (text) {
-                        this.setState(() {
-                          _emailAddress = text == "" ? null : text;
-                        });
-                      },
-                    )
-                  ]),
-                  new TableRow(children: [
-                    Container(
-                      height: 8.0,
-                    )
-                  ]),
-                  new TableRow(children: [
-                    new OneSignalButton(
-                        "Set Email", _handleSetEmail, !_enableConsentButton)
-                  ]),
-                  new TableRow(children: [
-                    new OneSignalButton("Logout Email", _handleLogoutEmail,
-                        !_enableConsentButton)
-                  ]),
-                  new TableRow(children: [
-                    new TextField(
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(
-                          hintText: "SMS Number",
-                          labelStyle: TextStyle(
-                            color: Color.fromARGB(255, 212, 86, 83),
-                          )),
-                      onChanged: (text) {
-                        this.setState(() {
-                          _smsNumber = text == "" ? null : text;
-                        });
-                      },
-                    )
-                  ]),
-                  new TableRow(children: [
-                    Container(
-                      height: 8.0,
-                    )
-                  ]),
-                  new TableRow(children: [
-                    new OneSignalButton(
-                        "Set SMS Number", _handleSetSMSNumber, !_enableConsentButton)
-                  ]),
-                  new TableRow(children: [
-                    new OneSignalButton("Logout SMS Number", _handleLogoutSMSNumber,
-                        !_enableConsentButton)
-                  ]),
-                  new TableRow(children: [
-                    new OneSignalButton("Provide GDPR Consent", _handleConsent,
-                        _enableConsentButton)
-                  ]),
-                  new TableRow(children: [
-                    new OneSignalButton("Set Location Shared",
-                        _handleSetLocationShared, !_enableConsentButton)
-                  ]),
-                  new TableRow(children: [
-                    new OneSignalButton(
-                        "Delete Tag", _handleDeleteTag, !_enableConsentButton)
-                  ]),
+
+
+
+
                   new TableRow(children: [
                     new OneSignalButton("Post Notification",
                         _handleSendNotification, !_enableConsentButton)
@@ -563,40 +340,7 @@ class _AllNotificationState extends State<AllNotification> {
                     new OneSignalButton("Post Silent Notification",
                         _handleSendSilentNotification, !_enableConsentButton)
                   ]),
-                  new TableRow(children: [
-                    new TextField(
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(
-                          hintText: "External User ID",
-                          labelStyle: TextStyle(
-                            color: Color.fromARGB(255, 212, 86, 83),
-                          )),
-                      onChanged: (text) {
-                        this.setState(() {
-                          _externalUserId = text == "" ? null : text;
-                        });
-                      },
-                    )
-                  ]),
-                  new TableRow(children: [
-                    Container(
-                      height: 8.0,
-                    )
-                  ]),
-                  new TableRow(children: [
-                    new OneSignalButton(
-                        "Set External User ID", _handleSetExternalUserId, !_enableConsentButton)
-                  ]),
-                  new TableRow(children: [
-                    new OneSignalButton(
-                        "Remove External User ID", _handleRemoveExternalUserId, !_enableConsentButton)
-                  ]),
-                  new TableRow(children: [
-                    new Container(
-                      child: new Text(_debugLabelString),
-                      alignment: Alignment.center,
-                    )
-                  ]),
+
                 ],
               ),
             ),
@@ -643,3 +387,6 @@ class OneSignalButtonState extends State<OneSignalButton> {
     );
   }
 }
+
+
+

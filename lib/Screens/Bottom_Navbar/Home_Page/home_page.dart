@@ -1,4 +1,3 @@
-import 'package:diit_portal/BinaryClock/Clock.dart';
 import 'package:diit_portal/Screens/Weather/data_service.dart';
 import 'package:diit_portal/Screens/Weather/weather_model.dart';
 import 'package:flutter/material.dart';
