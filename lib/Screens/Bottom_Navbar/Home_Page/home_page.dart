@@ -2,6 +2,7 @@ import 'package:diit_portal/Screens/Weather/data_service.dart';
 import 'package:diit_portal/Screens/Weather/weather_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_button/flutter_animated_button.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -499,115 +500,209 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    InkWell(
-                        onTap: () {},
-                        child: Card(
-                          elevation: 5,
-                          color: Color(0xffF8EFEF),
-                          child: Container(
-                            width: 150.w,
-                            height: 140.h,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  "assets/ic_club.png",
-                                  height: 100,
-                                  width: 100,
-                                ),
-                                SizedBox(
-                                  height: 10.h,
-                                ),
-                                Text(
-                                  "Club",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 15,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w300),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-
-                    SizedBox(
-                      width: 10.h,
-                    ),
-
-
-                    InkWell(
-                      onTap: () => Get.toNamed('/TakeandShowAttendence'),
-                      child: Card(
-                        elevation: 5,
-                        color: Color(0xffF8EFEF),
-                        child: Container(
-                          width: 150.w,
-                          height: 140.h,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                    Container(
+                      height: MediaQuery.of(context).size.height/4.6,
+                      width: MediaQuery.of(context).size.width/2.50,
+                      child: NeumorphicButton(
+                        onPressed: () {
+                          print('neumorphic Btn');
+                        },
+                        style: NeumorphicStyle(
+                            shape: NeumorphicShape.concave,
+                            boxShape: NeumorphicBoxShape.roundRect(
+                                BorderRadius.circular(12)),
+                            depth: 6,
+                            lightSource: LightSource.topLeft,
+                            color: Colors.white),
+                        child: Column(
                             children: [
                               Image.asset(
-                                "assets/ic_attendance.png",
-                                height: 100,
-                                width: 100,
+                                "assets/ic_club.png",
+                                height: MediaQuery.of(context).size.height/8.2,
+                                width: MediaQuery.of(context).size.width/3,
                               ),
                               SizedBox(
                                 height: 10.h,
                               ),
                               Text(
-                                "Attendence",
+                                "Club",
                                 style: TextStyle(
                                     fontFamily: "Poppins",
                                     fontSize: 15,
-                                    color: Colors.black,
+                                    color: Colors.black54,
                                     fontWeight: FontWeight.w300),
                               ),
-                            ],
-                          ),
+                            ]
+                        ),
+                      ),
+
+                    ),
+                    //delet kora jabe na
+                    // delete kora jabe na ei khane file comment kora
+                    // InkWell(
+                    //     onTap: () {},
+                    //     child: Card(
+                    //       elevation: 5,
+                    //       color: Color(0xffF8EFEF),
+                    //       child: Container(
+                    //         width: 150.w,
+                    //         height: 140.h,
+                    //         child: Column(
+                    //           mainAxisAlignment: MainAxisAlignment.center,
+                    //           children: [
+                    //             Image.asset(
+                    //               "assets/ic_club.png",
+                    //               height: 100,
+                    //               width: 100,
+                    //             ),
+                    //             SizedBox(
+                    //               height: 10.h,
+                    //             ),
+                    //             Text(
+                    //               "Club",
+                    //               style: TextStyle(
+                    //                   fontFamily: "Poppins",
+                    //                   fontSize: 15,
+                    //                   color: Colors.black,
+                    //                   fontWeight: FontWeight.w300),
+                    //             ),
+                    //           ],
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // delete kora jabe na ei khane file comment kora
+
+                    SizedBox(
+                      width: 10.h,
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.height/4.6,
+                      width: MediaQuery.of(context).size.width/2.50,
+                      child: NeumorphicButton(
+                        onPressed: () => Get.toNamed('/TakeandShowAttendence'),
+                        style: NeumorphicStyle(
+                            shape: NeumorphicShape.concave,
+                            boxShape: NeumorphicBoxShape.roundRect(
+                                BorderRadius.circular(12)),
+                            depth: 6,
+                            lightSource: LightSource.topLeft,
+                            color: Colors.white),
+                        child: Column(
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  "assets/ic_attendance.png",
+                                  height: MediaQuery.of(context).size.height/8.2,
+                                  width: MediaQuery.of(context).size.width/3,
+                                ),
+                                SizedBox(
+                                  height: 10.h,
+                                ),
+                                Text(
+                                  "Attendence",
+                                  style: TextStyle(
+                                      fontFamily: "Poppins",
+                                      fontSize: 15,
+                                      color: Colors.black54,
+                                      fontWeight: FontWeight.w300),
+                                ),
+                              ],
+                            ),
+
+
+
+                          ],
                         ),
                       ),
                     ),
+
+                    // delet kora jabe na
+                    // delete kora jabe na ei khane file comment kora
+                    // InkWell(
+                    //   onTap: () => Get.toNamed('/TakeandShowAttendence'),
+                    //   child: Card(
+                    //     elevation: 5,
+                    //     color: Color(0xffF8EFEF),
+                    //     child: Container(
+                    //       width: 150.w,
+                    //       height: 140.h,
+                    //       child: Column(
+                    //         mainAxisAlignment: MainAxisAlignment.center,
+                    //         children: [
+                    //           Image.asset(
+                    //             "assets/ic_attendance.png",
+                    //             height: 100,
+                    //             width: 100,
+                    //           ),
+                    //           SizedBox(
+                    //             height: 10.h,
+                    //           ),
+                    //           Text(
+                    //             "Attendence",
+                    //             style: TextStyle(
+                    //                 fontFamily: "Poppins",
+                    //                 fontSize: 15,
+                    //                 color: Colors.black,
+                    //                 fontWeight: FontWeight.w300),
+                    //           ),
+                    //         ],
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+                    // delete kora jabe na ei khane file comment kora
                   ],
                 ),
                 SizedBox(
                   height: 10.h,
                 ),
+                Container(
+                  height: MediaQuery.of(context).size.height/5,
+                  width: MediaQuery.of(context).size.width/2.50,
+                  child: NeumorphicButton(
+                    onPressed: () => Get.toNamed('/QuickPayment'),
+                    style: NeumorphicStyle(
+                        shape: NeumorphicShape.concave,
+                        boxShape: NeumorphicBoxShape.roundRect(
+                            BorderRadius.circular(12)),
+                        depth: 6,
+                        lightSource: LightSource.topLeft,
+                        color: Colors.white),
+                    child: Column(
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              "assets/payment.png",
+                              height: MediaQuery.of(context).size.height/8.2,
+                              width: MediaQuery.of(context).size.width/3,
+                            ),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            Text(
+                              "Quick Pay",
+                              style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 15,
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.w300),
+                            ),
+                          ],
+                        ),
 
-                // quick payment //
-                InkWell(
-                  onTap: () => Get.toNamed('/QuickPayment'),
-                  child: Card(
-                    elevation: 5,
-                    color: Color(0xffF8EFEF),
-                    child: Container(
-                      width: 150.w,
-                      height: 140.h,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            "assets/payment.png",
-                            height: 100,
-                            width: 100,
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          Text(
-                            "Quick Pay",
-                            style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 15,
-                                color: Colors.black,
-                                fontWeight: FontWeight.w300),
-                          ),
-                        ],
-                      ),
+
+
+                      ],
                     ),
                   ),
                 ),
+                // quick payment //
+
                 SizedBox(
                   height: 20.h,
                 )

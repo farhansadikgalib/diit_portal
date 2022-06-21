@@ -58,6 +58,10 @@ dependencies:
   flutter_glow: ^0.2.0
   # UI Design
 
+
+   # neumorphic button
+  flutter_neumorphic: ^3.2.0
+
      #flutter toast
   fluttertoast: ^8.0.9
 
