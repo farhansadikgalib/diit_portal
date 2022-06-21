@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -25,7 +26,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
 
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 30, left: 10, right: 10),
+                padding: const EdgeInsets.only(top: 60, left: 10, right: 10),
                 child: Container(
                   height: 150,
                   width: MediaQuery.of(context).size.width,
@@ -64,48 +65,100 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  // Container(
+                  //   width: 150.w,
+                  //   height: 160.h,
+                  //   child: InkWell(
+                  //     onTap: ()=>Get.toNamed('/SelectCourceAttendence'),
+                  //     child: Card(
+                  //       elevation: 5,
+                  //       color: Color(0xffF8EFEF),
+                  //       child: Column(
+                  //         mainAxisAlignment: MainAxisAlignment.center,
+                  //         children: [
+                  //           Image.asset("assets/ic_attendance.png",height: 100,width: 100,),
+                  //           SizedBox(height: 10,),
+                  //           Text( "Take Attendence",style: TextStyle(fontFamily: "Poppins",fontSize: 15,color: Colors.black,fontWeight: FontWeight.w300),),
+                  //         ],
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+
                   Container(
-                    width: 150.w,
-                    height: 160.h,
-                    child: InkWell(
-                      onTap: ()=>Get.toNamed('/SelectCourceAttendence'),
-                      child: Card(
-                        elevation: 5,
-                        color: Color(0xffF8EFEF),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset("assets/ic_attendance.png",height: 100,width: 100,),
-                            SizedBox(height: 10,),
-                            Text( "Take Attendence",style: TextStyle(fontFamily: "Poppins",fontSize: 15,color: Colors.black,fontWeight: FontWeight.w300),),
-                          ],
-                        ),
+                    height: MediaQuery.of(context).size.height/5,
+                    width: MediaQuery.of(context).size.width/2.30,
+                    child: NeumorphicButton(
+                      onPressed: ()=>Get.toNamed('/SelectCourceAttendence'),
+                      style: NeumorphicStyle(
+                          shape: NeumorphicShape.concave,
+                          boxShape: NeumorphicBoxShape.roundRect(
+                              BorderRadius.circular(12)),
+                          depth: 3,
+                          lightSource: LightSource.topLeft,
+                          color: Colors.white),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset("assets/ic_attendance.png",
+                            height: MediaQuery.of(context).size.height/8.2,
+                            width: MediaQuery.of(context).size.width/3,
+                          ),
+                          SizedBox(height: 10,),
+                          Text( "Take Attendence",style: TextStyle(fontFamily: "Poppins",fontSize: 15,color: Colors.black54,fontWeight: FontWeight.w300),),
+                        ],
                       ),
                     ),
                   ),
+
                   SizedBox(width: 15,),
+                  // Container(
+                  //   width: 150.w,
+                  //   height: 160.h,
+                  //   child: InkWell(
+                  //     onTap: ()=>Get.toNamed('/CourseAttendanceView'),
+                  //     child: Card(
+                  //       elevation: 5,
+                  //       color: Color(0xffF8EFEF),
+                  //       child: Column(
+                  //         mainAxisAlignment: MainAxisAlignment.center,
+                  //         children: [
+                  //           Image.asset("assets/viewattendence.png",color: Colors.orange,height: 100,width: 100,),
+                  //           SizedBox(height: 10,),
+                  //           Text( "View Attendence",
+                  //             style: TextStyle(fontFamily: "Poppins",fontSize: 15,color: Colors.black,fontWeight: FontWeight.w300),),
+                  //         ],
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+
                   Container(
-                    width: 150.w,
-                    height: 160.h,
-                    child: InkWell(
-                      onTap: ()=>Get.toNamed('/CourseAttendanceView'),
-                      child: Card(
-                        elevation: 5,
-                        color: Color(0xffF8EFEF),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset("assets/viewattendence.png",color: Colors.orange,height: 100,width: 100,),
-                            SizedBox(height: 10,),
-                            Text( "View Attendence",
-                              style: TextStyle(fontFamily: "Poppins",fontSize: 15,color: Colors.black,fontWeight: FontWeight.w300),),
-                          ],
-                        ),
+                    height: MediaQuery.of(context).size.height/5,
+                    width: MediaQuery.of(context).size.width/2.30,
+                    child: NeumorphicButton(
+                      onPressed: ()=>Get.toNamed('/CourseAttendanceView'),
+                      style: NeumorphicStyle(
+                          shape: NeumorphicShape.concave,
+                          boxShape: NeumorphicBoxShape.roundRect(
+                              BorderRadius.circular(12)),
+                          depth: 3,
+                          lightSource: LightSource.topLeft,
+                          color: Colors.white),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset("assets/viewattendence.png",
+                            height: MediaQuery.of(context).size.height/8.2,
+                            width: MediaQuery.of(context).size.width/3,
+                            color: Colors.orangeAccent,),
+                          SizedBox(height: 10,),
+                          Text( "View Attendence",
+                            style: TextStyle(fontFamily: "Poppins",fontSize: 15,color: Colors.black54,fontWeight: FontWeight.w300),),
+                        ],
                       ),
                     ),
                   ),
-
-
                 ],
               ),
 
@@ -116,8 +169,8 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                 ),
                 child: TextFormField(
                   controller: _CreateNotification,
-                       maxLines: 2,
-                      maxLength: 200,
+                  maxLines: 2,
+                  maxLength: 200,
                   cursorHeight: 20,
                   autofocus: false,
                   decoration: InputDecoration(

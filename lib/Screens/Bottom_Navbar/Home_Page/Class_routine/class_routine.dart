@@ -1,6 +1,8 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:diit_portal/Screens/App_Bar/app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 class ClassRoutine extends StatelessWidget {
   const ClassRoutine({Key? key}) : super(key: key);
@@ -9,91 +11,138 @@ class ClassRoutine extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarString,
-      body:
-         Column(
-           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-           SizedBox(
-           width: 250.0,
-           child: DefaultTextStyle(
-             style: const TextStyle(
-               fontSize: 40.0,
-               fontWeight: FontWeight.bold,
-               color: Colors.lightGreen
-             ),
-             child: AnimatedTextKit(
-               animatedTexts: [
-                 TyperAnimatedText('Class Routine'),
-               ],
-             ),
-           ),
-         ),
-            
+      body: Column(
 
-            Padding(
-              padding: const EdgeInsets.only(top: 50,right: 200),
-              child: GestureDetector(
-
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 100,
-                  width: 200,
-                  decoration: BoxDecoration(
-                    color: Colors.teal,
-                    borderRadius: BorderRadius.only(bottomRight: Radius.circular(200))
-                  ),
-                  child: Text("CSE",style: TextStyle(fontSize: 30,color: Colors.white,fontWeight: FontWeight.bold),),
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 60),
+            child: SizedBox(
+              width: 250.0,
+              child: DefaultTextStyle(
+                style: const TextStyle(
+                    fontSize: 40.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black54),
+                child: AnimatedTextKit(
+                  animatedTexts: [
+                    TyperAnimatedText('Class Routine'),
+                  ],
                 ),
               ),
             ),
-
-            Padding(
-              padding: const EdgeInsets.only(left: 200,top: 10),
-              child: Container(
-                alignment: Alignment.center,
-                height: 100,
-                width:200,
-
-                decoration: BoxDecoration(
-                  color: Colors.orange,
-                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(200))
+          ),
+          SizedBox(height: 80.h,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height/6,
+                width: MediaQuery.of(context).size.width/2.30,
+                child: NeumorphicButton(
+                  onPressed: ()=>Get.toNamed('/CSERoutine'),
+                  style: NeumorphicStyle(
+                      shape: NeumorphicShape.concave,
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(12)),
+                      depth: 6,
+                      lightSource: LightSource.topLeft,
+                      color: Colors.white),
+                  child: Center(
+                      child: Text(
+                        "CSE",
+                        style: TextStyle(
+                            fontSize: 25,
+                            color: Colors.black54,
+                            fontWeight: FontWeight.bold),
+                      )),
                 ),
-                child: Text("BBA",style: TextStyle(fontSize: 30,color: Colors.white,fontWeight: FontWeight.bold),),
-
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10,right: 200),
-              child: Container(
-                alignment: Alignment.center,
-                height: 100,
-                width: 200,
-
-                decoration: BoxDecoration(
-                  color: Colors.teal,
-                  borderRadius: BorderRadius.only(bottomRight: Radius.circular(200))
+              Container(
+                height: MediaQuery.of(context).size.height/6,
+                width: MediaQuery.of(context).size.width/2.30,
+                child: NeumorphicButton(
+                  onPressed: () {
+                    print('neumorphic Btn');
+                  },
+                  style: NeumorphicStyle(
+                      shape: NeumorphicShape.concave,
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(12)),
+                      depth: 6,
+                      lightSource: LightSource.topLeft,
+                      color: Colors.white),
+                  child: Center(
+                      child: Text(
+                        "BBA",
+                        style: TextStyle(
+                            fontSize: 25,
+                            color: Colors.black54,
+                            fontWeight: FontWeight.bold),
+                      )),
                 ),
-                child: Text("BTHM",style: TextStyle(fontSize: 30,color: Colors.white,fontWeight: FontWeight.bold),),
               ),
-            ),
-
-            Padding(
-              padding: const EdgeInsets.only(left: 200,top: 10),
-              child: Container(
-                alignment: Alignment.center,
-                height: 100,
-                width:200,
-
-                decoration: BoxDecoration(
-                  color: Colors.orange,
-                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(200))
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height/6,
+                width: MediaQuery.of(context).size.width/2.30,
+                child: NeumorphicButton(
+                  onPressed: () {
+                    print('neumorphic Btn');
+                  },
+                  style: NeumorphicStyle(
+                      shape: NeumorphicShape.concave,
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(12)),
+                      depth: 6,
+                      lightSource: LightSource.topLeft,
+                      color: Colors.white),
+                  child: Center(
+                      child: Text(
+                        "BTHM",
+                        style: TextStyle(
+                            fontSize: 25,
+                            color: Colors.black54,
+                            fontWeight: FontWeight.bold),
+                      )),
                 ),
-                child: Text("MBA",style: TextStyle(fontSize: 30,color: Colors.white,fontWeight: FontWeight.bold),),
               ),
-            ),
-          ],
-        ),
+              Container(
+                height: MediaQuery.of(context).size.height/6,
+                width: MediaQuery.of(context).size.width/2.30,
+                child: NeumorphicButton(
+                  onPressed: () {
+                    print('neumorphic Btn');
+                  },
+                  style: NeumorphicStyle(
+                      shape: NeumorphicShape.concave,
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(12)),
+                      depth: 6,
+                      lightSource: LightSource.topLeft,
+                      color: Colors.white),
+                  child: Center(
+                      child: Text(
+                        "MBA",
+                        style: TextStyle(
+                            fontSize: 25,
+                            color: Colors.black54,
+                            fontWeight: FontWeight.bold),
+                      )),
+                ),
+              ),
+            ],
+          ),
 
+
+        ],
+      ),
     );
   }
 }

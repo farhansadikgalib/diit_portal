@@ -38,356 +38,355 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
         child: Column(
           children: [
 
             Padding(
               padding: const EdgeInsets.only(left: 10, right: 10, top: 15),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Card(
-                   elevation: 3,
-                        shadowColor: Colors.orange,
-                        child: Container(
-                          height: MediaQuery.of(context).size.height/9,
-                          width: MediaQuery.of(context).size.width,
-                          color: Color(0xffCCBDBD),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SizedBox(height: 10,),
-                              Text('Farhan Sadik Galib',
-                                style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                              SizedBox(height: 5,),
-                              Text('170138', style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w400),),
-                              SizedBox(height: 5,),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 20, right: 20),
-                                child: Row(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Card(
+                    elevation: 3,
+                    shadowColor: Colors.orange,
+                    child: Container(
+                      height: MediaQuery.of(context).size.height/6,
+                      width: MediaQuery.of(context).size.width,
+                      color: Color(0xffCCBDBD),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(height: 10,),
+                          Text('Farhan Sadik Galib',
+                            style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
+                          SizedBox(height: 5,),
+                          Text('170138', style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w400),),
+                          SizedBox(height: 5,),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                left: 20, right: 20),
+                            child: Row(
+                              children: [
+                                Row(
                                   children: [
-                                    Row(
-                                      children: [
-                                        GlowRadio<bool>(
-                                          value: true,
-                                          groupValue: radioSelected1,
-                                          color: Colors.orangeAccent,
-                                          onChange: (value) {
-                                            setState(() {
-                                              radioSelected1 = value;
-                                              log(value.toString());
-                                            });
-                                          },
-                                        ),
-                                        SizedBox(width: 15,),
-                                        Text("Present",style: TextStyle(fontSize: 18),)
-                                      ],
+                                    GlowRadio<bool>(
+                                      value: true,
+                                      groupValue: radioSelected1,
+                                      color: Colors.orangeAccent,
+                                      onChange: (value) {
+                                        setState(() {
+                                          radioSelected1 = value;
+                                          log(value.toString());
+                                        });
+                                      },
                                     ),
-
-                                    Spacer(),
-                                    Row(
-                                      children: [
-                                        GlowRadio<bool>(
-                                          value: false,
-                                          color: Colors.orangeAccent,
-                                          groupValue: radioSelected1,
-                                          onChange: (value) {
-                                            setState(() {
-                                              radioSelected1 = value;
-                                              log(value.toString());
-                                            });
-                                          },
-                                        ),
-
-                                        SizedBox(width: 15,),
-                                        Text("Absent",style: TextStyle(fontSize: 18),)
-                                      ],
-                                    ),
-
+                                    SizedBox(width: 15,),
+                                    Text("Present",style: TextStyle(fontSize: 18),)
                                   ],
                                 ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    Card(
-                      elevation: 3,
-                      shadowColor: Colors.orange,
-                      child: Container(
-                        height: MediaQuery.of(context).size.height/9,
-                        width: MediaQuery.of(context).size.width,
-                        color: Color(0xffCCBDBD),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(height: 10,),
-                            Text('Abdur Rahman',
-                              style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                            SizedBox(height: 5,),
-                            Text('170115', style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.w400),),
-                            SizedBox(height: 5,),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 20, right: 20),
-                              child: Row(
-                                children: [
-                                  Row(
-                                    children: [
-                                      GlowRadio<bool>(
-                                        value: true,
-                                        groupValue: radioSelected2,
-                                        color: Colors.orangeAccent,
-                                        onChange: (value) {
-                                          setState(() {
-                                            radioSelected2 = value;
-                                            log(value.toString());
-                                          });
-                                        },
-                                      ),
-                                      SizedBox(width: 15,),
-                                      Text("Present",style: TextStyle(fontSize: 18),)
-                                    ],
-                                  ),
 
-                                  Spacer(),
-                                  Row(
-                                    children: [
-                                      GlowRadio<bool>(
-                                        value: false,
-                                        color: Colors.orangeAccent,
-                                        groupValue: radioSelected2,
-                                        onChange: (value) {
-                                          setState(() {
-                                            radioSelected2 = value;
-                                            log(value.toString());
-                                          });
-                                        },
-                                      ),
+                                Spacer(),
+                                Row(
+                                  children: [
+                                    GlowRadio<bool>(
+                                      value: false,
+                                      color: Colors.orangeAccent,
+                                      groupValue: radioSelected1,
+                                      onChange: (value) {
+                                        setState(() {
+                                          radioSelected1 = value;
+                                          log(value.toString());
+                                        });
+                                      },
+                                    ),
 
-                                      SizedBox(width: 15,),
-                                      Text("Absent",style: TextStyle(fontSize: 18),)
-                                    ],
-                                  ),
+                                    SizedBox(width: 15,),
+                                    Text("Absent",style: TextStyle(fontSize: 18),)
+                                  ],
+                                ),
 
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
+                              ],
+                            ),
+                          )
+                        ],
                       ),
                     ),
-                    Card(
-                      elevation: 3,
-                      shadowColor: Colors.orange,
-                      child: Container(
-                        height: MediaQuery.of(context).size.height/9,
-                        width: MediaQuery.of(context).size.width,
-                        color: Color(0xffCCBDBD),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(height: 10,),
-                            Text('Md Rasel',
-                              style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                            SizedBox(height: 5,),
-                            Text('170112', style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.w400),),
-                            SizedBox(height: 5,),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 20, right: 20),
-                              child: Row(
-                                children: [
-                                  Row(
-                                    children: [
-                                      GlowRadio<bool>(
-                                        value: true,
-                                        groupValue: radioSelected3,
-                                        color: Colors.orangeAccent,
-                                        onChange: (value) {
-                                          setState(() {
-                                            radioSelected3 = value;
-                                            log(value.toString());
-                                          });
-                                        },
-                                      ),
-                                      SizedBox(width: 15,),
-                                      Text("Present",style: TextStyle(fontSize: 18),)
-                                    ],
-                                  ),
+                  ),
+                  Card(
+                    elevation: 3,
+                    shadowColor: Colors.orange,
+                    child: Container(
+                      height: MediaQuery.of(context).size.height/6,
+                      width: MediaQuery.of(context).size.width,
+                      color: Color(0xffCCBDBD),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(height: 10,),
+                          Text('Farhan Sadik Galib',
+                            style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
+                          SizedBox(height: 5,),
+                          Text('170138', style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w400),),
+                          SizedBox(height: 5,),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                left: 20, right: 20),
+                            child: Row(
+                              children: [
+                                Row(
+                                  children: [
+                                    GlowRadio<bool>(
+                                      value: true,
+                                      groupValue: radioSelected1,
+                                      color: Colors.orangeAccent,
+                                      onChange: (value) {
+                                        setState(() {
+                                          radioSelected1 = value;
+                                          log(value.toString());
+                                        });
+                                      },
+                                    ),
+                                    SizedBox(width: 15,),
+                                    Text("Present",style: TextStyle(fontSize: 18),)
+                                  ],
+                                ),
 
-                                  Spacer(),
-                                  Row(
-                                    children: [
-                                      GlowRadio<bool>(
-                                        value: false,
-                                        color: Colors.orangeAccent,
-                                        groupValue: radioSelected3,
-                                        onChange: (value) {
-                                          setState(() {
-                                            radioSelected3 = value;
-                                            log(value.toString());
-                                          });
-                                        },
-                                      ),
+                                Spacer(),
+                                Row(
+                                  children: [
+                                    GlowRadio<bool>(
+                                      value: false,
+                                      color: Colors.orangeAccent,
+                                      groupValue: radioSelected1,
+                                      onChange: (value) {
+                                        setState(() {
+                                          radioSelected1 = value;
+                                          log(value.toString());
+                                        });
+                                      },
+                                    ),
 
-                                      SizedBox(width: 15,),
-                                      Text("Absent",style: TextStyle(fontSize: 18),)
-                                    ],
-                                  ),
+                                    SizedBox(width: 15,),
+                                    Text("Absent",style: TextStyle(fontSize: 18),)
+                                  ],
+                                ),
 
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
+                              ],
+                            ),
+                          )
+                        ],
                       ),
                     ),
-                    Card(
-                      elevation: 3,
-                      shadowColor: Colors.orange,
-                      child: Container(
-                        height: MediaQuery.of(context).size.height/9,
-                        width: MediaQuery.of(context).size.width,
-                        color: Color(0xffCCBDBD),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(height: 10,),
-                            Text('Shifat Pathan',
-                              style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                            SizedBox(height: 5,),
-                            Text('170163', style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.w400),),
-                            SizedBox(height: 5,),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 20, right: 20),
-                              child: Row(
-                                children: [
-                                  Row(
-                                    children: [
-                                      GlowRadio<bool>(
-                                        value: true,
-                                        groupValue: radioSelected4,
-                                        color: Colors.orangeAccent,
-                                        onChange: (value) {
-                                          setState(() {
-                                            radioSelected4 = value;
-                                            log(value.toString());
-                                          });
-                                        },
-                                      ),
-                                      SizedBox(width: 15,),
-                                      Text("Present",style: TextStyle(fontSize: 18),)
-                                    ],
-                                  ),
+                  ),
+                  Card(
+                    elevation: 3,
+                    shadowColor: Colors.orange,
+                    child: Container(
+                      height: MediaQuery.of(context).size.height/6,
+                      width: MediaQuery.of(context).size.width,
+                      color: Color(0xffCCBDBD),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(height: 10,),
+                          Text('Farhan Sadik Galib',
+                            style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
+                          SizedBox(height: 5,),
+                          Text('170138', style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w400),),
+                          SizedBox(height: 5,),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                left: 20, right: 20),
+                            child: Row(
+                              children: [
+                                Row(
+                                  children: [
+                                    GlowRadio<bool>(
+                                      value: true,
+                                      groupValue: radioSelected1,
+                                      color: Colors.orangeAccent,
+                                      onChange: (value) {
+                                        setState(() {
+                                          radioSelected1 = value;
+                                          log(value.toString());
+                                        });
+                                      },
+                                    ),
+                                    SizedBox(width: 15,),
+                                    Text("Present",style: TextStyle(fontSize: 18),)
+                                  ],
+                                ),
 
-                                  Spacer(),
-                                  Row(
-                                    children: [
-                                      GlowRadio<bool>(
-                                        value: false,
-                                        color: Colors.orangeAccent,
-                                        groupValue: radioSelected4,
-                                        onChange: (value) {
-                                          setState(() {
-                                            radioSelected4 = value;
-                                            log(value.toString());
-                                          });
-                                        },
-                                      ),
+                                Spacer(),
+                                Row(
+                                  children: [
+                                    GlowRadio<bool>(
+                                      value: false,
+                                      color: Colors.orangeAccent,
+                                      groupValue: radioSelected1,
+                                      onChange: (value) {
+                                        setState(() {
+                                          radioSelected1 = value;
+                                          log(value.toString());
+                                        });
+                                      },
+                                    ),
 
-                                      SizedBox(width: 15,),
-                                      Text("Absent",style: TextStyle(fontSize: 18),)
-                                    ],
-                                  ),
+                                    SizedBox(width: 15,),
+                                    Text("Absent",style: TextStyle(fontSize: 18),)
+                                  ],
+                                ),
 
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
+                              ],
+                            ),
+                          )
+                        ],
                       ),
                     ),
-                    Card(
-                      elevation: 3,
-                      shadowColor: Colors.orange,
-                      child: Container(
-                        height: MediaQuery.of(context).size.height/9,
-                        width: MediaQuery.of(context).size.width,
-                        color: Color(0xffCCBDBD),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(height: 10,),
-                            Text('Mumtahina Raha',
-                              style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                            SizedBox(height: 5,),
-                            Text('170103', style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.w400),),
-                            SizedBox(height: 5,),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 20, right: 20),
-                              child: Row(
-                                children: [
-                                  Row(
-                                    children: [
-                                      GlowRadio<bool>(
-                                        value: true,
-                                        groupValue: radioSelected5,
-                                        color: Colors.orangeAccent,
-                                        onChange: (value) {
-                                          setState(() {
-                                            radioSelected5 = value;
-                                            log(value.toString());
-                                          });
-                                        },
-                                      ),
-                                      SizedBox(width: 15,),
-                                      Text("Present",style: TextStyle(fontSize: 18),)
-                                    ],
-                                  ),
+                  ),
+                  Card(
+                    elevation: 3,
+                    shadowColor: Colors.orange,
+                    child: Container(
+                      height: MediaQuery.of(context).size.height/6,
+                      width: MediaQuery.of(context).size.width,
+                      color: Color(0xffCCBDBD),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(height: 10,),
+                          Text('Farhan Sadik Galib',
+                            style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
+                          SizedBox(height: 5,),
+                          Text('170138', style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w400),),
+                          SizedBox(height: 5,),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                left: 20, right: 20),
+                            child: Row(
+                              children: [
+                                Row(
+                                  children: [
+                                    GlowRadio<bool>(
+                                      value: true,
+                                      groupValue: radioSelected1,
+                                      color: Colors.orangeAccent,
+                                      onChange: (value) {
+                                        setState(() {
+                                          radioSelected1 = value;
+                                          log(value.toString());
+                                        });
+                                      },
+                                    ),
+                                    SizedBox(width: 15,),
+                                    Text("Present",style: TextStyle(fontSize: 18),)
+                                  ],
+                                ),
 
-                                  Spacer(),
-                                  Row(
-                                    children: [
-                                      GlowRadio<bool>(
-                                        value: false,
-                                        color: Colors.orangeAccent,
-                                        groupValue: radioSelected5,
-                                        onChange: (value) {
-                                          setState(() {
-                                            radioSelected5 = value;
-                                            log(value.toString());
-                                          });
-                                        },
-                                      ),
+                                Spacer(),
+                                Row(
+                                  children: [
+                                    GlowRadio<bool>(
+                                      value: false,
+                                      color: Colors.orangeAccent,
+                                      groupValue: radioSelected1,
+                                      onChange: (value) {
+                                        setState(() {
+                                          radioSelected1 = value;
+                                          log(value.toString());
+                                        });
+                                      },
+                                    ),
 
-                                      SizedBox(width: 15,),
-                                      Text("Absent",style: TextStyle(fontSize: 18),)
-                                    ],
-                                  ),
+                                    SizedBox(width: 15,),
+                                    Text("Absent",style: TextStyle(fontSize: 18),)
+                                  ],
+                                ),
 
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
+                              ],
+                            ),
+                          )
+                        ],
                       ),
                     ),
-                  ]
+                  ),
+
+                  Card(
+                    elevation: 3,
+                    shadowColor: Colors.orange,
+                    child: Container(
+                      height: MediaQuery.of(context).size.height/6,
+                      width: MediaQuery.of(context).size.width,
+                      color: Color(0xffCCBDBD),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(height: 10,),
+                          Text('Farhan Sadik Galib',
+                            style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
+                          SizedBox(height: 5,),
+                          Text('170138', style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w400),),
+                          SizedBox(height: 5,),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                left: 20, right: 20),
+                            child: Row(
+                              children: [
+                                Row(
+                                  children: [
+                                    GlowRadio<bool>(
+                                      value: true,
+                                      groupValue: radioSelected1,
+                                      color: Colors.orangeAccent,
+                                      onChange: (value) {
+                                        setState(() {
+                                          radioSelected1 = value;
+                                          log(value.toString());
+                                        });
+                                      },
+                                    ),
+                                    SizedBox(width: 15,),
+                                    Text("Present",style: TextStyle(fontSize: 18),)
+                                  ],
+                                ),
+
+                                Spacer(),
+                                Row(
+                                  children: [
+                                    GlowRadio<bool>(
+                                      value: false,
+                                      color: Colors.orangeAccent,
+                                      groupValue: radioSelected1,
+                                      onChange: (value) {
+                                        setState(() {
+                                          radioSelected1 = value;
+                                          log(value.toString());
+                                        });
+                                      },
+                                    ),
+
+                                    SizedBox(width: 15,),
+                                    Text("Absent",style: TextStyle(fontSize: 18),)
+                                  ],
+                                ),
+
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ]
 
 
-                ),
               ),
             ),
 

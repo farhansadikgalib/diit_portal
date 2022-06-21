@@ -289,134 +289,307 @@ class _HomePageState extends State<HomePage> {
                     },
                   ),
                 ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      AnimatedButton(
-                        height: 45.h,
-                        width: 125.w,
-                        text: 'STUDENT PROTAL',
-                        textStyle: (TextStyle(
-                            fontSize: 14,
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black)),
-                        isReverse: true,
-                        selectedTextColor: Colors.black,
-                        transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                        backgroundColor: Color(0xff00DCA8),
-                        borderColor: Colors.orangeAccent,
-                        borderRadius: 10,
-                        borderWidth: 2,
-                        onPress: () {},
-                      ),
-                      SizedBox(
-                        width: 10.w,
-                      ),
-                      AnimatedButton(
-                        height: 45.h,
-                        width: 125.w,
-                        text: 'TUTION FEES',
-                        textStyle: (TextStyle(
-                            fontSize: 14,
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black)),
-                        isReverse: true,
-                        selectedTextColor: Colors.black,
-                        transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                        backgroundColor: Color(0xff00DCA8),
-                        borderColor: Colors.orangeAccent,
-                        borderRadius: 10,
-                        borderWidth: 2,
-                        onPress: () {},
-                      ),
-                      SizedBox(
-                        width: 10.w,
-                      ),
-                      AnimatedButton(
-                        height: 45.h,
-                        width: 125.w,
-                        text: 'FACULTY MEMBER',
-                        textStyle: (TextStyle(
-                            fontSize: 14,
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black)),
-                        isReverse: true,
-                        selectedTextColor: Colors.black,
-                        transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                        backgroundColor: Color(0xff00DCA8),
-                        borderColor: Colors.orangeAccent,
-                        borderRadius: 10,
-                        borderWidth: 2,
-                        onPress: () => Get.toNamed('/FacultyProfile'),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      AnimatedButton(
-                        height: 45.h,
-                        width: 125.w,
-                        text: 'ACADEMIC RESULT',
-                        textStyle: (TextStyle(
-                            fontSize: 14,
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black)),
-                        isReverse: true,
-                        selectedTextColor: Colors.black,
-                        transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                        backgroundColor: Color(0xff00DCA8),
-                        borderColor: Colors.orangeAccent,
-                        borderRadius: 10,
-                        borderWidth: 2,
-                        onPress: () {},
-                      ),
-                      SizedBox(
-                        width: 10.w,
-                      ),
-                      AnimatedButton(
-                        height: 45.h,
-                        width: 125.w,
-                        text: 'NU PROTAL',
-                        textStyle: (TextStyle(
-                            fontSize: 14,
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black)),
-                        isReverse: true,
-                        selectedTextColor: Colors.black,
-                        transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                        backgroundColor: Color(0xff00DCA8),
-                        borderColor: Colors.orangeAccent,
-                        borderRadius: 10,
-                        borderWidth: 2,
-                        onPress: () {},
-                      ),
-                      SizedBox(
-                        width: 10.w,
-                      ),
-                      AnimatedButton(
-                        height: 45.h,
-                        width: 125.w,
-                        text: 'DIIT NOTICS',
-                        textStyle: (TextStyle(
-                            fontSize: 14,
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black)),
-                        isReverse: true,
-                        selectedTextColor: Colors.black,
-                        transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                        backgroundColor: Color(0xff00DCA8),
-                        borderColor: Colors.orangeAccent,
-                        borderRadius: 10,
-                        borderWidth: 2,
-                        onPress: () {},
-                      ),
-                    ],
+                Container(
+                  height: 90,
+
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+
+                        Container(
+                          height: MediaQuery.of(context).size.height/15,
+                          width: MediaQuery.of(context).size.width/2.40,
+                          child: NeumorphicButton(
+                            onPressed: () {
+                              print('neumorphic Btn');
+                            },
+                            style: NeumorphicStyle(
+                              // shape: NeumorphicShape.concave,
+                                boxShape: NeumorphicBoxShape.roundRect(
+                                    BorderRadius.circular(12)),
+                                depth: 6,
+                                lightSource: LightSource.topLeft,
+                                color: Colors.white),
+                            child: Center(
+                                child: Text(
+                                  "STUDENT PROTAL",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.black45,
+                                      fontWeight: FontWeight.bold),
+                                )),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10.w,
+                        ),
+                        Container(
+                          height: MediaQuery.of(context).size.height/15,
+                          width: MediaQuery.of(context).size.width/2.30,
+                          child: NeumorphicButton(
+                            onPressed: () {
+                              print('neumorphic Btn');
+                            },
+                            style: NeumorphicStyle(
+                                shape: NeumorphicShape.concave,
+                                boxShape: NeumorphicBoxShape.roundRect(
+                                    BorderRadius.circular(12)),
+                                depth: 6,
+                                lightSource: LightSource.topLeft,
+                                color: Color(0x84dddedd)),
+                            child: Center(
+                                child: Text(
+                                  "TUTION FEES",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.black45,
+                                      fontWeight: FontWeight.bold),
+                                )),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10.w,
+                        ),
+                        Container(
+                          height: MediaQuery.of(context).size.height/15,
+                          width: MediaQuery.of(context).size.width/2.30,
+                          child: NeumorphicButton(
+                            onPressed: () => Get.toNamed('/FacultyProfile'),
+                            style: NeumorphicStyle(
+                                shape: NeumorphicShape.concave,
+                                boxShape: NeumorphicBoxShape.roundRect(
+                                    BorderRadius.circular(12)),
+                                depth: 6,
+                                lightSource: LightSource.topLeft,
+                                color: Colors.white),
+                            child: Center(
+                                child: Text(
+                                  "FACULTY MEMBER",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.black45,
+                                      fontWeight: FontWeight.bold),
+                                )),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10.w,
+                        ),
+                        Container(
+                          height: MediaQuery.of(context).size.height/15,
+                          width: MediaQuery.of(context).size.width/2.30,
+                          child: NeumorphicButton(
+                            onPressed: () {
+                              print('neumorphic Btn');
+                            },
+                            style: NeumorphicStyle(
+                                shape: NeumorphicShape.concave,
+                                boxShape: NeumorphicBoxShape.roundRect(
+                                    BorderRadius.circular(12)),
+                                depth: 6,
+                                lightSource: LightSource.topLeft,
+                                color: Color(0x84dddedd)),
+                            child: Center(
+                                child: Text(
+                                  "ACADEMIC RESULT",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.black45,
+                                      fontWeight: FontWeight.bold),
+                                )),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10.w,
+                        ),
+                        Container(
+                          height: MediaQuery.of(context).size.height/15,
+                          width: MediaQuery.of(context).size.width/2.30,
+                          child: NeumorphicButton(
+                            onPressed: () {
+                              print('neumorphic Btn');
+                            },
+                            style: NeumorphicStyle(
+                                shape: NeumorphicShape.concave,
+                                boxShape: NeumorphicBoxShape.roundRect(
+                                    BorderRadius.circular(12)),
+                                depth: 6,
+                                lightSource: LightSource.topLeft,
+                                color: Colors.white),
+                            child: Center(
+                                child: Text(
+                                  "NU PROTAL",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.black45,
+                                      fontWeight: FontWeight.bold),
+                                )),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10.w,
+                        ),
+                        Container(
+                          height: MediaQuery.of(context).size.height/15,
+                          width: MediaQuery.of(context).size.width/2.30,
+                          child: NeumorphicButton(
+                            onPressed: () {
+                              print('neumorphic Btn');
+                            },
+                            style: NeumorphicStyle(
+                                shape: NeumorphicShape.concave,
+                                boxShape: NeumorphicBoxShape.roundRect(
+                                    BorderRadius.circular(12)),
+                                depth: 6,
+                                lightSource: LightSource.topLeft,
+                                color: Color(0x84dddedd)),
+                            child: Center(
+                                child: Text(
+                                  "DIIT NOTICS",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.black45,
+                                      fontWeight: FontWeight.bold),
+                                )),
+                          ),
+                        ),
+
+                        SizedBox(width: 10.w,)
+
+                        // delet kora jabe na
+
+                        // delet cora jane na backup
+
+                        // AnimatedButton(
+                        //   height: 45.h,
+                        //   width: 125.w,
+                        //   text: 'STUDENT PROTAL',
+                        //   textStyle: (TextStyle(
+                        //       fontSize: 14,
+                        //       fontFamily: "Poppins",
+                        //       fontWeight: FontWeight.w400,
+                        //       color: Colors.black)),
+                        //   isReverse: true,
+                        //   selectedTextColor: Colors.black,
+                        //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
+                        //   backgroundColor: Color(0xff00DCA8),
+                        //   borderColor: Colors.orangeAccent,
+                        //   borderRadius: 10,
+                        //   borderWidth: 2,
+                        //   onPress: () {},
+                        // ),
+                        // SizedBox(
+                        //   width: 10.w,
+                        // ),
+                        // AnimatedButton(
+                        //   height: 45.h,
+                        //   width: 125.w,
+                        //   text: 'TUTION FEES',
+                        //   textStyle: (TextStyle(
+                        //       fontSize: 14,
+                        //       fontFamily: "Poppins",
+                        //       fontWeight: FontWeight.w400,
+                        //       color: Colors.black)),
+                        //   isReverse: true,
+                        //   selectedTextColor: Colors.black,
+                        //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
+                        //   backgroundColor: Color(0xff00DCA8),
+                        //   borderColor: Colors.orangeAccent,
+                        //   borderRadius: 10,
+                        //   borderWidth: 2,
+                        //   onPress: () {},
+                        // ),
+                        // SizedBox(
+                        //   width: 10.w,
+                        // ),
+                        // AnimatedButton(
+                        //   height: 45.h,
+                        //   width: 125.w,
+                        //   text: 'FACULTY MEMBER',
+                        //   textStyle: (TextStyle(
+                        //       fontSize: 14,
+                        //       fontFamily: "Poppins",
+                        //       fontWeight: FontWeight.w400,
+                        //       color: Colors.black)),
+                        //   isReverse: true,
+                        //   selectedTextColor: Colors.black,
+                        //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
+                        //   backgroundColor: Color(0xff00DCA8),
+                        //   borderColor: Colors.orangeAccent,
+                        //   borderRadius: 10,
+                        //   borderWidth: 2,
+                        //   onPress: () => Get.toNamed('/FacultyProfile'),
+                        // ),
+                        // SizedBox(
+                        //   width: 10,
+                        // ),
+                        // AnimatedButton(
+                        //   height: 45.h,
+                        //   width: 125.w,
+                        //   text: 'ACADEMIC RESULT',
+                        //   textStyle: (TextStyle(
+                        //       fontSize: 14,
+                        //       fontFamily: "Poppins",
+                        //       fontWeight: FontWeight.w400,
+                        //       color: Colors.black)),
+                        //   isReverse: true,
+                        //   selectedTextColor: Colors.black,
+                        //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
+                        //   backgroundColor: Color(0xff00DCA8),
+                        //   borderColor: Colors.orangeAccent,
+                        //   borderRadius: 10,
+                        //   borderWidth: 2,
+                        //   onPress: () {},
+                        // ),
+                        // SizedBox(
+                        //   width: 10.w,
+                        // ),
+                        // AnimatedButton(
+                        //   height: 45.h,
+                        //   width: 125.w,
+                        //   text: 'NU PROTAL',
+                        //   textStyle: (TextStyle(
+                        //       fontSize: 14,
+                        //       fontFamily: "Poppins",
+                        //       fontWeight: FontWeight.w400,
+                        //       color: Colors.black)),
+                        //   isReverse: true,
+                        //   selectedTextColor: Colors.black,
+                        //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
+                        //   backgroundColor: Color(0xff00DCA8),
+                        //   borderColor: Colors.orangeAccent,
+                        //   borderRadius: 10,
+                        //   borderWidth: 2,
+                        //   onPress: () {},
+                        // ),
+                        // SizedBox(
+                        //   width: 10.w,
+                        // ),
+                        // AnimatedButton(
+                        //   height: 45.h,
+                        //   width: 125.w,
+                        //   text: 'DIIT NOTICS',
+                        //   textStyle: (TextStyle(
+                        //       fontSize: 14,
+                        //       fontFamily: "Poppins",
+                        //       fontWeight: FontWeight.w400,
+                        //       color: Colors.black)),
+                        //   isReverse: true,
+                        //   selectedTextColor: Colors.black,
+                        //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
+                        //   backgroundColor: Color(0xff00DCA8),
+                        //   borderColor: Colors.orangeAccent,
+                        //   borderRadius: 10,
+                        //   borderWidth: 2,
+                        //   onPress: () {},
+                        // ),
+
+                        // delet cora jane na backup
+
+
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -425,73 +598,173 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    InkWell(
-                      onTap: () => Get.toNamed('/QuestionBank'),
-                      child: Card(
-                        elevation: 5,
-                        color: Color(0xffF8EFEF),
-                        child: Container(
-                          width: 150.w,
-                          height: 140.h,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                "assets/ic_questionbank.png",
-                                height: 100,
-                                width: 100,
-                              ),
-                              SizedBox(
-                                height: 10.h,
-                              ),
-                              Text(
-                                "Question Bank",
-                                style: TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontSize: 15,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w300),
-                              ),
-                            ],
-                          ),
+
+                    Container(
+                      height: MediaQuery.of(context).size.height/4.6,
+                      width: MediaQuery.of(context).size.width/2.50,
+                      child: NeumorphicButton(
+                        onPressed: ()=> Get.toNamed('/QuestionBank'),
+                        style: NeumorphicStyle(
+                            shape: NeumorphicShape.concave,
+                            boxShape: NeumorphicBoxShape.roundRect(
+                                BorderRadius.circular(12)),
+                            depth: 6,
+                            lightSource: LightSource.topLeft,
+                            color: Colors.white),
+                        child: Column(
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  "assets/ic_questionbank.png",
+                                  height: MediaQuery.of(context).size.height/8.2,
+                                  width: MediaQuery.of(context).size.width/3,
+                                ),
+                                SizedBox(
+                                  height: 10.h,
+                                ),
+                                Text(
+                                  "Question Bank",
+                                  style: TextStyle(
+                                      fontFamily: "Poppins",
+                                      fontSize: 15,
+                                      color: Colors.black54,
+                                      fontWeight: FontWeight.w300),
+                                ),
+                              ],
+                            ),
+
+                          ],
                         ),
                       ),
                     ),
+
+
+                    //delet kora jabe na
+                    // delete kora jabe na ei khane file comment kora
+
+                    // InkWell(
+                    //   onTap: () => Get.toNamed('/QuestionBank'),
+                    //   child: Card(
+                    //     elevation: 5,
+                    //     color: Color(0xffF8EFEF),
+                    //     child: Container(
+                    //       width: 150.w,
+                    //       height: 140.h,
+                    //       child: Column(
+                    //         mainAxisAlignment: MainAxisAlignment.center,
+                    //         children: [
+                    //           Image.asset(
+                    //             "assets/ic_questionbank.png",
+                    //             height: 100,
+                    //             width: 100,
+                    //           ),
+                    //           SizedBox(
+                    //             height: 10.h,
+                    //           ),
+                    //           Text(
+                    //             "Question Bank",
+                    //             style: TextStyle(
+                    //                 fontFamily: "Poppins",
+                    //                 fontSize: 15,
+                    //                 color: Colors.black,
+                    //                 fontWeight: FontWeight.w300),
+                    //           ),
+                    //         ],
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+
+                    // delete kora jabe na ei khane file comment kora
+
+
                     SizedBox(
                       width: 10.h,
                     ),
-                    InkWell(
-                      onTap: () => Get.toNamed('/ClassRoutine'),
-                      child: Card(
-                        elevation: 5,
-                        color: Color(0xffF8EFEF),
-                        child: Container(
-                          width: 150.w,
-                          height: 140.h,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                "assets/ic_routine.png",
-                                height: 100,
-                                width: 100,
-                              ),
-                              SizedBox(
-                                height: 10.h,
-                              ),
-                              Text(
-                                "Class  Routine",
-                                style: TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontSize: 15,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w300),
-                              ),
-                            ],
-                          ),
+
+                    Container(
+                      height: MediaQuery.of(context).size.height/4.6,
+                      width: MediaQuery.of(context).size.width/2.50,
+                      child: NeumorphicButton(
+                        onPressed: () => Get.toNamed('/ClassRoutine'),
+                        style: NeumorphicStyle(
+                            shape: NeumorphicShape.concave,
+                            boxShape: NeumorphicBoxShape.roundRect(
+                                BorderRadius.circular(12)),
+                            depth: 6,
+                            lightSource: LightSource.topLeft,
+                            color: Colors.white),
+                        child: Column(
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  "assets/ic_routine.png",
+                                  height: MediaQuery.of(context).size.height/8.2,
+                                  width: MediaQuery.of(context).size.width/3,
+                                ),
+                                SizedBox(
+                                  height: 10.h,
+                                ),
+                                Text(
+                                  "Class  Routine",
+                                  style: TextStyle(
+                                      fontFamily: "Poppins",
+                                      fontSize: 15,
+                                      color: Colors.black54,
+                                      fontWeight: FontWeight.w300),
+                                ),
+                              ],
+                            ),
+
+
+
+                          ],
                         ),
                       ),
                     ),
+
+                    //delet kora jabe na
+                    //delet kora jabe na
+                    // delete kora jabe na ei khane file comment kora
+                    // InkWell(
+                    //   onTap: () => Get.toNamed('/ClassRoutine'),
+                    //   child: Card(
+                    //     elevation: 5,
+                    //     color: Color(0xffF8EFEF),
+                    //     child: Container(
+                    //       width: 150.w,
+                    //       height: 140.h,
+                    //       child: Column(
+                    //         mainAxisAlignment: MainAxisAlignment.center,
+                    //         children: [
+                    //           Image.asset(
+                    //             "assets/ic_routine.png",
+                    //             height: 100,
+                    //             width: 100,
+                    //           ),
+                    //           SizedBox(
+                    //             height: 10.h,
+                    //           ),
+                    //           Text(
+                    //             "Class  Routine",
+                    //             style: TextStyle(
+                    //                 fontFamily: "Poppins",
+                    //                 fontSize: 15,
+                    //                 color: Colors.black,
+                    //                 fontWeight: FontWeight.w300),
+                    //           ),
+                    //         ],
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+                    // delete kora jabe na ei khane file comment kora
+
+
                   ],
                 ),
                 SizedBox(
