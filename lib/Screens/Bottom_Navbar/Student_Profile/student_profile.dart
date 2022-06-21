@@ -40,8 +40,8 @@ class _StudentProfileState extends State<StudentProfile> {
           scrollDirection: Axis.vertical,
           child: Column(children: [
             GlassContainer(
-              height: 160,
-              width: 400,
+              height: MediaQuery.of(context).size.height/5,
+              width: MediaQuery.of(context).size.width,
               gradient: LinearGradient(
                 colors: [
                   Colors.white70.withOpacity(0.35),
@@ -68,13 +68,11 @@ class _StudentProfileState extends State<StudentProfile> {
               shadowColor: Colors.white.withOpacity(0.20),
               alignment: Alignment.center,
               frostedOpacity: 0.12,
-              margin: EdgeInsets.all(8.0),
-              padding: EdgeInsets.all(8.0),
               child: Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Container(
                   child: Container(
-                    height: 150,
+                    height: MediaQuery.of(context).size.height/5,
                     width: double.infinity,
                     child: Padding(
                       padding: const EdgeInsets.only(top: 5, bottom: 10),
@@ -174,9 +172,10 @@ class _StudentProfileState extends State<StudentProfile> {
                 ),
               ),
             ),
+            SizedBox(height: 15,),
             GlassContainer(
-              height: 450,
-              width: 400,
+              height: MediaQuery.of(context).size.height/2,
+              width: MediaQuery.of(context).size.width,
               gradient: LinearGradient(
                 colors: [
                   Colors.white.withOpacity(0.35),
@@ -202,8 +201,7 @@ class _StudentProfileState extends State<StudentProfile> {
               shadowColor: Colors.black.withOpacity(0.20),
               alignment: Alignment.center,
               frostedOpacity: 0.12,
-              margin: EdgeInsets.all(8.0),
-              padding: EdgeInsets.all(8.0),
+
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -249,8 +247,8 @@ class _StudentProfileState extends State<StudentProfile> {
                         ),
                         Container(
                           alignment: Alignment.centerLeft,
-                          height: 40,
-                          width: 110,
+                          height: MediaQuery.of(context).size.height/18,
+                          width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
                             color: Colors.black12,
@@ -286,8 +284,8 @@ class _StudentProfileState extends State<StudentProfile> {
                               ),
                               Container(
                                   alignment: Alignment.center,
-                                  height: 30,
-                                  width: 80,
+                                  height: MediaQuery.of(context).size.height/22,
+                                  width: MediaQuery.of(context).size.width/4.2,
                                   decoration: BoxDecoration(
                                       color: Colors.orange,
                                       borderRadius: BorderRadius.circular(5)),
@@ -303,8 +301,8 @@ class _StudentProfileState extends State<StudentProfile> {
                               ),
                               Container(
                                 alignment: Alignment.center,
-                                height: 30,
-                                width: 80,
+                                height: MediaQuery.of(context).size.height/22,
+                                width: MediaQuery.of(context).size.width/4.2,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(8),
@@ -329,8 +327,8 @@ class _StudentProfileState extends State<StudentProfile> {
                               ),
                               Container(
                                   alignment: Alignment.center,
-                                  height: 30,
-                                  width: 80,
+                                  height: MediaQuery.of(context).size.height/22,
+                                  width: MediaQuery.of(context).size.width/4.2,
                                   decoration: BoxDecoration(
                                       color: Colors.orange,
                                       borderRadius: BorderRadius.circular(5)),
@@ -346,8 +344,8 @@ class _StudentProfileState extends State<StudentProfile> {
                               ),
                               Container(
                                 alignment: Alignment.center,
-                                height: 30,
-                                width: 80,
+                                height: MediaQuery.of(context).size.height/22,
+                                width: MediaQuery.of(context).size.width/4.2,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(8),
@@ -372,8 +370,8 @@ class _StudentProfileState extends State<StudentProfile> {
                               ),
                               Container(
                                   alignment: Alignment.center,
-                                  height: 30,
-                                  width: 80,
+                                  height: MediaQuery.of(context).size.height/22,
+                                  width: MediaQuery.of(context).size.width/4.2,
                                   decoration: BoxDecoration(
                                       color: Colors.orange,
                                       borderRadius: BorderRadius.circular(5)),
@@ -389,8 +387,8 @@ class _StudentProfileState extends State<StudentProfile> {
                               ),
                               Container(
                                 alignment: Alignment.center,
-                                height: 30,
-                                width: 80,
+                                height: MediaQuery.of(context).size.height/22,
+                                width: MediaQuery.of(context).size.width/4.2,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(8),
@@ -414,7 +412,7 @@ class _StudentProfileState extends State<StudentProfile> {
                     thickness: 1,
                   ),
                   Container(
-                    height: 30,
+                    height: MediaQuery.of(context).size.height/22,
                     width: double.infinity,
                     child: InkWell(
                       onTap: () {},
@@ -440,7 +438,7 @@ class _StudentProfileState extends State<StudentProfile> {
                     thickness: 1,
                   ),
                   Container(
-                    height: 30,
+                    height: MediaQuery.of(context).size.height/22,
                     width: double.infinity,
                     child: InkWell(
                       onTap: () {},
@@ -466,7 +464,7 @@ class _StudentProfileState extends State<StudentProfile> {
                     thickness: 1,
                   ),
                   Container(
-                    height: 30,
+                    height: MediaQuery.of(context).size.height/22,
                     width: double.infinity,
                     child: InkWell(
                       onTap: () {},

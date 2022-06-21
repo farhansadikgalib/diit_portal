@@ -1,3 +1,4 @@
+
 import 'package:diit_portal/Screens/AuthScreen/ForgetPassPage.dart';
 import 'package:diit_portal/Screens/AuthScreen/LoginPage.dart';
 import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Attendance/Student_attendance_view/student_attendance_detailes.dart';
@@ -112,6 +113,7 @@ class MyApp extends StatelessWidget {
           ],
           theme: ThemeData(
             primarySwatch: Colors.orange,
+
           ),
           debugShowCheckedModeBanner: false,
         );

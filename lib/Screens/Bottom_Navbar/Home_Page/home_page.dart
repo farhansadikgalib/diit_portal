@@ -1,7 +1,7 @@
 import 'package:diit_portal/Screens/Weather/data_service.dart';
 import 'package:diit_portal/Screens/Weather/weather_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animated_button/flutter_animated_button.dart';
+
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -51,6 +51,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: SafeArea(
@@ -66,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                         color: Color(0xff00DCA8),
                         borderRadius:
                             BorderRadius.only(topLeft: Radius.circular(5))),
-                    height: 125.h,
+                    height:MediaQuery.of(context).size.height/5,
                     width: double.maxFinite,
                     child: Row(
                       children: <Widget>[
@@ -191,7 +192,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   Padding(
                                     padding:
-                                        const EdgeInsets.only(top: 8, left: 15),
+                                        const EdgeInsets.only(top: 8, left: 11),
                                     child: Text(
                                       '${todaysDate}',
                                       style: TextStyle(

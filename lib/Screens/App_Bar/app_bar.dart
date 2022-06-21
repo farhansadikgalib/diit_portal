@@ -9,15 +9,7 @@ final AppBar AppBarString = AppBar(
     highlightColor: Colors.black54,
     child: Column(
       children: [
-// Text(
-//   'DIIT',
-//   textAlign: TextAlign.center,
-//   style: TextStyle(
-//     fontSize: 22.0,
-//     fontFamily: "Baloo",
-//     fontWeight: FontWeight.bold,
-//   ),
-// ),
+
         Text(
           'Daffodil Institute of IT',
           textAlign: TextAlign.center,
