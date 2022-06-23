@@ -131,6 +131,10 @@ dependencies:
   onesignal_flutter: ^3.3.1
   #Notification System
 
+  #WebView
+  flutter_inappwebview: ^5.3.2
+  webview_cookie_manager: ^2.0.6
+  #WebView
 
 
 flutter_icons:
