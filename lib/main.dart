@@ -11,13 +11,14 @@ import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takea
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/Cse/cse_routine.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/class_routine.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Faculty_member/Faculty_Member.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/NU_Portal/screens/NU_Portal.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/dept_bba/bba_question.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/dept_bthm/bthm_question.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/dept_cse/cse_question.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/dept_mba/mba_question.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/pdf_view.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/question_bank.dart';
-import 'package:diit_portal/Screens/Dashboard/Home_Page/home_page.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/HomePage.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/quick_pay/QuickPayment.dart';
 
 import 'package:diit_portal/Screens/Dashboard/Bottom_NavBar.dart';
@@ -96,6 +97,7 @@ class MyApp extends StatelessWidget {
             GetPage(name: '/FacultyProfile', page: ()=>FacultyProfile()),
             GetPage(name: '/QuickPayment', page: ()=>QuickPayment()),
             GetPage(name: '/CSERoutine', page: ()=>CSERoutine()),
+            GetPage(name: '/NU_Portal', page: ()=>NU_Portal()),
             // question pdf //
             GetPage(name: '/pdf_viewPage', page: ()=> pdf_viewPage()),
 

@@ -52,6 +52,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
 
+
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: SafeArea(
@@ -409,7 +410,7 @@ class _HomePageState extends State<HomePage> {
                           width: MediaQuery.of(context).size.width/2.30,
                           child: NeumorphicButton(
                             onPressed: () {
-                              print('neumorphic Btn');
+                              Get.toNamed('/NU_Portal');
                             },
                             style: NeumorphicStyle(
                                 shape: NeumorphicShape.concave,

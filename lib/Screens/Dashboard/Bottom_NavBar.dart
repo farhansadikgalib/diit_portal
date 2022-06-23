@@ -2,7 +2,7 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:diit_portal/Screens/Dashboard/Notification/Notification.dart';
 import 'package:diit_portal/Screens/Dashboard/Student_Dashboard/student_dashboard.dart';
-import 'package:diit_portal/Screens/Dashboard/Home_Page/home_page.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/HomePage.dart';
 import 'package:diit_portal/Screens/Dashboard/Student_Profile/student_profile.dart';
 import 'package:flutter/material.dart';
 import '../App_Bar/app_bar.dart';
