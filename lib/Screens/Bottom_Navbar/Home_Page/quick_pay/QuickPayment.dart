@@ -10,7 +10,7 @@ class QuickPayment extends StatefulWidget {
 }
 
 class _QuickPaymentState extends State<QuickPayment> {
-late   var _razorpay;
+  late var _razorpay;
   var amountController = TextEditingController();
 
   @override
