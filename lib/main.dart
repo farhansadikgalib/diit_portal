@@ -1,30 +1,30 @@
 
 import 'package:diit_portal/Screens/AuthScreen/ForgetPassPage.dart';
 import 'package:diit_portal/Screens/AuthScreen/LoginPage.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Attendance/Student_attendance_view/student_attendance_detailes.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Attendance/Student_attendance_view/student_attendanceview_login.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Attendance/Student_attendance_view/student_course_%20attendanceview.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Attendance/Teacher_takeattendance/course_selecta_attendence.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Attendance/Teacher_takeattendance/studentname_attendencelist.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Attendance/Teacher_takeattendance/take&show_attendence.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Attendance/Teacher_takeattendance/teacher_attendance.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Attendance/Teacher_takeattendance/teacher_deshboard.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Class_routine/Cse/cse_routine.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Class_routine/class_routine.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Faculty_member/Faculty_Member.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Question_bank/dept_bba/bba_question.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Question_bank/dept_bthm/bthm_question.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Question_bank/dept_cse/cse_question.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Question_bank/dept_mba/mba_question.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Question_bank/pdf_view.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Question_bank/question_bank.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/quick_pay/QuickPayment.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Notification/Notification.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Student_Dashboard/dashboard.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Bottom_NavBar.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/home_page.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Student_Profile/student_profile.dart';
-import 'package:diit_portal/Screens/Dashboard/Dashboard.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Student_attendance_view/student_attendance_detailes.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Student_attendance_view/student_course_%20attendanceview.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/course_selecta_attendence.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/studentname_attendencelist.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/take&show_attendence.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/teacher_attendance.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/teacher_deshboard.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/Cse/cse_routine.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/class_routine.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Faculty_member/Faculty_Member.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/dept_bba/bba_question.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/dept_bthm/bthm_question.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/dept_cse/cse_question.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/dept_mba/mba_question.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/pdf_view.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/question_bank.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/home_page.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/quick_pay/QuickPayment.dart';
+
+import 'package:diit_portal/Screens/Dashboard/Bottom_NavBar.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Student_attendance_view/student_attendanceview_login.dart';
+import 'package:diit_portal/Screens/Dashboard/Notification/Notification.dart';
+import 'package:diit_portal/Screens/Dashboard/Student_Dashboard/student_dashboard.dart';
+import 'package:diit_portal/Screens/Dashboard/Student_Profile/student_profile.dart';
 import 'package:diit_portal/Screens/QuestionBank/QuestionBank.dart';
 import 'package:diit_portal/Screens/SplashScreen/SplashScreen.dart';
 import 'package:diit_portal/Screens/SplashScreen/SplashScreenBinding.dart';
@@ -33,6 +33,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+
 
 
 void main() async {
@@ -71,7 +72,7 @@ class MyApp extends StatelessWidget {
 
 
             // navigation bar //
-            GetPage(name: '/BottlomNavegatonBar', page: () => BottlomNavegatonBar()),
+            // GetPage(name: '/BottlomNavegatonBar', page: () => Dashboard()),
             // home page //
             GetPage(name: '/HomePage', page: () => HomePage()),
             // question bank cse,bba,bthm, //

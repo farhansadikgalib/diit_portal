@@ -109,11 +109,9 @@ dependencies:
   dio: ^4.0.6
   open_file: ^3.2.1
   file_picker: ^4.6.0
-  flutter_pdfview: ^1.2.2
 
-  #  flutter_cached_pdfview: ^0.4.1
+  syncfusion_flutter_pdfviewer: ^19.4.56-beta
 
-#  syncfusion_flutter_pdfviewer: ^20.1.59-beta
 
 
 #  flutter_document_picker: ^5.1.0

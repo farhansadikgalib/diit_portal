@@ -39,7 +39,7 @@ class LoginPage extends StatelessWidget {
                     children: <Widget>[
                       ElevatedButton(
                           onPressed: () {
-                            Get.offAndToNamed('/BottlomNavegatonBar');
+                            Get.offAndToNamed('/DashBoard');
                           },
                           child: Text("Bypass Button")),
 
