@@ -18,7 +18,7 @@ import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Question_bank/dept_c
 import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Question_bank/dept_mba/mba_question.dart';
 import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Question_bank/pdf_view.dart';
 import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/Question_bank/question_bank.dart';
-import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/quick_pay/Quick_pay.dart';
+import 'package:diit_portal/Screens/Bottom_Navbar/Home_Page/quick_pay/QuickPayment.dart';
 import 'package:diit_portal/Screens/Bottom_Navbar/Notification/Notification.dart';
 import 'package:diit_portal/Screens/Bottom_Navbar/Student_Dashboard/dashboard.dart';
 import 'package:diit_portal/Screens/Bottom_Navbar/Bottom_NavBar.dart';
