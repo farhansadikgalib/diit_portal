@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 50.w,
+                                    width: 45.w,
                                   ),
                                   Padding(
                                     padding:
@@ -131,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 50.w,
+                                    width: 45.w,
                                   ),
                                   Padding(
                                     padding:
@@ -160,7 +160,7 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 32.h,
+                                    width: 30.h,
                                   ),
                                   Padding(
                                     padding:
@@ -189,7 +189,7 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 8.w,
+                                    width: 5.w,
                                   ),
                                   Padding(
                                     padding:
