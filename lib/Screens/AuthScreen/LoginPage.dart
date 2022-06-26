@@ -1,13 +1,47 @@
+import 'package:diit_portal/Screens/Dashboard/Home_Page/HomePage.dart';
 import 'package:diit_portal/services/firebaseServices.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   var formkey = GlobalKey<FormState>();
   var emailCtrl = TextEditingController();
   var passwordCtrl = TextEditingController();
+
+  SharedPreferences? logindata;
+  bool? newuser;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    check_if_already_login();
+  }
+
+
+  void check_if_already_login() async {
+    logindata = await SharedPreferences.getInstance();
+    newuser = (logindata!.getBool('login') ?? true);
+    print(newuser);
+    if (newuser == false) {
+      Get.toNamed('/DashBoard');
+    }
+  }
+
+
+  @override
+  void dispose() {
+    emailCtrl.dispose();
+    passwordCtrl.dispose();
+    super.dispose();
+  }
 
   handleSubmit() {
     if (formkey.currentState!.validate()) {
@@ -23,13 +57,6 @@ class LoginPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // IconButton(
-          //     onPressed: () {
-          //       Get.toNamed('/QuestionBankx');
-          //     },
-          //     icon: Icon(
-          //       Icons.multiple_stop_outlined,
-          //     )),
           Container(
             child: Form(
                 key: formkey,
@@ -42,7 +69,6 @@ class LoginPage extends StatelessWidget {
                             Get.offAndToNamed('/DashBoard');
                           },
                           child: Text("Bypass Button")),
-
                       Image.asset(
                         "assets/portallogo.png",
                         height: 150,
@@ -137,8 +163,12 @@ class LoginPage extends StatelessWidget {
                               User? result = await FirebaseServices()
                                   .login(emailCtrl.text, passwordCtrl.text);
                               if (result != null) {
+                                logindata!.setBool('login', true);
+                                logindata!.setString('username', emailCtrl.text);
+
+
                                 print(result.email);
-                                Get.offAndToNamed('/BottlomNavegatonBar');
+                                Get.offAndToNamed('/HomePage');
                               }
                             }
                           },

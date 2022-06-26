@@ -165,13 +165,13 @@ class _HomePageState extends State<HomePage> {
                                   Padding(
                                     padding:
                                         const EdgeInsets.only(top: 8, left: 15),
-                                    child: Text(
-                                      "${(((_response!.tempInfo.temperature - 32) * 5) / 9).ceil()}° C",
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        fontFamily: 'Poppins',
-                                      ),
-                                    ),
+                                    // child: Text(
+                                    //   "${(((_response!.tempInfo.temperature - 32) * 5) / 9).ceil()}° C",
+                                    //   style: TextStyle(
+                                    //     fontSize: 15,
+                                    //     fontFamily: 'Poppins',
+                                    //   ),
+                                    // ),
                                   ),
                                 ],
                               ),
@@ -210,9 +210,9 @@ class _HomePageState extends State<HomePage> {
                         Expanded(
                           flex: 1,
                           child: Container(
-                            child: Image.network(
-                              _response!.iconUrl,
-                            ),
+                            // child: Image.network(
+                            //   _response!.iconUrl,
+                            // ),
                           ),
                         )
                       ],

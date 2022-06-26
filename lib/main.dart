@@ -9,7 +9,8 @@ import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takea
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/teacher_attendance.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/teacher_deshboard.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/Cse/cse_routine.dart';
-import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/class_routine.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/Routine_View.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/Class_Routine.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Faculty_member/Faculty_Member.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/NU_Portal/screens/NU_Portal.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/dept_bba/bba_question.dart';
@@ -21,7 +22,7 @@ import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/question_b
 import 'package:diit_portal/Screens/Dashboard/Home_Page/HomePage.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/quick_pay/QuickPayment.dart';
 
-import 'package:diit_portal/Screens/Dashboard/Bottom_NavBar.dart';
+import 'package:diit_portal/Screens/Dashboard/Dashboard.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Student_attendance_view/student_attendanceview_login.dart';
 import 'package:diit_portal/Screens/Dashboard/Notification/Notification.dart';
 import 'package:diit_portal/Screens/Dashboard/Student_Dashboard/student_dashboard.dart';
@@ -86,6 +87,7 @@ class MyApp extends StatelessWidget {
 
             // Class Routine start //
             GetPage(name: '/ClassRoutine', page: ()=>ClassRoutine()),
+            GetPage(name: '/ClassRoutineViewer', page: ()=>ClassRoutineViewer()),
             //class Routine close //
 
             // home page close //

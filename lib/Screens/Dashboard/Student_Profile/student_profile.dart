@@ -1,4 +1,5 @@
 import 'package:dropdown_button2/custom_dropdown_button2.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:glass_kit/glass_kit.dart';
@@ -11,7 +12,15 @@ class StudentProfile extends StatefulWidget {
 }
 
 class _StudentProfileState extends State<StudentProfile> {
-  final List<String> Batch = [
+
+
+  Future _signOut() async {
+    await FirebaseAuth.instance.signOut();
+    Get.toNamed('/LoginPage');
+  }
+
+
+    final List<String> Batch = [
     '17th Batch',
     '18th Batch',
     '19th Batch',
@@ -467,7 +476,9 @@ class _StudentProfileState extends State<StudentProfile> {
                     height: MediaQuery.of(context).size.height/22,
                     width: double.infinity,
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () async{
+                          _signOut();
+                      },
                       child: Padding(
                         padding: const EdgeInsets.only(left: 10, right: 10),
                         child: Row(
@@ -496,3 +507,4 @@ class _StudentProfileState extends State<StudentProfile> {
         )));
   }
 }
+
