@@ -12,9 +12,13 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+
   var formkey = GlobalKey<FormState>();
   var emailCtrl = TextEditingController();
   var passwordCtrl = TextEditingController();
+
+
 
   SharedPreferences? logindata;
   bool? newuser;
@@ -26,12 +30,14 @@ class _LoginPageState extends State<LoginPage> {
   }
 
 
-  void check_if_already_login() async {
+   check_if_already_login() async {
     logindata = await SharedPreferences.getInstance();
     newuser = (logindata!.getBool('login') ?? true);
     print(newuser);
     if (newuser == false) {
-      Get.toNamed('/DashBoard');
+      Get.offAndToNamed('/DashBoard');
+    // }else if(newuser == true){
+    //   logindata.remove('')
     }
   }
 
@@ -40,6 +46,7 @@ class _LoginPageState extends State<LoginPage> {
   void dispose() {
     emailCtrl.dispose();
     passwordCtrl.dispose();
+
     super.dispose();
   }
 
@@ -64,11 +71,11 @@ class _LoginPageState extends State<LoginPage> {
                   padding: const EdgeInsets.only(left: 50.0, right: 50),
                   child: Column(
                     children: <Widget>[
-                      ElevatedButton(
-                          onPressed: () {
-                            Get.offAndToNamed('/DashBoard');
-                          },
-                          child: Text("Bypass Button")),
+                      // ElevatedButton(
+                      //     onPressed: () {
+                      //       Get.offAndToNamed('/DashBoard');
+                      //     },
+                      //     child: Text("Bypass Button")),
                       Image.asset(
                         "assets/portallogo.png",
                         height: 150,
@@ -163,12 +170,10 @@ class _LoginPageState extends State<LoginPage> {
                               User? result = await FirebaseServices()
                                   .login(emailCtrl.text, passwordCtrl.text);
                               if (result != null) {
-                                logindata!.setBool('login', true);
+                                logindata!.setBool('login', false);
                                 logindata!.setString('username', emailCtrl.text);
-
-
                                 print(result.email);
-                                Get.offAndToNamed('/HomePage');
+                                Get.offAndToNamed('/DashBoard');
                               }
                             }
                           },

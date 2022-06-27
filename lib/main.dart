@@ -27,7 +27,6 @@ import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Student_atten
 import 'package:diit_portal/Screens/Dashboard/Notification/Notification.dart';
 import 'package:diit_portal/Screens/Dashboard/Student_Dashboard/student_dashboard.dart';
 import 'package:diit_portal/Screens/Dashboard/Student_Profile/student_profile.dart';
-import 'package:diit_portal/Screens/QuestionBank/QuestionBank.dart';
 import 'package:diit_portal/Screens/SplashScreen/SplashScreen.dart';
 import 'package:diit_portal/Screens/SplashScreen/SplashScreenBinding.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -70,7 +69,6 @@ class MyApp extends StatelessWidget {
             GetPage(name: '/LoginPage', page: ()=>LoginPage()),
             GetPage(name: '/ForgetPassPage', page: ()=>ForgetPassPage()),
             GetPage(name: '/DashBoard', page: () => Dashboard()),
-            GetPage(name: '/QuestionBankx', page: ()=> QuestionBankX()),
 
 
             // navigation bar //

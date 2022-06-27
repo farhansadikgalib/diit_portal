@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:glass_kit/glass_kit.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 // import 'package:glass_kit/glass_kit.dart';
 
@@ -13,14 +14,32 @@ class StudentProfile extends StatefulWidget {
 
 class _StudentProfileState extends State<StudentProfile> {
 
+  late SharedPreferences logindata;
+  late String username;
 
   Future _signOut() async {
     await FirebaseAuth.instance.signOut();
-    Get.toNamed('/LoginPage');
+    logindata.setBool('login', true);
+    Get.offAndToNamed('/LoginPage');
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    initial();
+  }
+
+  void initial() async {
+    logindata = await SharedPreferences.getInstance();
+    setState(() {
+      username = logindata.getString('username')!;
+    });
   }
 
 
-    final List<String> Batch = [
+
+
+  final List<String> Batch = [
     '17th Batch',
     '18th Batch',
     '19th Batch',
@@ -476,9 +495,8 @@ class _StudentProfileState extends State<StudentProfile> {
                     height: MediaQuery.of(context).size.height/22,
                     width: double.infinity,
                     child: InkWell(
-                      onTap: () async{
-                          _signOut();
-                      },
+                      onTap: ()=>
+                          _signOut(),
                       child: Padding(
                         padding: const EdgeInsets.only(left: 10, right: 10),
                         child: Row(
