@@ -67,6 +67,11 @@ dependencies:
   fluttertoast: ^8.0.9
 
 
+   #expandable
+  expandable: ^5.0.1
+  #expandable
+
+
 
   #get widget
   getwidget: ^2.0.5
@@ -113,6 +118,9 @@ dependencies:
 
   syncfusion_flutter_pdfviewer: ^19.4.56-beta
 
+  #cached_network_image
+  cached_network_image:
+  #cached_network_image
 
 
 #  flutter_document_picker: ^5.1.0

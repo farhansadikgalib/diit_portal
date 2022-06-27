@@ -53,7 +53,7 @@ class CSERoutine extends StatelessWidget {
                             children: [
                               Text(
                                 // "${data['1st Semester']}"
-                                '1st Semester' ,
+                                '17th Batch' ,
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 18,
@@ -106,7 +106,383 @@ class CSERoutine extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                '2nd Semester' ,
+                                '18th Batch' ,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                    fontFamily: 'Baloo'),
+                              ),
+                              GFButton(
+                                size: 50,
+                                color: Colors.green,
+                                onPressed: () {
+                                  var first= data['2nd Semester'];
+                                  print(first);
+                                  Get.toNamed('/pdf_viewPage',arguments: [first]);
+                                },
+                                text: "View",
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                    fontFamily: 'Baloo'),
+                                position: GFPosition.end,
+                                icon: Icon(
+                                  Icons.arrow_downward_outlined,
+                                  size: 22,
+                                  color: Colors.white,
+                                ),
+                                type: GFButtonType.solid,
+                                shape: GFButtonShape.standard,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    Card(
+                      elevation: 3,
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        height: 75,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          border: Border(
+                            top: BorderSide(color: Colors.orange, width: 4),
+                            left: BorderSide(color: Colors.orange, width: 4),
+                            right: BorderSide(color: Colors.orange, width: 4),
+                            bottom: BorderSide(color: Colors.orange, width: 4),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                '19th Batch' ,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                    fontFamily: 'Baloo'),
+                              ),
+                              GFButton(
+                                size: 50,
+                                color: Colors.green,
+                                onPressed: () {
+                                  var first= data['2nd Semester'];
+                                  print(first);
+                                  Get.toNamed('/pdf_viewPage',arguments: [first]);
+                                },
+                                text: "View",
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                    fontFamily: 'Baloo'),
+                                position: GFPosition.end,
+                                icon: Icon(
+                                  Icons.arrow_downward_outlined,
+                                  size: 22,
+                                  color: Colors.white,
+                                ),
+                                type: GFButtonType.solid,
+                                shape: GFButtonShape.standard,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    Card(
+                      elevation: 3,
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        height: 75,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          border: Border(
+                            top: BorderSide(color: Colors.orange, width: 4),
+                            left: BorderSide(color: Colors.orange, width: 4),
+                            right: BorderSide(color: Colors.orange, width: 4),
+                            bottom: BorderSide(color: Colors.orange, width: 4),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                '20th Batch' ,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                    fontFamily: 'Baloo'),
+                              ),
+                              GFButton(
+                                size: 50,
+                                color: Colors.green,
+                                onPressed: () {
+                                  var first= data['2nd Semester'];
+                                  print(first);
+                                  Get.toNamed('/pdf_viewPage',arguments: [first]);
+                                },
+                                text: "View",
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                    fontFamily: 'Baloo'),
+                                position: GFPosition.end,
+                                icon: Icon(
+                                  Icons.arrow_downward_outlined,
+                                  size: 22,
+                                  color: Colors.white,
+                                ),
+                                type: GFButtonType.solid,
+                                shape: GFButtonShape.standard,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    Card(
+                      elevation: 3,
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        height: 75,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          border: Border(
+                            top: BorderSide(color: Colors.orange, width: 4),
+                            left: BorderSide(color: Colors.orange, width: 4),
+                            right: BorderSide(color: Colors.orange, width: 4),
+                            bottom: BorderSide(color: Colors.orange, width: 4),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                '21th Batch' ,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                    fontFamily: 'Baloo'),
+                              ),
+                              GFButton(
+                                size: 50,
+                                color: Colors.green,
+                                onPressed: () {
+                                  var first= data['2nd Semester'];
+                                  print(first);
+                                  Get.toNamed('/pdf_viewPage',arguments: [first]);
+                                },
+                                text: "View",
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                    fontFamily: 'Baloo'),
+                                position: GFPosition.end,
+                                icon: Icon(
+                                  Icons.arrow_downward_outlined,
+                                  size: 22,
+                                  color: Colors.white,
+                                ),
+                                type: GFButtonType.solid,
+                                shape: GFButtonShape.standard,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    Card(
+                      elevation: 3,
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        height: 75,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          border: Border(
+                            top: BorderSide(color: Colors.orange, width: 4),
+                            left: BorderSide(color: Colors.orange, width: 4),
+                            right: BorderSide(color: Colors.orange, width: 4),
+                            bottom: BorderSide(color: Colors.orange, width: 4),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                '22th Batch' ,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                    fontFamily: 'Baloo'),
+                              ),
+                              GFButton(
+                                size: 50,
+                                color: Colors.green,
+                                onPressed: () {
+                                  var first= data['2nd Semester'];
+                                  print(first);
+                                  Get.toNamed('/pdf_viewPage',arguments: [first]);
+                                },
+                                text: "View",
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                    fontFamily: 'Baloo'),
+                                position: GFPosition.end,
+                                icon: Icon(
+                                  Icons.arrow_downward_outlined,
+                                  size: 22,
+                                  color: Colors.white,
+                                ),
+                                type: GFButtonType.solid,
+                                shape: GFButtonShape.standard,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    Card(
+                      elevation: 3,
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        height: 75,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          border: Border(
+                            top: BorderSide(color: Colors.orange, width: 4),
+                            left: BorderSide(color: Colors.orange, width: 4),
+                            right: BorderSide(color: Colors.orange, width: 4),
+                            bottom: BorderSide(color: Colors.orange, width: 4),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                '23th Batch' ,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                    fontFamily: 'Baloo'),
+                              ),
+                              GFButton(
+                                size: 50,
+                                color: Colors.green,
+                                onPressed: () {
+                                  var first= data['2nd Semester'];
+                                  print(first);
+                                  Get.toNamed('/pdf_viewPage',arguments: [first]);
+                                },
+                                text: "View",
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                    fontFamily: 'Baloo'),
+                                position: GFPosition.end,
+                                icon: Icon(
+                                  Icons.arrow_downward_outlined,
+                                  size: 22,
+                                  color: Colors.white,
+                                ),
+                                type: GFButtonType.solid,
+                                shape: GFButtonShape.standard,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Card(
+                      elevation: 3,
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        height: 75,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          border: Border(
+                            top: BorderSide(color: Colors.orange, width: 4),
+                            left: BorderSide(color: Colors.orange, width: 4),
+                            right: BorderSide(color: Colors.orange, width: 4),
+                            bottom: BorderSide(color: Colors.orange, width: 4),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                '24th Batch' ,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                    fontFamily: 'Baloo'),
+                              ),
+                              GFButton(
+                                size: 50,
+                                color: Colors.green,
+                                onPressed: () {
+                                  var first= data['2nd Semester'];
+                                  print(first);
+                                  Get.toNamed('/pdf_viewPage',arguments: [first]);
+                                },
+                                text: "View",
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                    fontFamily: 'Baloo'),
+                                position: GFPosition.end,
+                                icon: Icon(
+                                  Icons.arrow_downward_outlined,
+                                  size: 22,
+                                  color: Colors.white,
+                                ),
+                                type: GFButtonType.solid,
+                                shape: GFButtonShape.standard,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Card(
+                      elevation: 3,
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        height: 75,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          border: Border(
+                            top: BorderSide(color: Colors.orange, width: 4),
+                            left: BorderSide(color: Colors.orange, width: 4),
+                            right: BorderSide(color: Colors.orange, width: 4),
+                            bottom: BorderSide(color: Colors.orange, width: 4),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                '25th Batch' ,
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 18,
