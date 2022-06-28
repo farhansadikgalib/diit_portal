@@ -68,10 +68,11 @@ dependencies:
 
 
    #expandable
-  expandable: ^5.0.1
+  flutter_expandable: ^1.0.0
   #expandable
-
-
+  # flutter_tab
+  flutter_colorful_tab: ^0.1.0
+  #flutter_tab
 
   #get widget
   getwidget: ^2.0.5
