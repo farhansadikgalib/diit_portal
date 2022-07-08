@@ -1,7 +1,4 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:diit_portal/Screens/App_Bar/app_bar.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_glow/flutter_glow.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 
@@ -17,7 +14,7 @@ class QuestionBank extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.topCenter,
-              child: DefaultTextStyle(
+              child: const DefaultTextStyle(
                   style: TextStyle(
                       fontSize: 22.0,
                       color: Colors.black,
@@ -67,7 +64,7 @@ class QuestionBank extends StatelessWidget {
                   //   ),
                   // ),
 
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height/4.6,
                     width: MediaQuery.of(context).size.width/2.50,
                     child: NeumorphicButton(
@@ -89,7 +86,7 @@ class QuestionBank extends StatelessWidget {
                                 height: MediaQuery.of(context).size.height/8.2,
                                 width: MediaQuery.of(context).size.width/3,
                               ),
-                              Text(
+                              const Text(
                                 'CSE',
                                 style: TextStyle(
                                     fontSize: 25,
@@ -106,7 +103,7 @@ class QuestionBank extends StatelessWidget {
                     ),
                   ),
 
-                  SizedBox(width: 18,),
+                  const SizedBox(width: 18,),
 
                   // Card(
                   //   elevation: 3,
@@ -135,7 +132,7 @@ class QuestionBank extends StatelessWidget {
                   //     ),
                   //   ),
                   // ),
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height/4.6,
                     width: MediaQuery.of(context).size.width/2.50,
                     child: NeumorphicButton(
@@ -157,7 +154,7 @@ class QuestionBank extends StatelessWidget {
                                 height: MediaQuery.of(context).size.height/8.2,
                                 width: MediaQuery.of(context).size.width/3,
                               ),
-                              Text(
+                              const Text(
                                 'BBA',
                                 style: TextStyle(
                                     fontSize: 25,
@@ -210,7 +207,7 @@ class QuestionBank extends StatelessWidget {
                   //   ),
                   // ),
 
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height/4.6,
                     width: MediaQuery.of(context).size.width/2.50,
                     child: NeumorphicButton(
@@ -232,7 +229,7 @@ class QuestionBank extends StatelessWidget {
                                 height: MediaQuery.of(context).size.height/8.2,
                                 width: MediaQuery.of(context).size.width/3,
                               ),
-                              Text(
+                              const Text(
                                 'BTHM',
                                 style: TextStyle(
                                     fontSize: 25,
@@ -249,9 +246,9 @@ class QuestionBank extends StatelessWidget {
                     ),
                   ),
 
-                  SizedBox(width: 18,),
+                  const SizedBox(width: 18,),
 
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height/4.6,
                     width: MediaQuery.of(context).size.width/2.50,
                     child: NeumorphicButton(
@@ -273,7 +270,7 @@ class QuestionBank extends StatelessWidget {
                                 height: MediaQuery.of(context).size.height/8.2,
                                 width: MediaQuery.of(context).size.width/3,
                               ),
-                              Text(
+                              const Text(
                                 'MBA',
                                 style: TextStyle(
                                     fontSize: 25,

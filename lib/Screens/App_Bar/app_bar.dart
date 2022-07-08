@@ -8,7 +8,7 @@ final AppBar AppBarString = AppBar(
     baseColor: Colors.white,
     highlightColor: Colors.black54,
     child: Column(
-      children: [
+      children: const [
 
         Text(
           'Daffodil Institute of IT',
@@ -22,7 +22,7 @@ final AppBar AppBarString = AppBar(
       ],
     ),
   ),
-  backgroundColor: Color.fromRGBO(1, 60, 88, 1),
+  backgroundColor: const Color.fromRGBO(1, 60, 88, 1),
   centerTitle: true,
   automaticallyImplyLeading: false,
 );

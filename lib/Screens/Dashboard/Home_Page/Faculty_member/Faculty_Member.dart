@@ -19,11 +19,11 @@ class _FacultyProfileState extends State<FacultyProfile> {
       stream: _TeachersInageStream,
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
-          return Text('Something went wrong');
+          return const Text('Something went wrong');
         }
 
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Text("Loading");
+          return const Text("Loading");
         }
 
         return ListView(
@@ -31,7 +31,7 @@ class _FacultyProfileState extends State<FacultyProfile> {
             Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
 
 
-            return  Container(
+            return  SizedBox(
                              height: 260,
                              width: double.infinity,
                              child: Card(
@@ -43,8 +43,8 @@ class _FacultyProfileState extends State<FacultyProfile> {
                                      flex: 1,
                                      child: Container(
                                        width: double.infinity,
-                                       color: Color(0xff909E89),
-                                          child: CircleAvatar(
+                                       color: const Color(0xff909E89),
+                                          child: const CircleAvatar(
                                             radius: 30,
                                             child: ClipOval(
 
@@ -58,28 +58,28 @@ class _FacultyProfileState extends State<FacultyProfile> {
                                      flex: 1,
                                      child: Container(
                                        width: double.infinity,
-                                       color: Color(0xa2f4deeb),
+                                       color: const Color(0xa2f4deeb),
                                        child: Column(
                                          children: [
                                            Text(data["name"],
-                                             style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
+                                             style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
                                            ),
-                                           SizedBox(height: 5,),
+                                           const SizedBox(height: 5,),
                                            Text(data['position'],
-                                             style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
+                                             style: const TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
                                            ),
-                                           SizedBox(height: 5,),
+                                           const SizedBox(height: 5,),
                                            Text(data['education'],
-                                             style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
+                                             style: const TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
                                            ),
-                                           SizedBox(height: 10,),
+                                           const SizedBox(height: 10,),
                                            Row(
                                              mainAxisAlignment: MainAxisAlignment.center,
                                              children: [
-                                               Icon(Icons.call,size: 20,color: Colors.red,),
-                                               SizedBox(width: 5,),
+                                               const Icon(Icons.call,size: 20,color: Colors.red,),
+                                               const SizedBox(width: 5,),
                                                Text(data['phone'],
-                                                 style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
+                                                 style: const TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
                                                ),
                                              ],
                                            ),

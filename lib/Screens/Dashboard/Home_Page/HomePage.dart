@@ -1,6 +1,5 @@
 import 'package:diit_portal/Screens/Weather/data_service.dart';
 import 'package:diit_portal/Screens/Weather/weather_model.dart';
-import 'package:flutter/material.dart';
 
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 
 import 'package:intl/intl.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -19,11 +19,14 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     weatherService();
+    intitPlatformState();
   }
+
+  static const String oneSignalId = "6d6a341b-9a0c-4637-9ba7-fd600bff21a0";
 
   WeatherResponse? _response;
 
-  DataService _dataService = DataService();
+  final DataService _dataService = DataService();
 
   bool buttonselect = false;
   bool buttonbackcolor = true;
@@ -31,6 +34,8 @@ class _HomePageState extends State<HomePage> {
   dynamic todaysDate = DateFormat('dd MMMM yyyy').format(DateTime.now());
   dynamic currentTime = DateFormat.jm().format(DateTime.now());
   dynamic todaysWeeklyName = DateFormat('EEEE').format(DateTime.now());
+
+  late var x = (((_response?.tempInfo.temperature)! - 32) * 5) / 9;
 
   final List<String> imageList = [
     "assets/slider_image/banner.png",
@@ -48,11 +53,13 @@ class _HomePageState extends State<HomePage> {
     'DIIT NOTICS',
   ];
 
+  Future<void> intitPlatformState() async {
+    OneSignal.shared.setAppId(oneSignalId);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: SafeArea(
@@ -62,13 +69,13 @@ class _HomePageState extends State<HomePage> {
               children: <Widget>[
                 Card(
                   elevation: 3,
-                  shadowColor: Color(0xff00DCA8),
+                  shadowColor: const Color(0xff00DCA8),
                   child: Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Color(0xff00DCA8),
                         borderRadius:
                             BorderRadius.only(topLeft: Radius.circular(5))),
-                    height:MediaQuery.of(context).size.height/5,
+                    height: MediaQuery.of(context).size.height / 5,
                     width: double.maxFinite,
                     child: Row(
                       children: <Widget>[
@@ -82,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                                     const EdgeInsets.only(top: 8, left: 15),
                                 child: Text(
                                   '${_response?.weatherInfo.description.toUpperCase()}',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 18,
                                     fontFamily: 'Poppins',
                                   ),
@@ -95,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                                         const EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
                                       'Sunrise'.toUpperCase(),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 15,
                                         fontFamily: 'Poppins',
                                       ),
@@ -104,9 +111,8 @@ class _HomePageState extends State<HomePage> {
                                   SizedBox(
                                     width: 45.w,
                                   ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(top: 8, left: 15),
+                                  const Padding(
+                                    padding: EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
                                       '05:35 AM',
                                       style: TextStyle(
@@ -124,7 +130,7 @@ class _HomePageState extends State<HomePage> {
                                         const EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
                                       'Sunset'.toUpperCase(),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 15,
                                         fontFamily: 'Poppins',
                                       ),
@@ -133,11 +139,10 @@ class _HomePageState extends State<HomePage> {
                                   SizedBox(
                                     width: 45.w,
                                   ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(top: 8, left: 15),
+                                  const Padding(
+                                    padding: EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
-                                       '  06:44 PM',
+                                      '  06:44 PM',
                                       style: TextStyle(
                                         fontSize: 15,
                                         fontFamily: 'Poppins',
@@ -153,7 +158,7 @@ class _HomePageState extends State<HomePage> {
                                         const EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
                                       "Today's Temp".toUpperCase(),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 15,
                                         fontFamily: 'Poppins',
                                       ),
@@ -165,13 +170,13 @@ class _HomePageState extends State<HomePage> {
                                   Padding(
                                     padding:
                                         const EdgeInsets.only(top: 8, left: 15),
-                                    // child: Text(
-                                    //   "${(((_response!.tempInfo.temperature - 32) * 5) / 9).ceil()}° C",
-                                    //   style: TextStyle(
-                                    //     fontSize: 15,
-                                    //     fontFamily: 'Poppins',
-                                    //   ),
-                                    // ),
+                                    child: Text(
+                                      "${x.ceil()}° C",
+                                      style: const TextStyle(
+                                        fontSize: 15,
+                                        fontFamily: 'Poppins',
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -182,7 +187,7 @@ class _HomePageState extends State<HomePage> {
                                         const EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
                                       'Today’s  Date'.toUpperCase(),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 15,
                                         fontFamily: 'Poppins',
                                       ),
@@ -195,8 +200,8 @@ class _HomePageState extends State<HomePage> {
                                     padding:
                                         const EdgeInsets.only(top: 8, left: 11),
                                     child: Text(
-                                      '${todaysDate}',
-                                      style: TextStyle(
+                                      '$todaysDate',
+                                      style: const TextStyle(
                                         fontSize: 15,
                                         fontFamily: 'Poppins',
                                       ),
@@ -210,10 +215,10 @@ class _HomePageState extends State<HomePage> {
                         Expanded(
                           flex: 1,
                           child: Container(
-                            // child: Image.network(
-                            //   _response!.iconUrl,
-                            // ),
-                          ),
+                              // child: Image.network(
+                              //   _response!.iconUrl,
+                              // ),
+                              ),
                         )
                       ],
                     ),
@@ -234,7 +239,7 @@ class _HomePageState extends State<HomePage> {
                     child: Row(
                       children: <Widget>[
                         Container(
-                          margin: EdgeInsets.only(left: 20),
+                          margin: const EdgeInsets.only(left: 20),
                           child: Image.asset(
                             'assets/calendar.png',
                             height: 50.h,
@@ -248,13 +253,13 @@ class _HomePageState extends State<HomePage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              "${todaysWeeklyName}",
-                              style: TextStyle(
+                              "$todaysWeeklyName",
+                              style: const TextStyle(
                                   fontSize: 18,
                                   fontFamily: "Poppins",
                                   fontWeight: FontWeight.w700),
                             ),
-                            Text(
+                            const Text(
                               "You’ve No Class Today",
                               style: TextStyle(
                                   fontSize: 15,
@@ -267,17 +272,18 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                Container(
+                SizedBox(
                   width: double.maxFinite,
                   child: GFCarousel(
                     autoPlay: true,
                     items: imageList.map(
                       (url) {
                         return Container(
-                           margin: EdgeInsets.only(left: 5,right: 5,top: 5,bottom: 10),
+                          margin: const EdgeInsets.only(
+                              left: 5, right: 5, top: 5, bottom: 10),
                           child: ClipRRect(
                             borderRadius:
-                                BorderRadius.all(Radius.circular(5.0)),
+                                const BorderRadius.all(Radius.circular(5.0)),
                             child: Image.asset(url,
                                 fit: BoxFit.cover, width: double.maxFinite),
                           ),
@@ -291,44 +297,42 @@ class _HomePageState extends State<HomePage> {
                     },
                   ),
                 ),
-                Container(
+                SizedBox(
                   height: 90,
-
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
-
-                        Container(
-                          height: MediaQuery.of(context).size.height/15,
-                          width: MediaQuery.of(context).size.width/2.40,
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 15,
+                          width: MediaQuery.of(context).size.width / 2.40,
                           child: NeumorphicButton(
                             onPressed: () {
                               print('neumorphic Btn');
                             },
                             style: NeumorphicStyle(
-                              // shape: NeumorphicShape.concave,
+                                // shape: NeumorphicShape.concave,
                                 boxShape: NeumorphicBoxShape.roundRect(
                                     BorderRadius.circular(12)),
                                 depth: 6,
                                 lightSource: LightSource.topLeft,
                                 color: Colors.white),
-                            child: Center(
+                            child: const Center(
                                 child: Text(
-                                  "STUDENT PROTAL",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.black45,
-                                      fontWeight: FontWeight.bold),
-                                )),
+                              "STUDENT PROTAL",
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.black45,
+                                  fontWeight: FontWeight.bold),
+                            )),
                           ),
                         ),
                         SizedBox(
                           width: 10.w,
                         ),
-                        Container(
-                          height: MediaQuery.of(context).size.height/15,
-                          width: MediaQuery.of(context).size.width/2.30,
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 15,
+                          width: MediaQuery.of(context).size.width / 2.30,
                           child: NeumorphicButton(
                             onPressed: () {
                               print('neumorphic Btn');
@@ -339,23 +343,23 @@ class _HomePageState extends State<HomePage> {
                                     BorderRadius.circular(12)),
                                 depth: 6,
                                 lightSource: LightSource.topLeft,
-                                color: Color(0x84dddedd)),
-                            child: Center(
+                                color: const Color(0x84dddedd)),
+                            child: const Center(
                                 child: Text(
-                                  "TUTION FEES",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.black45,
-                                      fontWeight: FontWeight.bold),
-                                )),
+                              "TUTION FEES",
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.black45,
+                                  fontWeight: FontWeight.bold),
+                            )),
                           ),
                         ),
                         SizedBox(
                           width: 10.w,
                         ),
-                        Container(
-                          height: MediaQuery.of(context).size.height/15,
-                          width: MediaQuery.of(context).size.width/2.30,
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 15,
+                          width: MediaQuery.of(context).size.width / 2.30,
                           child: NeumorphicButton(
                             onPressed: () => Get.toNamed('/FacultyProfile'),
                             style: NeumorphicStyle(
@@ -365,22 +369,22 @@ class _HomePageState extends State<HomePage> {
                                 depth: 6,
                                 lightSource: LightSource.topLeft,
                                 color: Colors.white),
-                            child: Center(
+                            child: const Center(
                                 child: Text(
-                                  "FACULTY MEMBER",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.black45,
-                                      fontWeight: FontWeight.bold),
-                                )),
+                              "FACULTY MEMBER",
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.black45,
+                                  fontWeight: FontWeight.bold),
+                            )),
                           ),
                         ),
                         SizedBox(
                           width: 10.w,
                         ),
-                        Container(
-                          height: MediaQuery.of(context).size.height/15,
-                          width: MediaQuery.of(context).size.width/2.30,
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 15,
+                          width: MediaQuery.of(context).size.width / 2.30,
                           child: NeumorphicButton(
                             onPressed: () {
                               print('neumorphic Btn');
@@ -391,23 +395,23 @@ class _HomePageState extends State<HomePage> {
                                     BorderRadius.circular(12)),
                                 depth: 6,
                                 lightSource: LightSource.topLeft,
-                                color: Color(0x84dddedd)),
-                            child: Center(
+                                color: const Color(0x84dddedd)),
+                            child: const Center(
                                 child: Text(
-                                  "ACADEMIC RESULT",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.black45,
-                                      fontWeight: FontWeight.bold),
-                                )),
+                              "ACADEMIC RESULT",
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.black45,
+                                  fontWeight: FontWeight.bold),
+                            )),
                           ),
                         ),
                         SizedBox(
                           width: 10.w,
                         ),
-                        Container(
-                          height: MediaQuery.of(context).size.height/15,
-                          width: MediaQuery.of(context).size.width/2.30,
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 15,
+                          width: MediaQuery.of(context).size.width / 2.30,
                           child: NeumorphicButton(
                             onPressed: () {
                               Get.toNamed('/NU_Portal');
@@ -419,22 +423,22 @@ class _HomePageState extends State<HomePage> {
                                 depth: 6,
                                 lightSource: LightSource.topLeft,
                                 color: Colors.white),
-                            child: Center(
+                            child: const Center(
                                 child: Text(
-                                  "NU PROTAL",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.black45,
-                                      fontWeight: FontWeight.bold),
-                                )),
+                              "NU PROTAL",
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.black45,
+                                  fontWeight: FontWeight.bold),
+                            )),
                           ),
                         ),
                         SizedBox(
                           width: 10.w,
                         ),
-                        Container(
-                          height: MediaQuery.of(context).size.height/15,
-                          width: MediaQuery.of(context).size.width/2.30,
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 15,
+                          width: MediaQuery.of(context).size.width / 2.30,
                           child: NeumorphicButton(
                             onPressed: () {
                               print('neumorphic Btn');
@@ -445,19 +449,21 @@ class _HomePageState extends State<HomePage> {
                                     BorderRadius.circular(12)),
                                 depth: 6,
                                 lightSource: LightSource.topLeft,
-                                color: Color(0x84dddedd)),
-                            child: Center(
+                                color: const Color(0x84dddedd)),
+                            child: const Center(
                                 child: Text(
-                                  "DIIT NOTICS",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.black45,
-                                      fontWeight: FontWeight.bold),
-                                )),
+                              "DIIT NOTICS",
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.black45,
+                                  fontWeight: FontWeight.bold),
+                            )),
                           ),
                         ),
 
-                        SizedBox(width: 10.w,)
+                        SizedBox(
+                          width: 10.w,
+                        )
 
                         // delet kora jabe na
 
@@ -588,24 +594,19 @@ class _HomePageState extends State<HomePage> {
                         // ),
 
                         // delet cora jane na backup
-
-
                       ],
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 10.h
-                ),
+                SizedBox(height: 10.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-
-                    Container(
-                      height: MediaQuery.of(context).size.height/4.6,
-                      width: MediaQuery.of(context).size.width/2.50,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height / 4.6,
+                      width: MediaQuery.of(context).size.width / 2.50,
                       child: NeumorphicButton(
-                        onPressed: ()=> Get.toNamed('/QuestionBank'),
+                        onPressed: () => Get.toNamed('/QuestionBank'),
                         style: NeumorphicStyle(
                             shape: NeumorphicShape.concave,
                             boxShape: NeumorphicBoxShape.roundRect(
@@ -620,13 +621,14 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 Image.asset(
                                   "assets/ic_questionbank.png",
-                                  height: MediaQuery.of(context).size.height/8.2,
-                                  width: MediaQuery.of(context).size.width/3,
+                                  height:
+                                      MediaQuery.of(context).size.height / 8.2,
+                                  width: MediaQuery.of(context).size.width / 3,
                                 ),
                                 SizedBox(
                                   height: 10.h,
                                 ),
-                                Text(
+                                const Text(
                                   "Question Bank",
                                   style: TextStyle(
                                       fontFamily: "Poppins",
@@ -636,12 +638,10 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ],
                             ),
-
                           ],
                         ),
                       ),
                     ),
-
 
                     //delet kora jabe na
                     // delete kora jabe na ei khane file comment kora
@@ -681,14 +681,13 @@ class _HomePageState extends State<HomePage> {
 
                     // delete kora jabe na ei khane file comment kora
 
-
                     SizedBox(
                       width: 10.h,
                     ),
 
-                    Container(
-                      height: MediaQuery.of(context).size.height/4.6,
-                      width: MediaQuery.of(context).size.width/2.50,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height / 4.6,
+                      width: MediaQuery.of(context).size.width / 2.50,
                       child: NeumorphicButton(
                         onPressed: () => Get.toNamed('/ClassRoutine'),
                         style: NeumorphicStyle(
@@ -705,13 +704,14 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 Image.asset(
                                   "assets/ic_routine.png",
-                                  height: MediaQuery.of(context).size.height/8.2,
-                                  width: MediaQuery.of(context).size.width/3,
+                                  height:
+                                      MediaQuery.of(context).size.height / 8.2,
+                                  width: MediaQuery.of(context).size.width / 3,
                                 ),
                                 SizedBox(
                                   height: 10.h,
                                 ),
-                                Text(
+                                const Text(
                                   "Class  Routine",
                                   style: TextStyle(
                                       fontFamily: "Poppins",
@@ -721,9 +721,6 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ],
                             ),
-
-
-
                           ],
                         ),
                       ),
@@ -765,8 +762,6 @@ class _HomePageState extends State<HomePage> {
                     //   ),
                     // ),
                     // delete kora jabe na ei khane file comment kora
-
-
                   ],
                 ),
                 SizedBox(
@@ -775,9 +770,9 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      height: MediaQuery.of(context).size.height/4.6,
-                      width: MediaQuery.of(context).size.width/2.50,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height / 4.6,
+                      width: MediaQuery.of(context).size.width / 2.50,
                       child: NeumorphicButton(
                         onPressed: () {
                           print('neumorphic Btn');
@@ -789,28 +784,25 @@ class _HomePageState extends State<HomePage> {
                             depth: 6,
                             lightSource: LightSource.topLeft,
                             color: Colors.white),
-                        child: Column(
-                            children: [
-                              Image.asset(
-                                "assets/ic_club.png",
-                                height: MediaQuery.of(context).size.height/8.2,
-                                width: MediaQuery.of(context).size.width/3,
-                              ),
-                              SizedBox(
-                                height: 10.h,
-                              ),
-                              Text(
-                                "Club",
-                                style: TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontSize: 15,
-                                    color: Colors.black54,
-                                    fontWeight: FontWeight.w300),
-                              ),
-                            ]
-                        ),
+                        child: Column(children: [
+                          Image.asset(
+                            "assets/ic_club.png",
+                            height: MediaQuery.of(context).size.height / 8.2,
+                            width: MediaQuery.of(context).size.width / 3,
+                          ),
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          const Text(
+                            "Club",
+                            style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontSize: 15,
+                                color: Colors.black54,
+                                fontWeight: FontWeight.w300),
+                          ),
+                        ]),
                       ),
-
                     ),
                     //delet kora jabe na
                     // delete kora jabe na ei khane file comment kora
@@ -851,9 +843,9 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       width: 10.h,
                     ),
-                    Container(
-                      height: MediaQuery.of(context).size.height/4.6,
-                      width: MediaQuery.of(context).size.width/2.50,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height / 4.6,
+                      width: MediaQuery.of(context).size.width / 2.50,
                       child: NeumorphicButton(
                         onPressed: () => Get.toNamed('/TakeandShowAttendence'),
                         style: NeumorphicStyle(
@@ -870,13 +862,14 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 Image.asset(
                                   "assets/ic_attendance.png",
-                                  height: MediaQuery.of(context).size.height/8.2,
-                                  width: MediaQuery.of(context).size.width/3,
+                                  height:
+                                      MediaQuery.of(context).size.height / 8.2,
+                                  width: MediaQuery.of(context).size.width / 3,
                                 ),
                                 SizedBox(
                                   height: 10.h,
                                 ),
-                                Text(
+                                const Text(
                                   "Attendence",
                                   style: TextStyle(
                                       fontFamily: "Poppins",
@@ -886,9 +879,6 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ],
                             ),
-
-
-
                           ],
                         ),
                       ),
@@ -934,9 +924,9 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   height: 10.h,
                 ),
-                Container(
-                  height: MediaQuery.of(context).size.height/5,
-                  width: MediaQuery.of(context).size.width/2.50,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 5,
+                  width: MediaQuery.of(context).size.width / 2.50,
                   child: NeumorphicButton(
                     onPressed: () => Get.toNamed('/QuickPayment'),
                     style: NeumorphicStyle(
@@ -953,13 +943,13 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Image.asset(
                               "assets/payment.png",
-                              height: MediaQuery.of(context).size.height/8.2,
-                              width: MediaQuery.of(context).size.width/3,
+                              height: MediaQuery.of(context).size.height / 8.2,
+                              width: MediaQuery.of(context).size.width / 3,
                             ),
                             SizedBox(
                               height: 10.h,
                             ),
-                            Text(
+                            const Text(
                               "Quick Pay",
                               style: TextStyle(
                                   fontFamily: "Poppins",
@@ -969,9 +959,6 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ],
                         ),
-
-
-
                       ],
                     ),
                   ),

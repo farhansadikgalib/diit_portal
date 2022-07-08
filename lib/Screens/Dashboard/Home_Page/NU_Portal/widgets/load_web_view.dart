@@ -10,7 +10,6 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:provider/src/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:webview_cookie_manager/webview_cookie_manager.dart';
 import '../provider/navigationBarProvider.dart';
 import '../widgets/not_found.dart';
 
@@ -117,11 +116,11 @@ class _LoadWebViewState extends State<LoadWebView>
                     ios: IOSInAppWebViewOptions(
                       allowsInlineMediaPlayback: true,
                     )),
-               gestureRecognizers: <Factory<OneSequenceGestureRecognizer>>[
+               gestureRecognizers: <Factory<OneSequenceGestureRecognizer>>{
                   Factory<OneSequenceGestureRecognizer>(
                     () => EagerGestureRecognizer(),
                   ),
-                ].toSet(),
+                },
                 onWebViewCreated: (controller) {
                   _webViewController = controller;
                 },
@@ -239,11 +238,11 @@ class _LoadWebViewState extends State<LoadWebView>
                         initialOptions: options,
                         // pullToRefreshController: _pullToRefreshController,
                         gestureRecognizers:
-                            <Factory<OneSequenceGestureRecognizer>>[
+                            <Factory<OneSequenceGestureRecognizer>>{
                           Factory<OneSequenceGestureRecognizer>(
                             () => EagerGestureRecognizer(),
                           ),
-                        ].toSet(),
+                        },
                         onWebViewCreated: (controller) async {
                           _webViewController = controller;
 
@@ -295,6 +294,7 @@ class _LoadWebViewState extends State<LoadWebView>
                           if (Platform.isAndroid) {
                             await Permission.location.request();
                           }
+                          return null;
                         },
                         androidOnPermissionRequest:
                             (controller, origin, resources) async {
@@ -325,10 +325,7 @@ class _LoadWebViewState extends State<LoadWebView>
                           if (true == true) {
                             _webViewController
                                 .evaluateJavascript(
-                                    source: "javascript:(function() { " +
-                                        "var head = document.getElementsByTagName('header')[0];" +
-                                        "head.parentNode.removeChild(head);" +
-                                        "})()")
+                                    source: "javascript:(function() { " "var head = document.getElementsByTagName('header')[0];" "head.parentNode.removeChild(head);" "})()")
                                 .then((value) => debugPrint(
                                     'Page finished loading Javascript'))
                                 .catchError(
@@ -337,10 +334,7 @@ class _LoadWebViewState extends State<LoadWebView>
                           if (true == true) {
                             _webViewController
                                 .evaluateJavascript(
-                                    source: "javascript:(function() { " +
-                                        "var footer = document.getElementsByTagName('footer')[0];" +
-                                        "footer.parentNode.removeChild(footer);" +
-                                        "})()")
+                                    source: "javascript:(function() { " "var footer = document.getElementsByTagName('footer')[0];" "footer.parentNode.removeChild(footer);" "})()")
                                 .then((value) => debugPrint(
                                     'Page finished loading Javascript'))
                                 .catchError(

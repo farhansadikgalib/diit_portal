@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:diit_portal/BinaryClock/ClockColumn.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -18,7 +17,7 @@ class _ClockState extends State<Clock> {
   // Tick the clock
   @override
   void initState() {
-    Timer.periodic(Duration(seconds: 1), (v) {
+    Timer.periodic(const Duration(seconds: 1), (v) {
       setState(() {
         _binaryTime = BinaryTime();
       });
@@ -57,7 +56,7 @@ class _ClockState extends State<Clock> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             color: Color.fromRGBO(99, 78, 119, 1),
             borderRadius:
             BorderRadius.only(topLeft: Radius.circular(5))),

@@ -13,6 +13,7 @@ class FirebaseServices {
    }catch (e) {
      print(e);
    }
+   return null;
  }
 
  Future signOutemail()async{
@@ -28,6 +29,7 @@ class FirebaseServices {
    }catch (e) {
      print(e);
    }
+   return null;
  }
 
 }

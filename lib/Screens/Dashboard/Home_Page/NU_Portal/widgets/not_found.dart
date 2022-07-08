@@ -3,7 +3,7 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import '../provider/navigationBarProvider.dart';
 import 'package:provider/src/provider.dart';
 class NotFound extends StatefulWidget {
-  InAppWebViewController _webViewController;
+  final InAppWebViewController _webViewController;
   String title1;
   String title2;
   NotFound(this._webViewController, this.title1, this.title2);

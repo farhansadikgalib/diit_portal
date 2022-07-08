@@ -10,7 +10,7 @@ class WebviewScreen extends StatefulWidget {
   final String title;
   final String content;
   final String url;
-  WebviewScreen(this.title, this.content, this.url);
+  const WebviewScreen(this.title, this.content, this.url);
 
   static const routeName = '/webView';
 

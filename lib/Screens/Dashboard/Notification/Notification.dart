@@ -96,7 +96,7 @@ import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 class AllNotification extends StatefulWidget {
   @override
-  _AllNotificationState createState() => new _AllNotificationState();
+  _AllNotificationState createState() => _AllNotificationState();
 }
 
 class _AllNotificationState extends State<AllNotification> {
@@ -107,7 +107,7 @@ class _AllNotificationState extends State<AllNotification> {
   bool _enableConsentButton = true;
 
   // CHANGE THIS parameter to true if you want to test GDPR privacy consent
-  bool _requireConsent = true;
+  final bool _requireConsent = true;
 
   @override
   void initState() {
@@ -125,8 +125,8 @@ class _AllNotificationState extends State<AllNotification> {
 
     OneSignal.shared
         .setNotificationOpenedHandler((OSNotificationOpenedResult result) {
-      print('NOTIFICATION OPENED HANDLER CALLED WITH: ${result}');
-      this.setState(() {
+      print('NOTIFICATION OPENED HANDLER CALLED WITH: $result');
+      setState(() {
         _debugLabelString =
         "Opened notification: \n${result.notification.jsonRepresentation().replaceAll("\\n", "\n")}";
       });
@@ -134,11 +134,11 @@ class _AllNotificationState extends State<AllNotification> {
 
     OneSignal.shared
         .setNotificationWillShowInForegroundHandler((OSNotificationReceivedEvent event) {
-      print('FOREGROUND HANDLER CALLED WITH: ${event}');
+      print('FOREGROUND HANDLER CALLED WITH: $event');
       /// Display Notification, send null to not display
       event.complete(null);
 
-      this.setState(() {
+      setState(() {
         _debugLabelString =
         "Notification received in foreground notification: \n${event.notification.jsonRepresentation().replaceAll("\\n", "\n")}";
       });
@@ -146,7 +146,7 @@ class _AllNotificationState extends State<AllNotification> {
 
     OneSignal.shared
         .setInAppMessageClickedHandler((OSInAppMessageAction action) {
-      this.setState(() {
+      setState(() {
         _debugLabelString =
         "In App Message Clicked: \n${action.jsonRepresentation().replaceAll("\\n", "\n")}";
       });
@@ -196,7 +196,7 @@ class _AllNotificationState extends State<AllNotification> {
 
     bool requiresConsent = await OneSignal.shared.requiresUserPrivacyConsent();
 
-    this.setState(() {
+    setState(() {
       _enableConsentButton = requiresConsent;
     });
 
@@ -217,8 +217,9 @@ class _AllNotificationState extends State<AllNotification> {
   void _handleSendNotification() async {
     var deviceState = await OneSignal.shared.getDeviceState();
 
-    if (deviceState == null || deviceState.userId == null)
+    if (deviceState == null || deviceState.userId == null) {
       return;
+    }
 
     var playerId = deviceState.userId!;
 
@@ -238,7 +239,7 @@ class _AllNotificationState extends State<AllNotification> {
 
     var response = await OneSignal.shared.postNotification(notification);
 
-    this.setState(() {
+    setState(() {
       _debugLabelString = "Sent notification with response: $response";
     });
   }
@@ -246,8 +247,9 @@ class _AllNotificationState extends State<AllNotification> {
   void _handleSendSilentNotification() async {
     var deviceState = await OneSignal.shared.getDeviceState();
 
-    if (deviceState == null || deviceState.userId == null)
+    if (deviceState == null || deviceState.userId == null) {
       return;
+    }
 
     var playerId = deviceState.userId!;
 
@@ -256,7 +258,7 @@ class _AllNotificationState extends State<AllNotification> {
 
     var response = await OneSignal.shared.postNotification(notification);
 
-    this.setState(() {
+    setState(() {
       _debugLabelString = "Sent notification with response: $response";
     });
   }
@@ -270,7 +272,7 @@ class _AllNotificationState extends State<AllNotification> {
     /// Example addTriggers call for IAM
     /// This will add 2 triggers so if there are any IAM satisfying these, they
     /// will be shown to the user
-    Map<String, Object> triggers = new Map<String, Object>();
+    Map<String, Object> triggers = <String, Object>{};
     triggers["trigger_2"] = "two";
     triggers["trigger_3"] = "three";
     OneSignal.shared.addTriggers(triggers);
@@ -321,23 +323,23 @@ class _AllNotificationState extends State<AllNotification> {
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new Scaffold(
+    return MaterialApp(
+      home: Scaffold(
           body: Container(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: SingleChildScrollView(
-              child: new Table(
+              child: Table(
                 children: [
 
 
 
 
-                  new TableRow(children: [
-                    new OneSignalButton("Post Notification",
+                  TableRow(children: [
+                    OneSignalButton("Post Notification",
                         _handleSendNotification, !_enableConsentButton)
                   ]),
-                  new TableRow(children: [
-                    new OneSignalButton("Post Silent Notification",
+                  TableRow(children: [
+                    OneSignalButton("Post Silent Notification",
                         _handleSendSilentNotification, !_enableConsentButton)
                   ]),
 
@@ -349,36 +351,37 @@ class _AllNotificationState extends State<AllNotification> {
   }
 }
 
-typedef void OnButtonPressed();
+typedef OnButtonPressed = void Function();
 
 class OneSignalButton extends StatefulWidget {
   final String title;
   final OnButtonPressed onPressed;
   final bool enabled;
 
-  OneSignalButton(this.title, this.onPressed, this.enabled);
+  const OneSignalButton(this.title, this.onPressed, this.enabled);
 
-  State<StatefulWidget> createState() => new OneSignalButtonState();
+  @override
+  State<StatefulWidget> createState() => OneSignalButtonState();
 }
 
 class OneSignalButtonState extends State<OneSignalButton> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return new Table(
+    return Table(
       children: [
-        new TableRow(children: [
-          new FlatButton(
-            disabledColor: Color.fromARGB(180, 212, 86, 83),
+        TableRow(children: [
+          FlatButton(
+            disabledColor: const Color.fromARGB(180, 212, 86, 83),
             disabledTextColor: Colors.white,
-            color: Color.fromARGB(255, 212, 86, 83),
+            color: const Color.fromARGB(255, 212, 86, 83),
             textColor: Colors.white,
-            padding: EdgeInsets.all(8.0),
-            child: new Text(widget.title),
+            padding: const EdgeInsets.all(8.0),
+            child: Text(widget.title),
             onPressed: widget.enabled ? widget.onPressed : null,
           )
         ]),
-        new TableRow(children: [
+        TableRow(children: [
           Container(
             height: 8.0,
           )

@@ -1,4 +1,3 @@
-import 'package:diit_portal/Screens/Dashboard/Home_Page/HomePage.dart';
 import 'package:diit_portal/services/firebaseServices.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -30,14 +29,13 @@ class _LoginPageState extends State<LoginPage> {
   }
 
 
-   check_if_already_login() async {
+  check_if_already_login() async {
     logindata = await SharedPreferences.getInstance();
     newuser = (logindata!.getBool('login') ?? true);
     print(newuser);
     if (newuser == false) {
       Get.offAndToNamed('/DashBoard');
-    // }else if(newuser == true){
-    //   logindata.remove('')
+
     }
   }
 
@@ -60,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(1, 60, 88, 1),
+      backgroundColor: const Color.fromRGBO(1, 60, 88, 1),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -81,16 +79,16 @@ class _LoginPageState extends State<LoginPage> {
                         height: 150,
                         width: 225,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 25,
                       ),
                       TextFormField(
                         controller: emailCtrl,
                         keyboardType: TextInputType.emailAddress,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
                           hintText: "Enter Your E-mail",
-                          hintStyle: TextStyle(color: Colors.white),
+                          hintStyle: const TextStyle(color: Colors.white),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                             borderSide: BorderSide(
@@ -102,21 +100,21 @@ class _LoginPageState extends State<LoginPage> {
                             data: IconThemeData(
                               color: Theme.of(context).primaryColor,
                             ),
-                            child: Icon(Icons.email),
+                            child: const Icon(Icons.email),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       TextFormField(
                         controller: passwordCtrl,
                         obscureText: true,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
                           hintText: "Enter Your password",
                           focusColor: Colors.white,
-                          hintStyle: TextStyle(color: Colors.white),
+                          hintStyle: const TextStyle(color: Colors.white),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                             borderSide: BorderSide(
@@ -128,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                             data: IconThemeData(
                               color: Theme.of(context).primaryColor,
                             ),
-                            child: Icon(Icons.lock),
+                            child: const Icon(Icons.lock),
                           ),
                         ),
                       ),
@@ -140,17 +138,17 @@ class _LoginPageState extends State<LoginPage> {
                             onPressed: () {
                               Get.toNamed('/ForgetPassPage');
                             },
-                            child: Text(
+                            child: const Text(
                               "Forget Password",
                               style: TextStyle(color: Colors.white),
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      Container(
+                      SizedBox(
                         height: 35,
                         child: ElevatedButton(
                           onPressed: () async {
@@ -161,7 +159,7 @@ class _LoginPageState extends State<LoginPage> {
                                 'All fields are required.',
                                 colorText: Colors.white,
                                 backgroundColor: Colors.lightGreen,
-                                margin: EdgeInsets.only(top: 30, bottom: 30),
+                                margin: const EdgeInsets.only(top: 30, bottom: 30),
                                 snackPosition: SnackPosition.BOTTOM,
                                 isDismissible: true,
                                 forwardAnimationCurve: Curves.easeOutBack,
@@ -171,7 +169,13 @@ class _LoginPageState extends State<LoginPage> {
                                   .login(emailCtrl.text, passwordCtrl.text);
                               if (result != null) {
                                 logindata!.setBool('login', false);
-                                logindata!.setString('username', emailCtrl.text);
+                                logindata!.setString('user_email', emailCtrl.text);
+                                var id =  result.email!.replaceAll(new RegExp(r'[^0-9]'),'');
+                                // dynamic getId= id as int;
+                                logindata!.setString('user_id', id);
+
+
+                                print(id);
                                 print(result.email);
                                 Get.offAndToNamed('/DashBoard');
                               }
@@ -182,7 +186,7 @@ class _LoginPageState extends State<LoginPage> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                           ),
-                          child: Text(
+                          child: const Text(
                             "Login Now",
                             style: TextStyle(
                                 color: Colors.white,

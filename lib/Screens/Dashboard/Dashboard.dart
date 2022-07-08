@@ -40,23 +40,23 @@ class _DashboardState extends State<Dashboard> {
          },
          items: <BottomNavyBarItem>[
            BottomNavyBarItem(
-               icon: Icon(Icons.home_work),
-               title: Text("Home"),
+               icon: const Icon(Icons.home_work),
+               title: const Text("Home"),
                activeColor: Colors.orange,
                inactiveColor: Colors.black54),
            BottomNavyBarItem(
-               icon: Icon(Icons.dashboard_rounded),
-               title: Text("Student Portal"),
+               icon: const Icon(Icons.dashboard_rounded),
+               title: const Text("Student Portal"),
                activeColor: Colors.orange,
                inactiveColor: Colors.black54),
            BottomNavyBarItem(
-               icon: Icon(Icons.notifications_active),
-               title: Text("Notification"),
+               icon: const Icon(Icons.notifications_active),
+               title: const Text("Notification"),
                activeColor: Colors.orange,
                inactiveColor: Colors.black54),
            BottomNavyBarItem(
-               icon: Icon(Icons.person_pin),
-               title: Text("Profile"),
+               icon: const Icon(Icons.person_pin),
+               title: const Text("Profile"),
                activeColor: Colors.orange,
                inactiveColor: Colors.black54),
          ],

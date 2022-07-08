@@ -32,7 +32,7 @@ class _StudentProfileState extends State<StudentProfile> {
   void initial() async {
     logindata = await SharedPreferences.getInstance();
     setState(() {
-      username = logindata.getString('username')!;
+      username = logindata.getString('user_email')!;
     });
   }
 
@@ -87,7 +87,7 @@ class _StudentProfileState extends State<StudentProfile> {
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                stops: [0.0, 0.39, 0.40, 1.0],
+                stops: const [0.0, 0.39, 0.40, 1.0],
               ),
               blur: 15.0,
               borderWidth: 1.5,
@@ -99,7 +99,7 @@ class _StudentProfileState extends State<StudentProfile> {
               child: Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Container(
-                  child: Container(
+                  child: SizedBox(
                     height: MediaQuery.of(context).size.height/5,
                     width: double.infinity,
                     child: Padding(
@@ -116,7 +116,7 @@ class _StudentProfileState extends State<StudentProfile> {
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
-                                    children: [
+                                    children: const [
                                       Text(
                                         "Md.Abdur Rahman",
                                         style: TextStyle(
@@ -149,7 +149,7 @@ class _StudentProfileState extends State<StudentProfile> {
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 5,
                             ),
                             Expanded(
@@ -157,7 +157,7 @@ class _StudentProfileState extends State<StudentProfile> {
                               child: Stack(
                                 children: [
                                   Container(
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                         color: Colors.blueGrey,
                                         borderRadius: BorderRadius.only(
                                             topLeft: Radius.circular(30),
@@ -168,7 +168,7 @@ class _StudentProfileState extends State<StudentProfile> {
                                     padding: const EdgeInsets.only(
                                         left: 8, bottom: 8),
                                     child: Container(
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                           color: Colors.orangeAccent,
                                           borderRadius: BorderRadius.only(
                                               topLeft: Radius.circular(30),
@@ -200,7 +200,7 @@ class _StudentProfileState extends State<StudentProfile> {
                 ),
               ),
             ),
-            SizedBox(height: 15,),
+            const SizedBox(height: 15,),
             GlassContainer(
               height: MediaQuery.of(context).size.height/2,
               width: MediaQuery.of(context).size.width,
@@ -221,7 +221,7 @@ class _StudentProfileState extends State<StudentProfile> {
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                stops: [0.0, 0.39, 0.40, 1.0],
+                stops: const [0.0, 0.39, 0.40, 1.0],
               ),
               blur: 15.0,
               elevation: 3.0,
@@ -253,7 +253,7 @@ class _StudentProfileState extends State<StudentProfile> {
                             });
                           },
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
                         CustomDropdownButton2(
@@ -270,7 +270,7 @@ class _StudentProfileState extends State<StudentProfile> {
                             });
                           },
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
                         Container(
@@ -281,8 +281,8 @@ class _StudentProfileState extends State<StudentProfile> {
                             borderRadius: BorderRadius.circular(12),
                             color: Colors.black12,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 10),
+                          child: const Padding(
+                            padding: EdgeInsets.only(left: 10),
                             child: Text(
                               'Student ID',
                               style: TextStyle(
@@ -293,7 +293,7 @@ class _StudentProfileState extends State<StudentProfile> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
@@ -303,11 +303,11 @@ class _StudentProfileState extends State<StudentProfile> {
                           flex: 1,
                           child: Column(
                             children: [
-                              Text(
+                              const Text(
                                 'Midterm',
                                 style: TextStyle(fontSize: 18),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               Container(
@@ -317,14 +317,14 @@ class _StudentProfileState extends State<StudentProfile> {
                                   decoration: BoxDecoration(
                                       color: Colors.orange,
                                       borderRadius: BorderRadius.circular(5)),
-                                  child: Text(
+                                  child: const Text(
                                     '1st',
                                     style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w500,
                                         color: Colors.white),
                                   )),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               Container(
@@ -335,7 +335,7 @@ class _StudentProfileState extends State<StudentProfile> {
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(8),
                                 ),
-                                child: Text(
+                                child: const Text(
                                   'Result 180',
                                   style: TextStyle(fontSize: 14),
                                 ),
@@ -346,11 +346,11 @@ class _StudentProfileState extends State<StudentProfile> {
                           flex: 1,
                           child: Column(
                             children: [
-                              Text(
+                              const Text(
                                 'Internal Final',
                                 style: TextStyle(fontSize: 18),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               Container(
@@ -360,14 +360,14 @@ class _StudentProfileState extends State<StudentProfile> {
                                   decoration: BoxDecoration(
                                       color: Colors.orange,
                                       borderRadius: BorderRadius.circular(5)),
-                                  child: Text(
+                                  child: const Text(
                                     '1st',
                                     style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w500,
                                         color: Colors.white),
                                   )),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               Container(
@@ -378,7 +378,7 @@ class _StudentProfileState extends State<StudentProfile> {
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(8),
                                 ),
-                                child: Text(
+                                child: const Text(
                                   'Result 180',
                                   style: TextStyle(fontSize: 14),
                                 ),
@@ -389,11 +389,11 @@ class _StudentProfileState extends State<StudentProfile> {
                           flex: 1,
                           child: Column(
                             children: [
-                              Text(
+                              const Text(
                                 'AVG(CGPA)',
                                 style: TextStyle(fontSize: 18),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               Container(
@@ -403,14 +403,14 @@ class _StudentProfileState extends State<StudentProfile> {
                                   decoration: BoxDecoration(
                                       color: Colors.orange,
                                       borderRadius: BorderRadius.circular(5)),
-                                  child: Text(
+                                  child: const Text(
                                     '1st',
                                     style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w500,
                                         color: Colors.white),
                                   )),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               Container(
@@ -421,7 +421,7 @@ class _StudentProfileState extends State<StudentProfile> {
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(8),
                                 ),
-                                child: Text(
+                                child: const Text(
                                   'Point 3.95',
                                   style: TextStyle(
                                     fontSize: 14,
@@ -432,14 +432,14 @@ class _StudentProfileState extends State<StudentProfile> {
                           )),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  Spacer(),
-                  Divider(
+                  const Spacer(),
+                  const Divider(
                     thickness: 1,
                   ),
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height/22,
                     width: double.infinity,
                     child: InkWell(
@@ -448,7 +448,7 @@ class _StudentProfileState extends State<StudentProfile> {
                         padding: const EdgeInsets.only(left: 10, right: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+                          children: const [
                             Text(
                               'Setting',
                               style: TextStyle(fontSize: 16),
@@ -462,10 +462,10 @@ class _StudentProfileState extends State<StudentProfile> {
                       ),
                     ),
                   ),
-                  Divider(
+                  const Divider(
                     thickness: 1,
                   ),
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height/22,
                     width: double.infinity,
                     child: InkWell(
@@ -474,7 +474,7 @@ class _StudentProfileState extends State<StudentProfile> {
                         padding: const EdgeInsets.only(left: 10, right: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+                          children: const [
                             Text(
                               'Help & Support',
                               style: TextStyle(fontSize: 16),
@@ -488,10 +488,10 @@ class _StudentProfileState extends State<StudentProfile> {
                       ),
                     ),
                   ),
-                  Divider(
+                  const Divider(
                     thickness: 1,
                   ),
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height/22,
                     width: double.infinity,
                     child: InkWell(
@@ -501,7 +501,7 @@ class _StudentProfileState extends State<StudentProfile> {
                         padding: const EdgeInsets.only(left: 10, right: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+                          children: const [
                             Text(
                               'Logout',
                               style: TextStyle(fontSize: 16),
@@ -515,7 +515,7 @@ class _StudentProfileState extends State<StudentProfile> {
                       ),
                     ),
                   ),
-                  Divider(
+                  const Divider(
                     thickness: 1,
                   ),
                 ],

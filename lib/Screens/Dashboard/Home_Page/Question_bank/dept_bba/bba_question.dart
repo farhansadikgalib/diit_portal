@@ -1,4 +1,3 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:diit_portal/Screens/App_Bar/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -25,10 +24,10 @@ class BbaDepertment extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 Text(
                   "Depertment Of BBA",
                   style: TextStyle(
@@ -63,12 +62,12 @@ class BbaDepertment extends StatelessWidget {
                 // ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Padding(
               padding: const EdgeInsets.only(top: 10,right: 20,left: 20),
-              child: Container(
+              child: SizedBox(
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 child: ListView.builder(
@@ -80,7 +79,7 @@ class BbaDepertment extends StatelessWidget {
                           alignment: Alignment.centerLeft,
                           height: 70,
                           width: double.infinity,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             border: Border(
                               top: BorderSide(color: Colors.orange, width: 4),
                               left: BorderSide(color: Colors.orange, width: 4),
@@ -95,7 +94,7 @@ class BbaDepertment extends StatelessWidget {
                               children: [
                                 Text(
                                   "${semestername[index]}",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontWeight: FontWeight.w500,
                                       fontSize: 19,
                                       fontFamily: 'Baloo'),
@@ -105,11 +104,11 @@ class BbaDepertment extends StatelessWidget {
                                   color: Colors.green,
                                   onPressed: () =>Get.toNamed('/pdf_viewPage'),
                                   text: "Download",
-                                  textStyle: TextStyle(
+                                  textStyle: const TextStyle(
                                     fontSize: 20,
                                   ),
                                   position: GFPosition.end,
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.arrow_downward_outlined,
                                     color: Colors.white,
                                   ),

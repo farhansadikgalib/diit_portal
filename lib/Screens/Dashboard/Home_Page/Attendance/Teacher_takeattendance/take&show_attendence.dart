@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 
@@ -12,8 +11,8 @@ class TakeandShowAttendence extends StatelessWidget {
         child: Column(
 
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 100),
+            const Padding(
+              padding: EdgeInsets.only(top: 100),
               child: Text('Class Attendence',
                 style: TextStyle(
                     fontSize: 30,
@@ -22,7 +21,7 @@ class TakeandShowAttendence extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 100,),
+            const SizedBox(height: 100,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -46,7 +45,7 @@ class TakeandShowAttendence extends StatelessWidget {
                 //   ),
                 // ),
 
-                Container(
+                SizedBox(
                   height: MediaQuery.of(context).size.height/5,
                   width: MediaQuery.of(context).size.width/2.30,
                   child: NeumorphicButton(
@@ -67,14 +66,14 @@ class TakeandShowAttendence extends StatelessWidget {
                           width: MediaQuery.of(context).size.width/3,
 
                         ),
-                        SizedBox(height: 10,),
-                        Text( "Take Attendence",style: TextStyle(fontFamily: "Poppins",fontSize: 15,color: Colors.black54,fontWeight: FontWeight.w300),),
+                        const SizedBox(height: 10,),
+                        const Text( "Take Attendence",style: TextStyle(fontFamily: "Poppins",fontSize: 15,color: Colors.black54,fontWeight: FontWeight.w300),),
                       ],
                     ),
                   ),
                 ),
 
-                SizedBox(width: 15,),
+                const SizedBox(width: 15,),
                 // Container(
                 //   width: 150,
                 //   height: 160,
@@ -96,7 +95,7 @@ class TakeandShowAttendence extends StatelessWidget {
                 //   ),
                 // ),
 
-                Container(
+                SizedBox(
                   height: MediaQuery.of(context).size.height/5,
                   width: MediaQuery.of(context).size.width/2.30,
                   child: NeumorphicButton(
@@ -115,8 +114,8 @@ class TakeandShowAttendence extends StatelessWidget {
                           height: MediaQuery.of(context).size.height/8.2,
                           width: MediaQuery.of(context).size.width/3,
                           color: Colors.orangeAccent,),
-                        SizedBox(height: 10,),
-                        Text( "View Attendence",
+                        const SizedBox(height: 10,),
+                        const Text( "View Attendence",
                           style: TextStyle(fontFamily: "Poppins",fontSize: 15,color: Colors.black54,fontWeight: FontWeight.w300),),
                       ],
                     ),

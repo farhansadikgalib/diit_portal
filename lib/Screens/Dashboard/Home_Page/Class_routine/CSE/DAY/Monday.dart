@@ -12,6 +12,7 @@ class MonDay extends StatefulWidget {
 class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
   late AnimationController controller;
 
+  @override
   void initState() {
     controller = AnimationController(
         duration: const Duration(
@@ -29,7 +30,7 @@ class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
       // backgroundColor: Color(0xff6cc9d0),
       body: Column(children: [
         Card(
-          color: Color(0xff92B9A6),
+          color: const Color(0xff92B9A6),
           child: Padding(
             padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
             child: SizedBox(
@@ -41,7 +42,7 @@ class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: const [
                         Text(
                           'Image Procssing',
                           style: TextStyle(
@@ -77,7 +78,7 @@ class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
                         notification = !notification;
                       });
                     },
-                        icon: (notification == true)?Icon( Icons.notifications_active): Icon(Icons.notifications_off)
+                        icon: (notification == true)?const Icon( Icons.notifications_active): const Icon(Icons.notifications_off)
                     ),
                   ],
                 ),
@@ -86,7 +87,7 @@ class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
                     rotateArrow: true,
                     rotatingArrowSize: 40,
                     rotatingArrowColor: Colors.black,
-                    arrowRotationDuration: Duration(milliseconds: 100),
+                    arrowRotationDuration: const Duration(milliseconds: 100),
                     triggerWidgets: [
                       Container(
                           height: 3,
@@ -95,7 +96,7 @@ class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
                     ]),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: const [
                     Text(
                       'Poly Bhoumik',
                       style: TextStyle(
@@ -118,46 +119,46 @@ class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
               Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         'Lecturer , Dept of CSE',
                         style: TextStyle(
                             fontSize: 18,
                             color: Colors.black,
                             fontWeight: FontWeight.w400),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       Image.asset('assets/clock.png'),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
-                      Text(
+                      const Text(
                         '09:00AM-10:30AM',
                         style: TextStyle(
                             fontSize: 18,
                             color: Colors.black,
                             fontWeight: FontWeight.w400),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       )
                     ],
                   ),
-               SizedBox(height: 15,),
+               const SizedBox(height: 15,),
                 Expandable(
                     height: MediaQuery.of(context).size.height / 3,
 
                     controller: controller,
                     duration: const Duration(seconds: 1),
                     child: Container(
-                        color: Color(0xff4D4A4A),
+                        color: const Color(0xff4D4A4A),
                         height: MediaQuery.of(context).size.height / 7,
                         width: double.infinity,
 
@@ -170,7 +171,7 @@ class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
                               child: Column(
                                 children: [
                                   Row(
-                                    children: [
+                                    children: const [
                                       Text(
                                         "Status:",
                                         style: TextStyle(
@@ -187,14 +188,14 @@ class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10,
                                   ),
                                   Row(
                                     children: [
                                       InkWell(
                                         onTap: () {},
-                                        child: Icon(
+                                        child: const Icon(
                                           Icons.call,
                                           size: 22,
                                           color: Colors.red,
@@ -202,7 +203,7 @@ class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
                                       ),
                                       InkWell(
                                         onTap: () {},
-                                        child: Text(
+                                        child: const Text(
                                           " 01753248377",
                                           style: TextStyle(
                                               fontSize: 20,
@@ -214,7 +215,7 @@ class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
                                 ],
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             Padding(
@@ -225,7 +226,7 @@ class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
                                 color: Colors.black,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             Expanded(
@@ -233,7 +234,7 @@ class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
                               child: Column(
                                 children: [
                                   Row(
-                                    children: [
+                                    children: const [
                                       Text(
                                         "Section:",
                                         style: TextStyle(
@@ -250,11 +251,11 @@ class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10,
                                   ),
                                   Row(
-                                    children: [
+                                    children: const [
                                       Text(
                                         "Room:",
                                         style: TextStyle(
@@ -271,11 +272,11 @@ class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10,
                                   ),
                                   Row(
-                                    children: [
+                                    children: const [
                                       Text(
                                         "Day:",
                                         style: TextStyle(
@@ -297,7 +298,7 @@ class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
                             ),
                           ]),
                         ))),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
               ]),
             ),
           ),

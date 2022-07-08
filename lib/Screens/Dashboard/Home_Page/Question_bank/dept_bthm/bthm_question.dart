@@ -28,8 +28,8 @@ class BthmDepertment extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 30,left: 15),
+                const Padding(
+                  padding: EdgeInsets.only(top: 30,left: 15),
                   child: Text(
                     "Depertment",
                     style: TextStyle(
@@ -38,7 +38,7 @@ class BthmDepertment extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                SizedBox(height: 80,),
+                const SizedBox(height: 80,),
                 SizedBox(
 
                   width: 200.0,
@@ -66,12 +66,12 @@ class BthmDepertment extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Padding(
               padding: const EdgeInsets.only(top: 10,right: 20,left: 20),
-              child: Container(
+              child: SizedBox(
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 child: ListView.builder(
@@ -83,7 +83,7 @@ class BthmDepertment extends StatelessWidget {
                           alignment: Alignment.centerLeft,
                           height: 70,
                           width: double.infinity,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             border: Border(
                               top: BorderSide(color: Colors.orange, width: 4),
                               left: BorderSide(color: Colors.orange, width: 4),
@@ -98,7 +98,7 @@ class BthmDepertment extends StatelessWidget {
                               children: [
                                 Text(
                                   "${semestername[index]}",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontWeight: FontWeight.w500,
                                       fontSize: 19,
                                       fontFamily: 'Baloo'),
@@ -108,11 +108,11 @@ class BthmDepertment extends StatelessWidget {
                                   color: Colors.green,
                                   onPressed: () =>Get.toNamed('/pdf_viewPage'),
                                   text: "Download",
-                                  textStyle: TextStyle(
+                                  textStyle: const TextStyle(
                                     fontSize: 20,
                                   ),
                                   position: GFPosition.end,
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.arrow_downward_outlined,
                                     color: Colors.white,
                                   ),

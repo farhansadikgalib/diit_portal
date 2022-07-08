@@ -1,6 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:diit_portal/Screens/App_Bar/app_bar.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -35,7 +34,7 @@ class ClassRoutine extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height/6,
                 width: MediaQuery.of(context).size.width/2.30,
                 child: NeumorphicButton(
@@ -47,7 +46,7 @@ class ClassRoutine extends StatelessWidget {
                       depth: 6,
                       lightSource: LightSource.topLeft,
                       color: Colors.white),
-                  child: Center(
+                  child: const Center(
                       child: Text(
                         "CSE",
                         style: TextStyle(
@@ -57,7 +56,7 @@ class ClassRoutine extends StatelessWidget {
                       )),
                 ),
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height/6,
                 width: MediaQuery.of(context).size.width/2.30,
                 child: NeumorphicButton(
@@ -71,7 +70,7 @@ class ClassRoutine extends StatelessWidget {
                       depth: 6,
                       lightSource: LightSource.topLeft,
                       color: Colors.white),
-                  child: Center(
+                  child: const Center(
                       child: Text(
                         "BBA",
                         style: TextStyle(
@@ -83,13 +82,13 @@ class ClassRoutine extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height/6,
                 width: MediaQuery.of(context).size.width/2.30,
                 child: NeumorphicButton(
@@ -103,7 +102,7 @@ class ClassRoutine extends StatelessWidget {
                       depth: 6,
                       lightSource: LightSource.topLeft,
                       color: Colors.white),
-                  child: Center(
+                  child: const Center(
                       child: Text(
                         "BTHM",
                         style: TextStyle(
@@ -113,7 +112,7 @@ class ClassRoutine extends StatelessWidget {
                       )),
                 ),
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height/6,
                 width: MediaQuery.of(context).size.width/2.30,
                 child: NeumorphicButton(
@@ -127,7 +126,7 @@ class ClassRoutine extends StatelessWidget {
                       depth: 6,
                       lightSource: LightSource.topLeft,
                       color: Colors.white),
-                  child: Center(
+                  child: const Center(
                       child: Text(
                         "MBA",
                         style: TextStyle(

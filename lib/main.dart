@@ -1,4 +1,3 @@
-
 import 'package:diit_portal/Screens/AuthScreen/ForgetPassPage.dart';
 import 'package:diit_portal/Screens/AuthScreen/LoginPage.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Student_attendance_view/student_attendance_detailes.dart';
@@ -35,8 +34,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-
-
 void main() async {
   WidgetsFlutterBinding?.ensureInitialized();
   await Firebase.initializeApp();
@@ -45,8 +42,6 @@ void main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-
-
   runApp(MyApp());
 }
 
@@ -54,69 +49,82 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(360, 690),
+      designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context,child){
-
+      builder: (context, child) {
         return GetMaterialApp(
-
           title: 'DiiT Portal',
           initialRoute: '/',
           defaultTransition: Transition.leftToRight,
           getPages: [
-            GetPage(name: '/', page: () => SplashScreen(), binding: SplashBinding()),
-            GetPage(name: '/LoginPage', page: ()=>LoginPage()),
-            GetPage(name: '/ForgetPassPage', page: ()=>ForgetPassPage()),
+            GetPage(
+                name: '/',
+                page: () => SplashScreen(),
+                binding: SplashBinding()),
+            GetPage(name: '/LoginPage', page: () => LoginPage()),
+            GetPage(name: '/ForgetPassPage', page: () => ForgetPassPage()),
             GetPage(name: '/DashBoard', page: () => Dashboard()),
-
 
             // navigation bar //
             // GetPage(name: '/BottlomNavegatonBar', page: () => Dashboard()),
             // home page //
             GetPage(name: '/HomePage', page: () => HomePage()),
             // question bank cse,bba,bthm, //
-            GetPage(name: '/QuestionBank', page: ()=>QuestionBank()),
-            GetPage(name: '/CseDepertment', page: ()=>CseDepertment()),
-            GetPage(name: '/BbaDepertment', page: ()=>BbaDepertment()),
-            GetPage(name: '/BthmDepertment', page: ()=>BthmDepertment()),
-            GetPage(name: '/MBADepertment', page: ()=>MBADepertment()),
+            GetPage(name: '/QuestionBank', page: () => QuestionBank()),
+            GetPage(name: '/CseDepertment', page: () => CseDepertment()),
+            GetPage(name: '/BbaDepertment', page: () => BbaDepertment()),
+            GetPage(name: '/BthmDepertment', page: () => BthmDepertment()),
+            GetPage(name: '/MBADepertment', page: () => MBADepertment()),
             // question bank close//
 
             // Class Routine start //
-            GetPage(name: '/ClassRoutine', page: ()=>ClassRoutine()),
-            GetPage(name: '/ClassRoutineViewer', page: ()=>ClassRoutineViewer()),
+            GetPage(name: '/ClassRoutine', page: () => const ClassRoutine()),
+            GetPage(
+                name: '/ClassRoutineViewer', page: () => ClassRoutineViewer()),
             //class Routine close //
 
             // home page close //
             GetPage(name: '/StudentDashBoard', page: () => StudentDashBoard()),
-            GetPage(name: '/StudentNotification', page: () => AllNotification()),
+            GetPage(
+                name: '/StudentNotification', page: () => AllNotification()),
             GetPage(name: '/StudentProfile', page: () => StudentProfile()),
 
             // horigental button//
-            GetPage(name: '/FacultyProfile', page: ()=>FacultyProfile()),
-            GetPage(name: '/QuickPayment', page: ()=>QuickPayment()),
-            GetPage(name: '/CSERoutine', page: ()=>CSERoutine()),
-            GetPage(name: '/NU_Portal', page: ()=>NU_Portal()),
+            GetPage(
+                name: '/FacultyProfile', page: () => const FacultyProfile()),
+            GetPage(name: '/QuickPayment', page: () => const QuickPayment()),
+            GetPage(name: '/CSERoutine', page: () => CSERoutine()),
+            GetPage(name: '/NU_Portal', page: () => const NU_Portal()),
             // question pdf //
-            GetPage(name: '/pdf_viewPage', page: ()=> pdf_viewPage()),
+            GetPage(name: '/pdf_viewPage', page: () => const pdf_viewPage()),
 
             // Attendance //
-            GetPage(name: '/TakeandShowAttendence', page: ()=> TakeandShowAttendence()),
-            GetPage(name: '/TeacherAttendance', page: ()=> TeacherAttendance()),
-            GetPage(name: '/TeacherDashbord', page: ()=> TeacherDashbord()),
-            GetPage(name: '/SelectCourceAttendence', page: ()=> SelectCourceAttendence()),
-            GetPage(name: '/StudentNameAttendencelist', page: ()=> StudentNameAttendencelist()),
+            GetPage(
+                name: '/TakeandShowAttendence',
+                page: () => const TakeandShowAttendence()),
+            GetPage(
+                name: '/TeacherAttendance', page: () => TeacherAttendance()),
+            GetPage(name: '/TeacherDashbord', page: () => TeacherDashbord()),
+            GetPage(
+                name: '/SelectCourceAttendence',
+                page: () => SelectCourceAttendence()),
+            GetPage(
+                name: '/StudentNameAttendencelist',
+                page: () => StudentNameAttendencelist()),
             // student view attendance //
-            GetPage(name: '/StudentViewAttendance', page: ()=> StudentViewAttendance()),
-            GetPage(name: '/CourseAttendanceView', page: ()=> CourseAttendanceView()),
-            GetPage(name: '/StudentAttendanceDetailes', page: ()=> StudentAttendanceDetailes()),
-
-
+            GetPage(
+                name: '/StudentViewAttendance',
+                page: () => const StudentViewAttendance()),
+            GetPage(
+                name: '/CourseAttendanceView',
+                page: () => CourseAttendanceView()),
+            GetPage(
+                name: '/StudentAttendanceDetailes',
+                page: () => StudentAttendanceDetailes()),
           ],
           theme: ThemeData(
             primarySwatch: Colors.orange,
-
           ),
           debugShowCheckedModeBanner: false,
         );

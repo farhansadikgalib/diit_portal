@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_glow/flutter_glow.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 
@@ -26,7 +25,7 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
 
 
 
-  int _Value = 0;
+  final int _Value = 0;
   bool radioSelected1 = false;
   bool radioSelected2 = false;
   bool radioSelected3 = false;
@@ -54,17 +53,17 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
                     child: Container(
                       height: MediaQuery.of(context).size.height/6,
                       width: MediaQuery.of(context).size.width,
-                      color: Color(0xffCCBDBD),
+                      color: const Color(0xffCCBDBD),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(height: 10,),
-                          Text('Farhan Sadik Galib',
+                          const SizedBox(height: 10,),
+                          const Text('Farhan Sadik Galib',
                             style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                          SizedBox(height: 5,),
-                          Text('170138', style: TextStyle(
+                          const SizedBox(height: 5,),
+                          const Text('170138', style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.w400),),
-                          SizedBox(height: 5,),
+                          const SizedBox(height: 5,),
                           Padding(
                             padding: const EdgeInsets.only(
                                 left: 20, right: 20),
@@ -83,12 +82,12 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
                                         });
                                       },
                                     ),
-                                    SizedBox(width: 15,),
-                                    Text("Present",style: TextStyle(fontSize: 18),)
+                                    const SizedBox(width: 15,),
+                                    const Text("Present",style: TextStyle(fontSize: 18),)
                                   ],
                                 ),
 
-                                Spacer(),
+                                const Spacer(),
                                 Row(
                                   children: [
                                     GlowRadio<bool>(
@@ -103,8 +102,8 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
                                       },
                                     ),
 
-                                    SizedBox(width: 15,),
-                                    Text("Absent",style: TextStyle(fontSize: 18),)
+                                    const SizedBox(width: 15,),
+                                    const Text("Absent",style: TextStyle(fontSize: 18),)
                                   ],
                                 ),
 
@@ -121,17 +120,17 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
                     child: Container(
                       height: MediaQuery.of(context).size.height/6,
                       width: MediaQuery.of(context).size.width,
-                      color: Color(0xffCCBDBD),
+                      color: const Color(0xffCCBDBD),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(height: 10,),
-                          Text('Farhan Sadik Galib',
+                          const SizedBox(height: 10,),
+                          const Text('Farhan Sadik Galib',
                             style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                          SizedBox(height: 5,),
-                          Text('170138', style: TextStyle(
+                          const SizedBox(height: 5,),
+                          const Text('170138', style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.w400),),
-                          SizedBox(height: 5,),
+                          const SizedBox(height: 5,),
                           Padding(
                             padding: const EdgeInsets.only(
                                 left: 20, right: 20),
@@ -150,12 +149,12 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
                                         });
                                       },
                                     ),
-                                    SizedBox(width: 15,),
-                                    Text("Present",style: TextStyle(fontSize: 18),)
+                                    const SizedBox(width: 15,),
+                                    const Text("Present",style: TextStyle(fontSize: 18),)
                                   ],
                                 ),
 
-                                Spacer(),
+                                const Spacer(),
                                 Row(
                                   children: [
                                     GlowRadio<bool>(
@@ -170,8 +169,8 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
                                       },
                                     ),
 
-                                    SizedBox(width: 15,),
-                                    Text("Absent",style: TextStyle(fontSize: 18),)
+                                    const SizedBox(width: 15,),
+                                    const Text("Absent",style: TextStyle(fontSize: 18),)
                                   ],
                                 ),
 
@@ -188,17 +187,17 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
                     child: Container(
                       height: MediaQuery.of(context).size.height/6,
                       width: MediaQuery.of(context).size.width,
-                      color: Color(0xffCCBDBD),
+                      color: const Color(0xffCCBDBD),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(height: 10,),
-                          Text('Farhan Sadik Galib',
+                          const SizedBox(height: 10,),
+                          const Text('Farhan Sadik Galib',
                             style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                          SizedBox(height: 5,),
-                          Text('170138', style: TextStyle(
+                          const SizedBox(height: 5,),
+                          const Text('170138', style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.w400),),
-                          SizedBox(height: 5,),
+                          const SizedBox(height: 5,),
                           Padding(
                             padding: const EdgeInsets.only(
                                 left: 20, right: 20),
@@ -217,12 +216,12 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
                                         });
                                       },
                                     ),
-                                    SizedBox(width: 15,),
-                                    Text("Present",style: TextStyle(fontSize: 18),)
+                                    const SizedBox(width: 15,),
+                                    const Text("Present",style: TextStyle(fontSize: 18),)
                                   ],
                                 ),
 
-                                Spacer(),
+                                const Spacer(),
                                 Row(
                                   children: [
                                     GlowRadio<bool>(
@@ -237,8 +236,8 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
                                       },
                                     ),
 
-                                    SizedBox(width: 15,),
-                                    Text("Absent",style: TextStyle(fontSize: 18),)
+                                    const SizedBox(width: 15,),
+                                    const Text("Absent",style: TextStyle(fontSize: 18),)
                                   ],
                                 ),
 
@@ -255,17 +254,17 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
                     child: Container(
                       height: MediaQuery.of(context).size.height/6,
                       width: MediaQuery.of(context).size.width,
-                      color: Color(0xffCCBDBD),
+                      color: const Color(0xffCCBDBD),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(height: 10,),
-                          Text('Farhan Sadik Galib',
+                          const SizedBox(height: 10,),
+                          const Text('Farhan Sadik Galib',
                             style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                          SizedBox(height: 5,),
-                          Text('170138', style: TextStyle(
+                          const SizedBox(height: 5,),
+                          const Text('170138', style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.w400),),
-                          SizedBox(height: 5,),
+                          const SizedBox(height: 5,),
                           Padding(
                             padding: const EdgeInsets.only(
                                 left: 20, right: 20),
@@ -284,12 +283,12 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
                                         });
                                       },
                                     ),
-                                    SizedBox(width: 15,),
-                                    Text("Present",style: TextStyle(fontSize: 18),)
+                                    const SizedBox(width: 15,),
+                                    const Text("Present",style: TextStyle(fontSize: 18),)
                                   ],
                                 ),
 
-                                Spacer(),
+                                const Spacer(),
                                 Row(
                                   children: [
                                     GlowRadio<bool>(
@@ -304,8 +303,8 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
                                       },
                                     ),
 
-                                    SizedBox(width: 15,),
-                                    Text("Absent",style: TextStyle(fontSize: 18),)
+                                    const SizedBox(width: 15,),
+                                    const Text("Absent",style: TextStyle(fontSize: 18),)
                                   ],
                                 ),
 
@@ -323,17 +322,17 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
                     child: Container(
                       height: MediaQuery.of(context).size.height/6,
                       width: MediaQuery.of(context).size.width,
-                      color: Color(0xffCCBDBD),
+                      color: const Color(0xffCCBDBD),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(height: 10,),
-                          Text('Farhan Sadik Galib',
+                          const SizedBox(height: 10,),
+                          const Text('Farhan Sadik Galib',
                             style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                          SizedBox(height: 5,),
-                          Text('170138', style: TextStyle(
+                          const SizedBox(height: 5,),
+                          const Text('170138', style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.w400),),
-                          SizedBox(height: 5,),
+                          const SizedBox(height: 5,),
                           Padding(
                             padding: const EdgeInsets.only(
                                 left: 20, right: 20),
@@ -352,12 +351,12 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
                                         });
                                       },
                                     ),
-                                    SizedBox(width: 15,),
-                                    Text("Present",style: TextStyle(fontSize: 18),)
+                                    const SizedBox(width: 15,),
+                                    const Text("Present",style: TextStyle(fontSize: 18),)
                                   ],
                                 ),
 
-                                Spacer(),
+                                const Spacer(),
                                 Row(
                                   children: [
                                     GlowRadio<bool>(
@@ -372,8 +371,8 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
                                       },
                                     ),
 
-                                    SizedBox(width: 15,),
-                                    Text("Absent",style: TextStyle(fontSize: 18),)
+                                    const SizedBox(width: 15,),
+                                    const Text("Absent",style: TextStyle(fontSize: 18),)
                                   ],
                                 ),
 
@@ -390,7 +389,7 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
               ),
             ),
 
-              Spacer(),
+              const Spacer(),
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: SizedBox(
@@ -401,7 +400,7 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
                         Get.defaultDialog(
                             title: "Class Attendance",
                             backgroundColor: Colors.white,
-                            titleStyle: TextStyle(color: Colors.black),
+                            titleStyle: const TextStyle(color: Colors.black),
 
                             cancelTextColor: Colors.black,
 
@@ -415,29 +414,29 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
                                    Expanded(
                                        flex: 2,
                                        child: Column(
-                                         children: [
+                                         children: const [
                                            Text('Total Student'),
                                            SizedBox(height: 10,),
                                            Text('50'),
                                          ],
                                        ),
                                    ),
-                                   SizedBox(width: 10,),
+                                   const SizedBox(width: 10,),
                                    Expanded(
                                        flex: 1,
                                        child: Column(
-                                         children: [
+                                         children: const [
                                            Text('Present'),
                                            SizedBox(height: 10,),
                                            Text('30'),
                                          ],
                                        ),
                                    ),
-                                   SizedBox(width: 10,),
+                                   const SizedBox(width: 10,),
                                    Expanded(
                                        flex: 1,
                                        child: Column(
-                                         children: [
+                                         children: const [
                                            Text('Absent'),
                                            SizedBox(height: 10,),
                                            Text('20'),
@@ -457,21 +456,21 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
                                   'Class Attendance',"Done",
                                   backgroundColor: Colors.white,
                                   snackPosition: SnackPosition.TOP,
-                                  messageText:Text('Done',style: TextStyle(fontSize: 16),) ,
-                                  titleText: Text('Class Attendance',style: TextStyle(fontSize: 18),)
+                                  messageText:const Text('Done',style: TextStyle(fontSize: 16),) ,
+                                  titleText: const Text('Class Attendance',style: TextStyle(fontSize: 18),)
                                 );
 
                               },
-                                  child:Text('CONFIRM',style: TextStyle(fontSize: 16),),
+                                  child:const Text('CONFIRM',style: TextStyle(fontSize: 16),),
                               ),
                             ),
-                              SizedBox(width: 20,),
+                              const SizedBox(width: 20,),
                             SizedBox(
                               width: 110,
                               child: ElevatedButton(onPressed: (){
                                 Get.back();
                                 },
-                                  child:Text('CANCEL',style: TextStyle(fontSize: 16),),
+                                  child:const Text('CANCEL',style: TextStyle(fontSize: 16),),
                               ),
                             ),
                           ]
@@ -535,7 +534,7 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
                         // ),
                         // );
                       },
-                      child: Text('NEXT',style: TextStyle(fontSize: 18,letterSpacing: 1.5),),
+                      child: const Text('NEXT',style: TextStyle(fontSize: 18,letterSpacing: 1.5),),
                   ),
                 ),
               )

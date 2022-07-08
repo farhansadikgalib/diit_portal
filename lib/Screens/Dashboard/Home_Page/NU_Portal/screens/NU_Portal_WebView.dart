@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:connectivity/connectivity.dart';
-import 'package:diit_portal/Screens/App_Bar/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/src/provider.dart';
@@ -55,18 +54,18 @@ class _NU_Portal_WebViewState extends State<NU_Portal_WebView> with TickerProvid
       extendBody: true,
       backgroundColor: Colors.transparent,
       appBar: AppBar(
-         title: Text('NU Portal',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 22),),centerTitle: true,
-        backgroundColor: Colors.blueAccent,
+         title: const Text('NU Portal',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 22),),centerTitle: true,
+        backgroundColor: const Color.fromRGBO(84, 149, 206,1),
         leading:  InkWell(
             onTap: (){
               Get.back();
             },
-            child: Icon(Icons.arrow_back,color: Colors.white,)),
+            child: const Icon(Icons.arrow_back,color: Colors.white,)),
       ),
       body: Column(children: [
         Flexible(
             child: _connectionStatus == 'ConnectivityResult.none'
-                ? NoInternetWidget()
+                ? const NoInternetWidget()
                 : LoadWebView(
                     'https://www.nu.ac.bd/recent-news-notice.php', true)),
       ]),

@@ -16,11 +16,11 @@ class CSERoutine extends StatelessWidget {
           stream: _CRStream,
           builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (snapshot.hasError) {
-              return Text('Something went wrong');
+              return const Text('Something went wrong');
             }
 
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(child: CircularProgressIndicator(color: Colors.orange,));
+              return const Center(child: CircularProgressIndicator(color: Colors.orange,));
             }
             if(snapshot.connectionState==ConnectionState.active){
               QuerySnapshot? querySnapshot = snapshot.data;
@@ -31,14 +31,14 @@ class CSERoutine extends StatelessWidget {
                 Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
                 return Column(
                   children: [
-                    SizedBox(height: 5,),
+                    const SizedBox(height: 5,),
                     Card(
                       elevation: 3,
                       child: Container(
                         alignment: Alignment.centerLeft,
                         height: 75,
                         width: double.infinity,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           border: Border(
                             top: BorderSide(color: Colors.orange, width: 4),
                             left: BorderSide(color: Colors.orange, width: 4),
@@ -51,7 +51,7 @@ class CSERoutine extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
+                              const Text(
                                 // "${data['1st Semester']}"
                                 '17th Batch' ,
                                 style: TextStyle(
@@ -68,12 +68,12 @@ class CSERoutine extends StatelessWidget {
                                   Get.toNamed('/ClassRoutineViewer',arguments: [data['1st Semester']]);
                                 },
                                 text: "View",
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 18,
                                     fontFamily: 'Baloo'),
                                 position: GFPosition.end,
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.arrow_downward_outlined,
                                   size: 22,
                                   color: Colors.white,
@@ -92,7 +92,7 @@ class CSERoutine extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         height: 75,
                         width: double.infinity,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           border: Border(
                             top: BorderSide(color: Colors.orange, width: 4),
                             left: BorderSide(color: Colors.orange, width: 4),
@@ -105,7 +105,7 @@ class CSERoutine extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
+                              const Text(
                                 '18th Batch' ,
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
@@ -121,12 +121,12 @@ class CSERoutine extends StatelessWidget {
                                   Get.toNamed('/pdf_viewPage',arguments: [first]);
                                 },
                                 text: "View",
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 18,
                                     fontFamily: 'Baloo'),
                                 position: GFPosition.end,
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.arrow_downward_outlined,
                                   size: 22,
                                   color: Colors.white,
@@ -146,7 +146,7 @@ class CSERoutine extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         height: 75,
                         width: double.infinity,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           border: Border(
                             top: BorderSide(color: Colors.orange, width: 4),
                             left: BorderSide(color: Colors.orange, width: 4),
@@ -159,7 +159,7 @@ class CSERoutine extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
+                              const Text(
                                 '19th Batch' ,
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
@@ -175,12 +175,12 @@ class CSERoutine extends StatelessWidget {
                                   Get.toNamed('/pdf_viewPage',arguments: [first]);
                                 },
                                 text: "View",
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 18,
                                     fontFamily: 'Baloo'),
                                 position: GFPosition.end,
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.arrow_downward_outlined,
                                   size: 22,
                                   color: Colors.white,
@@ -200,7 +200,7 @@ class CSERoutine extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         height: 75,
                         width: double.infinity,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           border: Border(
                             top: BorderSide(color: Colors.orange, width: 4),
                             left: BorderSide(color: Colors.orange, width: 4),
@@ -213,7 +213,7 @@ class CSERoutine extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
+                              const Text(
                                 '20th Batch' ,
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
@@ -229,12 +229,12 @@ class CSERoutine extends StatelessWidget {
                                   Get.toNamed('/pdf_viewPage',arguments: [first]);
                                 },
                                 text: "View",
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 18,
                                     fontFamily: 'Baloo'),
                                 position: GFPosition.end,
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.arrow_downward_outlined,
                                   size: 22,
                                   color: Colors.white,
@@ -254,7 +254,7 @@ class CSERoutine extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         height: 75,
                         width: double.infinity,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           border: Border(
                             top: BorderSide(color: Colors.orange, width: 4),
                             left: BorderSide(color: Colors.orange, width: 4),
@@ -267,7 +267,7 @@ class CSERoutine extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
+                              const Text(
                                 '21th Batch' ,
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
@@ -283,12 +283,12 @@ class CSERoutine extends StatelessWidget {
                                   Get.toNamed('/pdf_viewPage',arguments: [first]);
                                 },
                                 text: "View",
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 18,
                                     fontFamily: 'Baloo'),
                                 position: GFPosition.end,
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.arrow_downward_outlined,
                                   size: 22,
                                   color: Colors.white,
@@ -308,7 +308,7 @@ class CSERoutine extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         height: 75,
                         width: double.infinity,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           border: Border(
                             top: BorderSide(color: Colors.orange, width: 4),
                             left: BorderSide(color: Colors.orange, width: 4),
@@ -321,7 +321,7 @@ class CSERoutine extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
+                              const Text(
                                 '22th Batch' ,
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
@@ -337,12 +337,12 @@ class CSERoutine extends StatelessWidget {
                                   Get.toNamed('/pdf_viewPage',arguments: [first]);
                                 },
                                 text: "View",
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 18,
                                     fontFamily: 'Baloo'),
                                 position: GFPosition.end,
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.arrow_downward_outlined,
                                   size: 22,
                                   color: Colors.white,
@@ -362,7 +362,7 @@ class CSERoutine extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         height: 75,
                         width: double.infinity,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           border: Border(
                             top: BorderSide(color: Colors.orange, width: 4),
                             left: BorderSide(color: Colors.orange, width: 4),
@@ -375,7 +375,7 @@ class CSERoutine extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
+                              const Text(
                                 '23th Batch' ,
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
@@ -391,12 +391,12 @@ class CSERoutine extends StatelessWidget {
                                   Get.toNamed('/pdf_viewPage',arguments: [first]);
                                 },
                                 text: "View",
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 18,
                                     fontFamily: 'Baloo'),
                                 position: GFPosition.end,
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.arrow_downward_outlined,
                                   size: 22,
                                   color: Colors.white,
@@ -415,7 +415,7 @@ class CSERoutine extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         height: 75,
                         width: double.infinity,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           border: Border(
                             top: BorderSide(color: Colors.orange, width: 4),
                             left: BorderSide(color: Colors.orange, width: 4),
@@ -428,7 +428,7 @@ class CSERoutine extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
+                              const Text(
                                 '24th Batch' ,
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
@@ -444,12 +444,12 @@ class CSERoutine extends StatelessWidget {
                                   Get.toNamed('/pdf_viewPage',arguments: [first]);
                                 },
                                 text: "View",
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 18,
                                     fontFamily: 'Baloo'),
                                 position: GFPosition.end,
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.arrow_downward_outlined,
                                   size: 22,
                                   color: Colors.white,
@@ -468,7 +468,7 @@ class CSERoutine extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         height: 75,
                         width: double.infinity,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           border: Border(
                             top: BorderSide(color: Colors.orange, width: 4),
                             left: BorderSide(color: Colors.orange, width: 4),
@@ -481,7 +481,7 @@ class CSERoutine extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
+                              const Text(
                                 '25th Batch' ,
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
@@ -497,12 +497,12 @@ class CSERoutine extends StatelessWidget {
                                   Get.toNamed('/pdf_viewPage',arguments: [first]);
                                 },
                                 text: "View",
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 18,
                                     fontFamily: 'Baloo'),
                                 position: GFPosition.end,
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.arrow_downward_outlined,
                                   size: 22,
                                   color: Colors.white,

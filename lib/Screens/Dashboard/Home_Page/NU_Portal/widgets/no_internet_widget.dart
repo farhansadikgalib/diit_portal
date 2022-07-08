@@ -48,7 +48,7 @@ class _NoInternetWidgetState extends State<NoInternetWidget> {
             height: 100,
             width: 100,
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Text(

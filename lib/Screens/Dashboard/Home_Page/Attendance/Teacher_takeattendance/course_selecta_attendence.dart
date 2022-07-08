@@ -57,7 +57,7 @@ class _SelectCourceAttendenceState extends State<SelectCourceAttendence> {
           _attendencedate.text="${selected.day} - ${selected.month} - ${selected.year}";
         }
    }
-      TextEditingController _attendencedate =TextEditingController();
+      final TextEditingController _attendencedate =TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,16 +68,16 @@ class _SelectCourceAttendenceState extends State<SelectCourceAttendence> {
 
 
             children: [
-              Container(
+              SizedBox(
                 width: 300,
                 height: 50,
 
                 child: CustomDropdownButton2(
 
-                  icon: Icon(Icons.arrow_downward,size: 20,),
+                  icon: const Icon(Icons.arrow_downward,size: 20,),
                   scrollbarThickness: 10.0,
                   scrollbarAlwaysShow: true,
-                  dropdownDecoration: BoxDecoration(
+                  dropdownDecoration: const BoxDecoration(
                     color: Colors.orangeAccent,
                   ),
                   dropdownHeight: 300,
@@ -93,17 +93,17 @@ class _SelectCourceAttendenceState extends State<SelectCourceAttendence> {
                   },
                 ),
               ),
-              SizedBox(height: 30,),
-              Container(
+              const SizedBox(height: 30,),
+              SizedBox(
                 width: 300,
                 height: 50,
 
                 child: CustomDropdownButton2(
 
-                  icon: Icon(Icons.arrow_downward,size: 20,),
+                  icon: const Icon(Icons.arrow_downward,size: 20,),
                   scrollbarThickness: 10.0,
                   scrollbarAlwaysShow: true,
-                  dropdownDecoration: BoxDecoration(
+                  dropdownDecoration: const BoxDecoration(
                     color: Colors.orangeAccent,
                   ),
                   dropdownHeight: 300,
@@ -119,17 +119,17 @@ class _SelectCourceAttendenceState extends State<SelectCourceAttendence> {
                   },
                 ),
               ),
-              SizedBox(height: 30,),
-              Container(
+              const SizedBox(height: 30,),
+              SizedBox(
                 width: 300,
                 height: 50,
 
                 child: CustomDropdownButton2(
 
-                  icon: Icon(Icons.arrow_downward,size: 20,),
+                  icon: const Icon(Icons.arrow_downward,size: 20,),
                   scrollbarThickness: 10.0,
                   scrollbarAlwaysShow: true,
-                  dropdownDecoration: BoxDecoration(
+                  dropdownDecoration: const BoxDecoration(
                     color: Colors.orangeAccent,
                   ),
                   dropdownHeight: 300,
@@ -145,17 +145,17 @@ class _SelectCourceAttendenceState extends State<SelectCourceAttendence> {
                   },
                 ),
               ),
-              SizedBox(height: 30,),
-              Container(
+              const SizedBox(height: 30,),
+              SizedBox(
                 width: 300,
                 height: 50,
 
                 child: CustomDropdownButton2(
 
-                   icon: Icon(Icons.arrow_downward,size: 20,),
+                   icon: const Icon(Icons.arrow_downward,size: 20,),
                   scrollbarThickness: 10.0,
                   scrollbarAlwaysShow: true,
-                  dropdownDecoration: BoxDecoration(
+                  dropdownDecoration: const BoxDecoration(
                     color: Colors.orangeAccent,
                   ),
                   dropdownHeight: 300,
@@ -171,8 +171,8 @@ class _SelectCourceAttendenceState extends State<SelectCourceAttendence> {
                   },
                 ),
               ),
-                SizedBox(height: 30,),
-              Container(
+                const SizedBox(height: 30,),
+              SizedBox(
                 width: 300,
                 child: TextFormField(
 
@@ -180,24 +180,24 @@ class _SelectCourceAttendenceState extends State<SelectCourceAttendence> {
                      readOnly: true,
                   decoration: InputDecoration(
                         hintText: 'Date',
-                    hintStyle: TextStyle(fontSize: 18,color: Colors.black),
+                    hintStyle: const TextStyle(fontSize: 18,color: Colors.black),
                     suffixIcon: IconButton(
-                       icon: Icon(Icons.calendar_month,size: 25,color: Colors.indigo,),
+                       icon: const Icon(Icons.calendar_month,size: 25,color: Colors.indigo,),
                       onPressed: ()=>_selected(context),
 
                     ),
-                    border: OutlineInputBorder(),
+                    border: const OutlineInputBorder(),
                   ),
                 ),
               ),
-                SizedBox(height: 60,),
+                const SizedBox(height: 60,),
               SizedBox(
                 height: 40,
                 width: 300,
                 child: ElevatedButton(
 
                     onPressed: ()=>Get.toNamed('/StudentNameAttendencelist'),
-                    child:Text('Next',style: TextStyle(fontSize: 20,color: Colors.white,letterSpacing: 2.0,),)
+                    child:const Text('Next',style: TextStyle(fontSize: 20,color: Colors.white,letterSpacing: 2.0,),)
                 ),
               ),
 

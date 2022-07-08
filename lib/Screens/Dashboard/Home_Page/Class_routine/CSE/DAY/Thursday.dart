@@ -9,7 +9,7 @@ class ThursDay extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Column(
-          children: [
+          children: const [
             Text("SaturDay",style: TextStyle(fontSize: 30),),
           ],
         ),

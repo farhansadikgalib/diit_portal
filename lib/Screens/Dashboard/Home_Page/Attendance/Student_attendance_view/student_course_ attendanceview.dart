@@ -37,14 +37,14 @@ class _CourseAttendanceViewState extends State<CourseAttendanceView> {
                padding: const EdgeInsets.only(top: 150,left: 45),
                child: Column(
                  children: [
-                   Container(
+                   SizedBox(
                      width: 300,
                      height: 50,
                      child: CustomDropdownButton2(
-                       icon: Icon(Icons.arrow_downward,size: 20,),
+                       icon: const Icon(Icons.arrow_downward,size: 20,),
                        scrollbarThickness: 10.0,
                        scrollbarAlwaysShow: true,
-                       dropdownDecoration: BoxDecoration(
+                       dropdownDecoration: const BoxDecoration(
                          color: Colors.orangeAccent,
                        ),
                        dropdownHeight: 300,
@@ -60,15 +60,15 @@ class _CourseAttendanceViewState extends State<CourseAttendanceView> {
                        },
                      ),
                    ),
-                   SizedBox(height: 20,),
-                   Container(
+                   const SizedBox(height: 20,),
+                   SizedBox(
                      width: 300,
                      height: 50,
                      child: CustomDropdownButton2(
-                       icon: Icon(Icons.arrow_downward,size: 20,),
+                       icon: const Icon(Icons.arrow_downward,size: 20,),
                        scrollbarThickness: 10.0,
                        scrollbarAlwaysShow: true,
-                       dropdownDecoration: BoxDecoration(
+                       dropdownDecoration: const BoxDecoration(
                          color: Colors.orangeAccent,
                        ),
                        dropdownHeight: 300,
@@ -84,11 +84,11 @@ class _CourseAttendanceViewState extends State<CourseAttendanceView> {
                        },
                      ),
                    ),
-                  SizedBox(height: 80,),
+                  const SizedBox(height: 80,),
                    SizedBox(
                      width: 150,
                      child: ElevatedButton(onPressed: ()=>Get.toNamed('/StudentAttendanceDetailes'),
-                         child: Text('NEXT',style: TextStyle(fontSize: 18,letterSpacing: 1.5),)),
+                         child: const Text('NEXT',style: TextStyle(fontSize: 18,letterSpacing: 1.5),)),
                    )
                  ],
                ),

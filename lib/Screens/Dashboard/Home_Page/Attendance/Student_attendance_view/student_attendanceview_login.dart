@@ -18,27 +18,27 @@ class _StudentViewAttendanceState extends State<StudentViewAttendance> {
   final RoundedLoadingButtonController _btnController = RoundedLoadingButtonController();
 
   void _doSomething() async {
-    Timer(Duration(seconds: 2), () {
+    Timer(const Duration(seconds: 2), () {
       _btnController.success();
     });
   }
   final _formkey = GlobalKey<FormState>();
 
-  TextEditingController _studentemailcontroller = TextEditingController();
-  TextEditingController _studentpasswordcontroller = TextEditingController();
+  final TextEditingController _studentemailcontroller = TextEditingController();
+  final TextEditingController _studentpasswordcontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffe9e7e7),
+      backgroundColor: const Color(0xffe9e7e7),
       body: SafeArea(
         child: Form(
           key: _formkey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Student Login',style: TextStyle(fontSize: 25,color: Colors.black,fontFamily:"Poppins" ,fontWeight: FontWeight.w500),),
-              SizedBox(
+              const Text('Student Login',style: TextStyle(fontSize: 25,color: Colors.black,fontFamily:"Poppins" ,fontWeight: FontWeight.w500),),
+              const SizedBox(
                 height: 20,
               ),
 
@@ -49,7 +49,7 @@ class _StudentViewAttendanceState extends State<StudentViewAttendance> {
 
                   child: Image.asset('assets/checklist 1.png',height:100,width: 100,),
                 ),),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
 
@@ -58,7 +58,7 @@ class _StudentViewAttendanceState extends State<StudentViewAttendance> {
                 child: TextFormField(
                   controller: _studentemailcontroller,
                   keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: 'Enter your email',
                     prefixIcon: Icon(
                       Icons.email,
@@ -76,7 +76,7 @@ class _StudentViewAttendanceState extends State<StudentViewAttendance> {
                   },
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Padding(
@@ -85,7 +85,7 @@ class _StudentViewAttendanceState extends State<StudentViewAttendance> {
                   controller: _studentpasswordcontroller,
                   obscureText: true,
                   keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: 'Enter your password',
                     prefixIcon: Icon(
                       Icons.lock,
@@ -103,13 +103,13 @@ class _StudentViewAttendanceState extends State<StudentViewAttendance> {
                   },
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               RoundedLoadingButton(
                 elevation: 2,
-                color: Color(0xff4d7c92),
-                child: Text('Login',
+                color: const Color(0xff4d7c92),
+                child: const Text('Login',
 
                     style: TextStyle(color: Colors.white,fontSize: 20)),
                 controller: _btnController,

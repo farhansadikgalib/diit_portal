@@ -1,14 +1,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 import '../provider/navigationBarProvider.dart';
 import 'package:provider/src/provider.dart';
 
 import '../screens/NU_Portal_WebView.dart';
 
 class NU_Portal extends StatefulWidget {
-  NU_Portal();
+  const NU_Portal();
   @override
   State<NU_Portal> createState() => _NU_PortalState();
 }
@@ -44,7 +43,7 @@ class _NU_PortalState extends State<NU_Portal> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       // statusBarColor: Theme.of(context).scaffoldBackgroundColor,
       // statusBarIconBrightness: Theme.of(context).brightness == Brightness.dark
       //     ? Brightness.light

@@ -44,7 +44,7 @@ class _QuickPaymentState extends State<QuickPayment> {
       appBar: const CupertinoNavigationBar(
         middle: Text("Quick Pay"),
       ),
-      body: Container(
+      body: SizedBox(
         height: size.height,
         width: size.width,
         child: Column(
@@ -61,7 +61,7 @@ class _QuickPaymentState extends State<QuickPayment> {
             ),
             CupertinoButton(
                 color: Colors.grey,
-                child: Text("Pay Amount"),
+                child: const Text("Pay Amount"),
                 onPressed: () {
                   ///Make payment
                   var options = {

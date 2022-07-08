@@ -23,7 +23,7 @@ class ClockColumn extends StatelessWidget {
           Container(
             child: Text(
               title,
-              style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.bold),
+              style: const TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.bold),
               // style: Theme.of(context).textTheme.display2,
             ),
           )
@@ -36,19 +36,19 @@ class ClockColumn extends StatelessWidget {
           int? binaryCellValue = pow(2, 3 - idx) as int?;
 
           return AnimatedContainer(
-            duration: Duration(milliseconds: 475),
+            duration: const Duration(milliseconds: 475),
             curve: Curves.ease,
             height: 25,
             width: 20,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(5)),
+              borderRadius: const BorderRadius.all(Radius.circular(5)),
               color: isActive
                   ? color
                   : idx < 4 - rows!
                   ? Colors.white.withOpacity(0)
                   : Colors.black38,
             ),
-            margin: EdgeInsets.all(4),
+            margin: const EdgeInsets.all(4),
             child: Center(
               child: isActive
                   ? Text(

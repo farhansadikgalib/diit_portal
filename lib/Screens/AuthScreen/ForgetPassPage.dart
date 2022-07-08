@@ -20,14 +20,14 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
           .sendPasswordResetEmail(email: emailCtrl.text.trim());
       Get.defaultDialog(
         backgroundColor: Colors.lightGreen,
-          content: Text("Password reset link sent! Check your email",style: TextStyle(color: Colors.black),));
+          content: const Text("Password reset link sent! Check your email",style: TextStyle(color: Colors.black),));
     } on FirebaseAuthException catch (e) {
       print(e);
 
-      Get.snackbar('Caution !', '${e.message.toString()}',
+      Get.snackbar('Caution !', e.message.toString(),
         colorText: Colors.white,
         backgroundColor: Colors.lightGreen,
-        margin: EdgeInsets.only(top: 30, bottom: 30),
+        margin: const EdgeInsets.only(top: 30, bottom: 30),
         snackPosition: SnackPosition.BOTTOM,
         isDismissible: true,
         forwardAnimationCurve: Curves.easeOutBack,
@@ -46,15 +46,15 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
-        backgroundColor: Color.fromRGBO(1, 60, 88, 1),
+      appBar: AppBar(
+        backgroundColor: const Color.fromRGBO(1, 60, 88, 1),
         elevation: 0,
-        leading: new IconButton(
-          icon: new Icon(Icons.arrow_back, color: Colors.lightGreen),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.lightGreen),
           onPressed: () => Get.back(),
         ),
       ),
-      backgroundColor: Color.fromRGBO(1, 60, 88, 1),
+      backgroundColor: const Color.fromRGBO(1, 60, 88, 1),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -66,16 +66,16 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                   padding: const EdgeInsets.only(left: 50.0, right: 50),
                   child: Column(
                     children: <Widget>[
-                      Text("Forget Your Password!",
+                      const Text("Forget Your Password!",
                           style: TextStyle(
                               fontSize: 22,
                               fontFamily: "Poppins",
                               fontWeight: FontWeight.bold,
                               color: Colors.white)),
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
-                      Text(
+                      const Text(
                           "Don't worry just put your univarsity email here and click the button on the below",
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -83,16 +83,16 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                               fontFamily: "Poppins",
                               fontWeight: FontWeight.bold,
                               color: Colors.white)),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       TextFormField(
                         controller: emailCtrl,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           hintText: "Enter Your E-mail",
-                          hintStyle: TextStyle(color: Colors.white),
+                          hintStyle: const TextStyle(color: Colors.white),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                             borderSide: BorderSide(
@@ -104,14 +104,14 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                             data: IconThemeData(
                               color: Theme.of(context).primaryColor,
                             ),
-                            child: Icon(Icons.email),
+                            child: const Icon(Icons.email),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
-                      Container(
+                      SizedBox(
                         height: 40,
                         child: RaisedButton(
                           onPressed: () {
@@ -119,7 +119,7 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                           color: Colors.lightGreen,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
-                          child: Text(
+                          child: const Text(
                             "Help Me",
                             style: TextStyle(
                                 color: Colors.white,

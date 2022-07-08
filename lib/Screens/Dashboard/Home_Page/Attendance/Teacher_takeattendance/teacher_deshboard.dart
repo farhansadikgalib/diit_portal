@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 class TeacherDashbord extends StatefulWidget {
@@ -12,7 +9,7 @@ class TeacherDashbord extends StatefulWidget {
 }
 
 class _TeacherDashbordState extends State<TeacherDashbord> {
-  TextEditingController _CreateNotification = TextEditingController();
+  final TextEditingController _CreateNotification = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,12 +27,12 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                 child: Container(
                   height: 150,
                   width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Color(0xffc2caec),
                       borderRadius: BorderRadius.all(Radius.circular(20))),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: const [
                       Text(
                         'Poly Bhumick',
                         style: TextStyle(
@@ -61,7 +58,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                   ),
                 ),
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -85,7 +82,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                   //   ),
                   // ),
 
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height/5,
                     width: MediaQuery.of(context).size.width/2.30,
                     child: NeumorphicButton(
@@ -104,14 +101,14 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                             height: MediaQuery.of(context).size.height/8.2,
                             width: MediaQuery.of(context).size.width/3,
                           ),
-                          SizedBox(height: 10,),
-                          Text( "Take Attendence",style: TextStyle(fontFamily: "Poppins",fontSize: 15,color: Colors.black54,fontWeight: FontWeight.w300),),
+                          const SizedBox(height: 10,),
+                          const Text( "Take Attendence",style: TextStyle(fontFamily: "Poppins",fontSize: 15,color: Colors.black54,fontWeight: FontWeight.w300),),
                         ],
                       ),
                     ),
                   ),
 
-                  SizedBox(width: 15,),
+                  const SizedBox(width: 15,),
                   // Container(
                   //   width: 150.w,
                   //   height: 160.h,
@@ -133,7 +130,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                   //   ),
                   // ),
 
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height/5,
                     width: MediaQuery.of(context).size.width/2.30,
                     child: NeumorphicButton(
@@ -152,8 +149,8 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                             height: MediaQuery.of(context).size.height/8.2,
                             width: MediaQuery.of(context).size.width/3,
                             color: Colors.orangeAccent,),
-                          SizedBox(height: 10,),
-                          Text( "View Attendence",
+                          const SizedBox(height: 10,),
+                          const Text( "View Attendence",
                             style: TextStyle(fontFamily: "Poppins",fontSize: 15,color: Colors.black54,fontWeight: FontWeight.w300),),
                         ],
                       ),
@@ -182,16 +179,16 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                           'Notification',"Done",
                           backgroundColor: Colors.black12,
                           snackPosition: SnackPosition.TOP,
-                          messageText:Text('Done',style: TextStyle(fontSize: 16),) ,
-                          titleText: Text('Notification',style: TextStyle(fontSize: 18),)
+                          messageText:const Text('Done',style: TextStyle(fontSize: 16),) ,
+                          titleText: const Text('Notification',style: TextStyle(fontSize: 18),)
                       );
                       setState((){
                         _CreateNotification;
                         print('Notifi Done');
                       });
                     },
-                      icon: Icon(Icons.send,color: Colors.orange,),),
-                    border: OutlineInputBorder(),
+                      icon: const Icon(Icons.send,color: Colors.orange,),),
+                    border: const OutlineInputBorder(),
                   ),
 
                 ),

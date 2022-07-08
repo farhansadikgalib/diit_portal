@@ -1,4 +1,3 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:diit_portal/Screens/App_Bar/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -29,11 +28,11 @@ class _CseDepertmentState extends State<CseDepertment> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
+              children: const [
                 Text(
                   "Depertment Of CSE",
                   textAlign: TextAlign.center,
@@ -66,12 +65,12 @@ class _CseDepertmentState extends State<CseDepertment> {
     //  ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Padding(
               padding: const EdgeInsets.only(top: 10,right: 20,left: 20),
-              child: Container(
+              child: SizedBox(
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 child: ListView.builder(
@@ -83,7 +82,7 @@ class _CseDepertmentState extends State<CseDepertment> {
                       alignment: Alignment.centerLeft,
                       height: 75,
                       width: double.infinity,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         border: Border(
                           top: BorderSide(color: Colors.orange, width: 4),
                           left: BorderSide(color: Colors.orange, width: 4),
@@ -98,7 +97,7 @@ class _CseDepertmentState extends State<CseDepertment> {
                           children: [
                             Text(
                               "${semestername[index]}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 18,
                                   fontFamily: 'Baloo'),
@@ -108,11 +107,11 @@ class _CseDepertmentState extends State<CseDepertment> {
                               color: Colors.green,
                               onPressed: () =>Get.toNamed('/pdf_viewPage'),
                               text: "Download",
-                              textStyle: TextStyle(
+                              textStyle: const TextStyle(
                                 fontSize: 18,
                               ),
                               position: GFPosition.end,
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_downward_outlined,
                                 size: 20,
                                 color: Colors.white,

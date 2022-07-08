@@ -6,9 +6,9 @@ class StudentAttendanceDetailes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
 
-      body: Container(
+      body: SizedBox(
         height: double.infinity,
         width: double.infinity,
         child: Stack(
@@ -36,10 +36,10 @@ class StudentAttendanceDetailes extends StatelessWidget {
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                             colors: [
-                              Color(0xFF97A9E1).withOpacity(0.1),
-                              Color(0xFF97A9E1).withOpacity(0.05),
+                              const Color(0xFF97A9E1).withOpacity(0.1),
+                              const Color(0xFF97A9E1).withOpacity(0.05),
                             ],
-                            stops: [
+                            stops: const [
                               0.1,
                               1,
                             ]),
@@ -47,12 +47,12 @@ class StudentAttendanceDetailes extends StatelessWidget {
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                           colors: [
-                            Color(0xFFCDC7CD).withOpacity(0.5),
-                            Color((0xFFCDC7CD)).withOpacity(0.5),
+                            const Color(0xFFCDC7CD).withOpacity(0.5),
+                            const Color((0xFFCDC7CD)).withOpacity(0.5),
                           ],
                         ),
                         child:Column(
-                          children: [
+                          children: const [
                             SizedBox(height: 15,),
                             Text('Md.Abdur Rahman',style: (TextStyle(color: Colors.black87,fontSize: 22,fontWeight: FontWeight.bold)),),
                             SizedBox(height: 10,),
@@ -63,7 +63,7 @@ class StudentAttendanceDetailes extends StatelessWidget {
                             Text('2017',style: (TextStyle(color: Colors.black87,fontSize: 18)),),
                           ],
                         )),
-                    SizedBox(height: 20,),
+                    const SizedBox(height: 20,),
                     GlassmorphicContainer(
                         width: 350,
                         height: 200,
@@ -75,10 +75,10 @@ class StudentAttendanceDetailes extends StatelessWidget {
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                             colors: [
-                              Color(0xFF97A9E1).withOpacity(0.1),
-                              Color(0xFF97A9E1).withOpacity(0.05),
+                              const Color(0xFF97A9E1).withOpacity(0.1),
+                              const Color(0xFF97A9E1).withOpacity(0.05),
                             ],
-                            stops: [
+                            stops: const [
                               0.1,
                               1,
                             ]),
@@ -86,22 +86,22 @@ class StudentAttendanceDetailes extends StatelessWidget {
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                           colors: [
-                            Color(0xFFCDC7CD).withOpacity(0.5),
-                            Color((0xFFCDC7CD)).withOpacity(0.5),
+                            const Color(0xFFCDC7CD).withOpacity(0.5),
+                            const Color((0xFFCDC7CD)).withOpacity(0.5),
                           ],
                         ),
                         child:Column(
                           children: [
-                            SizedBox(height: 15,),
-                            Text('Image Processing',style: (TextStyle(color: Colors.black87,fontSize: 22,fontWeight: FontWeight.bold)),),
-                            SizedBox(height: 10,),
-                            Text('CSE - 412',style: (TextStyle(color: Colors.black87,fontSize: 18)),),
-                              SizedBox(height: 10,),
-                            Text('Total Class 30',style: (TextStyle(color: Colors.black87,fontSize: 18)),),
-                            SizedBox(height: 20,),
+                            const SizedBox(height: 15,),
+                            const Text('Image Processing',style: (TextStyle(color: Colors.black87,fontSize: 22,fontWeight: FontWeight.bold)),),
+                            const SizedBox(height: 10,),
+                            const Text('CSE - 412',style: (TextStyle(color: Colors.black87,fontSize: 18)),),
+                              const SizedBox(height: 10,),
+                            const Text('Total Class 30',style: (TextStyle(color: Colors.black87,fontSize: 18)),),
+                            const SizedBox(height: 20,),
                                Row(
                                    mainAxisAlignment: MainAxisAlignment.center,
-                                   children: [
+                                   children: const [
                                      Text('Present - 22',style: (TextStyle(color: Colors.black87,fontSize: 18)),),
                                    SizedBox(width: 50,),
 

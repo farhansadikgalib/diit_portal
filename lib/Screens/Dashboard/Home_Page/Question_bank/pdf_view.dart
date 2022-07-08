@@ -15,7 +15,7 @@ class _pdf_viewPageState extends State<pdf_viewPage> {
 
   final receivePDF = Get.arguments[0];
 
-  RxBool _loaded = false.obs;
+  final RxBool _loaded = false.obs;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class _pdf_viewPageState extends State<pdf_viewPage> {
               Expanded(
                 flex: 2,
                 child: SfPdfViewer.network(
-                  '${receivePDF.toString()}',
+                  receivePDF.toString(),
                   onDocumentLoaded: (PdfDocumentLoadedDetails details) {
                     _loaded.value = true;
                   },

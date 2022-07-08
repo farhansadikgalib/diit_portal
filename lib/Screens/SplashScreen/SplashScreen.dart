@@ -5,13 +5,13 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(1, 60, 88, 1),
+      backgroundColor: const Color.fromRGBO(1, 60, 88, 1),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Center(
-            child: Container(
+            child: SizedBox(
                 height: 110,
                 width: 200,
                 child: Padding(
@@ -21,12 +21,12 @@ class SplashScreen extends StatelessWidget {
                   ),
                 )),
           ),
-          SizedBox(
+          const SizedBox(
             height: 100,
           ),
-          Text("DiiT Portal",
+          const Text("DiiT Portal",
               style: TextStyle(fontSize: 14, fontFamily: "Poppins")),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           _AnimatedLiquidLinearProgressIndicator(),
@@ -53,7 +53,7 @@ class _AnimatedLiquidLinearProgressIndicatorState
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 3900),
+      duration: const Duration(milliseconds: 3900),
     );
 
     _animationController.addListener(() => setState(() {}));
@@ -73,11 +73,11 @@ class _AnimatedLiquidLinearProgressIndicatorState
       child: Container(
         width: 200,
         height: 15.0,
-        padding: EdgeInsets.symmetric(horizontal: 24.0),
+        padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: LiquidLinearProgressIndicator(
           value: _animationController.value,
           backgroundColor: Colors.white,
-          valueColor: AlwaysStoppedAnimation(Colors.blueAccent),
+          valueColor: const AlwaysStoppedAnimation(Colors.blueAccent),
           borderRadius: 5.0,
           borderColor: Colors.black,
           borderWidth: 2.0,
