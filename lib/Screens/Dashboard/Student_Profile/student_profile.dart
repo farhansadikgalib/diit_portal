@@ -15,7 +15,9 @@ class StudentProfile extends StatefulWidget {
 class _StudentProfileState extends State<StudentProfile> {
 
   late SharedPreferences logindata;
-  late String username;
+  late String user_email;
+  late String email;
+
 
   Future _signOut() async {
     await FirebaseAuth.instance.signOut();
@@ -24,16 +26,19 @@ class _StudentProfileState extends State<StudentProfile> {
   }
 
   @override
-  void initState() {
+  void initState()  {
     super.initState();
     initial();
+     // email =user_email!;
+
   }
 
   void initial() async {
     logindata = await SharedPreferences.getInstance();
-    setState(() {
-      username = logindata.getString('user_email')!;
-    });
+    user_email = logindata.getString('user_email')!;
+
+     email = user_email;
+
   }
 
 
@@ -67,6 +72,7 @@ class _StudentProfileState extends State<StudentProfile> {
             child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(children: [
+            Text(user_email),
             GlassContainer(
               height: MediaQuery.of(context).size.height/5,
               width: MediaQuery.of(context).size.width,
@@ -99,103 +105,100 @@ class _StudentProfileState extends State<StudentProfile> {
               child: Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Container(
-                  child: SizedBox(
-                    height: MediaQuery.of(context).size.height/5,
-                    width: double.infinity,
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 5, bottom: 10),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              flex: 2,
-                              child: Container(
-                                alignment: Alignment.center,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(top: 25),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: const [
-                                      Text(
-                                        "Md.Abdur Rahman",
-                                        style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.w200,
-                                            fontFamily: 'Baloo',
-                                            color: Colors.black54),
-                                      ),
-                                      SizedBox(
-                                        height: 5,
-                                      ),
-                                      Text(
-                                        "abdur170115@diit.info",
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w200,
-                                            fontFamily: 'Baloo',
-                                            color: Colors.black54),
-                                      ),
-                                      Text(
-                                        "Student",
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w200,
-                                            fontFamily: 'Baloo',
-                                            color: Colors.black54),
-                                      ),
-                                    ],
-                                  ),
+                  height: MediaQuery.of(context).size.height/5,
+                  width: double.infinity,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 5, bottom: 10),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            flex: 2,
+                            child: Container(
+                              alignment: Alignment.center,
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 25),
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                  children: const [
+                                    Text(
+                                      "Md.Abdur Rahman",
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w200,
+                                          fontFamily: 'Baloo',
+                                          color: Colors.black54),
+                                    ),
+                                    // SizedBox(
+                                    //   height: 5,
+                                    // ),
+                                    Text("mailz"),
+                                      // ,style: TextStyle(
+                                      //     fontSize: 18,
+                                      //     fontWeight: FontWeight.w200,
+                                      //     fontFamily: 'Baloo',
+                                      //     color: Colors.black54),
+
+                                    Text(
+                                      "Student",
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w200,
+                                          fontFamily: 'Baloo',
+                                          color: Colors.black54),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: Stack(
-                                children: [
-                                  Container(
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Stack(
+                              children: [
+                                Container(
+                                  decoration: const BoxDecoration(
+                                      color: Colors.blueGrey,
+                                      borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(30),
+                                          bottomLeft: Radius.circular(30),
+                                          bottomRight: Radius.circular(30))),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 8, bottom: 8),
+                                  child: Container(
                                     decoration: const BoxDecoration(
-                                        color: Colors.blueGrey,
+                                        color: Colors.orangeAccent,
                                         borderRadius: BorderRadius.only(
                                             topLeft: Radius.circular(30),
                                             bottomLeft: Radius.circular(30),
-                                            bottomRight: Radius.circular(30))),
+                                            bottomRight:
+                                                Radius.circular(30))),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 8, bottom: 8),
-                                    child: Container(
-                                      decoration: const BoxDecoration(
-                                          color: Colors.orangeAccent,
-                                          borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(30),
-                                              bottomLeft: Radius.circular(30),
-                                              bottomRight:
-                                                  Radius.circular(30))),
-                                    ),
-                                  ),
-                                  Container(
-                                    alignment: Alignment.center,
-                                    child: CircleAvatar(
-                                      radius: 45,
-                                      child: ClipOval(
-                                        child: Image.asset(
-                                          'assets/men.jpg',
-                                          fit: BoxFit.cover,
-                                          height: 100,
-                                          width: 100,
-                                        ),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  child: CircleAvatar(
+                                    radius: 45,
+                                    child: ClipOval(
+                                      child: Image.asset(
+                                        'assets/men.jpg',
+                                        fit: BoxFit.cover,
+                                        height: 100,
+                                        width: 100,
                                       ),
                                     ),
-                                  )
-                                ],
-                              ),
+                                  ),
+                                )
+                              ],
                             ),
-                          ]),
-                    ),
+                          ),
+                        ]),
                   ),
                 ),
               ),
