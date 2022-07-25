@@ -1,5 +1,6 @@
 import 'package:diit_portal/services/firebaseServices.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,19 +24,19 @@ class _LoginPageState extends State<LoginPage> {
   bool? newuser;
 
   @override
-  void initState() {
+  void initState()  {
     // TODO: implement initState
     check_if_already_login();
   }
 
 
   check_if_already_login() async {
+    // Firebase.initializeApp();
     logindata = await SharedPreferences.getInstance();
     newuser = (logindata!.getBool('login') ?? true);
     print(newuser);
     if (newuser == false) {
       Get.offAndToNamed('/DashBoard');
-
     }
   }
 
