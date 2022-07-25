@@ -15,8 +15,8 @@ class StudentProfile extends StatefulWidget {
 class _StudentProfileState extends State<StudentProfile> {
 
   late SharedPreferences logindata;
-  late String user_email;
-  late String email;
+  String user_email='';
+  // late String email;
 
 
   Future _signOut() async {
@@ -35,9 +35,10 @@ class _StudentProfileState extends State<StudentProfile> {
 
   void initial() async {
     logindata = await SharedPreferences.getInstance();
-    user_email = logindata.getString('user_email')!;
+     user_email = logindata.getString('user_email')!;
 
-     email = user_email;
+     print(user_email);
+     // email = user_email;
 
   }
 
@@ -72,7 +73,7 @@ class _StudentProfileState extends State<StudentProfile> {
             child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(children: [
-            Text(user_email),
+              Text(user_email??''),
             GlassContainer(
               height: MediaQuery.of(context).size.height/5,
               width: MediaQuery.of(context).size.width,
@@ -133,7 +134,7 @@ class _StudentProfileState extends State<StudentProfile> {
                                     // SizedBox(
                                     //   height: 5,
                                     // ),
-                                    Text("mailz"),
+                                    Text("user_email"),
                                       // ,style: TextStyle(
                                       //     fontSize: 18,
                                       //     fontWeight: FontWeight.w200,
