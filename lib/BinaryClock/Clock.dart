@@ -25,12 +25,7 @@ class _ClockState extends State<Clock> {
       });
     });
   }
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    _ClockState();
-  }
+
 
   @override
   Widget build(BuildContext context) {

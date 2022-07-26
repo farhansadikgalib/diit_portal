@@ -73,7 +73,6 @@ class _StudentProfileState extends State<StudentProfile> {
             child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(children: [
-              Text(user_email??''),
             GlassContainer(
               height: MediaQuery.of(context).size.height/5,
               width: MediaQuery.of(context).size.width,
@@ -122,7 +121,7 @@ class _StudentProfileState extends State<StudentProfile> {
                                 child: Column(
                                   crossAxisAlignment:
                                       CrossAxisAlignment.start,
-                                  children: const [
+                                  children:  [
                                     Text(
                                       "Md.Abdur Rahman",
                                       style: TextStyle(
@@ -131,16 +130,17 @@ class _StudentProfileState extends State<StudentProfile> {
                                           fontFamily: 'Baloo',
                                           color: Colors.black54),
                                     ),
-                                    // SizedBox(
-                                    //   height: 5,
-                                    // ),
-                                    Text("user_email"),
-                                      // ,style: TextStyle(
-                                      //     fontSize: 18,
-                                      //     fontWeight: FontWeight.w200,
-                                      //     fontFamily: 'Baloo',
-                                      //     color: Colors.black54),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(user_email??''
+                                      ,style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w200,
+                                          fontFamily: 'Baloo',
+                                          color: Colors.black54),
 
+                                    ),
                                     Text(
                                       "Student",
                                       style: TextStyle(
