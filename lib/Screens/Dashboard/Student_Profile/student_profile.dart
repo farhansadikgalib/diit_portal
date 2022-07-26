@@ -1,3 +1,4 @@
+import 'package:diit_portal/Screens/App_Colors/app_color.dart';
 import 'package:dropdown_button2/custom_dropdown_button2.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -71,7 +72,7 @@ class _StudentProfileState extends State<StudentProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.black12,
+      backgroundColor: ColorChanger.scaffoldcolor,
         body: SafeArea(
             child: SingleChildScrollView(
           scrollDirection: Axis.vertical,

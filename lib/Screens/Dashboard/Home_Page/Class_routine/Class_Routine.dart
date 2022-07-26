@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:diit_portal/Screens/App_Bar/app_bar.dart';
+import 'package:diit_portal/Screens/App_Colors/app_color.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -9,6 +10,7 @@ class ClassRoutine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorChanger.scaffoldcolor,
       appBar: AppBarString,
       body: Column(
 
@@ -18,12 +20,13 @@ class ClassRoutine extends StatelessWidget {
             child: SizedBox(
               width: 250.0,
               child: DefaultTextStyle(
-                style: const TextStyle(
+                style:  TextStyle(
                     fontSize: 40.0,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black54),
+                    color: Colors.white),
                 child: AnimatedTextKit(
                   animatedTexts: [
+
                     TyperAnimatedText('Class Routine'),
                   ],
                 ),
@@ -43,7 +46,7 @@ class ClassRoutine extends StatelessWidget {
                       shape: NeumorphicShape.concave,
                       boxShape: NeumorphicBoxShape.roundRect(
                           BorderRadius.circular(12)),
-                      depth: 6,
+                      depth: 1,
                       lightSource: LightSource.topLeft,
                       color: Colors.white),
                   child: const Center(
@@ -67,7 +70,7 @@ class ClassRoutine extends StatelessWidget {
                       shape: NeumorphicShape.concave,
                       boxShape: NeumorphicBoxShape.roundRect(
                           BorderRadius.circular(12)),
-                      depth: 6,
+                      depth: 1,
                       lightSource: LightSource.topLeft,
                       color: Colors.white),
                   child: const Center(
@@ -99,7 +102,7 @@ class ClassRoutine extends StatelessWidget {
                       shape: NeumorphicShape.concave,
                       boxShape: NeumorphicBoxShape.roundRect(
                           BorderRadius.circular(12)),
-                      depth: 6,
+                      depth: 1,
                       lightSource: LightSource.topLeft,
                       color: Colors.white),
                   child: const Center(
@@ -123,7 +126,7 @@ class ClassRoutine extends StatelessWidget {
                       shape: NeumorphicShape.concave,
                       boxShape: NeumorphicBoxShape.roundRect(
                           BorderRadius.circular(12)),
-                      depth: 6,
+                      depth: 1,
                       lightSource: LightSource.topLeft,
                       color: Colors.white),
                   child: const Center(

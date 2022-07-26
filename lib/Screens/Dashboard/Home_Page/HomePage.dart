@@ -1,4 +1,5 @@
 import 'package:diit_portal/BinaryClock/Clock.dart';
+import 'package:diit_portal/Screens/App_Colors/app_color.dart';
 import 'package:diit_portal/Screens/Weather/data_service.dart';
 import 'package:diit_portal/Screens/Weather/weather_model.dart';
 
@@ -65,7 +66,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Color.fromRGBO(r, g, b, 1),
+      // backgroundColor:  ColorChanger.scaffoldcolor,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: SafeArea(
@@ -73,11 +74,13 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(top: 5, left: 12, right: 12),
             child: Column(
               children: <Widget>[
+                SizedBox(height: 10,),
+
                 Card(
                   elevation: 3,
-                  shadowColor: const Color(0xff00DCA8),
+                  shadowColor:  Color(0xff00DCA8),
                   child: Container(
-                    decoration: const BoxDecoration(
+                    decoration:  BoxDecoration(
                         color: Color(0xff00DCA8),
                         borderRadius:
                             BorderRadius.only(topLeft: Radius.circular(5))),
@@ -92,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                             children: <Widget>[
                               Padding(
                                 padding:
-                                    const EdgeInsets.only(top: 8, left: 15),
+                                     EdgeInsets.only(top: 8, left: 15),
                                 child: Text(
                                   '${_response?.weatherInfo.description.toUpperCase()}',
                                   style: const TextStyle(
@@ -105,7 +108,7 @@ class _HomePageState extends State<HomePage> {
                                 children: <Widget>[
                                   Padding(
                                     padding:
-                                        const EdgeInsets.only(top: 8, left: 15),
+                                         EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
                                       'Sunrise'.toUpperCase(),
                                       style: const TextStyle(
@@ -117,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                                   SizedBox(
                                     width: 45.w,
                                   ),
-                                  const Padding(
+                                   Padding(
                                     padding: EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
                                       '05:35 AM',
@@ -133,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                                 children: <Widget>[
                                   Padding(
                                     padding:
-                                        const EdgeInsets.only(top: 8, left: 15),
+                                         EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
                                       'Sunset'.toUpperCase(),
                                       style: const TextStyle(
@@ -145,7 +148,7 @@ class _HomePageState extends State<HomePage> {
                                   SizedBox(
                                     width: 45.w,
                                   ),
-                                  const Padding(
+                                   Padding(
                                     padding: EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
                                       '  06:44 PM',
@@ -161,7 +164,7 @@ class _HomePageState extends State<HomePage> {
                                 children: <Widget>[
                                   Padding(
                                     padding:
-                                        const EdgeInsets.only(top: 8, left: 15),
+                                         EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
                                       "Today's Temp".toUpperCase(),
                                       style: const TextStyle(
@@ -175,7 +178,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   Padding(
                                     padding:
-                                        const EdgeInsets.only(top: 8, left: 15),
+                                         EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
                                       "${x.ceil()}° C",
                                       style: const TextStyle(
@@ -190,7 +193,7 @@ class _HomePageState extends State<HomePage> {
                                 children: <Widget>[
                                   Padding(
                                     padding:
-                                        const EdgeInsets.only(top: 8, left: 15),
+                                         EdgeInsets.only(top: 8, left: 15),
                                     child: Text(
                                       'Today’s  Date'.toUpperCase(),
                                       style: const TextStyle(
@@ -204,7 +207,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   Padding(
                                     padding:
-                                        const EdgeInsets.only(top: 8, left: 11),
+                                         EdgeInsets.only(top: 8, left: 11),
                                     child: Text(
                                       '$todaysDate',
                                       style: const TextStyle(
@@ -230,12 +233,14 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                // Card(
-                //   elevation: 3,
-                //   shadowColor: Colors.orange,
-                //   child: Clock(),
-                //
-                // ),
+                SizedBox(height: 5,),
+                Card(
+                  elevation: 3,
+                  shadowColor: Colors.orange,
+                  child: Clock(),
+
+                ),
+
                 Card(
                   elevation: 3,
                   shadowColor: Colors.orange,
@@ -244,6 +249,7 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.orangeAccent,
                     child: Row(
                       children: <Widget>[
+
                         Container(
                           margin: const EdgeInsets.only(left: 20),
                           child: Image.asset(
@@ -278,6 +284,9 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
+                SizedBox(height: 5,),
+
+                SizedBox(height: 5,),
                 SizedBox(
                   width: double.maxFinite,
                   child: GFCarousel(
@@ -320,7 +329,7 @@ class _HomePageState extends State<HomePage> {
                                 // shape: NeumorphicShape.concave,
                                 boxShape: NeumorphicBoxShape.roundRect(
                                     BorderRadius.circular(12)),
-                                depth: 6,
+                                depth: 1,
                                 lightSource: LightSource.topLeft,
                                 color: Colors.white),
                             child: const Center(
@@ -347,9 +356,9 @@ class _HomePageState extends State<HomePage> {
                                 shape: NeumorphicShape.concave,
                                 boxShape: NeumorphicBoxShape.roundRect(
                                     BorderRadius.circular(12)),
-                                depth: 6,
+                                depth: 1,
                                 lightSource: LightSource.topLeft,
-                                color: const Color(0x84dddedd)),
+                                color: Colors.white),
                             child: const Center(
                                 child: Text(
                               "TUTION FEES",
@@ -372,7 +381,7 @@ class _HomePageState extends State<HomePage> {
                                 shape: NeumorphicShape.concave,
                                 boxShape: NeumorphicBoxShape.roundRect(
                                     BorderRadius.circular(12)),
-                                depth: 6,
+                                depth: 1,
                                 lightSource: LightSource.topLeft,
                                 color: Colors.white),
                             child: const Center(
@@ -399,9 +408,9 @@ class _HomePageState extends State<HomePage> {
                                 shape: NeumorphicShape.concave,
                                 boxShape: NeumorphicBoxShape.roundRect(
                                     BorderRadius.circular(12)),
-                                depth: 6,
+                                depth: 1,
                                 lightSource: LightSource.topLeft,
-                                color: const Color(0x84dddedd)),
+                                color: Colors.white),
                             child: const Center(
                                 child: Text(
                               "ACADEMIC RESULT",
@@ -426,7 +435,7 @@ class _HomePageState extends State<HomePage> {
                                 shape: NeumorphicShape.concave,
                                 boxShape: NeumorphicBoxShape.roundRect(
                                     BorderRadius.circular(12)),
-                                depth: 6,
+                                depth: 1,
                                 lightSource: LightSource.topLeft,
                                 color: Colors.white),
                             child: const Center(
@@ -453,9 +462,9 @@ class _HomePageState extends State<HomePage> {
                                 shape: NeumorphicShape.concave,
                                 boxShape: NeumorphicBoxShape.roundRect(
                                     BorderRadius.circular(12)),
-                                depth: 6,
+                                depth: 1,
                                 lightSource: LightSource.topLeft,
-                                color: const Color(0x84dddedd)),
+                                color: Colors.white),
                             child: const Center(
                                 child: Text(
                               "DIIT NOTICS",
@@ -617,7 +626,7 @@ class _HomePageState extends State<HomePage> {
                             shape: NeumorphicShape.concave,
                             boxShape: NeumorphicBoxShape.roundRect(
                                 BorderRadius.circular(12)),
-                            depth: 6,
+                            depth: 1,
                             lightSource: LightSource.topLeft,
                             color: Colors.white),
                         child: Column(
@@ -700,7 +709,7 @@ class _HomePageState extends State<HomePage> {
                             shape: NeumorphicShape.concave,
                             boxShape: NeumorphicBoxShape.roundRect(
                                 BorderRadius.circular(12)),
-                            depth: 6,
+                            depth: 1,
                             lightSource: LightSource.topLeft,
                             color: Colors.white),
                         child: Column(
@@ -787,7 +796,7 @@ class _HomePageState extends State<HomePage> {
                             shape: NeumorphicShape.concave,
                             boxShape: NeumorphicBoxShape.roundRect(
                                 BorderRadius.circular(12)),
-                            depth: 6,
+                            depth: 1,
                             lightSource: LightSource.topLeft,
                             color: Colors.white),
                         child: Column(children: [
@@ -858,7 +867,7 @@ class _HomePageState extends State<HomePage> {
                             shape: NeumorphicShape.concave,
                             boxShape: NeumorphicBoxShape.roundRect(
                                 BorderRadius.circular(12)),
-                            depth: 6,
+                            depth: 1,
                             lightSource: LightSource.topLeft,
                             color: Colors.white),
                         child: Column(
@@ -939,7 +948,7 @@ class _HomePageState extends State<HomePage> {
                         shape: NeumorphicShape.concave,
                         boxShape: NeumorphicBoxShape.roundRect(
                             BorderRadius.circular(12)),
-                        depth: 6,
+                        depth: 0,
                         lightSource: LightSource.topLeft,
                         color: Colors.white),
                     child: Column(

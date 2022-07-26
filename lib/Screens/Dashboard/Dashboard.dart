@@ -1,5 +1,6 @@
 
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:diit_portal/Screens/App_Colors/app_color.dart';
 import 'package:diit_portal/Screens/Dashboard/Notification/Notification.dart';
 import 'package:diit_portal/Screens/Dashboard/Student_Dashboard/student_dashboard.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/HomePage.dart';
@@ -32,6 +33,7 @@ class _DashboardState extends State<Dashboard> {
        appBar: AppBarString,
 
        bottomNavigationBar: BottomNavyBar(
+         backgroundColor:   ColorChanger.scaffoldcolor,
          selectedIndex: _currentIndex,
          onItemSelected: (index) {
            setState(() {

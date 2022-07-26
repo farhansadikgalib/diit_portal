@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:diit_portal/Screens/App_Colors/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
@@ -12,6 +13,7 @@ class CSERoutine extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: ColorChanger.scaffoldcolor,
         body: StreamBuilder<QuerySnapshot>(
           stream: _CRStream,
           builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {

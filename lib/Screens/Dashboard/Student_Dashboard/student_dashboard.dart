@@ -1,3 +1,4 @@
+import 'package:diit_portal/Screens/App_Colors/app_color.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:multi_charts/multi_charts.dart';
@@ -53,6 +54,7 @@ class _StudentDashBoardState extends State<StudentDashBoard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorChanger.scaffoldcolor,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -66,10 +68,12 @@ class _StudentDashBoardState extends State<StudentDashBoard> {
                   values: [15, 75, 5, 5],
                   labels: [
                     "Payable",
+
                     "Paid",
                     "Due",
                     "Fine",
                   ],
+                  legendTextColor: Colors.white,
                   sliceFillColors: [
                     Color(0xffCDC845),
                     Color(0xff81E85E),

@@ -1,4 +1,5 @@
 import 'package:diit_portal/Screens/App_Bar/app_bar.dart';
+import 'package:diit_portal/Screens/App_Colors/app_color.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 
@@ -6,6 +7,7 @@ class QuestionBank extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorChanger.scaffoldcolor,
       appBar: AppBarString,
       body: Center(
         child: Column(
@@ -14,10 +16,10 @@ class QuestionBank extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.topCenter,
-              child: const DefaultTextStyle(
+              child:  DefaultTextStyle(
                   style: TextStyle(
                       fontSize: 22.0,
-                      color: Colors.black,
+                      color: Colors.white,
                       fontFamily: "azonix",
                       fontWeight: FontWeight.bold),
                   child: Text("Select Your Department")
@@ -73,7 +75,7 @@ class QuestionBank extends StatelessWidget {
                           shape: NeumorphicShape.concave,
                           boxShape: NeumorphicBoxShape.roundRect(
                               BorderRadius.circular(12)),
-                          depth: 6,
+                          depth: 1,
                           lightSource: LightSource.topLeft,
                           color: Colors.white),
                       child: Column(
@@ -89,6 +91,7 @@ class QuestionBank extends StatelessWidget {
                               const Text(
                                 'CSE',
                                 style: TextStyle(
+                                  color: Colors.black45,
                                     fontSize: 25,
                                     fontFamily: 'Baloo',
                                     fontWeight: FontWeight.w500),
@@ -141,7 +144,7 @@ class QuestionBank extends StatelessWidget {
                           shape: NeumorphicShape.concave,
                           boxShape: NeumorphicBoxShape.roundRect(
                               BorderRadius.circular(12)),
-                          depth: 6,
+                          depth: 1,
                           lightSource: LightSource.topLeft,
                           color: Colors.white),
                       child: Column(
@@ -157,6 +160,7 @@ class QuestionBank extends StatelessWidget {
                               const Text(
                                 'BBA',
                                 style: TextStyle(
+                                    color: Colors.black45,
                                     fontSize: 25,
                                     fontFamily: 'Baloo',
                                     fontWeight: FontWeight.w500),
@@ -216,7 +220,7 @@ class QuestionBank extends StatelessWidget {
                           shape: NeumorphicShape.concave,
                           boxShape: NeumorphicBoxShape.roundRect(
                               BorderRadius.circular(12)),
-                          depth: 6,
+                          depth: 1,
                           lightSource: LightSource.topLeft,
                           color: Colors.white),
                       child: Column(
@@ -232,6 +236,7 @@ class QuestionBank extends StatelessWidget {
                               const Text(
                                 'BTHM',
                                 style: TextStyle(
+                                    color: Colors.black45,
                                     fontSize: 25,
                                     fontFamily: 'Baloo',
                                     fontWeight: FontWeight.w500),
@@ -257,7 +262,7 @@ class QuestionBank extends StatelessWidget {
                           shape: NeumorphicShape.concave,
                           boxShape: NeumorphicBoxShape.roundRect(
                               BorderRadius.circular(12)),
-                          depth: 6,
+                          depth: 1,
                           lightSource: LightSource.topLeft,
                           color: Colors.white),
                       child: Column(
@@ -273,6 +278,7 @@ class QuestionBank extends StatelessWidget {
                               const Text(
                                 'MBA',
                                 style: TextStyle(
+                                    color: Colors.black45,
                                     fontSize: 25,
                                     fontFamily: 'Baloo',
                                     fontWeight: FontWeight.w500),

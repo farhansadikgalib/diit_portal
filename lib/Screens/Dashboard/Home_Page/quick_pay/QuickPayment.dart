@@ -1,3 +1,4 @@
+import 'package:diit_portal/Screens/App_Colors/app_color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
@@ -41,6 +42,7 @@ class _QuickPaymentState extends State<QuickPayment> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: ColorChanger.scaffoldcolor,
       appBar: const CupertinoNavigationBar(
         middle: Text("Quick Pay"),
       ),
@@ -53,15 +55,37 @@ class _QuickPaymentState extends State<QuickPayment> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
               child: TextField(
+                keyboardType: TextInputType.number,
                 controller: amountController,
                 textAlign: TextAlign.center,
-                decoration:
-                    const InputDecoration(hintText: "Enter your Amount"),
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                        hintText: "Enter your Amount",
+                       fillColor:  Colors.white,
+                       hintStyle: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w500),
+                  border: new OutlineInputBorder(
+
+                    borderRadius: const BorderRadius.all(
+
+                      const Radius.circular(8.0),
+                    ),
+                    borderSide: new BorderSide(
+                      color: Colors.orange,
+                      width: 2.0,
+                    ),
+                  ),
+
+                    ),
+
+
               ),
             ),
             CupertinoButton(
-                color: Colors.grey,
-                child: const Text("Pay Amount"),
+                color: Colors.white,
+                child: const Text("Pay Amount",
+                  style: TextStyle(color: Colors.black,
+                  fontSize: 18
+                  ),),
                 onPressed: () {
                   ///Make payment
                   var options = {

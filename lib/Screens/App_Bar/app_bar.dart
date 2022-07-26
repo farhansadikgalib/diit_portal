@@ -22,7 +22,7 @@ final AppBar AppBarString = AppBar(
       ],
     ),
   ),
-  backgroundColor: const Color.fromRGBO(1, 60, 88, 1),
+  backgroundColor:  Color.fromRGBO(1, 60, 88, 1),
   centerTitle: true,
   automaticallyImplyLeading: false,
 );

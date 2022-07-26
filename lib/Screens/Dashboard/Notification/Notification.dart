@@ -87,6 +87,7 @@
 
 
 
+import 'package:diit_portal/Screens/App_Colors/app_color.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -325,6 +326,7 @@ class _AllNotificationState extends State<AllNotification> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+          backgroundColor: ColorChanger.scaffoldcolor,
           body: Container(
             padding: const EdgeInsets.all(10.0),
             child: SingleChildScrollView(
