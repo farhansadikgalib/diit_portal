@@ -7,6 +7,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(1, 60, 88, 1),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -26,7 +27,7 @@ class SplashScreen extends StatelessWidget {
             height: 100,
           ),
           const Text("DiiT Portal",
-              style: TextStyle(fontSize: 14, fontFamily: "Poppins")),
+              style: TextStyle(fontSize: 14, fontFamily: "Poppins",color: Colors.white70)),
           const SizedBox(
             height: 10,
           ),

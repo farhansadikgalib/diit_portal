@@ -57,6 +57,8 @@ dependencies:
   glassmorphism: ^3.0.0
   glass_kit: ^2.0.1
   flutter_glow: ^0.2.0
+  fk_toggle: ^0.1.4
+  toggle_switch: ^2.0.1
   # UI Design
 
 
