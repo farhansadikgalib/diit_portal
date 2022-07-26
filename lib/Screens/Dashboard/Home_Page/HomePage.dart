@@ -19,13 +19,13 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
-    weatherService();
+     weatherService();
     intitPlatformState();
   }
 
   static const String oneSignalId = "6d6a341b-9a0c-4637-9ba7-fd600bff21a0";
 
-    WeatherResponse? _response;
+  WeatherResponse? _response;
 
   final DataService _dataService = DataService();
 
@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
   dynamic currentTime = DateFormat.jm().format(DateTime.now());
   dynamic todaysWeeklyName = DateFormat('EEEE').format(DateTime.now());
 
-   late var x = (((_response?.tempInfo.temperature)! - 32) * 5) / 9;
+  late var x = (((_response?.tempInfo.temperature)! - 32) * 5) / 9;
 
   final List<String> imageList = [
     "assets/slider_image/banner.png",
@@ -56,6 +56,10 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> intitPlatformState() async {
     OneSignal.shared.setAppId(oneSignalId);
+  }
+  void weatherService() async {
+    final response = await _dataService.getWeather("Dhaka");
+    setState(() => _response = response);
   }
 
   @override
@@ -226,12 +230,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                Card(
-                  elevation: 3,
-                  shadowColor: Colors.orange,
-                  child: Clock(),
-
-                ),
+                // Card(
+                //   elevation: 3,
+                //   shadowColor: Colors.orange,
+                //   child: Clock(),
+                //
+                // ),
                 Card(
                   elevation: 3,
                   shadowColor: Colors.orange,
@@ -978,8 +982,5 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void weatherService() async {
-    final response = await _dataService.getWeather("Dhaka");
-    setState(() => _response = response);
-  }
+
 }

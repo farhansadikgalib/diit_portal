@@ -15,6 +15,8 @@ class _ClockState extends State<Clock> {
   BinaryTime _binaryTime = BinaryTime();
 
   // Tick the clock
+
+
   @override
   void initState() {
     Timer.periodic(const Duration(seconds: 1), (v) {
@@ -22,7 +24,12 @@ class _ClockState extends State<Clock> {
         _binaryTime = BinaryTime();
       });
     });
-    super.initState();
+  }
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _ClockState();
   }
 
   @override
