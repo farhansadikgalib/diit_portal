@@ -179,7 +179,20 @@ class _LoginPageState extends State<LoginPage> {
                                 print(id);
                                 print(result.email);
                                 Get.offAndToNamed('/DashBoard');
+                              }else{
+                                Get.snackbar(
+                                  'Caution!',
+                                  'Wrong Information!',
+                                  colorText: Colors.white,
+                                  backgroundColor: Colors.lightGreen,
+                                  margin: const EdgeInsets.only(top: 30, bottom: 30),
+                                  snackPosition: SnackPosition.BOTTOM,
+                                  isDismissible: true,
+                                  forwardAnimationCurve: Curves.easeOutBack,
+                                );
+
                               }
+
                             }
                           },
                           style: ElevatedButton.styleFrom(

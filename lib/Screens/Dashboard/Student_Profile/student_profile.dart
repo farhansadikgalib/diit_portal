@@ -14,32 +14,35 @@ class StudentProfile extends StatefulWidget {
 
 class _StudentProfileState extends State<StudentProfile> {
 
-  late SharedPreferences logindata;
+   // SharedPreferences? logindata;
   String user_email='';
-  // late String email;
+  String user_id='';
 
 
   Future _signOut() async {
     await FirebaseAuth.instance.signOut();
-    logindata.setBool('login', true);
     Get.offAndToNamed('/LoginPage');
   }
 
   @override
   void initState()  {
     super.initState();
-    initial();
      // email =user_email!;
 
+    getUserData();
   }
 
-  void initial() async {
-    logindata = await SharedPreferences.getInstance();
-     user_email = logindata.getString('user_email')!;
+  getUserData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      user_email = prefs.getString('user_email')!;
+      user_id = prefs.getString('user_id')!;
+      prefs.setBool('login', true);
 
-     print(user_email);
-     // email = user_email;
 
+    });
+    print(user_email);
+    // return user_email;
   }
 
 
@@ -285,10 +288,10 @@ class _StudentProfileState extends State<StudentProfile> {
                             borderRadius: BorderRadius.circular(12),
                             color: Colors.black12,
                           ),
-                          child: const Padding(
+                          child:  Padding(
                             padding: EdgeInsets.only(left: 10),
                             child: Text(
-                              'Student ID',
+                              user_id,
                               style: TextStyle(
                                   fontWeight: FontWeight.w300, fontSize: 16),
                             ),
