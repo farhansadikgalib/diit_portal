@@ -1,3 +1,4 @@
+import 'package:diit_portal/Screens/App_Colors/app_color.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/CSE/DAY/Friday.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/CSE/DAY/Monday.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/CSE/DAY/Saturday.dart';
@@ -27,6 +28,7 @@ class _ClassRoutineViewerState extends State<ClassRoutineViewer>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorChanger.scaffoldcolor,
         body: SafeArea(
       child: Column(
         children: <Widget>[

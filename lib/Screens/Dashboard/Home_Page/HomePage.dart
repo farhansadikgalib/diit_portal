@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:diit_portal/BinaryClock/Clock.dart';
 import 'package:diit_portal/Screens/App_Colors/app_color.dart';
 import 'package:diit_portal/Screens/Weather/data_service.dart';
@@ -55,6 +56,22 @@ class _HomePageState extends State<HomePage> {
     'DIIT NOTICS',
   ];
 
+  //Firebase
+  CollectionReference ref = FirebaseFirestore.instance
+      .collection("ClassRoutine")
+      .doc('Department')
+      .collection('CSE')
+      .doc('17')
+      .collection('Section')
+      .doc('A')
+      .collection('Day')
+      .doc('Saturday')
+      .collection('ClassList');
+
+  //Firebase
+
+
+
   Future<void> intitPlatformState() async {
     OneSignal.shared.setAppId(oneSignalId);
   }
@@ -65,929 +82,962 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // backgroundColor:  ColorChanger.scaffoldcolor,
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 5, left: 12, right: 12),
-            child: Column(
-              children: <Widget>[
-                SizedBox(height: 10,),
+    return FutureBuilder<QuerySnapshot>(
+      future: ref.get(),
+      builder: (context,snapshot){
 
-                Card(
-                  elevation: 3,
-                  shadowColor:  Color(0xff00DCA8),
-                  child: Container(
-                    decoration:  BoxDecoration(
-                        color: Color(0xff00DCA8),
-                        borderRadius:
-                            BorderRadius.only(topLeft: Radius.circular(5))),
-                    height: MediaQuery.of(context).size.height / 5,
-                    width: double.maxFinite,
-                    child: Row(
-                      children: <Widget>[
-                        Expanded(
-                          flex: 2,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+        if(snapshot.hasData){
+          return Scaffold(
+            // backgroundColor:  ColorChanger.scaffoldcolor,
+            body: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 5, left: 12, right: 12),
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(height: 10,),
+
+                      Card(
+                        elevation: 3,
+                        shadowColor:  Color(0xff00DCA8),
+                        child: Container(
+                          decoration:  BoxDecoration(
+                              color: Color(0xff00DCA8),
+                              borderRadius:
+                              BorderRadius.only(topLeft: Radius.circular(5))),
+                          height: MediaQuery.of(context).size.height / 5,
+                          width: double.maxFinite,
+                          child: Row(
                             children: <Widget>[
-                              Padding(
-                                padding:
-                                     EdgeInsets.only(top: 8, left: 15),
-                                child: Text(
-                                  '${_response?.weatherInfo.description.toUpperCase()}',
-                                  style: const TextStyle(
-                                    fontSize: 18,
-                                    fontFamily: 'Poppins',
-                                  ),
+                              Expanded(
+                                flex: 2,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Padding(
+                                      padding:
+                                      EdgeInsets.only(top: 8, left: 15),
+                                      child: Text(
+                                        '${_response?.weatherInfo.description.toUpperCase()}',
+                                        style: const TextStyle(
+                                          fontSize: 18,
+                                          fontFamily: 'Poppins',
+                                        ),
+                                      ),
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Padding(
+                                          padding:
+                                          EdgeInsets.only(top: 8, left: 15),
+                                          child: Text(
+                                            'Sunrise'.toUpperCase(),
+                                            style: const TextStyle(
+                                              fontSize: 15,
+                                              fontFamily: 'Poppins',
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 45.w,
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(top: 8, left: 15),
+                                          child: Text(
+                                            '05:35 AM',
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              fontFamily: 'Poppins',
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Padding(
+                                          padding:
+                                          EdgeInsets.only(top: 8, left: 15),
+                                          child: Text(
+                                            'Sunset'.toUpperCase(),
+                                            style: const TextStyle(
+                                              fontSize: 15,
+                                              fontFamily: 'Poppins',
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 45.w,
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(top: 8, left: 15),
+                                          child: Text(
+                                            '  06:44 PM',
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              fontFamily: 'Poppins',
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Padding(
+                                          padding:
+                                          EdgeInsets.only(top: 8, left: 15),
+                                          child: Text(
+                                            "Today's Temp".toUpperCase(),
+                                            style: const TextStyle(
+                                              fontSize: 15,
+                                              fontFamily: 'Poppins',
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 30.h,
+                                        ),
+                                        Padding(
+                                          padding:
+                                          EdgeInsets.only(top: 8, left: 15),
+                                          child: Text(
+                                            "${x.ceil()}° C",
+                                            style: const TextStyle(
+                                              fontSize: 15,
+                                              fontFamily: 'Poppins',
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Padding(
+                                          padding:
+                                          EdgeInsets.only(top: 8, left: 15),
+                                          child: Text(
+                                            'Today’s  Date'.toUpperCase(),
+                                            style: const TextStyle(
+                                              fontSize: 15,
+                                              fontFamily: 'Poppins',
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 5.w,
+                                        ),
+                                        Padding(
+                                          padding:
+                                          EdgeInsets.only(top: 8, left: 11),
+                                          child: Text(
+                                            '$todaysDate',
+                                            style: const TextStyle(
+                                              fontSize: 15,
+                                              fontFamily: 'Poppins',
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
                               ),
-                              Row(
+                              Expanded(
+                                flex: 1,
+                                child: Container(
+                                  child: Image.network(
+                                    _response!.iconUrl,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 5,),
+                      // Card(
+                      //   elevation: 3,
+                      //   shadowColor: Colors.orange,
+                      //   child: Clock(),
+                      //
+                      // ),
+
+                      Card(
+                        elevation: 3,
+                        shadowColor: Colors.orange,
+                        child: Container(
+                          height: 65.0.h,
+                          color: Colors.orangeAccent,
+                          child: Row(
+                            children: <Widget>[
+
+                              Container(
+                                margin: const EdgeInsets.only(left: 20),
+                                child: Image.asset(
+                                  'assets/calendar.png',
+                                  height: 50.h,
+                                  width: 50.w,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 50.w,
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  Padding(
-                                    padding:
-                                         EdgeInsets.only(top: 8, left: 15),
-                                    child: Text(
-                                      'Sunrise'.toUpperCase(),
-                                      style: const TextStyle(
-                                        fontSize: 15,
-                                        fontFamily: 'Poppins',
-                                      ),
-                                    ),
+                                  Text(
+                                    "$todaysWeeklyName",
+                                    style:  TextStyle(
+                                        fontSize: 18,
+                                        fontFamily: "Poppins",
+                                        fontWeight: FontWeight.w700),
                                   ),
-                                  SizedBox(
-                                    width: 45.w,
+                                   Row(
+                                     children: [
+                                       Text(
+                                        "You’ve ",
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            fontFamily: "Poppins",
+                                            fontWeight: FontWeight.w300),
                                   ),
-                                   Padding(
-                                    padding: EdgeInsets.only(top: 8, left: 15),
-                                    child: Text(
-                                      '05:35 AM',
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        fontFamily: 'Poppins',
+                                       Text(
+                                         "${snapshot.data!.docs.length}",
+                                         style: TextStyle(
+                                             fontSize: 16,
+                                             fontFamily: "Poppins",
+                                             fontWeight: FontWeight.w300),
+                                       ),
+
+                                       Text(
+                                         " Class Today",
+                                         style: TextStyle(
+                                             fontSize: 16,
+                                             fontFamily: "Poppins",
+                                             fontWeight: FontWeight.w300),
+                                       ),
+
+                                     ],
+                                   ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 5,),
+
+                      SizedBox(height: 5,),
+                      SizedBox(
+                        width: double.maxFinite,
+                        child: GFCarousel(
+                          autoPlay: true,
+                          items: imageList.map(
+                                (url) {
+                              return Container(
+                                margin: const EdgeInsets.only(
+                                    left: 5, right: 5, top: 5, bottom: 10),
+                                child: ClipRRect(
+                                  borderRadius:
+                                  const BorderRadius.all(Radius.circular(5.0)),
+                                  child: Image.asset(url,
+                                      fit: BoxFit.cover, width: double.maxFinite),
+                                ),
+                              );
+                            },
+                          ).toList(),
+                          onPageChanged: (index) {
+                            setState(() {
+                              index;
+                            });
+                          },
+                        ),
+                      ),
+                      SizedBox(
+                        height: 90,
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height / 15,
+                                width: MediaQuery.of(context).size.width / 2.40,
+                                child: NeumorphicButton(
+                                  onPressed: () {
+                                    print('neumorphic Btn');
+                                  },
+                                  style: NeumorphicStyle(
+                                    // shape: NeumorphicShape.concave,
+                                      boxShape: NeumorphicBoxShape.roundRect(
+                                          BorderRadius.circular(12)),
+                                      depth: 1,
+                                      lightSource: LightSource.topLeft,
+                                      color: Colors.white),
+                                  child: const Center(
+                                      child: Text(
+                                        "STUDENT PROTAL",
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.black45,
+                                            fontWeight: FontWeight.bold),
+                                      )),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10.w,
+                              ),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height / 15,
+                                width: MediaQuery.of(context).size.width / 2.30,
+                                child: NeumorphicButton(
+                                  onPressed: () {
+                                    print('neumorphic Btn');
+                                  },
+                                  style: NeumorphicStyle(
+                                      shape: NeumorphicShape.concave,
+                                      boxShape: NeumorphicBoxShape.roundRect(
+                                          BorderRadius.circular(12)),
+                                      depth: 1,
+                                      lightSource: LightSource.topLeft,
+                                      color: Colors.white),
+                                  child: const Center(
+                                      child: Text(
+                                        "TUTION FEES",
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.black45,
+                                            fontWeight: FontWeight.bold),
+                                      )),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10.w,
+                              ),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height / 15,
+                                width: MediaQuery.of(context).size.width / 2.30,
+                                child: NeumorphicButton(
+                                  onPressed: () => Get.toNamed('/FacultyProfile'),
+                                  style: NeumorphicStyle(
+                                      shape: NeumorphicShape.concave,
+                                      boxShape: NeumorphicBoxShape.roundRect(
+                                          BorderRadius.circular(12)),
+                                      depth: 1,
+                                      lightSource: LightSource.topLeft,
+                                      color: Colors.white),
+                                  child: const Center(
+                                      child: Text(
+                                        "FACULTY MEMBER",
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.black45,
+                                            fontWeight: FontWeight.bold),
+                                      )),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10.w,
+                              ),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height / 15,
+                                width: MediaQuery.of(context).size.width / 2.30,
+                                child: NeumorphicButton(
+                                  onPressed: () {
+                                    print('neumorphic Btn');
+                                  },
+                                  style: NeumorphicStyle(
+                                      shape: NeumorphicShape.concave,
+                                      boxShape: NeumorphicBoxShape.roundRect(
+                                          BorderRadius.circular(12)),
+                                      depth: 1,
+                                      lightSource: LightSource.topLeft,
+                                      color: Colors.white),
+                                  child: const Center(
+                                      child: Text(
+                                        "ACADEMIC RESULT",
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.black45,
+                                            fontWeight: FontWeight.bold),
+                                      )),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10.w,
+                              ),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height / 15,
+                                width: MediaQuery.of(context).size.width / 2.30,
+                                child: NeumorphicButton(
+                                  onPressed: () {
+                                    Get.toNamed('/NU_Portal');
+                                  },
+                                  style: NeumorphicStyle(
+                                      shape: NeumorphicShape.concave,
+                                      boxShape: NeumorphicBoxShape.roundRect(
+                                          BorderRadius.circular(12)),
+                                      depth: 1,
+                                      lightSource: LightSource.topLeft,
+                                      color: Colors.white),
+                                  child: const Center(
+                                      child: Text(
+                                        "NU PROTAL",
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.black45,
+                                            fontWeight: FontWeight.bold),
+                                      )),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10.w,
+                              ),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height / 15,
+                                width: MediaQuery.of(context).size.width / 2.30,
+                                child: NeumorphicButton(
+                                  onPressed: () {
+                                    print('neumorphic Btn');
+                                  },
+                                  style: NeumorphicStyle(
+                                      shape: NeumorphicShape.concave,
+                                      boxShape: NeumorphicBoxShape.roundRect(
+                                          BorderRadius.circular(12)),
+                                      depth: 1,
+                                      lightSource: LightSource.topLeft,
+                                      color: Colors.white),
+                                  child: const Center(
+                                      child: Text(
+                                        "DIIT NOTICS",
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.black45,
+                                            fontWeight: FontWeight.bold),
+                                      )),
+                                ),
+                              ),
+
+                              SizedBox(
+                                width: 10.w,
+                              )
+
+                              // delet kora jabe na
+
+                              // delet cora jane na backup
+
+                              // AnimatedButton(
+                              //   height: 45.h,
+                              //   width: 125.w,
+                              //   text: 'STUDENT PROTAL',
+                              //   textStyle: (TextStyle(
+                              //       fontSize: 14,
+                              //       fontFamily: "Poppins",
+                              //       fontWeight: FontWeight.w400,
+                              //       color: Colors.black)),
+                              //   isReverse: true,
+                              //   selectedTextColor: Colors.black,
+                              //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
+                              //   backgroundColor: Color(0xff00DCA8),
+                              //   borderColor: Colors.orangeAccent,
+                              //   borderRadius: 10,
+                              //   borderWidth: 2,
+                              //   onPress: () {},
+                              // ),
+                              // SizedBox(
+                              //   width: 10.w,
+                              // ),
+                              // AnimatedButton(
+                              //   height: 45.h,
+                              //   width: 125.w,
+                              //   text: 'TUTION FEES',
+                              //   textStyle: (TextStyle(
+                              //       fontSize: 14,
+                              //       fontFamily: "Poppins",
+                              //       fontWeight: FontWeight.w400,
+                              //       color: Colors.black)),
+                              //   isReverse: true,
+                              //   selectedTextColor: Colors.black,
+                              //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
+                              //   backgroundColor: Color(0xff00DCA8),
+                              //   borderColor: Colors.orangeAccent,
+                              //   borderRadius: 10,
+                              //   borderWidth: 2,
+                              //   onPress: () {},
+                              // ),
+                              // SizedBox(
+                              //   width: 10.w,
+                              // ),
+                              // AnimatedButton(
+                              //   height: 45.h,
+                              //   width: 125.w,
+                              //   text: 'FACULTY MEMBER',
+                              //   textStyle: (TextStyle(
+                              //       fontSize: 14,
+                              //       fontFamily: "Poppins",
+                              //       fontWeight: FontWeight.w400,
+                              //       color: Colors.black)),
+                              //   isReverse: true,
+                              //   selectedTextColor: Colors.black,
+                              //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
+                              //   backgroundColor: Color(0xff00DCA8),
+                              //   borderColor: Colors.orangeAccent,
+                              //   borderRadius: 10,
+                              //   borderWidth: 2,
+                              //   onPress: () => Get.toNamed('/FacultyProfile'),
+                              // ),
+                              // SizedBox(
+                              //   width: 10,
+                              // ),
+                              // AnimatedButton(
+                              //   height: 45.h,
+                              //   width: 125.w,
+                              //   text: 'ACADEMIC RESULT',
+                              //   textStyle: (TextStyle(
+                              //       fontSize: 14,
+                              //       fontFamily: "Poppins",
+                              //       fontWeight: FontWeight.w400,
+                              //       color: Colors.black)),
+                              //   isReverse: true,
+                              //   selectedTextColor: Colors.black,
+                              //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
+                              //   backgroundColor: Color(0xff00DCA8),
+                              //   borderColor: Colors.orangeAccent,
+                              //   borderRadius: 10,
+                              //   borderWidth: 2,
+                              //   onPress: () {},
+                              // ),
+                              // SizedBox(
+                              //   width: 10.w,
+                              // ),
+                              // AnimatedButton(
+                              //   height: 45.h,
+                              //   width: 125.w,
+                              //   text: 'NU PROTAL',
+                              //   textStyle: (TextStyle(
+                              //       fontSize: 14,
+                              //       fontFamily: "Poppins",
+                              //       fontWeight: FontWeight.w400,
+                              //       color: Colors.black)),
+                              //   isReverse: true,
+                              //   selectedTextColor: Colors.black,
+                              //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
+                              //   backgroundColor: Color(0xff00DCA8),
+                              //   borderColor: Colors.orangeAccent,
+                              //   borderRadius: 10,
+                              //   borderWidth: 2,
+                              //   onPress: () {},
+                              // ),
+                              // SizedBox(
+                              //   width: 10.w,
+                              // ),
+                              // AnimatedButton(
+                              //   height: 45.h,
+                              //   width: 125.w,
+                              //   text: 'DIIT NOTICS',
+                              //   textStyle: (TextStyle(
+                              //       fontSize: 14,
+                              //       fontFamily: "Poppins",
+                              //       fontWeight: FontWeight.w400,
+                              //       color: Colors.black)),
+                              //   isReverse: true,
+                              //   selectedTextColor: Colors.black,
+                              //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
+                              //   backgroundColor: Color(0xff00DCA8),
+                              //   borderColor: Colors.orangeAccent,
+                              //   borderRadius: 10,
+                              //   borderWidth: 2,
+                              //   onPress: () {},
+                              // ),
+
+                              // delet cora jane na backup
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 10.h),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height / 4.6,
+                            width: MediaQuery.of(context).size.width / 2.50,
+                            child: NeumorphicButton(
+                              onPressed: () => Get.toNamed('/QuestionBank'),
+                              style: NeumorphicStyle(
+                                  shape: NeumorphicShape.concave,
+                                  boxShape: NeumorphicBoxShape.roundRect(
+                                      BorderRadius.circular(12)),
+                                  depth: 1,
+                                  lightSource: LightSource.topLeft,
+                                  color: Colors.white),
+                              child: Column(
+                                children: [
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Image.asset(
+                                        "assets/ic_questionbank.png",
+                                        height:
+                                        MediaQuery.of(context).size.height / 8.2,
+                                        width: MediaQuery.of(context).size.width / 3,
                                       ),
-                                    ),
+                                      SizedBox(
+                                        height: 10.h,
+                                      ),
+                                      const Text(
+                                        "Question Bank",
+                                        style: TextStyle(
+                                            fontFamily: "Poppins",
+                                            fontSize: 15,
+                                            color: Colors.black54,
+                                            fontWeight: FontWeight.w300),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
-                              Row(
-                                children: <Widget>[
-                                  Padding(
-                                    padding:
-                                         EdgeInsets.only(top: 8, left: 15),
-                                    child: Text(
-                                      'Sunset'.toUpperCase(),
-                                      style: const TextStyle(
-                                        fontSize: 15,
-                                        fontFamily: 'Poppins',
+                            ),
+                          ),
+
+                          //delet kora jabe na
+                          // delete kora jabe na ei khane file comment kora
+
+                          // InkWell(
+                          //   onTap: () => Get.toNamed('/QuestionBank'),
+                          //   child: Card(
+                          //     elevation: 5,
+                          //     color: Color(0xffF8EFEF),
+                          //     child: Container(
+                          //       width: 150.w,
+                          //       height: 140.h,
+                          //       child: Column(
+                          //         mainAxisAlignment: MainAxisAlignment.center,
+                          //         children: [
+                          //           Image.asset(
+                          //             "assets/ic_questionbank.png",
+                          //             height: 100,
+                          //             width: 100,
+                          //           ),
+                          //           SizedBox(
+                          //             height: 10.h,
+                          //           ),
+                          //           Text(
+                          //             "Question Bank",
+                          //             style: TextStyle(
+                          //                 fontFamily: "Poppins",
+                          //                 fontSize: 15,
+                          //                 color: Colors.black,
+                          //                 fontWeight: FontWeight.w300),
+                          //           ),
+                          //         ],
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
+
+                          // delete kora jabe na ei khane file comment kora
+
+                          SizedBox(
+                            width: 10.h,
+                          ),
+
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height / 4.6,
+                            width: MediaQuery.of(context).size.width / 2.50,
+                            child: NeumorphicButton(
+                              onPressed: () => Get.toNamed('/ClassRoutineViewer'),
+                              style: NeumorphicStyle(
+                                  shape: NeumorphicShape.concave,
+                                  boxShape: NeumorphicBoxShape.roundRect(
+                                      BorderRadius.circular(12)),
+                                  depth: 1,
+                                  lightSource: LightSource.topLeft,
+                                  color: Colors.white),
+                              child: Column(
+                                children: [
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Image.asset(
+                                        "assets/ic_routine.png",
+                                        height:
+                                        MediaQuery.of(context).size.height / 8.2,
+                                        width: MediaQuery.of(context).size.width / 3,
                                       ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 45.w,
-                                  ),
-                                   Padding(
-                                    padding: EdgeInsets.only(top: 8, left: 15),
-                                    child: Text(
-                                      '  06:44 PM',
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        fontFamily: 'Poppins',
+                                      SizedBox(
+                                        height: 10.h,
                                       ),
-                                    ),
+                                      const Text(
+                                        "Class  Routine",
+                                        style: TextStyle(
+                                            fontFamily: "Poppins",
+                                            fontSize: 15,
+                                            color: Colors.black54,
+                                            fontWeight: FontWeight.w300),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
-                              Row(
-                                children: <Widget>[
-                                  Padding(
-                                    padding:
-                                         EdgeInsets.only(top: 8, left: 15),
-                                    child: Text(
-                                      "Today's Temp".toUpperCase(),
-                                      style: const TextStyle(
-                                        fontSize: 15,
-                                        fontFamily: 'Poppins',
+                            ),
+                          ),
+
+                          //delet kora jabe na
+                          //delet kora jabe na
+                          // delete kora jabe na ei khane file comment kora
+                          // InkWell(
+                          //   onTap: () => Get.toNamed('/ClassRoutine'),
+                          //   child: Card(
+                          //     elevation: 5,
+                          //     color: Color(0xffF8EFEF),
+                          //     child: Container(
+                          //       width: 150.w,
+                          //       height: 140.h,
+                          //       child: Column(
+                          //         mainAxisAlignment: MainAxisAlignment.center,
+                          //         children: [
+                          //           Image.asset(
+                          //             "assets/ic_routine.png",
+                          //             height: 100,
+                          //             width: 100,
+                          //           ),
+                          //           SizedBox(
+                          //             height: 10.h,
+                          //           ),
+                          //           Text(
+                          //             "Class  Routine",
+                          //             style: TextStyle(
+                          //                 fontFamily: "Poppins",
+                          //                 fontSize: 15,
+                          //                 color: Colors.black,
+                          //                 fontWeight: FontWeight.w300),
+                          //           ),
+                          //         ],
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
+                          // delete kora jabe na ei khane file comment kora
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height / 4.6,
+                            width: MediaQuery.of(context).size.width / 2.50,
+                            child: NeumorphicButton(
+                              onPressed: () {
+                                print('neumorphic Btn');
+                              },
+                              style: NeumorphicStyle(
+                                  shape: NeumorphicShape.concave,
+                                  boxShape: NeumorphicBoxShape.roundRect(
+                                      BorderRadius.circular(12)),
+                                  depth: 1,
+                                  lightSource: LightSource.topLeft,
+                                  color: Colors.white),
+                              child: Column(children: [
+                                Image.asset(
+                                  "assets/ic_club.png",
+                                  height: MediaQuery.of(context).size.height / 8.2,
+                                  width: MediaQuery.of(context).size.width / 3,
+                                ),
+                                SizedBox(
+                                  height: 10.h,
+                                ),
+                                const Text(
+                                  "Club",
+                                  style: TextStyle(
+                                      fontFamily: "Poppins",
+                                      fontSize: 15,
+                                      color: Colors.black54,
+                                      fontWeight: FontWeight.w300),
+                                ),
+                              ]),
+                            ),
+                          ),
+                          //delet kora jabe na
+                          // delete kora jabe na ei khane file comment kora
+                          // InkWell(
+                          //     onTap: () {},
+                          //     child: Card(
+                          //       elevation: 5,
+                          //       color: Color(0xffF8EFEF),
+                          //       child: Container(
+                          //         width: 150.w,
+                          //         height: 140.h,
+                          //         child: Column(
+                          //           mainAxisAlignment: MainAxisAlignment.center,
+                          //           children: [
+                          //             Image.asset(
+                          //               "assets/ic_club.png",
+                          //               height: 100,
+                          //               width: 100,
+                          //             ),
+                          //             SizedBox(
+                          //               height: 10.h,
+                          //             ),
+                          //             Text(
+                          //               "Club",
+                          //               style: TextStyle(
+                          //                   fontFamily: "Poppins",
+                          //                   fontSize: 15,
+                          //                   color: Colors.black,
+                          //                   fontWeight: FontWeight.w300),
+                          //             ),
+                          //           ],
+                          //         ),
+                          //       ),
+                          //     ),
+                          //   ),
+                          // delete kora jabe na ei khane file comment kora
+
+                          SizedBox(
+                            width: 10.h,
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height / 4.6,
+                            width: MediaQuery.of(context).size.width / 2.50,
+                            child: NeumorphicButton(
+                              onPressed: () => Get.toNamed('/TakeandShowAttendence'),
+                              style: NeumorphicStyle(
+                                  shape: NeumorphicShape.concave,
+                                  boxShape: NeumorphicBoxShape.roundRect(
+                                      BorderRadius.circular(12)),
+                                  depth: 1,
+                                  lightSource: LightSource.topLeft,
+                                  color: Colors.white),
+                              child: Column(
+                                children: [
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Image.asset(
+                                        "assets/ic_attendance.png",
+                                        height:
+                                        MediaQuery.of(context).size.height / 8.2,
+                                        width: MediaQuery.of(context).size.width / 3,
                                       ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 30.h,
-                                  ),
-                                  Padding(
-                                    padding:
-                                         EdgeInsets.only(top: 8, left: 15),
-                                    child: Text(
-                                      "${x.ceil()}° C",
-                                      style: const TextStyle(
-                                        fontSize: 15,
-                                        fontFamily: 'Poppins',
+                                      SizedBox(
+                                        height: 10.h,
                                       ),
-                                    ),
+                                      const Text(
+                                        "Attendence",
+                                        style: TextStyle(
+                                            fontFamily: "Poppins",
+                                            fontSize: 15,
+                                            color: Colors.black54,
+                                            fontWeight: FontWeight.w300),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
-                              Row(
-                                children: <Widget>[
-                                  Padding(
-                                    padding:
-                                         EdgeInsets.only(top: 8, left: 15),
-                                    child: Text(
-                                      'Today’s  Date'.toUpperCase(),
-                                      style: const TextStyle(
-                                        fontSize: 15,
-                                        fontFamily: 'Poppins',
-                                      ),
-                                    ),
+                            ),
+                          ),
+
+                          // delet kora jabe na
+                          // delete kora jabe na ei khane file comment kora
+                          // InkWell(
+                          //   onTap: () => Get.toNamed('/TakeandShowAttendence'),
+                          //   child: Card(
+                          //     elevation: 5,
+                          //     color: Color(0xffF8EFEF),
+                          //     child: Container(
+                          //       width: 150.w,
+                          //       height: 140.h,
+                          //       child: Column(
+                          //         mainAxisAlignment: MainAxisAlignment.center,
+                          //         children: [
+                          //           Image.asset(
+                          //             "assets/ic_attendance.png",
+                          //             height: 100,
+                          //             width: 100,
+                          //           ),
+                          //           SizedBox(
+                          //             height: 10.h,
+                          //           ),
+                          //           Text(
+                          //             "Attendence",
+                          //             style: TextStyle(
+                          //                 fontFamily: "Poppins",
+                          //                 fontSize: 15,
+                          //                 color: Colors.black,
+                          //                 fontWeight: FontWeight.w300),
+                          //           ),
+                          //         ],
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
+                          // delete kora jabe na ei khane file comment kora
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height / 5,
+                        width: MediaQuery.of(context).size.width / 2.50,
+                        child: NeumorphicButton(
+                          onPressed: () => Get.toNamed('/QuickPayment'),
+                          style: NeumorphicStyle(
+                              shape: NeumorphicShape.concave,
+                              boxShape: NeumorphicBoxShape.roundRect(
+                                  BorderRadius.circular(12)),
+                              depth: 0,
+                              lightSource: LightSource.topLeft,
+                              color: Colors.white),
+                          child: Column(
+                            children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    "assets/payment.png",
+                                    height: MediaQuery.of(context).size.height / 8.2,
+                                    width: MediaQuery.of(context).size.width / 3,
                                   ),
                                   SizedBox(
-                                    width: 5.w,
+                                    height: 10.h,
                                   ),
-                                  Padding(
-                                    padding:
-                                         EdgeInsets.only(top: 8, left: 11),
-                                    child: Text(
-                                      '$todaysDate',
-                                      style: const TextStyle(
+                                  const Text(
+                                    "Quick Pay",
+                                    style: TextStyle(
+                                        fontFamily: "Poppins",
                                         fontSize: 15,
-                                        fontFamily: 'Poppins',
-                                      ),
-                                    ),
+                                        color: Colors.black54,
+                                        fontWeight: FontWeight.w300),
                                   ),
                                 ],
                               ),
                             ],
                           ),
                         ),
-                        Expanded(
-                          flex: 1,
-                          child: Container(
-                              // child: Image.network(
-                              //   _response!.iconUrl,
-                              // ),
-                              ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(height: 5,),
-                // Card(
-                //   elevation: 3,
-                //   shadowColor: Colors.orange,
-                //   child: Clock(),
-                //
-                // ),
-
-                Card(
-                  elevation: 3,
-                  shadowColor: Colors.orange,
-                  child: Container(
-                    height: 65.0.h,
-                    color: Colors.orangeAccent,
-                    child: Row(
-                      children: <Widget>[
-
-                        Container(
-                          margin: const EdgeInsets.only(left: 20),
-                          child: Image.asset(
-                            'assets/calendar.png',
-                            height: 50.h,
-                            width: 50.w,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 50.w,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              "$todaysWeeklyName",
-                              style: const TextStyle(
-                                  fontSize: 18,
-                                  fontFamily: "Poppins",
-                                  fontWeight: FontWeight.w700),
-                            ),
-                            const Text(
-                              "You’ve No Class Today",
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  fontFamily: "Poppins",
-                                  fontWeight: FontWeight.w300),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(height: 5,),
-
-                SizedBox(height: 5,),
-                SizedBox(
-                  width: double.maxFinite,
-                  child: GFCarousel(
-                    autoPlay: true,
-                    items: imageList.map(
-                      (url) {
-                        return Container(
-                          margin: const EdgeInsets.only(
-                              left: 5, right: 5, top: 5, bottom: 10),
-                          child: ClipRRect(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(5.0)),
-                            child: Image.asset(url,
-                                fit: BoxFit.cover, width: double.maxFinite),
-                          ),
-                        );
-                      },
-                    ).toList(),
-                    onPageChanged: (index) {
-                      setState(() {
-                        index;
-                      });
-                    },
-                  ),
-                ),
-                SizedBox(
-                  height: 90,
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height / 15,
-                          width: MediaQuery.of(context).size.width / 2.40,
-                          child: NeumorphicButton(
-                            onPressed: () {
-                              print('neumorphic Btn');
-                            },
-                            style: NeumorphicStyle(
-                                // shape: NeumorphicShape.concave,
-                                boxShape: NeumorphicBoxShape.roundRect(
-                                    BorderRadius.circular(12)),
-                                depth: 1,
-                                lightSource: LightSource.topLeft,
-                                color: Colors.white),
-                            child: const Center(
-                                child: Text(
-                              "STUDENT PROTAL",
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.black45,
-                                  fontWeight: FontWeight.bold),
-                            )),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 10.w,
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height / 15,
-                          width: MediaQuery.of(context).size.width / 2.30,
-                          child: NeumorphicButton(
-                            onPressed: () {
-                              print('neumorphic Btn');
-                            },
-                            style: NeumorphicStyle(
-                                shape: NeumorphicShape.concave,
-                                boxShape: NeumorphicBoxShape.roundRect(
-                                    BorderRadius.circular(12)),
-                                depth: 1,
-                                lightSource: LightSource.topLeft,
-                                color: Colors.white),
-                            child: const Center(
-                                child: Text(
-                              "TUTION FEES",
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.black45,
-                                  fontWeight: FontWeight.bold),
-                            )),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 10.w,
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height / 15,
-                          width: MediaQuery.of(context).size.width / 2.30,
-                          child: NeumorphicButton(
-                            onPressed: () => Get.toNamed('/FacultyProfile'),
-                            style: NeumorphicStyle(
-                                shape: NeumorphicShape.concave,
-                                boxShape: NeumorphicBoxShape.roundRect(
-                                    BorderRadius.circular(12)),
-                                depth: 1,
-                                lightSource: LightSource.topLeft,
-                                color: Colors.white),
-                            child: const Center(
-                                child: Text(
-                              "FACULTY MEMBER",
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.black45,
-                                  fontWeight: FontWeight.bold),
-                            )),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 10.w,
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height / 15,
-                          width: MediaQuery.of(context).size.width / 2.30,
-                          child: NeumorphicButton(
-                            onPressed: () {
-                              print('neumorphic Btn');
-                            },
-                            style: NeumorphicStyle(
-                                shape: NeumorphicShape.concave,
-                                boxShape: NeumorphicBoxShape.roundRect(
-                                    BorderRadius.circular(12)),
-                                depth: 1,
-                                lightSource: LightSource.topLeft,
-                                color: Colors.white),
-                            child: const Center(
-                                child: Text(
-                              "ACADEMIC RESULT",
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.black45,
-                                  fontWeight: FontWeight.bold),
-                            )),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 10.w,
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height / 15,
-                          width: MediaQuery.of(context).size.width / 2.30,
-                          child: NeumorphicButton(
-                            onPressed: () {
-                              Get.toNamed('/NU_Portal');
-                            },
-                            style: NeumorphicStyle(
-                                shape: NeumorphicShape.concave,
-                                boxShape: NeumorphicBoxShape.roundRect(
-                                    BorderRadius.circular(12)),
-                                depth: 1,
-                                lightSource: LightSource.topLeft,
-                                color: Colors.white),
-                            child: const Center(
-                                child: Text(
-                              "NU PROTAL",
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.black45,
-                                  fontWeight: FontWeight.bold),
-                            )),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 10.w,
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height / 15,
-                          width: MediaQuery.of(context).size.width / 2.30,
-                          child: NeumorphicButton(
-                            onPressed: () {
-                              print('neumorphic Btn');
-                            },
-                            style: NeumorphicStyle(
-                                shape: NeumorphicShape.concave,
-                                boxShape: NeumorphicBoxShape.roundRect(
-                                    BorderRadius.circular(12)),
-                                depth: 1,
-                                lightSource: LightSource.topLeft,
-                                color: Colors.white),
-                            child: const Center(
-                                child: Text(
-                              "DIIT NOTICS",
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.black45,
-                                  fontWeight: FontWeight.bold),
-                            )),
-                          ),
-                        ),
-
-                        SizedBox(
-                          width: 10.w,
-                        )
-
-                        // delet kora jabe na
-
-                        // delet cora jane na backup
-
-                        // AnimatedButton(
-                        //   height: 45.h,
-                        //   width: 125.w,
-                        //   text: 'STUDENT PROTAL',
-                        //   textStyle: (TextStyle(
-                        //       fontSize: 14,
-                        //       fontFamily: "Poppins",
-                        //       fontWeight: FontWeight.w400,
-                        //       color: Colors.black)),
-                        //   isReverse: true,
-                        //   selectedTextColor: Colors.black,
-                        //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                        //   backgroundColor: Color(0xff00DCA8),
-                        //   borderColor: Colors.orangeAccent,
-                        //   borderRadius: 10,
-                        //   borderWidth: 2,
-                        //   onPress: () {},
-                        // ),
-                        // SizedBox(
-                        //   width: 10.w,
-                        // ),
-                        // AnimatedButton(
-                        //   height: 45.h,
-                        //   width: 125.w,
-                        //   text: 'TUTION FEES',
-                        //   textStyle: (TextStyle(
-                        //       fontSize: 14,
-                        //       fontFamily: "Poppins",
-                        //       fontWeight: FontWeight.w400,
-                        //       color: Colors.black)),
-                        //   isReverse: true,
-                        //   selectedTextColor: Colors.black,
-                        //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                        //   backgroundColor: Color(0xff00DCA8),
-                        //   borderColor: Colors.orangeAccent,
-                        //   borderRadius: 10,
-                        //   borderWidth: 2,
-                        //   onPress: () {},
-                        // ),
-                        // SizedBox(
-                        //   width: 10.w,
-                        // ),
-                        // AnimatedButton(
-                        //   height: 45.h,
-                        //   width: 125.w,
-                        //   text: 'FACULTY MEMBER',
-                        //   textStyle: (TextStyle(
-                        //       fontSize: 14,
-                        //       fontFamily: "Poppins",
-                        //       fontWeight: FontWeight.w400,
-                        //       color: Colors.black)),
-                        //   isReverse: true,
-                        //   selectedTextColor: Colors.black,
-                        //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                        //   backgroundColor: Color(0xff00DCA8),
-                        //   borderColor: Colors.orangeAccent,
-                        //   borderRadius: 10,
-                        //   borderWidth: 2,
-                        //   onPress: () => Get.toNamed('/FacultyProfile'),
-                        // ),
-                        // SizedBox(
-                        //   width: 10,
-                        // ),
-                        // AnimatedButton(
-                        //   height: 45.h,
-                        //   width: 125.w,
-                        //   text: 'ACADEMIC RESULT',
-                        //   textStyle: (TextStyle(
-                        //       fontSize: 14,
-                        //       fontFamily: "Poppins",
-                        //       fontWeight: FontWeight.w400,
-                        //       color: Colors.black)),
-                        //   isReverse: true,
-                        //   selectedTextColor: Colors.black,
-                        //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                        //   backgroundColor: Color(0xff00DCA8),
-                        //   borderColor: Colors.orangeAccent,
-                        //   borderRadius: 10,
-                        //   borderWidth: 2,
-                        //   onPress: () {},
-                        // ),
-                        // SizedBox(
-                        //   width: 10.w,
-                        // ),
-                        // AnimatedButton(
-                        //   height: 45.h,
-                        //   width: 125.w,
-                        //   text: 'NU PROTAL',
-                        //   textStyle: (TextStyle(
-                        //       fontSize: 14,
-                        //       fontFamily: "Poppins",
-                        //       fontWeight: FontWeight.w400,
-                        //       color: Colors.black)),
-                        //   isReverse: true,
-                        //   selectedTextColor: Colors.black,
-                        //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                        //   backgroundColor: Color(0xff00DCA8),
-                        //   borderColor: Colors.orangeAccent,
-                        //   borderRadius: 10,
-                        //   borderWidth: 2,
-                        //   onPress: () {},
-                        // ),
-                        // SizedBox(
-                        //   width: 10.w,
-                        // ),
-                        // AnimatedButton(
-                        //   height: 45.h,
-                        //   width: 125.w,
-                        //   text: 'DIIT NOTICS',
-                        //   textStyle: (TextStyle(
-                        //       fontSize: 14,
-                        //       fontFamily: "Poppins",
-                        //       fontWeight: FontWeight.w400,
-                        //       color: Colors.black)),
-                        //   isReverse: true,
-                        //   selectedTextColor: Colors.black,
-                        //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                        //   backgroundColor: Color(0xff00DCA8),
-                        //   borderColor: Colors.orangeAccent,
-                        //   borderRadius: 10,
-                        //   borderWidth: 2,
-                        //   onPress: () {},
-                        // ),
-
-                        // delet cora jane na backup
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(height: 10.h),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height / 4.6,
-                      width: MediaQuery.of(context).size.width / 2.50,
-                      child: NeumorphicButton(
-                        onPressed: () => Get.toNamed('/QuestionBank'),
-                        style: NeumorphicStyle(
-                            shape: NeumorphicShape.concave,
-                            boxShape: NeumorphicBoxShape.roundRect(
-                                BorderRadius.circular(12)),
-                            depth: 1,
-                            lightSource: LightSource.topLeft,
-                            color: Colors.white),
-                        child: Column(
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  "assets/ic_questionbank.png",
-                                  height:
-                                      MediaQuery.of(context).size.height / 8.2,
-                                  width: MediaQuery.of(context).size.width / 3,
-                                ),
-                                SizedBox(
-                                  height: 10.h,
-                                ),
-                                const Text(
-                                  "Question Bank",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 15,
-                                      color: Colors.black54,
-                                      fontWeight: FontWeight.w300),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
                       ),
-                    ),
+                      // quick payment //
 
-                    //delet kora jabe na
-                    // delete kora jabe na ei khane file comment kora
-
-                    // InkWell(
-                    //   onTap: () => Get.toNamed('/QuestionBank'),
-                    //   child: Card(
-                    //     elevation: 5,
-                    //     color: Color(0xffF8EFEF),
-                    //     child: Container(
-                    //       width: 150.w,
-                    //       height: 140.h,
-                    //       child: Column(
-                    //         mainAxisAlignment: MainAxisAlignment.center,
-                    //         children: [
-                    //           Image.asset(
-                    //             "assets/ic_questionbank.png",
-                    //             height: 100,
-                    //             width: 100,
-                    //           ),
-                    //           SizedBox(
-                    //             height: 10.h,
-                    //           ),
-                    //           Text(
-                    //             "Question Bank",
-                    //             style: TextStyle(
-                    //                 fontFamily: "Poppins",
-                    //                 fontSize: 15,
-                    //                 color: Colors.black,
-                    //                 fontWeight: FontWeight.w300),
-                    //           ),
-                    //         ],
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
-
-                    // delete kora jabe na ei khane file comment kora
-
-                    SizedBox(
-                      width: 10.h,
-                    ),
-
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height / 4.6,
-                      width: MediaQuery.of(context).size.width / 2.50,
-                      child: NeumorphicButton(
-                        onPressed: () => Get.toNamed('/ClassRoutineViewer'),
-                        style: NeumorphicStyle(
-                            shape: NeumorphicShape.concave,
-                            boxShape: NeumorphicBoxShape.roundRect(
-                                BorderRadius.circular(12)),
-                            depth: 1,
-                            lightSource: LightSource.topLeft,
-                            color: Colors.white),
-                        child: Column(
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  "assets/ic_routine.png",
-                                  height:
-                                      MediaQuery.of(context).size.height / 8.2,
-                                  width: MediaQuery.of(context).size.width / 3,
-                                ),
-                                SizedBox(
-                                  height: 10.h,
-                                ),
-                                const Text(
-                                  "Class  Routine",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 15,
-                                      color: Colors.black54,
-                                      fontWeight: FontWeight.w300),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-
-                    //delet kora jabe na
-                    //delet kora jabe na
-                    // delete kora jabe na ei khane file comment kora
-                    // InkWell(
-                    //   onTap: () => Get.toNamed('/ClassRoutine'),
-                    //   child: Card(
-                    //     elevation: 5,
-                    //     color: Color(0xffF8EFEF),
-                    //     child: Container(
-                    //       width: 150.w,
-                    //       height: 140.h,
-                    //       child: Column(
-                    //         mainAxisAlignment: MainAxisAlignment.center,
-                    //         children: [
-                    //           Image.asset(
-                    //             "assets/ic_routine.png",
-                    //             height: 100,
-                    //             width: 100,
-                    //           ),
-                    //           SizedBox(
-                    //             height: 10.h,
-                    //           ),
-                    //           Text(
-                    //             "Class  Routine",
-                    //             style: TextStyle(
-                    //                 fontFamily: "Poppins",
-                    //                 fontSize: 15,
-                    //                 color: Colors.black,
-                    //                 fontWeight: FontWeight.w300),
-                    //           ),
-                    //         ],
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
-                    // delete kora jabe na ei khane file comment kora
-                  ],
-                ),
-                SizedBox(
-                  height: 10.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height / 4.6,
-                      width: MediaQuery.of(context).size.width / 2.50,
-                      child: NeumorphicButton(
-                        onPressed: () {
-                          print('neumorphic Btn');
-                        },
-                        style: NeumorphicStyle(
-                            shape: NeumorphicShape.concave,
-                            boxShape: NeumorphicBoxShape.roundRect(
-                                BorderRadius.circular(12)),
-                            depth: 1,
-                            lightSource: LightSource.topLeft,
-                            color: Colors.white),
-                        child: Column(children: [
-                          Image.asset(
-                            "assets/ic_club.png",
-                            height: MediaQuery.of(context).size.height / 8.2,
-                            width: MediaQuery.of(context).size.width / 3,
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          const Text(
-                            "Club",
-                            style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 15,
-                                color: Colors.black54,
-                                fontWeight: FontWeight.w300),
-                          ),
-                        ]),
-                      ),
-                    ),
-                    //delet kora jabe na
-                    // delete kora jabe na ei khane file comment kora
-                    // InkWell(
-                    //     onTap: () {},
-                    //     child: Card(
-                    //       elevation: 5,
-                    //       color: Color(0xffF8EFEF),
-                    //       child: Container(
-                    //         width: 150.w,
-                    //         height: 140.h,
-                    //         child: Column(
-                    //           mainAxisAlignment: MainAxisAlignment.center,
-                    //           children: [
-                    //             Image.asset(
-                    //               "assets/ic_club.png",
-                    //               height: 100,
-                    //               width: 100,
-                    //             ),
-                    //             SizedBox(
-                    //               height: 10.h,
-                    //             ),
-                    //             Text(
-                    //               "Club",
-                    //               style: TextStyle(
-                    //                   fontFamily: "Poppins",
-                    //                   fontSize: 15,
-                    //                   color: Colors.black,
-                    //                   fontWeight: FontWeight.w300),
-                    //             ),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   ),
-                    // delete kora jabe na ei khane file comment kora
-
-                    SizedBox(
-                      width: 10.h,
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height / 4.6,
-                      width: MediaQuery.of(context).size.width / 2.50,
-                      child: NeumorphicButton(
-                        onPressed: () => Get.toNamed('/TakeandShowAttendence'),
-                        style: NeumorphicStyle(
-                            shape: NeumorphicShape.concave,
-                            boxShape: NeumorphicBoxShape.roundRect(
-                                BorderRadius.circular(12)),
-                            depth: 1,
-                            lightSource: LightSource.topLeft,
-                            color: Colors.white),
-                        child: Column(
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  "assets/ic_attendance.png",
-                                  height:
-                                      MediaQuery.of(context).size.height / 8.2,
-                                  width: MediaQuery.of(context).size.width / 3,
-                                ),
-                                SizedBox(
-                                  height: 10.h,
-                                ),
-                                const Text(
-                                  "Attendence",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 15,
-                                      color: Colors.black54,
-                                      fontWeight: FontWeight.w300),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-
-                    // delet kora jabe na
-                    // delete kora jabe na ei khane file comment kora
-                    // InkWell(
-                    //   onTap: () => Get.toNamed('/TakeandShowAttendence'),
-                    //   child: Card(
-                    //     elevation: 5,
-                    //     color: Color(0xffF8EFEF),
-                    //     child: Container(
-                    //       width: 150.w,
-                    //       height: 140.h,
-                    //       child: Column(
-                    //         mainAxisAlignment: MainAxisAlignment.center,
-                    //         children: [
-                    //           Image.asset(
-                    //             "assets/ic_attendance.png",
-                    //             height: 100,
-                    //             width: 100,
-                    //           ),
-                    //           SizedBox(
-                    //             height: 10.h,
-                    //           ),
-                    //           Text(
-                    //             "Attendence",
-                    //             style: TextStyle(
-                    //                 fontFamily: "Poppins",
-                    //                 fontSize: 15,
-                    //                 color: Colors.black,
-                    //                 fontWeight: FontWeight.w300),
-                    //           ),
-                    //         ],
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
-                    // delete kora jabe na ei khane file comment kora
-                  ],
-                ),
-                SizedBox(
-                  height: 10.h,
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height / 5,
-                  width: MediaQuery.of(context).size.width / 2.50,
-                  child: NeumorphicButton(
-                    onPressed: () => Get.toNamed('/QuickPayment'),
-                    style: NeumorphicStyle(
-                        shape: NeumorphicShape.concave,
-                        boxShape: NeumorphicBoxShape.roundRect(
-                            BorderRadius.circular(12)),
-                        depth: 0,
-                        lightSource: LightSource.topLeft,
-                        color: Colors.white),
-                    child: Column(
-                      children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/payment.png",
-                              height: MediaQuery.of(context).size.height / 8.2,
-                              width: MediaQuery.of(context).size.width / 3,
-                            ),
-                            SizedBox(
-                              height: 10.h,
-                            ),
-                            const Text(
-                              "Quick Pay",
-                              style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 15,
-                                  color: Colors.black54,
-                                  fontWeight: FontWeight.w300),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                      SizedBox(
+                        height: 20.h,
+                      )
+                    ],
                   ),
                 ),
-                // quick payment //
-
-                SizedBox(
-                  height: 20.h,
-                )
-              ],
+              ),
             ),
-          ),
-        ),
-      ),
+          );
+        }
+        else{
+          return Center(child: CircularProgressIndicator(),);
+        }
+
+      },
+
     );
   }
 
