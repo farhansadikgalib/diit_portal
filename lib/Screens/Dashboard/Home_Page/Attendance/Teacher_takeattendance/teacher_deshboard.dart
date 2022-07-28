@@ -1,5 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 class TeacherDashbord extends StatefulWidget {
 
@@ -9,7 +13,57 @@ class TeacherDashbord extends StatefulWidget {
 }
 
 class _TeacherDashbordState extends State<TeacherDashbord> {
-  final TextEditingController _CreateNotification = TextEditingController();
+  TextEditingController _createNotification = TextEditingController();
+  static const String oneSignalId = "6d6a341b-9a0c-4637-9ba7-fd600bff21a0";
+
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _createNotification;
+  }
+
+  @override
+  void initState() {
+    intitPlatformState();
+  }
+
+  Future<void> intitPlatformState() async {
+    OneSignal.shared.setAppId(oneSignalId);
+
+  }
+
+
+  Future sendNotification(List<String> tokenIdList, String contents, String heading) async{
+
+    return await post(
+      Uri.parse('https://onesignal.com/api/v1/notifications'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, dynamic>
+      {
+        "app_id": "6d6a341b-9a0c-4637-9ba7-fd600bff21a0",//kAppId is the App Id that one get from the OneSignal When the application is registered.
+
+        "include_player_ids": "",//tokenIdList Is the List of All the Token Id to to Whom notification must be sent.
+
+        // android_accent_color reprsent the color of the heading text in the notifiction
+        "android_accent_color":"FF9976D2",
+
+        "small_icon":"ic_stat_onesignal_default",
+
+        "large_icon":"https://www.filepicker.io/api/file/zPloHSmnQsix82nlj9Aj?filename=name.jpg",
+
+        "headings": {"en": "DIIT Portal"},
+
+        "contents": {"en": "Notification Send"},
+
+
+      }),
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -165,8 +219,8 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                   left: 30,right: 30,
                 ),
                 child: TextFormField(
-                  controller: _CreateNotification,
-                  maxLines: 2,
+                  controller: _createNotification,
+                  maxLines: 4,
                   maxLength: 200,
                   cursorHeight: 20,
                   autofocus: false,
@@ -175,16 +229,23 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                     contentPadding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
                     hintText: 'Create Notification',
                     suffixIcon: IconButton(onPressed: (){
+
+
                       Get.snackbar(
-                          'Notification',"Done",
+                          'Notification',"Sent Successfully",
                           backgroundColor: Colors.black12,
                           snackPosition: SnackPosition.TOP,
                           messageText:const Text('Done',style: TextStyle(fontSize: 16),) ,
                           titleText: const Text('Notification',style: TextStyle(fontSize: 18),)
+
+
                       );
+
+                      String content = _createNotification.text.trim();
                       setState((){
-                        _CreateNotification;
-                        print('Notifi Done');
+
+                        sendNotification([],content , "heading");
+                        print(_createNotification);
                       });
                     },
                       icon: const Icon(Icons.send,color: Colors.orange,),),

@@ -704,7 +704,7 @@ class _HomePageState extends State<HomePage> {
                       height: MediaQuery.of(context).size.height / 4.6,
                       width: MediaQuery.of(context).size.width / 2.50,
                       child: NeumorphicButton(
-                        onPressed: () => Get.toNamed('/ClassRoutine'),
+                        onPressed: () => Get.toNamed('/ClassRoutineViewer'),
                         style: NeumorphicStyle(
                             shape: NeumorphicShape.concave,
                             boxShape: NeumorphicBoxShape.roundRect(
