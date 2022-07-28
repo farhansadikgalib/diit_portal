@@ -1,11 +1,11 @@
 import 'package:diit_portal/Screens/App_Colors/app_color.dart';
-import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/CSE/DAY/Friday.dart';
-import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/CSE/DAY/Monday.dart';
-import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/CSE/DAY/Saturday.dart';
-import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/CSE/DAY/Sunday.dart';
-import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/CSE/DAY/Thursday.dart';
-import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/CSE/DAY/Tuesday.dart';
-import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/CSE/DAY/Wednesday.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Friday.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Monday.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Saturday.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Sunday.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Thursday.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Tuesday.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Wednesday.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_colorful_tab/flutter_colorful_tab.dart';

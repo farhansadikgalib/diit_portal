@@ -19,6 +19,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  String weeklyname ='';
+
   @override
   void initState() {
      weatherService();
@@ -36,9 +39,11 @@ class _HomePageState extends State<HomePage> {
 
   dynamic todaysDate = DateFormat('dd MMMM yyyy').format(DateTime.now());
   dynamic currentTime = DateFormat.jm().format(DateTime.now());
-  dynamic todaysWeeklyName = DateFormat('EEEE').format(DateTime.now());
+  String todaysWeeklyName = DateFormat('EEEE').format(DateTime.now());
 
-  late var x = (((_response?.tempInfo.temperature)! - 32) * 5) / 9;
+  var l = 'Sunday';
+
+  late var temp = (((_response?.tempInfo.temperature)! - 32) * 5) / 9;
 
   final List<String> imageList = [
     "assets/slider_image/banner.png",
@@ -65,7 +70,7 @@ class _HomePageState extends State<HomePage> {
       .collection('Section')
       .doc('A')
       .collection('Day')
-      .doc('Saturday')
+      .doc('Friday')
       .collection('ClassList');
 
   //Firebase
@@ -202,7 +207,7 @@ class _HomePageState extends State<HomePage> {
                                           padding:
                                           EdgeInsets.only(top: 8, left: 15),
                                           child: Text(
-                                            "${x.ceil()}° C",
+                                            "${temp.ceil()}° C",
                                             style: const TextStyle(
                                               fontSize: 15,
                                               fontFamily: 'Poppins',

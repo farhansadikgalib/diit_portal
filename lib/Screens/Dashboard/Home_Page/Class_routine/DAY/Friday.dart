@@ -1,16 +1,19 @@
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable/expandable.dart';
 import 'package:flutter_expandable/expander.dart';
+import 'package:glass_kit/glass_kit.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class Saturday extends StatefulWidget {
-  const Saturday({Key? key}) : super(key: key);
+class FriDay extends StatefulWidget {
+  
 
   @override
-  State<Saturday> createState() => _SaturdayState();
+  State<FriDay> createState() => _FriDayState();
 }
 
-class _SaturdayState extends State<Saturday>  with TickerProviderStateMixin {
+class _FriDayState extends State<FriDay>  with TickerProviderStateMixin {
   late AnimationController controller;
 
   @override
@@ -28,7 +31,6 @@ class _SaturdayState extends State<Saturday>  with TickerProviderStateMixin {
   }
 
   // late  bool notification = false;
-
   CollectionReference ref = FirebaseFirestore.instance
       .collection("ClassRoutine")
       .doc('Department')
@@ -37,7 +39,7 @@ class _SaturdayState extends State<Saturday>  with TickerProviderStateMixin {
       .collection('Section')
       .doc('A')
       .collection('Day')
-      .doc('Saturday')
+      .doc('Friday')
       .collection('ClassList');
 
   // late  bool notification = false;
@@ -287,28 +289,28 @@ class _SaturdayState extends State<Saturday>  with TickerProviderStateMixin {
                                                 const SizedBox(
                                                   height: 10,
                                                 ),
-                                                Row(
-                                                  children: [
-                                                    InkWell(
-                                                      onTap: () {},
-                                                      child: Icon(
+                                                InkWell(
+                                                  onTap: (){
+                                                    launch("tel://${snap[index]
+                                                    ['lecturer_number']}");
+                                                  },
+                                                  child: Row(
+                                                    children: [
+                                                      Icon(
                                                         Icons.call,
                                                         size: 22,
                                                         color: Colors.red,
                                                       ),
-                                                    ),
-                                                    InkWell(
-                                                      onTap: () {},
-                                                      child: Text(
+                                                      Text(
                                                         snap[index]
                                                         ['lecturer_number'],
                                                         style: TextStyle(
                                                             fontSize: 18,
                                                             color: Color(
                                                                 0xff92D306)),
-                                                      ), // ),
-                                                    ),
-                                                  ],
+                                                      ),
+                                                    ],
+                                                  ),
                                                 ),
                                               ],
                                             ),
@@ -425,4 +427,3 @@ class _SaturdayState extends State<Saturday>  with TickerProviderStateMixin {
     //   Scaffold(
   }
 }
-

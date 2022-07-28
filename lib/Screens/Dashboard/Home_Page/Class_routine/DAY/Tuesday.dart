@@ -1,16 +1,18 @@
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable/expandable.dart';
 import 'package:flutter_expandable/expander.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class MonDay extends StatefulWidget {
-  const MonDay({Key? key}) : super(key: key);
+class TuesDay extends StatefulWidget {
+  
 
   @override
-  State<MonDay> createState() => _SaturdayState();
+  State<TuesDay> createState() => _TuesDayState();
 }
 
-class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
+class _TuesDayState extends State<TuesDay>  with TickerProviderStateMixin {
   late AnimationController controller;
 
   @override
@@ -26,7 +28,7 @@ class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
         vsync: this);
 
   }
-  
+
   // late  bool notification = false;
   CollectionReference ref = FirebaseFirestore.instance
       .collection("ClassRoutine")
@@ -36,7 +38,7 @@ class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
       .collection('Section')
       .doc('A')
       .collection('Day')
-      .doc('Monday')
+      .doc('Tuesday')
       .collection('ClassList');
 
   // late  bool notification = false;
@@ -80,10 +82,7 @@ class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
                           EdgeInsets.only(left: 10, right: 10, top: 10),
                           child: SizedBox(
                             // height: MediaQuery.of(context).size.height / 4,
-                            width: MediaQuery
-                                .of(context)
-                                .size
-                                .width,
+                            width: MediaQuery.of(context).size.width,
                             child: Column(children: [
                               Row(
                                 mainAxisAlignment:
@@ -143,10 +142,7 @@ class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
                                     Container(
                                         height: 3,
                                         width:
-                                        MediaQuery
-                                            .of(context)
-                                            .size
-                                            .width /
+                                        MediaQuery.of(context).size.width /
                                             1.25,
                                         color: Colors.white)
                                   ]),
@@ -250,19 +246,13 @@ class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
                               ),
                               Expandable(
                                   height:
-                                  MediaQuery
-                                      .of(context)
-                                      .size
-                                      .height / 3,
+                                  MediaQuery.of(context).size.height / 3,
                                   controller: controller,
                                   duration: const Duration(seconds: 1),
                                   child: Container(
                                       color: const Color(0xff4D4A4A),
                                       height:
-                                      MediaQuery
-                                          .of(context)
-                                          .size
-                                          .height /
+                                      MediaQuery.of(context).size.height /
                                           8,
                                       width: double.infinity,
                                       child: Padding(
@@ -298,28 +288,28 @@ class _SaturdayState extends State<MonDay> with TickerProviderStateMixin {
                                                 const SizedBox(
                                                   height: 10,
                                                 ),
-                                                Row(
-                                                  children: [
-                                                    InkWell(
-                                                      onTap: () {},
-                                                      child: Icon(
+                                                InkWell(
+                                                  onTap: (){
+                                                    launch("tel://${snap[index]
+                                                    ['lecturer_number']}");
+                                                  },
+                                                  child: Row(
+                                                    children: [
+                                                      Icon(
                                                         Icons.call,
                                                         size: 22,
                                                         color: Colors.red,
                                                       ),
-                                                    ),
-                                                    InkWell(
-                                                      onTap: () {},
-                                                      child: Text(
+                                                      Text(
                                                         snap[index]
                                                         ['lecturer_number'],
                                                         style: TextStyle(
                                                             fontSize: 18,
                                                             color: Color(
                                                                 0xff92D306)),
-                                                      ), // ),
-                                                    ),
-                                                  ],
+                                                      ),
+                                                    ],
+                                                  ),
                                                 ),
                                               ],
                                             ),

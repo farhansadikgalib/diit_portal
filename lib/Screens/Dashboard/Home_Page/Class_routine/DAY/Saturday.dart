@@ -2,15 +2,16 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable/expandable.dart';
 import 'package:flutter_expandable/expander.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class Sunday extends StatefulWidget {
-  const Sunday({Key? key}) : super(key: key);
+class Saturday extends StatefulWidget {
+  const Saturday({Key? key}) : super(key: key);
 
   @override
-  State<Sunday> createState() => _SundayState();
+  State<Saturday> createState() => _SaturdayState();
 }
 
-class _SundayState extends State<Sunday> with TickerProviderStateMixin {
+class _SaturdayState extends State<Saturday>  with TickerProviderStateMixin {
   late AnimationController controller;
 
   @override
@@ -18,14 +19,16 @@ class _SundayState extends State<Sunday> with TickerProviderStateMixin {
     super.initState();
     animationController();
   }
-
-  animationController() {
+  animationController(){
     controller = AnimationController(
         duration: const Duration(
           milliseconds: 100,
         ),
         vsync: this);
+
   }
+
+  // late  bool notification = false;
 
   CollectionReference ref = FirebaseFirestore.instance
       .collection("ClassRoutine")
@@ -35,7 +38,7 @@ class _SundayState extends State<Sunday> with TickerProviderStateMixin {
       .collection('Section')
       .doc('A')
       .collection('Day')
-      .doc('Sunday')
+      .doc('Saturday')
       .collection('ClassList');
 
   // late  bool notification = false;
@@ -76,18 +79,18 @@ class _SundayState extends State<Sunday> with TickerProviderStateMixin {
                         color: Color(0xff92B9A6),
                         child: Padding(
                           padding:
-                              EdgeInsets.only(left: 10, right: 10, top: 10),
+                          EdgeInsets.only(left: 10, right: 10, top: 10),
                           child: SizedBox(
                             // height: MediaQuery.of(context).size.height / 4,
                             width: MediaQuery.of(context).size.width,
                             child: Column(children: [
                               Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                MainAxisAlignment.spaceBetween,
                                 children: [
                                   Column(
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         snap[index]['course_name'],
@@ -134,18 +137,18 @@ class _SundayState extends State<Sunday> with TickerProviderStateMixin {
                                   rotatingArrowSize: 40,
                                   rotatingArrowColor: Colors.black,
                                   arrowRotationDuration:
-                                      Duration(milliseconds: 100),
+                                  Duration(milliseconds: 100),
                                   triggerWidgets: [
                                     Container(
                                         height: 3,
                                         width:
-                                            MediaQuery.of(context).size.width /
-                                                1.25,
+                                        MediaQuery.of(context).size.width /
+                                            1.25,
                                         color: Colors.white)
                                   ]),
                               Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     snap[index]['lecturer_name'],
@@ -192,7 +195,7 @@ class _SundayState extends State<Sunday> with TickerProviderStateMixin {
                               ),
                               Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     snap[index]['lecturer_title'],
@@ -243,14 +246,14 @@ class _SundayState extends State<Sunday> with TickerProviderStateMixin {
                               ),
                               Expandable(
                                   height:
-                                      MediaQuery.of(context).size.height / 3,
+                                  MediaQuery.of(context).size.height / 3,
                                   controller: controller,
                                   duration: const Duration(seconds: 1),
                                   child: Container(
                                       color: const Color(0xff4D4A4A),
                                       height:
-                                          MediaQuery.of(context).size.height /
-                                              8,
+                                      MediaQuery.of(context).size.height /
+                                          8,
                                       width: double.infinity,
                                       child: Padding(
                                         padding: EdgeInsets.only(
@@ -260,7 +263,7 @@ class _SundayState extends State<Sunday> with TickerProviderStateMixin {
                                             flex: 2,
                                             child: Column(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                              MainAxisAlignment.center,
                                               children: [
                                                 Row(
                                                   children: [
@@ -285,28 +288,28 @@ class _SundayState extends State<Sunday> with TickerProviderStateMixin {
                                                 const SizedBox(
                                                   height: 10,
                                                 ),
-                                                Row(
-                                                  children: [
-                                                    InkWell(
-                                                      onTap: () {},
-                                                      child: Icon(
+                                                InkWell(
+                                                  onTap: (){
+                                                    launch("tel://${snap[index]
+                                                    ['lecturer_number']}");
+                                                  },
+                                                  child: Row(
+                                                    children: [
+                                                      Icon(
                                                         Icons.call,
                                                         size: 22,
                                                         color: Colors.red,
                                                       ),
-                                                    ),
-                                                    InkWell(
-                                                      onTap: () {},
-                                                      child: Text(
+                                                      Text(
                                                         snap[index]
-                                                            ['lecturer_number'],
+                                                        ['lecturer_number'],
                                                         style: TextStyle(
                                                             fontSize: 18,
                                                             color: Color(
                                                                 0xff92D306)),
-                                                      ), // ),
-                                                    ),
-                                                  ],
+                                                      ),
+                                                    ],
+                                                  ),
                                                 ),
                                               ],
                                             ),
@@ -316,7 +319,7 @@ class _SundayState extends State<Sunday> with TickerProviderStateMixin {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsets.only(bottom: 10),
+                                            EdgeInsets.only(bottom: 10),
                                             child: Container(
                                               width: 2,
                                               height: 75,
@@ -330,7 +333,7 @@ class _SundayState extends State<Sunday> with TickerProviderStateMixin {
                                             flex: 2,
                                             child: Column(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                              MainAxisAlignment.center,
                                               children: [
                                                 Row(
                                                   children: [
@@ -423,3 +426,4 @@ class _SundayState extends State<Sunday> with TickerProviderStateMixin {
     //   Scaffold(
   }
 }
+

@@ -3,16 +3,16 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable/expandable.dart';
 import 'package:flutter_expandable/expander.dart';
-import 'package:glass_kit/glass_kit.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class FriDay extends StatefulWidget {
+class WednesDay extends StatefulWidget {
   
 
   @override
-  State<FriDay> createState() => _FriDayState();
+  State<WednesDay> createState() => _WednesDayState();
 }
 
-class _FriDayState extends State<FriDay>  with TickerProviderStateMixin {
+class _WednesDayState extends State<WednesDay> with TickerProviderStateMixin {
   late AnimationController controller;
 
   @override
@@ -38,7 +38,7 @@ class _FriDayState extends State<FriDay>  with TickerProviderStateMixin {
       .collection('Section')
       .doc('A')
       .collection('Day')
-      .doc('Friday')
+      .doc('Wednesday')
       .collection('ClassList');
 
   // late  bool notification = false;
@@ -288,28 +288,28 @@ class _FriDayState extends State<FriDay>  with TickerProviderStateMixin {
                                                 const SizedBox(
                                                   height: 10,
                                                 ),
-                                                Row(
-                                                  children: [
-                                                    InkWell(
-                                                      onTap: () {},
-                                                      child: Icon(
+                                                InkWell(
+                                                  onTap: (){
+                                                    launch("tel://${snap[index]
+                                                    ['lecturer_number']}");
+                                                  },
+                                                  child: Row(
+                                                    children: [
+                                                      Icon(
                                                         Icons.call,
                                                         size: 22,
                                                         color: Colors.red,
                                                       ),
-                                                    ),
-                                                    InkWell(
-                                                      onTap: () {},
-                                                      child: Text(
+                                                      Text(
                                                         snap[index]
                                                         ['lecturer_number'],
                                                         style: TextStyle(
                                                             fontSize: 18,
                                                             color: Color(
                                                                 0xff92D306)),
-                                                      ), // ),
-                                                    ),
-                                                  ],
+                                                      ),
+                                                    ],
+                                                  ),
                                                 ),
                                               ],
                                             ),

@@ -7,9 +7,7 @@ import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takea
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/take&show_attendence.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/teacher_attendance.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/teacher_deshboard.dart';
-import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/Cse/cse_routine.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/Routine_View.dart';
-import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/Class_Routine.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Faculty_member/Faculty_Member.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/NU_Portal/screens/NU_Portal.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/dept_bba/bba_question.dart';
@@ -80,7 +78,7 @@ class MyApp extends StatelessWidget {
             // question bank close//
 
             // Class Routine start //
-            GetPage(name: '/ClassRoutine', page: () => const ClassRoutine()),
+            // GetPage(name: '/ClassRoutine', page: () => const ClassRoutine()),
             GetPage(
                 name: '/ClassRoutineViewer', page: () => ClassRoutineViewer()),
             //class Routine close //
@@ -95,7 +93,6 @@ class MyApp extends StatelessWidget {
             GetPage(
                 name: '/FacultyProfile', page: () => const FacultyProfile()),
             GetPage(name: '/QuickPayment', page: () => const QuickPayment()),
-            GetPage(name: '/CSERoutine', page: () => CSERoutine()),
             GetPage(name: '/NU_Portal', page: () => const NU_Portal()),
             // question pdf //
             GetPage(name: '/pdf_viewPage', page: () => const pdf_viewPage()),
