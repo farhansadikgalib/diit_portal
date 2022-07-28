@@ -6,14 +6,14 @@ import 'package:flutter_expandable/expander.dart';
 import 'package:glass_kit/glass_kit.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class FriDay extends StatefulWidget {
+class Friday extends StatefulWidget {
   
 
   @override
-  State<FriDay> createState() => _FriDayState();
+  State<Friday> createState() => _FridayState();
 }
 
-class _FriDayState extends State<FriDay>  with TickerProviderStateMixin {
+class _FridayState extends State<Friday>  with TickerProviderStateMixin {
   late AnimationController controller;
 
   @override

@@ -22,6 +22,7 @@ class _LoginPageState extends State<LoginPage> {
   bool? newuser;
   String id = '';
   var select = 0;
+  int? selectuser;
 
   @override
   void initState() {
@@ -33,10 +34,16 @@ class _LoginPageState extends State<LoginPage> {
     // Firebase.initializeApp();
     logindata = await SharedPreferences.getInstance();
     newuser = (logindata!.getBool('login') ?? true);
+    selectuser=logindata!.getInt('select');
     print(newuser);
     if (newuser == false) {
-      Get.offAndToNamed('/DashBoard');
+      if(selectuser==0){
+        Get.offAndToNamed('/DashBoard');
+      }else{
+        Get.offAndToNamed('/TeacherDashbord');
+      }
     }
+
   }
 
   @override
@@ -207,6 +214,7 @@ class _LoginPageState extends State<LoginPage> {
                                     if (result != null) {
 
                                       logindata!.setBool('login', false);
+                                      logindata!.setInt('select',select );
                                       logindata!
                                           .setString('user_email', emailCtrl.text);
                                       var id = result.email!

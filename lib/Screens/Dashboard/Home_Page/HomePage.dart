@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:diit_portal/BinaryClock/Clock.dart';
-import 'package:diit_portal/Screens/App_Colors/app_color.dart';
+import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:diit_portal/Screens/Weather/data_service.dart';
 import 'package:diit_portal/Screens/Weather/weather_model.dart';
 
@@ -20,7 +20,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  String weeklyname ='';
 
   @override
   void initState() {
@@ -41,7 +40,6 @@ class _HomePageState extends State<HomePage> {
   dynamic currentTime = DateFormat.jm().format(DateTime.now());
   String todaysWeeklyName = DateFormat('EEEE').format(DateTime.now());
 
-  var l = 'Sunday';
 
   late var temp = (((_response?.tempInfo.temperature)! - 32) * 5) / 9;
 
@@ -261,73 +259,79 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       SizedBox(height: 5,),
-                      // Card(
-                      //   elevation: 3,
-                      //   shadowColor: Colors.orange,
-                      //   child: Clock(),
-                      //
-                      // ),
-
                       Card(
                         elevation: 3,
                         shadowColor: Colors.orange,
-                        child: Container(
-                          height: 65.0.h,
-                          color: Colors.orangeAccent,
-                          child: Row(
-                            children: <Widget>[
+                        child: Clock(),
 
-                              Container(
-                                margin: const EdgeInsets.only(left: 20),
-                                child: Image.asset(
-                                  'assets/calendar.png',
-                                  height: 50.h,
+                      ),
+
+                      InkWell(
+                        onTap: (){
+                          Get.toNamed('/${todaysWeeklyName}');
+                          print(todaysWeeklyName);
+                        },
+                        child: Card(
+                          elevation: 3,
+                          shadowColor: Colors.orange,
+                          child: Container(
+                            height: 65.0.h,
+                            color: Colors.orangeAccent,
+                            child: Row(
+                              children: <Widget>[
+
+                                Container(
+                                  margin: const EdgeInsets.only(left: 20),
+                                  child: Image.asset(
+                                    'assets/calendar.png',
+                                    height: 50.h,
+                                    width: 50.w,
+                                  ),
+                                ),
+                                SizedBox(
                                   width: 50.w,
                                 ),
-                              ),
-                              SizedBox(
-                                width: 50.w,
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                    "$todaysWeeklyName",
-                                    style:  TextStyle(
-                                        fontSize: 18,
-                                        fontFamily: "Poppins",
-                                        fontWeight: FontWeight.w700),
-                                  ),
-                                   Row(
-                                     children: [
-                                       Text(
-                                        "You’ve ",
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            fontFamily: "Poppins",
-                                            fontWeight: FontWeight.w300),
-                                  ),
-                                       Text(
-                                         "${snapshot.data!.docs.length}",
-                                         style: TextStyle(
-                                             fontSize: 16,
-                                             fontFamily: "Poppins",
-                                             fontWeight: FontWeight.w300),
-                                       ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Text(
+                                      "$todaysWeeklyName",
+                                      style:  TextStyle(
+                                          fontSize: 18,
+                                          fontFamily: "Poppins",
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                     Row(
+                                       children: [
+                                         Text(
+                                          "You’ve ",
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              fontFamily: "Poppins",
+                                              fontWeight: FontWeight.w300),
+                                    ),
+                                         Text(
+                                           "${snapshot.data!.docs.length}",
+                                           style: TextStyle(
+                                               fontSize: 16,
+                                               fontFamily: "Poppins",
+                                               fontWeight: FontWeight.w300),
+                                         ),
 
-                                       Text(
-                                         " Class Today",
-                                         style: TextStyle(
-                                             fontSize: 16,
-                                             fontFamily: "Poppins",
-                                             fontWeight: FontWeight.w300),
-                                       ),
+                                         Text(
+                                           " Class Today",
+                                           style: TextStyle(
+                                               fontSize: 16,
+                                               fontFamily: "Poppins",
+                                               fontWeight: FontWeight.w300),
+                                         ),
 
-                                     ],
-                                   ),
-                                ],
-                              ),
-                            ],
+                                       ],
+                                     ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -369,8 +373,8 @@ class _HomePageState extends State<HomePage> {
                                 height: MediaQuery.of(context).size.height / 15,
                                 width: MediaQuery.of(context).size.width / 2.40,
                                 child: NeumorphicButton(
-                                  onPressed: () {
-                                    print('neumorphic Btn');
+                                    onPressed: () {
+                                      Get.toNamed('/StudentDashBoard');
                                   },
                                   style: NeumorphicStyle(
                                     // shape: NeumorphicShape.concave,

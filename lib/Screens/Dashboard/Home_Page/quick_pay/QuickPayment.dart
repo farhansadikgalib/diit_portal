@@ -1,4 +1,4 @@
-import 'package:diit_portal/Screens/App_Colors/app_color.dart';
+import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';

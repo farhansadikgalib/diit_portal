@@ -1,4 +1,4 @@
-import 'package:diit_portal/Screens/App_Colors/app_color.dart';
+import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Friday.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Monday.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Saturday.dart';
@@ -55,11 +55,11 @@ class _ClassRoutineViewerState extends State<ClassRoutineViewer>
               children: [
                 const Saturday(),
                 const Sunday(),
-                const MonDay(),
-                TuesDay(),
-                WednesDay(),
-                ThursDay(),
-                FriDay(),
+                const Monday(),
+                Tuesday(),
+                Wednesday(),
+                Thursday(),
+                Friday(),
               ],
             ),
           ),

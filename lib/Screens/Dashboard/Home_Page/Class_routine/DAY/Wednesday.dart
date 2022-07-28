@@ -5,14 +5,14 @@ import 'package:flutter_expandable/expandable.dart';
 import 'package:flutter_expandable/expander.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class WednesDay extends StatefulWidget {
+class Wednesday extends StatefulWidget {
   
 
   @override
-  State<WednesDay> createState() => _WednesDayState();
+  State<Wednesday> createState() => _WednesdayState();
 }
 
-class _WednesDayState extends State<WednesDay> with TickerProviderStateMixin {
+class _WednesdayState extends State<Wednesday> with TickerProviderStateMixin {
   late AnimationController controller;
 
   @override

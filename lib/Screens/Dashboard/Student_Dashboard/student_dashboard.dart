@@ -1,4 +1,4 @@
-import 'package:diit_portal/Screens/App_Colors/app_color.dart';
+import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:multi_charts/multi_charts.dart';

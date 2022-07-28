@@ -4,9 +4,16 @@ import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Student_atten
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Student_attendance_view/student_course_%20attendanceview.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/course_selecta_attendence.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/studentname_attendencelist.dart';
-import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/take&show_attendence.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/take_show_attendence.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/teacher_attendance.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/teacher_deshboard.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Friday.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Monday.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Saturday.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Sunday.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Thursday.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Tuesday.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Wednesday.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/Routine_View.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Faculty_member/Faculty_Member.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/NU_Portal/screens/NU_Portal.dart';
@@ -54,7 +61,6 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return GetMaterialApp(
           title: 'DiiT Portal',
-          initialRoute: '/',
           defaultTransition: Transition.leftToRight,
           getPages: [
             GetPage(
@@ -79,6 +85,16 @@ class MyApp extends StatelessWidget {
 
             // Class Routine start //
             // GetPage(name: '/ClassRoutine', page: () => const ClassRoutine()),
+            GetPage(name: '/Friday', page: ()=>Friday()),
+            GetPage(name: '/Saturday', page: ()=>Saturday()),
+            GetPage(name: '/Sunday', page: ()=>Sunday()),
+            GetPage(name: '/Monday', page: ()=>Monday()),
+            GetPage(name: '/Tuesday', page: ()=>Tuesday()),
+            GetPage(name: '/Wednesday', page: ()=>Wednesday()),
+            GetPage(name: '/Thursday', page: ()=>Thursday()),
+
+
+
             GetPage(
                 name: '/ClassRoutineViewer', page: () => ClassRoutineViewer()),
             //class Routine close //

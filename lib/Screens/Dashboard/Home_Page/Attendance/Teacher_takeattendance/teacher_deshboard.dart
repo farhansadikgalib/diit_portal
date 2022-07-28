@@ -1,9 +1,11 @@
 import 'dart:convert';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class TeacherDashbord extends StatefulWidget {
 
@@ -16,6 +18,38 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
   TextEditingController _createNotification = TextEditingController();
   static const String oneSignalId = "6d6a341b-9a0c-4637-9ba7-fd600bff21a0";
 
+  String user_email='';
+  String user_id='';
+
+
+  Future _signOut() async {
+    await FirebaseAuth.instance.signOut();
+    Get.offAndToNamed('/LoginPage');
+  }
+
+  @override
+  void initState()  {
+    super.initState();
+    // email =user_email!;
+    intitPlatformState();
+    getUserData();
+  }
+
+  getUserData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      user_email = prefs.getString('user_email')!;
+      user_id = prefs.getString('user_id')!;
+      prefs.setBool('login', true);
+
+
+    });
+    print(user_email);
+    // return user_email;
+  }
+
+
+
 
   @override
   void dispose() {
@@ -24,10 +58,6 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
     _createNotification;
   }
 
-  @override
-  void initState() {
-    intitPlatformState();
-  }
 
   Future<void> intitPlatformState() async {
     OneSignal.shared.setAppId(oneSignalId);
@@ -254,6 +284,94 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
 
                 ),
               ),
+
+              Column(
+                children: [
+                  const Divider(
+                    thickness: 1,
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height/22,
+                    width: double.infinity,
+                    child: InkWell(
+                      onTap: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10, right: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: const [
+                            Text(
+                              'Setting',
+                              style: TextStyle(fontSize: 16),
+                            ),
+                            Icon(
+                              Icons.arrow_forward_ios_outlined,
+                              size: 18,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Divider(
+                    thickness: 1,
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height/22,
+                    width: double.infinity,
+                    child: InkWell(
+                      onTap: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10, right: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: const [
+                            Text(
+                              'Help & Support',
+                              style: TextStyle(fontSize: 16),
+                            ),
+                            Icon(
+                              Icons.arrow_forward_ios_outlined,
+                              size: 18,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Divider(
+                    thickness: 1,
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height/22,
+                    width: double.infinity,
+                    child: InkWell(
+                      onTap: ()=>
+                          _signOut(),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10, right: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: const [
+                            Text(
+                              'Logout',
+                              style: TextStyle(fontSize: 16),
+                            ),
+                            Icon(
+                              Icons.logout,
+                              size: 20,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Divider(
+                    thickness: 1,
+                  ),
+                ],
+              )
+
             ],
           ),
         ),

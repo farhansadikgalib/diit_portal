@@ -1,5 +1,5 @@
-import 'package:diit_portal/Screens/App_Bar/app_bar.dart';
-import 'package:diit_portal/Screens/App_Colors/app_color.dart';
+import 'package:diit_portal/CustomWidgets/App_Bar/app_bar.dart';
+import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 
