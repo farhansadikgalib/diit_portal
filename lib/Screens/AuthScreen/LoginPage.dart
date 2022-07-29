@@ -1,8 +1,6 @@
 import 'package:diit_portal/services/firebaseServices.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:fk_toggle/fk_toggle.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -37,9 +35,13 @@ class _LoginPageState extends State<LoginPage> {
     selectuser=logindata!.getInt('select');
     print(newuser);
     if (newuser == false) {
+      print("ok");
       if(selectuser==0){
         Get.offAndToNamed('/DashBoard');
+        print(selectuser);
       }else{
+        print(selectuser);
+
         Get.offAndToNamed('/TeacherDashbord');
       }
     }

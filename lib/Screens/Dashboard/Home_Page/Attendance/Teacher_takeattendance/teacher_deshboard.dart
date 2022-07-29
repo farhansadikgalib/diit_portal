@@ -8,8 +8,6 @@ import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class TeacherDashbord extends StatefulWidget {
-
-
   @override
   State<TeacherDashbord> createState() => _TeacherDashbordState();
 }
@@ -18,21 +16,24 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
   TextEditingController _createNotification = TextEditingController();
   static const String oneSignalId = "6d6a341b-9a0c-4637-9ba7-fd600bff21a0";
 
-  String user_email='';
-  String user_id='';
-
+  String user_email = '';
+  String user_id = '';
 
   Future _signOut() async {
     await FirebaseAuth.instance.signOut();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      prefs.setBool('login', true);
+    });
     Get.offAndToNamed('/LoginPage');
   }
 
   @override
-  void initState()  {
+  void initState() {
     super.initState();
     // email =user_email!;
-    intitPlatformState();
     getUserData();
+    intitPlatformState();
   }
 
   getUserData() async {
@@ -40,16 +41,10 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
     setState(() {
       user_email = prefs.getString('user_email')!;
       user_id = prefs.getString('user_id')!;
-      prefs.setBool('login', true);
-
-
     });
     print(user_email);
     // return user_email;
   }
-
-
-
 
   @override
   void dispose() {
@@ -58,53 +53,46 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
     _createNotification;
   }
 
-
   Future<void> intitPlatformState() async {
     OneSignal.shared.setAppId(oneSignalId);
-
   }
 
-
-  Future sendNotification(List<String> tokenIdList, String contents, String heading) async{
-
+  Future sendNotification(
+      List<String> tokenIdList, String contents, String heading) async {
     return await post(
       Uri.parse('https://onesignal.com/api/v1/notifications'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      body: jsonEncode(<String, dynamic>
-      {
-        "app_id": "6d6a341b-9a0c-4637-9ba7-fd600bff21a0",//kAppId is the App Id that one get from the OneSignal When the application is registered.
+      body: jsonEncode(<String, dynamic>{
+        "app_id": "6d6a341b-9a0c-4637-9ba7-fd600bff21a0",
+        //kAppId is the App Id that one get from the OneSignal When the application is registered.
 
-        "include_player_ids": "",//tokenIdList Is the List of All the Token Id to to Whom notification must be sent.
+        "include_player_ids": "",
+        //tokenIdList Is the List of All the Token Id to to Whom notification must be sent.
 
         // android_accent_color reprsent the color of the heading text in the notifiction
-        "android_accent_color":"FF9976D2",
+        "android_accent_color": "FF9976D2",
 
-        "small_icon":"ic_stat_onesignal_default",
+        "small_icon": "ic_stat_onesignal_default",
 
-        "large_icon":"https://www.filepicker.io/api/file/zPloHSmnQsix82nlj9Aj?filename=name.jpg",
+        "large_icon":
+            "https://www.filepicker.io/api/file/zPloHSmnQsix82nlj9Aj?filename=name.jpg",
 
         "headings": {"en": "DIIT Portal"},
 
         "contents": {"en": "Notification Send"},
-
-
       }),
     );
   }
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
-
-
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 60, left: 10, right: 10),
@@ -135,14 +123,13 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                             color: Colors.orangeAccent,
                             fontFamily: "Poppins"),
                       ),
-
-
-
                     ],
                   ),
                 ),
               ),
-              const SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -167,10 +154,10 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                   // ),
 
                   SizedBox(
-                    height: MediaQuery.of(context).size.height/5,
-                    width: MediaQuery.of(context).size.width/2.30,
+                    height: MediaQuery.of(context).size.height / 5,
+                    width: MediaQuery.of(context).size.width / 2.30,
                     child: NeumorphicButton(
-                      onPressed: ()=>Get.toNamed('/SelectCourceAttendence'),
+                      onPressed: () => Get.toNamed('/SelectCourceAttendence'),
                       style: NeumorphicStyle(
                           shape: NeumorphicShape.concave,
                           boxShape: NeumorphicBoxShape.roundRect(
@@ -181,18 +168,30 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image.asset("assets/ic_attendance.png",
-                            height: MediaQuery.of(context).size.height/8.2,
-                            width: MediaQuery.of(context).size.width/3,
+                          Image.asset(
+                            "assets/ic_attendance.png",
+                            height: MediaQuery.of(context).size.height / 8.2,
+                            width: MediaQuery.of(context).size.width / 3,
                           ),
-                          const SizedBox(height: 10,),
-                          const Text( "Take Attendence",style: TextStyle(fontFamily: "Poppins",fontSize: 15,color: Colors.black54,fontWeight: FontWeight.w300),),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          const Text(
+                            "Take Attendence",
+                            style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontSize: 15,
+                                color: Colors.black54,
+                                fontWeight: FontWeight.w300),
+                          ),
                         ],
                       ),
                     ),
                   ),
 
-                  const SizedBox(width: 15,),
+                  const SizedBox(
+                    width: 15,
+                  ),
                   // Container(
                   //   width: 150.w,
                   //   height: 160.h,
@@ -215,10 +214,10 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                   // ),
 
                   SizedBox(
-                    height: MediaQuery.of(context).size.height/5,
-                    width: MediaQuery.of(context).size.width/2.30,
+                    height: MediaQuery.of(context).size.height / 5,
+                    width: MediaQuery.of(context).size.width / 2.30,
                     child: NeumorphicButton(
-                      onPressed: ()=>Get.toNamed('/CourseAttendanceView'),
+                      onPressed: () => Get.toNamed('/CourseAttendanceView'),
                       style: NeumorphicStyle(
                           shape: NeumorphicShape.concave,
                           boxShape: NeumorphicBoxShape.roundRect(
@@ -229,24 +228,34 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image.asset("assets/viewattendence.png",
-                            height: MediaQuery.of(context).size.height/8.2,
-                            width: MediaQuery.of(context).size.width/3,
-                            color: Colors.orangeAccent,),
-                          const SizedBox(height: 10,),
-                          const Text( "View Attendence",
-                            style: TextStyle(fontFamily: "Poppins",fontSize: 15,color: Colors.black54,fontWeight: FontWeight.w300),),
+                          Image.asset(
+                            "assets/viewattendence.png",
+                            height: MediaQuery.of(context).size.height / 8.2,
+                            width: MediaQuery.of(context).size.width / 3,
+                            color: Colors.orangeAccent,
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          const Text(
+                            "View Attendence",
+                            style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontSize: 15,
+                                color: Colors.black54,
+                                fontWeight: FontWeight.w300),
+                          ),
                         ],
                       ),
                     ),
                   ),
                 ],
               ),
-
               Padding(
                 padding: const EdgeInsets.only(
                   top: 20,
-                  left: 30,right: 30,
+                  left: 30,
+                  right: 30,
                 ),
                 child: TextFormField(
                   controller: _createNotification,
@@ -255,43 +264,45 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                   cursorHeight: 20,
                   autofocus: false,
                   decoration: InputDecoration(
-
-                    contentPadding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 10),
                     hintText: 'Create Notification',
-                    suffixIcon: IconButton(onPressed: (){
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        Get.snackbar('Notification', "Sent Successfully",
+                            backgroundColor: Colors.black12,
+                            snackPosition: SnackPosition.TOP,
+                            messageText: const Text(
+                              'Done',
+                              style: TextStyle(fontSize: 16),
+                            ),
+                            titleText: const Text(
+                              'Notification',
+                              style: TextStyle(fontSize: 18),
+                            ));
 
-
-                      Get.snackbar(
-                          'Notification',"Sent Successfully",
-                          backgroundColor: Colors.black12,
-                          snackPosition: SnackPosition.TOP,
-                          messageText:const Text('Done',style: TextStyle(fontSize: 16),) ,
-                          titleText: const Text('Notification',style: TextStyle(fontSize: 18),)
-
-
-                      );
-
-                      String content = _createNotification.text.trim();
-                      setState((){
-
-                        sendNotification([],content , "heading");
-                        print(_createNotification);
-                      });
-                    },
-                      icon: const Icon(Icons.send,color: Colors.orange,),),
+                        String content = _createNotification.text.trim();
+                        setState(() {
+                          sendNotification([], content, "heading");
+                          print(_createNotification);
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.send,
+                        color: Colors.orange,
+                      ),
+                    ),
                     border: const OutlineInputBorder(),
                   ),
-
                 ),
               ),
-
               Column(
                 children: [
                   const Divider(
                     thickness: 1,
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height/22,
+                    height: MediaQuery.of(context).size.height / 22,
                     width: double.infinity,
                     child: InkWell(
                       onTap: () {},
@@ -317,7 +328,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                     thickness: 1,
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height/22,
+                    height: MediaQuery.of(context).size.height / 22,
                     width: double.infinity,
                     child: InkWell(
                       onTap: () {},
@@ -343,11 +354,10 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                     thickness: 1,
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height/22,
+                    height: MediaQuery.of(context).size.height / 22,
                     width: double.infinity,
                     child: InkWell(
-                      onTap: ()=>
-                          _signOut(),
+                      onTap: () => _signOut(),
                       child: Padding(
                         padding: const EdgeInsets.only(left: 10, right: 10),
                         child: Row(
@@ -371,7 +381,6 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                   ),
                 ],
               )
-
             ],
           ),
         ),
