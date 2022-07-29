@@ -17,6 +17,8 @@ import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Wednes
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/Routine_View.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Faculty_member/Faculty_Member.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/NU_Portal/screens/NU_Portal.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/NU_Portal/widgets/no_internet.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/NU_Portal/widgets/no_internet_widget.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/dept_bba/bba_question.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/dept_bthm/bthm_question.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/dept_cse/cse_question.dart';
@@ -31,6 +33,7 @@ import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Student_atten
 import 'package:diit_portal/Screens/Dashboard/Notification/Notification.dart';
 import 'package:diit_portal/Screens/Dashboard/Student_Dashboard/student_dashboard.dart';
 import 'package:diit_portal/Screens/Dashboard/Student_Profile/student_profile.dart';
+import 'package:diit_portal/Screens/NoInternet/NoInternetConnection.dart';
 import 'package:diit_portal/Screens/SplashScreen/SplashScreen.dart';
 import 'package:diit_portal/Screens/SplashScreen/SplashScreenBinding.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -67,6 +70,7 @@ class MyApp extends StatelessWidget {
                 name: '/',
                 page: () => SplashScreen(),
                 binding: SplashBinding()),
+            GetPage(name: '/NoInternet', page: ()=>NoInternetConnection()),
             GetPage(name: '/LoginPage', page: () => LoginPage()),
             GetPage(name: '/ForgetPassPage', page: () => ForgetPassPage()),
             GetPage(name: '/DashBoard', page: () => Dashboard()),

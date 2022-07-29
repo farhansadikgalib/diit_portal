@@ -37,6 +37,7 @@ class SplashController extends GetxController {
     // FirebaseDatabase.instance.setPersistenceEnabled(true);
     if(_connectionStatus == 'ConnectivityResult.none'){
       NoInternetWidget();
+      Get.offAndToNamed('/NoInternet');
     }else{
       Get.offAndToNamed('/LoginPage');
 
