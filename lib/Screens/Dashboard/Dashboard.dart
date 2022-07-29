@@ -48,7 +48,7 @@ class _DashboardState extends State<Dashboard> {
                inactiveColor: Colors.black54),
            BottomNavyBarItem(
                icon: const Icon(Icons.dashboard_rounded),
-               title: const Text("Student Portal"),
+               title: const Text("Portal"),
                activeColor: Colors.orange,
                inactiveColor: Colors.black54),
            BottomNavyBarItem(

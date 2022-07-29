@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:diit_portal/BinaryClock/Clock.dart';
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
@@ -12,6 +14,7 @@ import 'package:getwidget/getwidget.dart';
 
 import 'package:intl/intl.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
+import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   @override
@@ -19,18 +22,46 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-
   @override
   void initState() {
-     weatherService();
+    weatherService();
     intitPlatformState();
+    getWeather();
   }
 
   static const String oneSignalId = "6d6a341b-9a0c-4637-9ba7-fd600bff21a0";
 
+//weather
   WeatherResponse? _response;
 
+  var sunrise, sunset,min,max;
+
+  Future getWeather() async {
+    final response = await http.get(Uri.parse(
+        'https://api.openweathermap.org/data/2.5/weather?q=dhaka&units=metric&appid=a17c1d48df0e47e968f31a998ec25ab4'));
+
+    var showData = jsonDecode(response.body);
+
+    setState(() {
+      this.min = showData['main']['temp_min'];
+      this.max = showData['main']['temp_max'];
+    });
+  }
+
+
+  //
+  // Future getSunriseSunset() async {
+  //   final collectdata = await http.get(Uri.parse(
+  //       'https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400'));
+  //
+  //   var sunrise_sunsetArray = jsonDecode(collectdata.body);
+  //
+  //   setState(() {
+  //     this.sunrise = sunrise_sunsetArray['results']['sunrise'];
+  //     this.sunset = sunrise_sunsetArray['results']['sunset'];
+  //   });
+  // }
+//weather
   final DataService _dataService = DataService();
 
   bool buttonselect = false;
@@ -39,7 +70,6 @@ class _HomePageState extends State<HomePage> {
   dynamic todaysDate = DateFormat('dd MMMM yyyy').format(DateTime.now());
   dynamic currentTime = DateFormat.jm().format(DateTime.now());
   String todaysWeeklyName = DateFormat('EEEE').format(DateTime.now());
-
 
   late var temp = (((_response?.tempInfo.temperature)! - 32) * 5) / 9;
 
@@ -73,11 +103,10 @@ class _HomePageState extends State<HomePage> {
 
   //Firebase
 
-
-
   Future<void> intitPlatformState() async {
     OneSignal.shared.setAppId(oneSignalId);
   }
+
   void weatherService() async {
     final response = await _dataService.getWeather("Dhaka");
     setState(() => _response = response);
@@ -87,11 +116,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return FutureBuilder<QuerySnapshot>(
       future: ref.get(),
-      builder: (context,snapshot){
-
-        if(snapshot.hasData){
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
           return Scaffold(
-            // backgroundColor:  ColorChanger.scaffoldcolor,
+             backgroundColor:  ColorChanger.scaffoldcolor,
             body: SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: SafeArea(
@@ -99,17 +127,19 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.only(top: 5, left: 12, right: 12),
                   child: Column(
                     children: <Widget>[
-                      SizedBox(height: 10,),
+                      SizedBox(
+                        height: 10,
+                      ),
 
                       Card(
                         elevation: 3,
-                        shadowColor:  Color(0xff00DCA8),
+                        shadowColor: Color(0xff00DCA8),
                         child: Container(
-                          decoration:  BoxDecoration(
+                          decoration: BoxDecoration(
                               color: Color(0xff00DCA8),
-                              borderRadius:
-                              BorderRadius.only(topLeft: Radius.circular(5))),
-                          height: MediaQuery.of(context).size.height / 5,
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(5))),
+                          height: MediaQuery.of(context).size.height /4.5,
                           width: double.maxFinite,
                           child: Row(
                             children: <Widget>[
@@ -120,7 +150,7 @@ class _HomePageState extends State<HomePage> {
                                   children: <Widget>[
                                     Padding(
                                       padding:
-                                      EdgeInsets.only(top: 8, left: 15),
+                                          EdgeInsets.only(top: 8, left: 15),
                                       child: Text(
                                         '${_response?.weatherInfo.description.toUpperCase()}',
                                         style: const TextStyle(
@@ -129,13 +159,14 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                       ),
                                     ),
+
                                     Row(
                                       children: <Widget>[
                                         Padding(
                                           padding:
-                                          EdgeInsets.only(top: 8, left: 15),
+                                              EdgeInsets.only(top: 8, left: 15),
                                           child: Text(
-                                            'Sunrise'.toUpperCase(),
+                                            "Max Temp".toUpperCase(),
                                             style: const TextStyle(
                                               fontSize: 15,
                                               fontFamily: 'Poppins',
@@ -143,12 +174,46 @@ class _HomePageState extends State<HomePage> {
                                           ),
                                         ),
                                         SizedBox(
-                                          width: 45.w,
+                                          width: 10.w,
                                         ),
                                         Padding(
-                                          padding: EdgeInsets.only(top: 8, left: 15),
+                                          padding:
+                                              EdgeInsets.only(top: 8, left: 15),
                                           child: Text(
-                                            '05:35 AM',
+                                            max != null
+                                                ? "${max.ceil()}° C"
+                                                : '36° C',
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              fontFamily: 'Poppins',
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Padding(
+                                          padding:
+                                              EdgeInsets.only(top: 8, left: 15),
+                                          child: Text(
+                                            "min temp  ".toUpperCase(),
+                                            style: const TextStyle(
+                                              fontSize: 15,
+                                              fontFamily: 'Poppins',
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 10.w,
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsets.only(top: 8, left: 15),
+                                          child: Text(
+                                            min != null
+                                                ? "${min.ceil()}° C"
+                                                : '29° C',
                                             style: TextStyle(
                                               fontSize: 15,
                                               fontFamily: 'Poppins',
@@ -163,7 +228,7 @@ class _HomePageState extends State<HomePage> {
                                           padding:
                                           EdgeInsets.only(top: 8, left: 15),
                                           child: Text(
-                                            'Sunset'.toUpperCase(),
+                                            "Current Temp".toUpperCase(),
                                             style: const TextStyle(
                                               fontSize: 15,
                                               fontFamily: 'Poppins',
@@ -171,35 +236,7 @@ class _HomePageState extends State<HomePage> {
                                           ),
                                         ),
                                         SizedBox(
-                                          width: 45.w,
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(top: 8, left: 15),
-                                          child: Text(
-                                            '  06:44 PM',
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              fontFamily: 'Poppins',
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: <Widget>[
-                                        Padding(
-                                          padding:
-                                          EdgeInsets.only(top: 8, left: 15),
-                                          child: Text(
-                                            "Today's Temp".toUpperCase(),
-                                            style: const TextStyle(
-                                              fontSize: 15,
-                                              fontFamily: 'Poppins',
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 30.h,
+                                          width: 0.h,
                                         ),
                                         Padding(
                                           padding:
@@ -214,11 +251,12 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                       ],
                                     ),
+
                                     Row(
                                       children: <Widget>[
                                         Padding(
                                           padding:
-                                          EdgeInsets.only(top: 8, left: 15),
+                                              EdgeInsets.only(top: 8, left: 15),
                                           child: Text(
                                             'Today’s  Date'.toUpperCase(),
                                             style: const TextStyle(
@@ -232,7 +270,7 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                         Padding(
                                           padding:
-                                          EdgeInsets.only(top: 8, left: 11),
+                                              EdgeInsets.only(top: 8, left: 11),
                                           child: Text(
                                             '$todaysDate',
                                             style: const TextStyle(
@@ -241,6 +279,8 @@ class _HomePageState extends State<HomePage> {
                                             ),
                                           ),
                                         ),
+                                        SizedBox(height: 10,)
+
                                       ],
                                     ),
                                   ],
@@ -258,16 +298,17 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 5,),
+                      SizedBox(
+                        height: 5,
+                      ),
                       Card(
                         elevation: 3,
                         shadowColor: Colors.orange,
                         child: Clock(),
-
                       ),
 
                       InkWell(
-                        onTap: (){
+                        onTap: () {
                           Get.toNamed('/${todaysWeeklyName}');
                           print(todaysWeeklyName);
                         },
@@ -279,7 +320,6 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.orangeAccent,
                             child: Row(
                               children: <Widget>[
-
                                 Container(
                                   margin: const EdgeInsets.only(left: 20),
                                   child: Image.asset(
@@ -296,38 +336,36 @@ class _HomePageState extends State<HomePage> {
                                   children: <Widget>[
                                     Text(
                                       "$todaysWeeklyName",
-                                      style:  TextStyle(
+                                      style: TextStyle(
                                           fontSize: 18,
                                           fontFamily: "Poppins",
                                           fontWeight: FontWeight.w700),
                                     ),
-                                     Row(
-                                       children: [
-                                         Text(
+                                    Row(
+                                      children: [
+                                        Text(
                                           "You’ve ",
                                           style: TextStyle(
                                               fontSize: 16,
                                               fontFamily: "Poppins",
                                               fontWeight: FontWeight.w300),
+                                        ),
+                                        Text(
+                                          "${snapshot.data!.docs.length}",
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              fontFamily: "Poppins",
+                                              fontWeight: FontWeight.w300),
+                                        ),
+                                        Text(
+                                          " Class Today",
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              fontFamily: "Poppins",
+                                              fontWeight: FontWeight.w300),
+                                        ),
+                                      ],
                                     ),
-                                         Text(
-                                           "${snapshot.data!.docs.length}",
-                                           style: TextStyle(
-                                               fontSize: 16,
-                                               fontFamily: "Poppins",
-                                               fontWeight: FontWeight.w300),
-                                         ),
-
-                                         Text(
-                                           " Class Today",
-                                           style: TextStyle(
-                                               fontSize: 16,
-                                               fontFamily: "Poppins",
-                                               fontWeight: FontWeight.w300),
-                                         ),
-
-                                       ],
-                                     ),
                                   ],
                                 ),
                               ],
@@ -335,23 +373,28 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 5,),
+                      SizedBox(
+                        height: 5,
+                      ),
 
-                      SizedBox(height: 5,),
+                      SizedBox(
+                        height: 5,
+                      ),
                       SizedBox(
                         width: double.maxFinite,
                         child: GFCarousel(
                           autoPlay: true,
                           items: imageList.map(
-                                (url) {
+                            (url) {
                               return Container(
                                 margin: const EdgeInsets.only(
                                     left: 5, right: 5, top: 5, bottom: 10),
                                 child: ClipRRect(
-                                  borderRadius:
-                                  const BorderRadius.all(Radius.circular(5.0)),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(5.0)),
                                   child: Image.asset(url,
-                                      fit: BoxFit.cover, width: double.maxFinite),
+                                      fit: BoxFit.cover,
+                                      width: double.maxFinite),
                                 ),
                               );
                             },
@@ -373,11 +416,11 @@ class _HomePageState extends State<HomePage> {
                                 height: MediaQuery.of(context).size.height / 15,
                                 width: MediaQuery.of(context).size.width / 2.40,
                                 child: NeumorphicButton(
-                                    onPressed: () {
-                                      Get.toNamed('/StudentDashBoard');
+                                  onPressed: () {
+                                    Get.toNamed('/StudentDashBoard');
                                   },
                                   style: NeumorphicStyle(
-                                    // shape: NeumorphicShape.concave,
+                                      // shape: NeumorphicShape.concave,
                                       boxShape: NeumorphicBoxShape.roundRect(
                                           BorderRadius.circular(12)),
                                       depth: 1,
@@ -385,12 +428,12 @@ class _HomePageState extends State<HomePage> {
                                       color: Colors.white),
                                   child: const Center(
                                       child: Text(
-                                        "STUDENT PROTAL",
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.black45,
-                                            fontWeight: FontWeight.bold),
-                                      )),
+                                    "STUDENT PROTAL",
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.black45,
+                                        fontWeight: FontWeight.bold),
+                                  )),
                                 ),
                               ),
                               SizedBox(
@@ -412,12 +455,12 @@ class _HomePageState extends State<HomePage> {
                                       color: Colors.white),
                                   child: const Center(
                                       child: Text(
-                                        "TUTION FEES",
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.black45,
-                                            fontWeight: FontWeight.bold),
-                                      )),
+                                    "TUTION FEES",
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.black45,
+                                        fontWeight: FontWeight.bold),
+                                  )),
                                 ),
                               ),
                               SizedBox(
@@ -427,7 +470,8 @@ class _HomePageState extends State<HomePage> {
                                 height: MediaQuery.of(context).size.height / 15,
                                 width: MediaQuery.of(context).size.width / 2.30,
                                 child: NeumorphicButton(
-                                  onPressed: () => Get.toNamed('/FacultyProfile'),
+                                  onPressed: () =>
+                                      Get.toNamed('/FacultyProfile'),
                                   style: NeumorphicStyle(
                                       shape: NeumorphicShape.concave,
                                       boxShape: NeumorphicBoxShape.roundRect(
@@ -437,12 +481,12 @@ class _HomePageState extends State<HomePage> {
                                       color: Colors.white),
                                   child: const Center(
                                       child: Text(
-                                        "FACULTY MEMBER",
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.black45,
-                                            fontWeight: FontWeight.bold),
-                                      )),
+                                    "FACULTY MEMBER",
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.black45,
+                                        fontWeight: FontWeight.bold),
+                                  )),
                                 ),
                               ),
                               SizedBox(
@@ -464,12 +508,12 @@ class _HomePageState extends State<HomePage> {
                                       color: Colors.white),
                                   child: const Center(
                                       child: Text(
-                                        "ACADEMIC RESULT",
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.black45,
-                                            fontWeight: FontWeight.bold),
-                                      )),
+                                    "ACADEMIC RESULT",
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.black45,
+                                        fontWeight: FontWeight.bold),
+                                  )),
                                 ),
                               ),
                               SizedBox(
@@ -491,12 +535,12 @@ class _HomePageState extends State<HomePage> {
                                       color: Colors.white),
                                   child: const Center(
                                       child: Text(
-                                        "NU PROTAL",
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.black45,
-                                            fontWeight: FontWeight.bold),
-                                      )),
+                                    "NU PROTAL",
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.black45,
+                                        fontWeight: FontWeight.bold),
+                                  )),
                                 ),
                               ),
                               SizedBox(
@@ -518,12 +562,12 @@ class _HomePageState extends State<HomePage> {
                                       color: Colors.white),
                                   child: const Center(
                                       child: Text(
-                                        "DIIT NOTICS",
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.black45,
-                                            fontWeight: FontWeight.bold),
-                                      )),
+                                    "DIIT NOTICS",
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.black45,
+                                        fontWeight: FontWeight.bold),
+                                  )),
                                 ),
                               ),
 
@@ -688,8 +732,11 @@ class _HomePageState extends State<HomePage> {
                                       Image.asset(
                                         "assets/ic_questionbank.png",
                                         height:
-                                        MediaQuery.of(context).size.height / 8.2,
-                                        width: MediaQuery.of(context).size.width / 3,
+                                            MediaQuery.of(context).size.height /
+                                                8.2,
+                                        width:
+                                            MediaQuery.of(context).size.width /
+                                                3,
                                       ),
                                       SizedBox(
                                         height: 10.h,
@@ -755,7 +802,8 @@ class _HomePageState extends State<HomePage> {
                             height: MediaQuery.of(context).size.height / 4.6,
                             width: MediaQuery.of(context).size.width / 2.50,
                             child: NeumorphicButton(
-                              onPressed: () => Get.toNamed('/ClassRoutineViewer'),
+                              onPressed: () =>
+                                  Get.toNamed('/ClassRoutineViewer'),
                               style: NeumorphicStyle(
                                   shape: NeumorphicShape.concave,
                                   boxShape: NeumorphicBoxShape.roundRect(
@@ -771,8 +819,11 @@ class _HomePageState extends State<HomePage> {
                                       Image.asset(
                                         "assets/ic_routine.png",
                                         height:
-                                        MediaQuery.of(context).size.height / 8.2,
-                                        width: MediaQuery.of(context).size.width / 3,
+                                            MediaQuery.of(context).size.height /
+                                                8.2,
+                                        width:
+                                            MediaQuery.of(context).size.width /
+                                                3,
                                       ),
                                       SizedBox(
                                         height: 10.h,
@@ -853,7 +904,8 @@ class _HomePageState extends State<HomePage> {
                               child: Column(children: [
                                 Image.asset(
                                   "assets/ic_club.png",
-                                  height: MediaQuery.of(context).size.height / 8.2,
+                                  height:
+                                      MediaQuery.of(context).size.height / 8.2,
                                   width: MediaQuery.of(context).size.width / 3,
                                 ),
                                 SizedBox(
@@ -913,7 +965,8 @@ class _HomePageState extends State<HomePage> {
                             height: MediaQuery.of(context).size.height / 4.6,
                             width: MediaQuery.of(context).size.width / 2.50,
                             child: NeumorphicButton(
-                              onPressed: () => Get.toNamed('/TakeandShowAttendence'),
+                              onPressed: () =>
+                                  Get.toNamed('/TakeandShowAttendence'),
                               style: NeumorphicStyle(
                                   shape: NeumorphicShape.concave,
                                   boxShape: NeumorphicBoxShape.roundRect(
@@ -929,8 +982,11 @@ class _HomePageState extends State<HomePage> {
                                       Image.asset(
                                         "assets/ic_attendance.png",
                                         height:
-                                        MediaQuery.of(context).size.height / 8.2,
-                                        width: MediaQuery.of(context).size.width / 3,
+                                            MediaQuery.of(context).size.height /
+                                                8.2,
+                                        width:
+                                            MediaQuery.of(context).size.width /
+                                                3,
                                       ),
                                       SizedBox(
                                         height: 10.h,
@@ -1009,8 +1065,10 @@ class _HomePageState extends State<HomePage> {
                                 children: [
                                   Image.asset(
                                     "assets/payment.png",
-                                    height: MediaQuery.of(context).size.height / 8.2,
-                                    width: MediaQuery.of(context).size.width / 3,
+                                    height: MediaQuery.of(context).size.height /
+                                        8.2,
+                                    width:
+                                        MediaQuery.of(context).size.width / 3,
                                   ),
                                   SizedBox(
                                     height: 10.h,
@@ -1040,15 +1098,12 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           );
+        } else {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
         }
-        else{
-          return Center(child: CircularProgressIndicator(),);
-        }
-
       },
-
     );
   }
-
-
 }
