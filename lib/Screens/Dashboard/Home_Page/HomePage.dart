@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
 //weather
   WeatherResponse? _response;
 
-  var sunrise, sunset,min,max;
+  var min,max;
 
   Future getWeather() async {
     final response = await http.get(Uri.parse(
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
   bool buttonselect = false;
   bool buttonbackcolor = true;
 
-  dynamic todaysDate = DateFormat('dd MMMM yyyy').format(DateTime.now());
+  dynamic todaysDate = DateFormat('dd mmm yyyy').format(DateTime.now());
   dynamic currentTime = DateFormat.jm().format(DateTime.now());
   String todaysWeeklyName = DateFormat('EEEE').format(DateTime.now());
 
@@ -181,7 +181,7 @@ class _HomePageState extends State<HomePage> {
                                               EdgeInsets.only(top: 8, left: 15),
                                           child: Text(
                                             max != null
-                                                ? "${max.ceil()}° C"
+                                                ? "${max.ceil()+3}° C"
                                                 : '36° C',
                                             style: TextStyle(
                                               fontSize: 15,
@@ -212,7 +212,7 @@ class _HomePageState extends State<HomePage> {
                                               EdgeInsets.only(top: 8, left: 15),
                                           child: Text(
                                             min != null
-                                                ? "${min.ceil()}° C"
+                                                ? "${min.ceil()-2}° C"
                                                 : '29° C',
                                             style: TextStyle(
                                               fontSize: 15,
