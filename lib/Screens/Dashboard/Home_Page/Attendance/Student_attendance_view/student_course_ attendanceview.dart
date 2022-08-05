@@ -1,5 +1,6 @@
 import 'package:dropdown_button2/custom_dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 
 class CourseAttendanceView extends StatefulWidget {
@@ -18,7 +19,14 @@ class _CourseAttendanceViewState extends State<CourseAttendanceView> {
 
   ];
   final List<String> Semester = [
-    '1st Semester','2nd Semester','3rd Semester','4th Semester','5th Semester','6th Semester','7th Semester','8th Semester',
+    '1st Semester',
+    '2nd Semester',
+    '3rd Semester',
+    '4th Semester',
+    '5th Semester',
+    '6th Semester',
+    '7th Semester',
+    '8th Semester',
 
 
   ];
@@ -31,12 +39,17 @@ class _CourseAttendanceViewState extends State<CourseAttendanceView> {
     return Scaffold(
        body: SafeArea(
          child: Column(
+
           crossAxisAlignment: CrossAxisAlignment.center,
+           mainAxisAlignment: MainAxisAlignment.center,
            children: [
              Padding(
                padding: const EdgeInsets.only(top: 150,left: 45),
                child: Column(
                  children: [
+
+                   Text('View Attendance',style: TextStyle(fontSize: 25,color: Colors.black,fontWeight: FontWeight.bold),),
+                   SizedBox(height: 50,),
                    SizedBox(
                      width: 300,
                      height: 50,
@@ -86,14 +99,33 @@ class _CourseAttendanceViewState extends State<CourseAttendanceView> {
                    ),
                   const SizedBox(height: 80,),
                    SizedBox(
-                     width: 150,
-                     child: ElevatedButton(onPressed: ()=>Get.toNamed('/StudentAttendanceDetailes'),
-                         child: const Text('NEXT',style: TextStyle(fontSize: 18,letterSpacing: 1.5),)),
+                     width: MediaQuery.of(context).size.width/3,
+                      child: NeumorphicButton(
+                         onPressed: () {
+                           Get.toNamed('/StudentAttendanceDetailes');
+                         },
+                         style: NeumorphicStyle(
+                           // shape: NeumorphicShape.concave,
+                             boxShape: NeumorphicBoxShape.roundRect(
+                                 BorderRadius.circular(12)),
+                             depth: 1,
+                             lightSource: LightSource.topLeft,
+                             color: Colors.white),
+                         child: const Center(
+                             child: Text(
+                               "NEXT",
+                               style: TextStyle(
+                                   fontSize: 15,
+                                   color: Colors.black45,
+                                   fontWeight: FontWeight.bold),
+                             )),
+                       ),
+
                    )
                  ],
                ),
              ),
-
+               Spacer(),
            ],
          ),
        ),

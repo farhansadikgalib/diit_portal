@@ -97,6 +97,10 @@ dependencies:
   table_calendar: ^2.1.0
     #  google_maps_flutter: ^2.1.5
 
+  #dots_indicator
+  dots_indicator: ^2.1.0
+  #dots_indicator
+
 
   # Apps Name & Icon
   flutter_app_name: ^0.1.0

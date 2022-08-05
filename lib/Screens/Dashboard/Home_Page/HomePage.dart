@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
       .collection('Section')
       .doc('A')
       .collection('Day')
-      .doc('Friday')
+      .doc('Saturday')
       .collection('ClassList');
 
   //Firebase
