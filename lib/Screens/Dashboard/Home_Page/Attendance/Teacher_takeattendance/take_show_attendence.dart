@@ -1,3 +1,4 @@
+import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 
@@ -7,6 +8,7 @@ class TakeandShowAttendence extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorChanger.scaffoldcolor,
       body: SafeArea(
         child: Column(
 
@@ -16,7 +18,7 @@ class TakeandShowAttendence extends StatelessWidget {
               child: Text('Class Attendence',
                 style: TextStyle(
                     fontSize: 30,
-                    color: Colors.black,
+                    color: Colors.orange,
                     fontFamily: "Baloo"),
               ),
             ),
