@@ -15,6 +15,7 @@ import 'package:getwidget/getwidget.dart';
 import 'package:intl/intl.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -30,6 +31,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   static const String oneSignalId = "6d6a341b-9a0c-4637-9ba7-fd600bff21a0";
+
+  //community url
+
+  final Uri _url = Uri.parse('https://chat.whatsapp.com/G3SiHAapFJH4DaThU1ngW7');
+
+  // community url
+
 
 //weather
   WeatherResponse? _response;
@@ -575,135 +583,6 @@ class _HomePageState extends State<HomePage> {
                                 width: 10.w,
                               )
 
-                              // delet kora jabe na
-
-                              // delet cora jane na backup
-
-                              // AnimatedButton(
-                              //   height: 45.h,
-                              //   width: 125.w,
-                              //   text: 'STUDENT PROTAL',
-                              //   textStyle: (TextStyle(
-                              //       fontSize: 14,
-                              //       fontFamily: "Poppins",
-                              //       fontWeight: FontWeight.w400,
-                              //       color: Colors.black)),
-                              //   isReverse: true,
-                              //   selectedTextColor: Colors.black,
-                              //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                              //   backgroundColor: Color(0xff00DCA8),
-                              //   borderColor: Colors.orangeAccent,
-                              //   borderRadius: 10,
-                              //   borderWidth: 2,
-                              //   onPress: () {},
-                              // ),
-                              // SizedBox(
-                              //   width: 10.w,
-                              // ),
-                              // AnimatedButton(
-                              //   height: 45.h,
-                              //   width: 125.w,
-                              //   text: 'TUTION FEES',
-                              //   textStyle: (TextStyle(
-                              //       fontSize: 14,
-                              //       fontFamily: "Poppins",
-                              //       fontWeight: FontWeight.w400,
-                              //       color: Colors.black)),
-                              //   isReverse: true,
-                              //   selectedTextColor: Colors.black,
-                              //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                              //   backgroundColor: Color(0xff00DCA8),
-                              //   borderColor: Colors.orangeAccent,
-                              //   borderRadius: 10,
-                              //   borderWidth: 2,
-                              //   onPress: () {},
-                              // ),
-                              // SizedBox(
-                              //   width: 10.w,
-                              // ),
-                              // AnimatedButton(
-                              //   height: 45.h,
-                              //   width: 125.w,
-                              //   text: 'FACULTY MEMBER',
-                              //   textStyle: (TextStyle(
-                              //       fontSize: 14,
-                              //       fontFamily: "Poppins",
-                              //       fontWeight: FontWeight.w400,
-                              //       color: Colors.black)),
-                              //   isReverse: true,
-                              //   selectedTextColor: Colors.black,
-                              //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                              //   backgroundColor: Color(0xff00DCA8),
-                              //   borderColor: Colors.orangeAccent,
-                              //   borderRadius: 10,
-                              //   borderWidth: 2,
-                              //   onPress: () => Get.toNamed('/FacultyProfile'),
-                              // ),
-                              // SizedBox(
-                              //   width: 10,
-                              // ),
-                              // AnimatedButton(
-                              //   height: 45.h,
-                              //   width: 125.w,
-                              //   text: 'ACADEMIC RESULT',
-                              //   textStyle: (TextStyle(
-                              //       fontSize: 14,
-                              //       fontFamily: "Poppins",
-                              //       fontWeight: FontWeight.w400,
-                              //       color: Colors.black)),
-                              //   isReverse: true,
-                              //   selectedTextColor: Colors.black,
-                              //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                              //   backgroundColor: Color(0xff00DCA8),
-                              //   borderColor: Colors.orangeAccent,
-                              //   borderRadius: 10,
-                              //   borderWidth: 2,
-                              //   onPress: () {},
-                              // ),
-                              // SizedBox(
-                              //   width: 10.w,
-                              // ),
-                              // AnimatedButton(
-                              //   height: 45.h,
-                              //   width: 125.w,
-                              //   text: 'NU PROTAL',
-                              //   textStyle: (TextStyle(
-                              //       fontSize: 14,
-                              //       fontFamily: "Poppins",
-                              //       fontWeight: FontWeight.w400,
-                              //       color: Colors.black)),
-                              //   isReverse: true,
-                              //   selectedTextColor: Colors.black,
-                              //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                              //   backgroundColor: Color(0xff00DCA8),
-                              //   borderColor: Colors.orangeAccent,
-                              //   borderRadius: 10,
-                              //   borderWidth: 2,
-                              //   onPress: () {},
-                              // ),
-                              // SizedBox(
-                              //   width: 10.w,
-                              // ),
-                              // AnimatedButton(
-                              //   height: 45.h,
-                              //   width: 125.w,
-                              //   text: 'DIIT NOTICS',
-                              //   textStyle: (TextStyle(
-                              //       fontSize: 14,
-                              //       fontFamily: "Poppins",
-                              //       fontWeight: FontWeight.w400,
-                              //       color: Colors.black)),
-                              //   isReverse: true,
-                              //   selectedTextColor: Colors.black,
-                              //   transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
-                              //   backgroundColor: Color(0xff00DCA8),
-                              //   borderColor: Colors.orangeAccent,
-                              //   borderRadius: 10,
-                              //   borderWidth: 2,
-                              //   onPress: () {},
-                              // ),
-
-                              // delet cora jane na backup
                             ],
                           ),
                         ),
@@ -756,43 +635,6 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
 
-                          //delet kora jabe na
-                          // delete kora jabe na ei khane file comment kora
-
-                          // InkWell(
-                          //   onTap: () => Get.toNamed('/QuestionBank'),
-                          //   child: Card(
-                          //     elevation: 5,
-                          //     color: Color(0xffF8EFEF),
-                          //     child: Container(
-                          //       width: 150.w,
-                          //       height: 140.h,
-                          //       child: Column(
-                          //         mainAxisAlignment: MainAxisAlignment.center,
-                          //         children: [
-                          //           Image.asset(
-                          //             "assets/ic_questionbank.png",
-                          //             height: 100,
-                          //             width: 100,
-                          //           ),
-                          //           SizedBox(
-                          //             height: 10.h,
-                          //           ),
-                          //           Text(
-                          //             "Question Bank",
-                          //             style: TextStyle(
-                          //                 fontFamily: "Poppins",
-                          //                 fontSize: 15,
-                          //                 color: Colors.black,
-                          //                 fontWeight: FontWeight.w300),
-                          //           ),
-                          //         ],
-                          //       ),
-                          //     ),
-                          //   ),
-                          // ),
-
-                          // delete kora jabe na ei khane file comment kora
 
                           SizedBox(
                             width: 10.h,
@@ -935,86 +777,104 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
 
-                          // delet kora jabe na
-                          // delete kora jabe na ei khane file comment kora
-                          // InkWell(
-                          //   onTap: () => Get.toNamed('/TakeandShowAttendence'),
-                          //   child: Card(
-                          //     elevation: 5,
-                          //     color: Color(0xffF8EFEF),
-                          //     child: Container(
-                          //       width: 150.w,
-                          //       height: 140.h,
-                          //       child: Column(
-                          //         mainAxisAlignment: MainAxisAlignment.center,
-                          //         children: [
-                          //           Image.asset(
-                          //             "assets/ic_attendance.png",
-                          //             height: 100,
-                          //             width: 100,
-                          //           ),
-                          //           SizedBox(
-                          //             height: 10.h,
-                          //           ),
-                          //           Text(
-                          //             "Attendence",
-                          //             style: TextStyle(
-                          //                 fontFamily: "Poppins",
-                          //                 fontSize: 15,
-                          //                 color: Colors.black,
-                          //                 fontWeight: FontWeight.w300),
-                          //           ),
-                          //         ],
-                          //       ),
-                          //     ),
-                          //   ),
-                          // ),
-                          // delete kora jabe na ei khane file comment kora
                         ],
                       ),
                       SizedBox(
                         height: 10.h,
                       ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height / 5,
-                        width: MediaQuery.of(context).size.width / 2.50,
-                        child: NeumorphicButton(
-                          onPressed: () => Get.toNamed('/QuickPayment'),
-                          style: NeumorphicStyle(
-                              shape: NeumorphicShape.concave,
-                              boxShape: NeumorphicBoxShape.roundRect(
-                                  BorderRadius.circular(12)),
-                              depth: 0,
-                              lightSource: LightSource.topLeft,
-                              color: Colors.white),
-                          child: Column(
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height / 5,
+                            width: MediaQuery.of(context).size.width / 2.50,
+                            child: NeumorphicButton(
+                              onPressed: () => Get.toNamed('/QuickPayment'),
+                              style: NeumorphicStyle(
+                                  shape: NeumorphicShape.concave,
+                                  boxShape: NeumorphicBoxShape.roundRect(
+                                      BorderRadius.circular(12)),
+                                  depth: 0,
+                                  lightSource: LightSource.topLeft,
+                                  color: Colors.white),
+                              child: Column(
                                 children: [
-                                  Image.asset(
-                                    "assets/payment.png",
-                                    height: MediaQuery.of(context).size.height /
-                                        8.2,
-                                    width:
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Image.asset(
+                                        "assets/payment.png",
+                                        height: MediaQuery.of(context).size.height /
+                                            8.2,
+                                        width:
                                         MediaQuery.of(context).size.width / 3,
-                                  ),
-                                  SizedBox(
-                                    height: 10.h,
-                                  ),
-                                  const Text(
-                                    "Quick Pay",
-                                    style: TextStyle(
-                                        fontFamily: "Poppins",
-                                        fontSize: 15,
-                                        color: Colors.black54,
-                                        fontWeight: FontWeight.w300),
+                                      ),
+                                      SizedBox(
+                                        height: 10.h,
+                                      ),
+                                      const Text(
+                                        "Quick Pay",
+                                        style: TextStyle(
+                                            fontFamily: "Poppins",
+                                            fontSize: 15,
+                                            color: Colors.black54,
+                                            fontWeight: FontWeight.w300),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
-                            ],
+                            ),
                           ),
-                        ),
+
+                          SizedBox(width: 10.h,),
+
+
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height / 5,
+                            width: MediaQuery.of(context).size.width / 2.50,
+                            child: NeumorphicButton(
+                              onPressed: _launchUrl,
+                              style: NeumorphicStyle(
+                                  shape: NeumorphicShape.concave,
+                                  boxShape: NeumorphicBoxShape.roundRect(
+                                      BorderRadius.circular(12)),
+                                  depth: 0,
+                                  lightSource: LightSource.topLeft,
+                                  color: Colors.white),
+                              child: Column(
+                                children: [
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Image.asset(
+                                        "assets/ic_community.png",
+                                        height: MediaQuery.of(context).size.height /
+                                            8.2,
+                                        width:
+                                        MediaQuery.of(context).size.width / 3,
+                                      ),
+                                      SizedBox(
+                                        height: 10.h,
+                                      ),
+                                      const Text(
+                                        "Community",
+                                        style: TextStyle(
+                                            fontFamily: "Poppins",
+                                            fontSize: 15,
+                                            color: Colors.black54,
+                                            fontWeight: FontWeight.w300),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+
+
+
+                        ],
                       ),
                       // quick payment //
 
@@ -1034,5 +894,11 @@ class _HomePageState extends State<HomePage> {
         }
       },
     );
+  }
+
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(_url)) {
+      throw 'Could not launch $_url';
+    }
   }
 }

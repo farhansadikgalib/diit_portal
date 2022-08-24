@@ -77,7 +77,6 @@ class MyApp extends StatelessWidget {
             GetPage(name: '/LoginPage', page: () => LoginPage()),
             GetPage(name: '/ForgetPassPage', page: () => ForgetPassPage()),
             GetPage(name: '/DashBoard', page: () => Dashboard()),
-
             // navigation bar //
             // GetPage(name: '/BottlomNavegatonBar', page: () => Dashboard()),
             // home page //
