@@ -1,3 +1,4 @@
+import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:dropdown_button2/custom_dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
@@ -37,6 +38,7 @@ class _CourseAttendanceViewState extends State<CourseAttendanceView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorChanger.scaffoldcolor,
        body: SafeArea(
          child: Column(
 
@@ -48,7 +50,7 @@ class _CourseAttendanceViewState extends State<CourseAttendanceView> {
                child: Column(
                  children: [
 
-                   Text('View Attendance',style: TextStyle(fontSize: 25,color: Colors.black,fontWeight: FontWeight.bold),),
+                   Text('View Attendance',style: TextStyle(fontSize: 25,color: Colors.orange,fontWeight: FontWeight.bold),),
                    SizedBox(height: 50,),
                    SizedBox(
                      width: 300,
@@ -63,6 +65,7 @@ class _CourseAttendanceViewState extends State<CourseAttendanceView> {
                        dropdownHeight: 300,
                        dropdownWidth: 150,
                        hint: 'Select Semester',
+                       
                        dropdownItems: Semester,
                        value: selectedSemester == "" ? null : selectedSemester,
                        onChanged: (value) {

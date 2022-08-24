@@ -1,3 +1,4 @@
+import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:dropdown_button2/custom_dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -61,6 +62,7 @@ class _SelectCourceAttendenceState extends State<SelectCourceAttendence> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorChanger.scaffoldcolor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(top: 100,left: 45),

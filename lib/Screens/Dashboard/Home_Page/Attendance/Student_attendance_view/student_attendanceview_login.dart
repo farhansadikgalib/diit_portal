@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
@@ -30,14 +31,14 @@ class _StudentViewAttendanceState extends State<StudentViewAttendance> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffe9e7e7),
+      backgroundColor: ColorChanger.scaffoldcolor,
       body: SafeArea(
         child: Form(
           key: _formkey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Student Login',style: TextStyle(fontSize: 25,color: Colors.black,fontFamily:"Poppins" ,fontWeight: FontWeight.w500),),
+              const Text('Student Login',style: TextStyle(fontSize: 25,color: Colors.white,fontFamily:"Poppins" ,fontWeight: FontWeight.w500),),
               const SizedBox(
                 height: 20,
               ),

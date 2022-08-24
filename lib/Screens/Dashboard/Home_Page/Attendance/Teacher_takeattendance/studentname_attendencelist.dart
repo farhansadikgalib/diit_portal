@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_glow/flutter_glow.dart';
 import 'package:get/get.dart';
@@ -37,6 +38,7 @@ class _StudentNameAttendencelistState extends State<StudentNameAttendencelist> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorChanger.scaffoldcolor,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(

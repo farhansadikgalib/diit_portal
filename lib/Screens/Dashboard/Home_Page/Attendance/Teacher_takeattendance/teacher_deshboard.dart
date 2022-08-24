@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
@@ -89,6 +90,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorChanger.scaffoldcolor,
       body: SafeArea(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
