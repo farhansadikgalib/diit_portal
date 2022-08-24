@@ -1,3 +1,4 @@
+import 'package:diit_portal/IntroScreen/IntroScreen_Start.dart';
 import 'package:diit_portal/Screens/AuthScreen/ForgetPassPage.dart';
 import 'package:diit_portal/Screens/AuthScreen/LoginPage.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Student_attendance_view/student_attendance_detailes.dart';
@@ -70,6 +71,8 @@ class MyApp extends StatelessWidget {
                 name: '/',
                 page: () => SplashScreen(),
                 binding: SplashBinding()),
+
+            GetPage(name: '/IntroScreen', page: ()=> Introscreen_Start()),
             GetPage(name: '/NoInternet', page: ()=>NoInternetConnection()),
             GetPage(name: '/LoginPage', page: () => LoginPage()),
             GetPage(name: '/ForgetPassPage', page: () => ForgetPassPage()),

@@ -843,42 +843,6 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
 
-                          //delet kora jabe na
-                          //delet kora jabe na
-                          // delete kora jabe na ei khane file comment kora
-                          // InkWell(
-                          //   onTap: () => Get.toNamed('/ClassRoutine'),
-                          //   child: Card(
-                          //     elevation: 5,
-                          //     color: Color(0xffF8EFEF),
-                          //     child: Container(
-                          //       width: 150.w,
-                          //       height: 140.h,
-                          //       child: Column(
-                          //         mainAxisAlignment: MainAxisAlignment.center,
-                          //         children: [
-                          //           Image.asset(
-                          //             "assets/ic_routine.png",
-                          //             height: 100,
-                          //             width: 100,
-                          //           ),
-                          //           SizedBox(
-                          //             height: 10.h,
-                          //           ),
-                          //           Text(
-                          //             "Class  Routine",
-                          //             style: TextStyle(
-                          //                 fontFamily: "Poppins",
-                          //                 fontSize: 15,
-                          //                 color: Colors.black,
-                          //                 fontWeight: FontWeight.w300),
-                          //           ),
-                          //         ],
-                          //       ),
-                          //     ),
-                          //   ),
-                          // ),
-                          // delete kora jabe na ei khane file comment kora
                         ],
                       ),
                       SizedBox(
@@ -922,41 +886,6 @@ class _HomePageState extends State<HomePage> {
                               ]),
                             ),
                           ),
-                          //delet kora jabe na
-                          // delete kora jabe na ei khane file comment kora
-                          // InkWell(
-                          //     onTap: () {},
-                          //     child: Card(
-                          //       elevation: 5,
-                          //       color: Color(0xffF8EFEF),
-                          //       child: Container(
-                          //         width: 150.w,
-                          //         height: 140.h,
-                          //         child: Column(
-                          //           mainAxisAlignment: MainAxisAlignment.center,
-                          //           children: [
-                          //             Image.asset(
-                          //               "assets/ic_club.png",
-                          //               height: 100,
-                          //               width: 100,
-                          //             ),
-                          //             SizedBox(
-                          //               height: 10.h,
-                          //             ),
-                          //             Text(
-                          //               "Club",
-                          //               style: TextStyle(
-                          //                   fontFamily: "Poppins",
-                          //                   fontSize: 15,
-                          //                   color: Colors.black,
-                          //                   fontWeight: FontWeight.w300),
-                          //             ),
-                          //           ],
-                          //         ),
-                          //       ),
-                          //     ),
-                          //   ),
-                          // delete kora jabe na ei khane file comment kora
 
                           SizedBox(
                             width: 10.h,
@@ -966,7 +895,7 @@ class _HomePageState extends State<HomePage> {
                             width: MediaQuery.of(context).size.width / 2.50,
                             child: NeumorphicButton(
                               onPressed: () =>
-                                  Get.toNamed('/TakeandShowAttendence'),
+                                  Get.toNamed('/StudentViewAttendance'),
                               style: NeumorphicStyle(
                                   shape: NeumorphicShape.concave,
                                   boxShape: NeumorphicBoxShape.roundRect(

@@ -37,6 +37,15 @@ dependencies:
   #  State Management
   device_preview: ^1.1.0
 
+  #intro Screen
+  smooth_page_indicator: ^1.0.0+2
+  #intro Screen
+
+  #Animation
+  lottie: ^1.4.1
+  #Animation
+
+
  # screen util #
   flutter_screenutil: ^5.5.3+2
   #  State Management
@@ -84,7 +93,7 @@ dependencies:
     # text animation
 
   #dropdown_button2
-  dropdown_button2:
+  dropdown_button2: ^1.7.2
   #multi_charts
   multi_charts: ^0.3.0
 
@@ -115,6 +124,9 @@ dependencies:
   firebase_database: ^9.0.16
   cloud_firestore: ^3.1.15
   #  Firebase
+
+
+
   #  file save
   path_provider: ^2.0.9
   dio: ^4.0.6
@@ -208,6 +220,7 @@ flutter:
   assets:
     - assets/
     - assets/icons/
+    - assets/intro_asset/
     - assets/slider_image/
     - assets/teacher/cse/
     - assets/teacher/bba&bthm/
