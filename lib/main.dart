@@ -1,4 +1,3 @@
-import 'package:diit_portal/IntroScreen/IntroScreen_Start.dart';
 import 'package:diit_portal/Screens/AuthScreen/ForgetPassPage.dart';
 import 'package:diit_portal/Screens/AuthScreen/LoginPage.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Student_attendance_view/student_attendance_detailes.dart';
@@ -34,6 +33,7 @@ import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Student_atten
 import 'package:diit_portal/Screens/Dashboard/Notification/Notification.dart';
 import 'package:diit_portal/Screens/Dashboard/Student_Dashboard/student_dashboard.dart';
 import 'package:diit_portal/Screens/Dashboard/Student_Profile/student_profile.dart';
+import 'package:diit_portal/Screens/IntroScreen/IntroScreen_Start.dart';
 import 'package:diit_portal/Screens/NoInternet/NoInternetConnection.dart';
 import 'package:diit_portal/Screens/SplashScreen/SplashScreen.dart';
 import 'package:diit_portal/Screens/SplashScreen/SplashScreenBinding.dart';

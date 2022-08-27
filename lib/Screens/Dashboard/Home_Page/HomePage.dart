@@ -23,11 +23,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  late CollectionReference ref;
+  String sec= 'A';
+
   @override
   void initState() {
     weatherService();
     intitPlatformState();
     getWeather();
+    initFirestoreData();
+
   }
 
   static const String oneSignalId = "6d6a341b-9a0c-4637-9ba7-fd600bff21a0";
@@ -98,16 +104,21 @@ class _HomePageState extends State<HomePage> {
   ];
 
   //Firebase
-  CollectionReference ref = FirebaseFirestore.instance
-      .collection("ClassRoutine")
-      .doc('Department')
-      .collection('CSE')
-      .doc('17')
-      .collection('Section')
-      .doc('A')
-      .collection('Day')
-      .doc('Saturday')
-      .collection('ClassList');
+
+  Future<void> initFirestoreData() async{
+    ref = FirebaseFirestore.instance
+        .collection("ClassRoutine")
+        .doc('Department')
+        .collection('CSE')
+        .doc('17')
+        .collection('Section')
+        .doc(sec)
+        .collection('Day')
+        .doc('Saturday')
+        .collection('ClassList');
+
+}
+
 
   //Firebase
 
@@ -309,12 +320,13 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(
                         height: 5,
                       ),
-                      Card(
-                        elevation: 3,
-                        shadowColor: Colors.orange,
-                        child: Clock(),
-                      ),
+                      // Card(
+                      //   elevation: 3,
+                      //   shadowColor: Colors.orange,
+                      //   child: Clock(),
+                      // ),
 
+                      SizedBox(height: 5,),
                       InkWell(
                         onTap: () {
                           Get.toNamed('/${todaysWeeklyName}');
@@ -385,9 +397,7 @@ class _HomePageState extends State<HomePage> {
                         height: 5,
                       ),
 
-                      SizedBox(
-                        height: 5,
-                      ),
+
                       SizedBox(
                         width: double.maxFinite,
                         child: GFCarousel(
