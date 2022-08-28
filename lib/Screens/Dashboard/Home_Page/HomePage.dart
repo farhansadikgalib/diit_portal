@@ -331,6 +331,7 @@ class _HomePageState extends State<HomePage> {
                           Get.toNamed('/${todaysWeeklyName}');
                           print(todaysWeeklyName);
                         },
+
                         child: Card(
                           elevation: 3,
                           shadowColor: Colors.orange,
@@ -745,7 +746,7 @@ class _HomePageState extends State<HomePage> {
                             width: MediaQuery.of(context).size.width / 2.50,
                             child: NeumorphicButton(
                               onPressed: () =>
-                                  Get.toNamed('/StudentViewAttendance'),
+                                  Get.toNamed('/CourseAttendanceView'),
                               style: NeumorphicStyle(
                                   shape: NeumorphicShape.concave,
                                   boxShape: NeumorphicBoxShape.roundRect(

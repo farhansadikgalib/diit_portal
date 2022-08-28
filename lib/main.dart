@@ -100,7 +100,7 @@ class MyApp extends StatelessWidget {
             GetPage(name: '/Thursday', page: ()=>Thursday()),
 
              // Club //
-            GetPage(name: '/IT_Clube', page: ()=>ITClube()),
+            GetPage(name: '/IT_Clube', page: ()=>All_Clubs()),
             GetPage(name: '/Helping_Birds', page: ()=>Helping_Birds()),
 
             //Club //
@@ -137,9 +137,9 @@ class MyApp extends StatelessWidget {
                 name: '/StudentNameAttendencelist',
                 page: () => StudentNameAttendencelist()),
             // student view attendance //
-            GetPage(
-                name: '/StudentViewAttendance',
-                page: () => const StudentViewAttendance()),
+            // GetPage(
+            //     name: '/StudentViewAttendance',
+            //     page: () => const StudentViewAttendance()),
             GetPage(
                 name: '/CourseAttendanceView',
                 page: () => CourseAttendanceView()),

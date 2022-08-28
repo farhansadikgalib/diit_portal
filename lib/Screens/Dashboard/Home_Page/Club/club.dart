@@ -4,15 +4,15 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class ITClube extends StatefulWidget {
-  const ITClube({Key? key}) : super(key: key);
+class All_Clubs extends StatefulWidget {
+  const All_Clubs({Key? key}) : super(key: key);
 
   @override
-  State<ITClube> createState() => _ITClubeState();
+  State<All_Clubs> createState() => _All_ClubsState();
 }
 
 
-class _ITClubeState extends State<ITClube> {
+class _All_ClubsState extends State<All_Clubs> {
   @override
   Widget build(BuildContext context) {
 
@@ -44,12 +44,12 @@ class _ITClubeState extends State<ITClube> {
                       Image.asset(
                         "assets/club_icons/helping_birds.png",
                         height:
-                        MediaQuery.of(context).size.height / 8.2,
-                        width: MediaQuery.of(context).size.width / 3,
+                        MediaQuery.of(context).size.height / 9,
+                        width: MediaQuery.of(context).size.width / 4,
                       ),
-                      SizedBox(
-                        height: 10.h,
-                      ),
+
+                      SizedBox(height: 10.h,),
+
                       const Text(
                         "Helping Birds",
                         style: TextStyle(
@@ -87,16 +87,15 @@ class _ITClubeState extends State<ITClube> {
                               "assets/club_icons/programming.png",
                               height:
                               MediaQuery.of(context).size.height /
-                                  8.2,
+                                  9,
                               width:
                               MediaQuery.of(context).size.width /
-                                  3,
+                                  4,
                             ),
-                            SizedBox(
-                              height: 10.h,
-                            ),
+
                             const Text(
-                              "programmer",
+                              "Programming Club",
+                              textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontFamily: "Poppins",
                                   fontSize: 15,
