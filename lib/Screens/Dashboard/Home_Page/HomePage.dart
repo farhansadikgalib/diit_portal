@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:diit_portal/BinaryClock/Clock.dart';
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:diit_portal/Screens/Weather/data_service.dart';
 import 'package:diit_portal/Screens/Weather/weather_model.dart';
@@ -81,7 +80,7 @@ class _HomePageState extends State<HomePage> {
   bool buttonselect = false;
   bool buttonbackcolor = true;
 
-  dynamic todaysDate = DateFormat('dd mmm yyyy').format(DateTime.now());
+  dynamic todaysDate = DateFormat("dd MMM' yy").format(DateTime.now());
   dynamic currentTime = DateFormat.jm().format(DateTime.now());
   String todaysWeeklyName = DateFormat('EEEE').format(DateTime.now());
 
@@ -137,11 +136,11 @@ class _HomePageState extends State<HomePage> {
       future: ref.get(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return Scaffold(
-             backgroundColor:  ColorChanger.scaffoldcolor,
-            body: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: SafeArea(
+          return SafeArea(
+            child: Scaffold(
+               backgroundColor:  ColorChanger.scaffoldcolor,
+              body: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
                 child: Padding(
                   padding: const EdgeInsets.only(top: 5, left: 12, right: 12),
                   child: Column(
@@ -158,8 +157,8 @@ class _HomePageState extends State<HomePage> {
                               color: Color(0xff00DCA8),
                               borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(5))),
-                          height: MediaQuery.of(context).size.height /4.5,
-                          width: double.maxFinite,
+                          height: MediaQuery.of(context).size.height /4,
+                          width: double.infinity,
                           child: Row(
                             children: <Widget>[
                               Expanded(
@@ -278,7 +277,7 @@ class _HomePageState extends State<HomePage> {
                                               EdgeInsets.only(top: 8, left: 15),
                                           child: Text(
                                             'Today’s  Date'.toUpperCase(),
-                                            style: const TextStyle(
+                                            style:  TextStyle(
                                               fontSize: 15,
                                               fontFamily: 'Poppins',
                                             ),

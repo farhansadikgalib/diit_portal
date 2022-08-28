@@ -29,7 +29,6 @@ class _StudentProfileState extends State<StudentProfile> {
   void initState()  {
     super.initState();
      // email =user_email!;
-
     getUserData();
   }
 
