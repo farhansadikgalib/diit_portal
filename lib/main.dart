@@ -30,7 +30,7 @@ import 'package:diit_portal/Screens/Dashboard/Home_Page/quick_pay/QuickPayment.d
 
 import 'package:diit_portal/Screens/Dashboard/Dashboard.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Student_attendance_view/student_attendanceview_login.dart';
-import 'package:diit_portal/Screens/Dashboard/Notification/Notification.dart';
+import 'package:diit_portal/Screens/Dashboard/Notification/All_Notification.dart';
 import 'package:diit_portal/Screens/Dashboard/Student_Dashboard/student_dashboard.dart';
 import 'package:diit_portal/Screens/Dashboard/Student_Profile/student_profile.dart';
 import 'package:diit_portal/Screens/IntroScreen/IntroScreen_Start.dart';
