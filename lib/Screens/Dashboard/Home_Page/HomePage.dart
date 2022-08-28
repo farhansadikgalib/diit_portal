@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
   bool buttonselect = false;
   bool buttonbackcolor = true;
 
-  dynamic todaysDate = DateFormat("dd MMM' yy").format(DateTime.now());
+  dynamic todaysDate = DateFormat("dd MMM yy").format(DateTime.now());
   dynamic currentTime = DateFormat.jm().format(DateTime.now());
   String todaysWeeklyName = DateFormat('EEEE').format(DateTime.now());
 

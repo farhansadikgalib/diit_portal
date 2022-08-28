@@ -1,7 +1,12 @@
-import 'package:diit_portal/Screens/Dashboard/Home_Page/Club/blood_model.dart';
+import 'dart:convert';
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+
 
 class Helping_Birds extends StatefulWidget {
   const Helping_Birds({Key? key}) : super(key: key);
@@ -12,7 +17,56 @@ class Helping_Birds extends StatefulWidget {
 
 class _Helping_BirdsState extends State<Helping_Birds> {
 
-  List<String> department = [
+  late List readyData;
+  late List unfilterData;
+
+  Future<String> loadJsonData() async {
+    var jsonText = await rootBundle.loadString('assets/HelpingbirdsData.json');
+
+    setState(() {
+      readyData = jsonDecode(jsonText);
+    });
+
+    this.unfilterData = readyData;
+
+    return 'susscessfully get data';
+  }
+
+
+  @override
+  void initState() {
+    this.loadJsonData();
+  }
+
+
+
+  searchBar(str) {
+    var stringExist = str.length > 0 ? true : false;
+
+    if (stringExist) {
+      var filterData = [];
+
+      for (int i = 0; i < unfilterData.length; i++) {
+        String name = unfilterData[i]['group'].toUpperCase();
+        if (name.contains(str.toUpperCase())) {
+          filterData.add(unfilterData[i]);
+        }
+
+        setState(() {
+          this.readyData = filterData;
+        });
+      }
+    } else {
+      setState(() {
+        this.readyData = this.unfilterData;
+      });
+    }
+  }
+
+
+
+
+  List<String> blood_group = [
     'A+',
     'A-',
     'B+',
@@ -23,86 +77,48 @@ class _Helping_BirdsState extends State<Helping_Birds> {
     'AB-',
   ];
   String? selectedValue;
-
-  // List <Map<String,dynamic>> Gxx = [
-  //   {
-  //     "name": "Shawon",
-  //     "number":01775389319,
-  //     "BloodGroup":"AB+"
-  //   }, {
-  //     "name": "Galib",
-  //     "number":01775389319,
-  //     "BloodGroup":"A+"
-  //   }, {
-  //     "name": "Shawon",
-  //     "number":01775389319,
-  //     "BloodGroup":"AB+"
-  //   }, {
-  //     "name": "Shawon",
-  //     "number":01775389319,
-  //     "BloodGroup":"AB+"
-  //   }, {
-  //     "name": "Shawon",
-  //     "number":01775389319,
-  //     "BloodGroup":"AB+"
-  //   }, {
-  //     "name": "Shawon",
-  //     "number":01775389319,
-  //     "BloodGroup":"AB+"
-  //   }, {
-  //     "name": "Shawon",
-  //     "number":01775389319,
-  //     "BloodGroup":"AB+"
-  //   }, {
-  //     "name": "Shawon",
-  //     "number":01775389319,
-  //     "BloodGroup":"AB+"
-  //   }, {
-  //     "name": "Shawon",
-  //     "number":01775389319,
-  //     "BloodGroup":"AB+"
-  //   },
-  // ];
+  //
 
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: ColorChanger.scaffoldcolor,
-        body: Padding(
-          padding: const EdgeInsets.only(top: 25,left: 20,right: 20),
-          child: Column(
-              children: [
+        backgroundColor:  ColorChanger.scaffoldcolor,
 
-             Center(
-               child: DropdownButtonHideUnderline(
+
+        body: Column(
+          children: [
+
+            SizedBox(height: 10,),
+            Padding(
+              padding: const EdgeInsets.only(left: 10,right: 10),
+              child: DropdownButtonHideUnderline(
                 child: DropdownButton2(
                   isExpanded: true,
                   hint: Row(
-                    children: [
+                    children:  [
 
                       Expanded(
-                        child: Text(
-                          'Blood Group',
+                        child: Text("Search Blood Group",
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ],
                   ),
-                  items: department
+                  items: blood_group
                       .map((item) =>
                       DropdownMenuItem<String>(
                         value: item,
                         child: Text(
                           item,
                           style: const TextStyle(
-                            fontSize: 16,
+                            fontSize: 14,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
@@ -111,8 +127,15 @@ class _Helping_BirdsState extends State<Helping_Birds> {
                       .toList(),
                   value: selectedValue,
                   onChanged: (value) {
+
                     setState(() {
                       selectedValue = value as String;
+                      this.searchBar(selectedValue);
+
+                      // if(selectedValue!.isNotEmpty){
+                      //
+                      print(selectedValue);
+
                     });
                   },
                   icon: const Icon(
@@ -122,7 +145,7 @@ class _Helping_BirdsState extends State<Helping_Birds> {
                   iconEnabledColor: Colors.white,
                   iconDisabledColor: Colors.grey,
                   buttonHeight: 50,
-                  buttonWidth: MediaQuery.of(context).size.width/1.1,
+                  buttonWidth: double.infinity,
                   buttonPadding: const EdgeInsets.only(left: 14, right: 14),
                   buttonDecoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
@@ -142,28 +165,42 @@ class _Helping_BirdsState extends State<Helping_Birds> {
                   scrollbarThickness: 6,
                   scrollbarAlwaysShow: true,
                 ),
+              ),
             ),
-             ),
-           ListView.builder(
-             itemCount: Gr.length,
-               itemBuilder: (BuildContext context,index){
+            SizedBox(height: 10,),
 
 
-               return
-
-             Card(
-               child: ListTile(
-                 title: Text(Gr[0]['name']),
-                 // subtitle: Text(Gr[0]['number']),
-                 trailing: Text(Gr[0]['BloodGroup']),
-               ),
-             );
-
-               })
-           ]
-          ),
+            Expanded(
+                child: ListView.builder(
+                    itemCount: readyData.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Column(
+                        children: [
+                          InkWell(
+                            onTap: (){
+                              launch("tel://${readyData[index]
+                              ['phone']}");
+                            },
+                            child: Padding(
+                              padding:  EdgeInsets.only(left: 15,right: 15),
+                              child: Card(
+                                elevation: 5,
+                                color:Colors.orangeAccent,
+                                child: ListTile(
+                                  title: Text(readyData[index]['name'],style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                                  subtitle: Text( "Contact: ${readyData[index]['phone']}",style: TextStyle(fontWeight: FontWeight.w600 ),),
+                                  trailing: Text(readyData[index]['group'],style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.red),),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      );
+                    }))
+          ],
         ),
       ),
     );
   }
 }
+
