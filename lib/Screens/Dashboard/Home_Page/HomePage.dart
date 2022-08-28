@@ -621,7 +621,7 @@ class _HomePageState extends State<HomePage> {
                                         "assets/ic_questionbank.png",
                                         height:
                                             MediaQuery.of(context).size.height /
-                                                8.2,
+                                                8.7,
                                         width:
                                             MediaQuery.of(context).size.width /
                                                 3,
@@ -706,9 +706,8 @@ class _HomePageState extends State<HomePage> {
                             height: MediaQuery.of(context).size.height / 4.6,
                             width: MediaQuery.of(context).size.width / 2.50,
                             child: NeumorphicButton(
-                              onPressed: () {
-                                print('neumorphic Btn');
-                              },
+                              onPressed:()=>Get.toNamed('/IT_Clube'),
+
                               style: NeumorphicStyle(
                                   shape: NeumorphicShape.concave,
                                   boxShape: NeumorphicBoxShape.roundRect(

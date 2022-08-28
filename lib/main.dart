@@ -15,10 +15,10 @@ import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Thursd
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Tuesday.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Wednesday.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/Routine_View.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Club/club.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Club/helping_birds.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Faculty_member/Faculty_Member.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/NU_Portal/screens/NU_Portal.dart';
-import 'package:diit_portal/Screens/Dashboard/Home_Page/NU_Portal/widgets/no_internet.dart';
-import 'package:diit_portal/Screens/Dashboard/Home_Page/NU_Portal/widgets/no_internet_widget.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/dept_bba/bba_question.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/dept_bthm/bthm_question.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/dept_cse/cse_question.dart';
@@ -99,7 +99,11 @@ class MyApp extends StatelessWidget {
             GetPage(name: '/Wednesday', page: ()=>Wednesday()),
             GetPage(name: '/Thursday', page: ()=>Thursday()),
 
+             // Club //
+            GetPage(name: '/IT_Clube', page: ()=>ITClube()),
+            GetPage(name: '/Helping_Birds', page: ()=>Helping_Birds()),
 
+            //Club //
 
             GetPage(
                 name: '/ClassRoutineViewer', page: () => ClassRoutineViewer()),

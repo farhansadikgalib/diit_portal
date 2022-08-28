@@ -30,12 +30,13 @@ class _CseDepertmentState extends State<CseDepertment> {
                     itemCount: snap.length,
                     itemBuilder: (context, index) {
                       return Card(
+
                         elevation: 5,
                         child: Container(
                           alignment: Alignment.centerLeft,
                           height: 75,
                           width: double.infinity,
-                          decoration: const BoxDecoration(
+                          decoration:  BoxDecoration(
                             border: Border(
                               top: BorderSide(color: Colors.orange, width: 4),
                               left: BorderSide(color: Colors.orange, width: 4),
@@ -44,7 +45,7 @@ class _CseDepertmentState extends State<CseDepertment> {
                             ),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 10, right: 10),
+                            padding:  EdgeInsets.only(left: 10, right: 10),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [

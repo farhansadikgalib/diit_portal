@@ -97,7 +97,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 60, left: 10, right: 10),
+                padding:  EdgeInsets.only(top: 20, left: 10, right: 10),
                 child: Container(
                   height: 150,
                   width: MediaQuery.of(context).size.width,
@@ -106,9 +106,9 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                       borderRadius: BorderRadius.all(Radius.circular(20))),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children:  [
                       Text(
-                        'Poly Bhumick',
+                        'Poly Bhoumik',
                         style: TextStyle(
                             fontSize: 25,
                             color: Colors.black54,
@@ -122,15 +122,15 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                         'Lecturer of CSE',
                         style: TextStyle(
                             fontSize: 18,
-                            color: Colors.orangeAccent,
+                            color: Colors.black54,
                             fontFamily: "Poppins"),
                       ),
                     ],
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 20,
+               SizedBox(
+                height: 10,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -254,33 +254,35 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(
+                padding:  EdgeInsets.only(
                   top: 20,
                   left: 30,
                   right: 30,
                 ),
                 child: TextFormField(
+
                   controller: _createNotification,
                   maxLines: 4,
                   maxLength: 200,
                   cursorHeight: 20,
                   autofocus: false,
                   decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(
+                    contentPadding:  EdgeInsets.symmetric(
                         vertical: 10, horizontal: 10),
                     hintText: 'Create Notification',
+                    hintStyle: TextStyle(color: Colors.white),
                     suffixIcon: IconButton(
                       onPressed: () {
                         Get.snackbar('Notification', "Sent Successfully",
                             backgroundColor: Colors.black12,
                             snackPosition: SnackPosition.TOP,
-                            messageText: const Text(
+                            messageText: Text(
                               'Done',
-                              style: TextStyle(fontSize: 16),
+                              style: TextStyle(fontSize: 16,color: Colors.white),
                             ),
-                            titleText: const Text(
+                            titleText:  Text(
                               'Notification',
-                              style: TextStyle(fontSize: 18),
+                              style: TextStyle(fontSize: 18,color: Colors.white),
                             ));
 
                         String content = _createNotification.text.trim();
@@ -315,11 +317,12 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                           children: const [
                             Text(
                               'Setting',
-                              style: TextStyle(fontSize: 16),
+                              style: TextStyle(fontSize: 16,color: Colors.white),
                             ),
                             Icon(
                               Icons.arrow_forward_ios_outlined,
                               size: 18,
+                                color: Colors.white
                             )
                           ],
                         ),
@@ -341,11 +344,12 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                           children: const [
                             Text(
                               'Help & Support',
-                              style: TextStyle(fontSize: 16),
+                              style: TextStyle(fontSize: 16,color:Colors.white),
                             ),
                             Icon(
                               Icons.arrow_forward_ios_outlined,
                               size: 18,
+                                color: Colors.white
                             )
                           ],
                         ),
@@ -367,11 +371,12 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                           children: const [
                             Text(
                               'Logout',
-                              style: TextStyle(fontSize: 16),
+                              style: TextStyle(fontSize: 16,color: Colors.white),
                             ),
                             Icon(
                               Icons.logout,
                               size: 20,
+                                color: Colors.white
                             )
                           ],
                         ),

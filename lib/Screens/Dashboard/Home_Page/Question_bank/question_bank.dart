@@ -88,7 +88,7 @@ class QuestionBank extends StatelessWidget {
                                 height: MediaQuery.of(context).size.height/8.2,
                                 width: MediaQuery.of(context).size.width/3,
                               ),
-                              const Text(
+                           Text(
                                 'CSE',
                                 style: TextStyle(
                                   color: Colors.black45,
