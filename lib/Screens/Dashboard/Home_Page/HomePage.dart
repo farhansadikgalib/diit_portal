@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:diit_portal/Screens/Dashboard/Notification/Notification_Service.dart';
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:diit_portal/Screens/Weather/data_service.dart';
 import 'package:diit_portal/Screens/Weather/weather_model.dart';
@@ -32,6 +33,7 @@ class _HomePageState extends State<HomePage> {
     intitPlatformState();
     getWeather();
     initFirestoreData();
+    FCM();
 
   }
 

@@ -162,6 +162,7 @@ dependencies:
   #Notification System
   onesignal_flutter: ^3.3.1
   firebase_messaging: ^11.1.0
+  overlay_support: ^2.0.1
   #Notification System
 
   #WebView
