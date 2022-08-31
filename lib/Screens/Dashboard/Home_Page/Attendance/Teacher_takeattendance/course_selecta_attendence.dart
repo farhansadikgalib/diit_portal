@@ -1,5 +1,6 @@
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:dropdown_button2/custom_dropdown_button2.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -61,149 +62,341 @@ class _SelectCourceAttendenceState extends State<SelectCourceAttendence> {
       final TextEditingController _attendencedate =TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorChanger.scaffoldcolor,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 100,left: 45),
-          child: Column(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: ColorChanger.scaffoldcolor,
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Padding(
+            padding: EdgeInsets.only(top: 100,left: 45),
+            child: Column(
 
 
-            children: [
-              SizedBox(
-                width: 300,
-                height: 50,
+              children: [
+                SizedBox(
+                  width: 300,
+                  height: 50,
 
-                child: CustomDropdownButton2(
+                  child: DropdownButtonHideUnderline(
+                    child: DropdownButton2(
+                      isExpanded: true,
+                      hint: Row(
+                        children:  [
+                          Expanded(
+                            child: Text("Department",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black54,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
+                      items: Depatment
+                          .map((item) =>
+                          DropdownMenuItem<String>(
+                            value: item,
+                            child: Text(
+                              item,
+                              style: const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ))
+                          .toList(),
+                      value: selectedDepartment,
+                      onChanged: (value) {
+                        setState(() {
+                          selectedDepartment = value as String;
 
-                  icon: const Icon(Icons.arrow_downward,size: 20,),
-                  scrollbarThickness: 10.0,
-                  scrollbarAlwaysShow: true,
-                  dropdownDecoration: const BoxDecoration(
-                    color: Colors.orangeAccent,
-                  ),
-                  dropdownHeight: 300,
-                  dropdownWidth: 100,
-                  hint: 'Department',
-                  dropdownItems: Depatment,
-                  value: selectedDepartment == "" ? null : selectedDepartment,
-                  onChanged: (value) {
-                    setState(() {
-                      selectedDepartment = value;
-                    }
-                    );
-                  },
-                ),
-              ),
-              const SizedBox(height: 30,),
-              SizedBox(
-                width: 300,
-                height: 50,
-
-                child: CustomDropdownButton2(
-
-                  icon: const Icon(Icons.arrow_downward,size: 20,),
-                  scrollbarThickness: 10.0,
-                  scrollbarAlwaysShow: true,
-                  dropdownDecoration: const BoxDecoration(
-                    color: Colors.orangeAccent,
-                  ),
-                  dropdownHeight: 300,
-                  dropdownWidth: 100,
-                  hint: 'Batch',
-                  dropdownItems: Batch,
-                  value:selectedBatch == "" ? null : selectedBatch,
-                  onChanged: (value) {
-                    setState(() {
-                      selectedBatch = value;
-                    }
-                    );
-                  },
-                ),
-              ),
-              const SizedBox(height: 30,),
-              SizedBox(
-                width: 300,
-                height: 50,
-
-                child: CustomDropdownButton2(
-
-                  icon: const Icon(Icons.arrow_downward,size: 20,),
-                  scrollbarThickness: 10.0,
-                  scrollbarAlwaysShow: true,
-                  dropdownDecoration: const BoxDecoration(
-                    color: Colors.orangeAccent,
-                  ),
-                  dropdownHeight: 300,
-                  dropdownWidth: 150,
-                  hint: 'Semester',
-                  dropdownItems: Semester,
-                  value:  selectedSemester == "" ? null :  selectedSemester,
-                  onChanged: (value) {
-                    setState(() {
-                      selectedSemester = value;
-                    }
-                    );
-                  },
-                ),
-              ),
-              const SizedBox(height: 30,),
-              SizedBox(
-                width: 300,
-                height: 50,
-
-                child: CustomDropdownButton2(
-
-                   icon: const Icon(Icons.arrow_downward,size: 20,),
-                  scrollbarThickness: 10.0,
-                  scrollbarAlwaysShow: true,
-                  dropdownDecoration: const BoxDecoration(
-                    color: Colors.orangeAccent,
-                  ),
-                  dropdownHeight: 300,
-                  dropdownWidth: 250,
-                  hint: 'Subject Name',
-                  dropdownItems: SubjectName,
-                  value: selectedSubjctName == "" ? null : selectedSubjctName,
-                  onChanged: (value) {
-                    setState(() {
-                      selectedSubjctName = value;
-                    }
-                    );
-                  },
-                ),
-              ),
-                const SizedBox(height: 30,),
-              SizedBox(
-                width: 300,
-                child: TextFormField(
-
-                  controller: _attendencedate,
-                     readOnly: true,
-                  decoration: InputDecoration(
-                        hintText: 'Date',
-                    hintStyle: const TextStyle(fontSize: 18,color: Colors.black),
-                    suffixIcon: IconButton(
-                       icon: const Icon(Icons.calendar_month,size: 25,color: Colors.indigo,),
-                      onPressed: ()=>_selected(context),
-
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.arrow_forward_ios_outlined,
+                      ),
+                      iconSize: 14,
+                      iconEnabledColor: Colors.white,
+                      iconDisabledColor: Colors.grey,
+                      buttonHeight: 50,
+                      buttonWidth: 160,
+                      buttonPadding: const EdgeInsets.only(left: 14, right: 14),
+                      buttonDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        border: Border.all(
+                          color: Colors.black26,
+                        ),
+                        color: Colors.white54,
+                      ),
+                      buttonElevation: 2,
+                      itemHeight: 40,
+                      dropdownDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        color: Colors.orange,
+                      ),
+                      dropdownElevation: 8,
+                      scrollbarRadius: const Radius.circular(40),
+                      scrollbarThickness: 6,
+                      scrollbarAlwaysShow: true,
                     ),
-                    border: const OutlineInputBorder(),
                   ),
                 ),
-              ),
-                const SizedBox(height: 60,),
-              SizedBox(
-                height: 40,
-                width: 300,
-                child: ElevatedButton(
+                const SizedBox(height: 30,),
+                SizedBox(
+                  width: 300,
+                  height: 50,
 
-                    onPressed: ()=>Get.toNamed('/StudentNameAttendencelist'),
-                    child:const Text('Next',style: TextStyle(fontSize: 20,color: Colors.white,letterSpacing: 2.0,),)
+                  child: DropdownButtonHideUnderline(
+                    child: DropdownButton2(
+                      isExpanded: true,
+                      hint: Row(
+                        children:  [
+                          Expanded(
+                            child: Text("Batch",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black54,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
+                      items: Batch
+                          .map((item) =>
+                          DropdownMenuItem<String>(
+                            value: item,
+                            child: Text(
+                              item,
+                              style: const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ))
+                          .toList(),
+                      value: selectedBatch,
+                      onChanged: (value) {
+                        setState(() {
+                          selectedBatch = value as String;
+
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.arrow_forward_ios_outlined,
+                      ),
+                      iconSize: 14,
+                      iconEnabledColor: Colors.white,
+                      iconDisabledColor: Colors.grey,
+                      buttonHeight: 50,
+                      buttonWidth: 160,
+                      buttonPadding: const EdgeInsets.only(left: 14, right: 14),
+                      buttonDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        border: Border.all(
+                          color: Colors.black26,
+                        ),
+                        color: Colors.white54,
+                      ),
+                      buttonElevation: 2,
+                      itemHeight: 40,
+                      dropdownDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        color: Colors.orange,
+                      ),
+                      dropdownElevation: 8,
+                      scrollbarRadius: const Radius.circular(40),
+                      scrollbarThickness: 6,
+                      scrollbarAlwaysShow: true,
+                    ),
+                  ),
                 ),
-              ),
+                const SizedBox(height: 30,),
+                SizedBox(
+                  width: 300,
+                  height: 50,
 
-            ],
+                  child: DropdownButtonHideUnderline(
+                    child: DropdownButton2(
+                      isExpanded: true,
+                      hint: Row(
+                        children:  [
+                          Expanded(
+                            child: Text("Semester",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black54,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
+                      items: Semester
+                          .map((item) =>
+                          DropdownMenuItem<String>(
+                            value: item,
+                            child: Text(
+                              item,
+                              style: const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ))
+                          .toList(),
+                      value: selectedSemester,
+                      onChanged: (value) {
+                        setState(() {
+                          selectedSemester = value as String;
+
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.arrow_forward_ios_outlined,
+                      ),
+                      iconSize: 14,
+                      iconEnabledColor: Colors.white,
+                      iconDisabledColor: Colors.grey,
+                      buttonHeight: 50,
+                      buttonWidth: 160,
+                      buttonPadding: const EdgeInsets.only(left: 14, right: 14),
+                      buttonDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        border: Border.all(
+                          color: Colors.black26,
+                        ),
+                        color: Colors.white54,
+                      ),
+                      buttonElevation: 2,
+                      itemHeight: 40,
+                      dropdownDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        color: Colors.orange,
+                      ),
+                      dropdownElevation: 8,
+                      scrollbarRadius: const Radius.circular(40),
+                      scrollbarThickness: 6,
+                      scrollbarAlwaysShow: true,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 30,),
+                SizedBox(
+                  width: 300,
+                  height: 50,
+
+                  child: DropdownButtonHideUnderline(
+                    child: DropdownButton2(
+                      isExpanded: true,
+                      hint: Row(
+                        children:  [
+                          Expanded(
+                            child: Text("Subject Name",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black54,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
+                      items: SubjectName
+                          .map((item) =>
+                          DropdownMenuItem<String>(
+                            value: item,
+                            child: Text(
+                              item,
+                              style: const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ))
+                          .toList(),
+                      value: selectedSubjctName,
+                      onChanged: (value) {
+                        setState(() {
+                          selectedSubjctName = value as String;
+
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.arrow_forward_ios_outlined,
+                      ),
+                      iconSize: 14,
+                      iconEnabledColor: Colors.white,
+                      iconDisabledColor: Colors.grey,
+                      buttonHeight: 50,
+                      buttonWidth: 160,
+                      buttonPadding: const EdgeInsets.only(left: 14, right: 14),
+                      buttonDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        border: Border.all(
+                          color: Colors.black26,
+                        ),
+                        color: Colors.white54,
+                      ),
+                      buttonElevation: 2,
+                      itemHeight: 40,
+                      dropdownDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        color: Colors.orange,
+                      ),
+                      dropdownElevation: 8,
+                      scrollbarRadius: const Radius.circular(40),
+                      scrollbarThickness: 6,
+                      scrollbarAlwaysShow: true,
+                    ),
+                  ),
+                ),
+                   SizedBox(height: 30,),
+                SizedBox(
+                  width: 300,
+                  child: TextFormField(
+
+                    controller: _attendencedate,
+                       readOnly: true,
+                    style: const TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                          hintText: 'Date',
+
+                      hintStyle:  TextStyle(fontSize: 20,color: Colors.white, fontWeight: FontWeight.bold,),
+                      suffixIcon: IconButton(
+                         icon:  Icon(Icons.calendar_month,size: 25,color: Colors.white,),
+                        onPressed: ()=>_selected(context),
+
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderSide: BorderSide(width:2,color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ),
+                   SizedBox(height: 60,),
+                SizedBox(
+                  height: 40,
+                  width: 300,
+                  child: ElevatedButton(
+
+                      onPressed: ()=>Get.toNamed('/StudentAttennameList'),
+                      child: Text('Next',style: TextStyle(fontSize: 20,color: Colors.white,letterSpacing: 2.0,),)
+                  ),
+                ),
+
+              ],
+            ),
           ),
         ),
       ),

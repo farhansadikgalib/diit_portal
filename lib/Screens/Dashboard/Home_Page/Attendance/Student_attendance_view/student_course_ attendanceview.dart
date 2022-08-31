@@ -1,5 +1,6 @@
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:dropdown_button2/custom_dropdown_button2.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
@@ -12,7 +13,7 @@ class CourseAttendanceView extends StatefulWidget {
 }
 
 class _CourseAttendanceViewState extends State<CourseAttendanceView> {
-  final List<String> SubjectName = [
+  late final List<String> SubjectNames = [
     'Web  ',
     'Image Processing',
     'Network Security',
@@ -55,49 +56,142 @@ class _CourseAttendanceViewState extends State<CourseAttendanceView> {
                    SizedBox(
                      width: 300,
                      height: 50,
-                     child: CustomDropdownButton2(
-                       icon: const Icon(Icons.arrow_downward,size: 20,),
-                       scrollbarThickness: 10.0,
-                       scrollbarAlwaysShow: true,
-                       dropdownDecoration: const BoxDecoration(
-                         color: Colors.orangeAccent,
+                     child: DropdownButtonHideUnderline(
+                       child: DropdownButton2(
+                         isExpanded: true,
+                         hint: Row(
+                           children:  [
+                             Expanded(
+                               child: Text("Semester",
+                                 style: TextStyle(
+                                   fontSize: 16,
+                                   fontWeight: FontWeight.bold,
+                                   color: Colors.black54,
+                                 ),
+                                 overflow: TextOverflow.ellipsis,
+                               ),
+                             ),
+                           ],
+                         ),
+                         items: Semester
+                             .map((item) =>
+                             DropdownMenuItem<String>(
+                               value: item,
+                               child: Text(
+                                 item,
+                                 style: const TextStyle(
+                                   fontSize: 14,
+                                   fontWeight: FontWeight.bold,
+                                   color: Colors.white,
+                                 ),
+                               ),
+                             ))
+                             .toList(),
+                         value: selectedSemester,
+                         onChanged: (value) {
+                           setState(() {
+                             selectedSemester = value as String;
+
+                           });
+                         },
+                         icon: const Icon(
+                           Icons.arrow_forward_ios_outlined,
+                         ),
+                         iconSize: 14,
+                         iconEnabledColor: Colors.white,
+                         iconDisabledColor: Colors.grey,
+                         buttonHeight: 50,
+                         buttonWidth: 160,
+                         buttonPadding: const EdgeInsets.only(left: 14, right: 14),
+                         buttonDecoration: BoxDecoration(
+                           borderRadius: BorderRadius.circular(14),
+                           border: Border.all(
+                             color: Colors.black26,
+                           ),
+                           color: Colors.white54,
+                         ),
+                         buttonElevation: 2,
+                         itemHeight: 40,
+                         dropdownDecoration: BoxDecoration(
+                           borderRadius: BorderRadius.circular(14),
+                           color: Colors.orange,
+                         ),
+                         dropdownElevation: 8,
+                         scrollbarRadius: const Radius.circular(40),
+                         scrollbarThickness: 6,
+                         scrollbarAlwaysShow: true,
                        ),
-                       dropdownHeight: 300,
-                       dropdownWidth: 150,
-                       hint: 'Select Semester',
-                       
-                       dropdownItems: Semester,
-                       value: selectedSemester == "" ? null : selectedSemester,
-                       onChanged: (value) {
-                         setState(() {
-                           selectedSemester= value;
-                         }
-                         );
-                       },
                      ),
                    ),
                    const SizedBox(height: 20,),
                    SizedBox(
                      width: 300,
                      height: 50,
-                     child: CustomDropdownButton2(
-                       icon: const Icon(Icons.arrow_downward,size: 20,),
-                       scrollbarThickness: 10.0,
-                       scrollbarAlwaysShow: true,
-                       dropdownDecoration: const BoxDecoration(
-                         color: Colors.orangeAccent,
+                     child: DropdownButtonHideUnderline(
+                       child: DropdownButton2(
+                         isExpanded: true,
+                         hint: Row(
+                           children:  [
+                             Expanded(
+                               child: Text("Subject Name",
+                                 style: TextStyle(
+                                   fontSize: 16,
+                                   fontWeight: FontWeight.bold,
+                                   color: Colors.black54,
+                                 ),
+                                 overflow: TextOverflow.ellipsis,
+                               ),
+                             ),
+                           ],
+                         ),
+                         items: SubjectNames
+                             .map((item) =>
+                             DropdownMenuItem<String>(
+                               value: item,
+                               child: Text(
+                                 item,
+                                 style: const TextStyle(
+                                   fontSize: 14,
+                                   fontWeight: FontWeight.bold,
+                                   color: Colors.white,
+                                 ),
+                               ),
+                             ))
+                             .toList(),
+                         value: selectedValue ,
+                         onChanged: (value) {
+                           setState(() {
+                             selectedValue  = value as String;
+
+                           });
+                         },
+                         icon: const Icon(
+                           Icons.arrow_forward_ios_outlined,
+                         ),
+                         iconSize: 14,
+                         iconEnabledColor: Colors.white,
+                         iconDisabledColor: Colors.grey,
+                         buttonHeight: 50,
+                         buttonWidth: 160,
+                         buttonPadding: const EdgeInsets.only(left: 14, right: 14),
+                         buttonDecoration: BoxDecoration(
+                           borderRadius: BorderRadius.circular(14),
+                           border: Border.all(
+                             color: Colors.black26,
+                           ),
+                           color: Colors.white54,
+                         ),
+                         buttonElevation: 2,
+                         itemHeight: 40,
+                         dropdownDecoration: BoxDecoration(
+                           borderRadius: BorderRadius.circular(14),
+                           color: Colors.orange,
+                         ),
+                         dropdownElevation: 8,
+                         scrollbarRadius: const Radius.circular(40),
+                         scrollbarThickness: 6,
+                         scrollbarAlwaysShow: true,
                        ),
-                       dropdownHeight: 300,
-                       dropdownWidth: 250,
-                       hint: 'Subject Name',
-                       dropdownItems: SubjectName,
-                       value: selectedValue == "" ? null : selectedValue,
-                       onChanged: (value) {
-                         setState(() {
-                           selectedValue = value;
-                         }
-                         );
-                       },
                      ),
                    ),
                   const SizedBox(height: 80,),

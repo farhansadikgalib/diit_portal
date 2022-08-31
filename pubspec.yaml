@@ -227,6 +227,7 @@ flutter:
     - assets/teacher/cse/
     - assets/teacher/bba&bthm/
     - assets/club_icons/
+    - assets/student_atten_view/
 
   #   - images/a_dot_ham.jpeg
   #   - images/a_dot_ham.jpeg

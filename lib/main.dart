@@ -3,10 +3,18 @@ import 'package:diit_portal/Screens/AuthScreen/LoginPage.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Student_attendance_view/student_attendance_detailes.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Student_attendance_view/student_course_%20attendanceview.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/course_selecta_attendence.dart';
-import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/studentname_attendencelist.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/date_attendance.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/exam_course.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/exam.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/exam_type.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/student_name_att_list.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/subject_details.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/take_show_attendence.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/teacher_attendance.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/teacher_deshboard.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/view_attendance.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/view_student_attendance.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/view_student_exammark.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Friday.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Monday.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Saturday.dart';
@@ -124,28 +132,23 @@ class MyApp extends StatelessWidget {
             GetPage(name: '/pdf_viewPage', page: () => const pdf_viewPage()),
 
             // Attendance //
-            GetPage(
-                name: '/TakeandShowAttendence',
-                page: () => const TakeandShowAttendence()),
-            GetPage(
-                name: '/TeacherAttendance', page: () => TeacherAttendance()),
+            GetPage(name: '/TakeandShowAttendence',page: () => const TakeandShowAttendence()),
+            GetPage(name: '/TeacherAttendance', page: () => TeacherAttendance()),
             GetPage(name: '/TeacherDashbord', page: () => TeacherDashbord()),
-            GetPage(
-                name: '/SelectCourceAttendence',
-                page: () => SelectCourceAttendence()),
-            GetPage(
-                name: '/StudentNameAttendencelist',
-                page: () => StudentNameAttendencelist()),
+            GetPage(name: '/SelectCourceAttendence', page: () => SelectCourceAttendence()),
+            GetPage(name: '/SubjectDetails', page: ()=> SubjectDetails()),
+            GetPage(name: '/StudentAttennameList', page: () => StudentAttennameList()),
+            GetPage(name: '/TeacherViewAttendance', page: () => TeacherViewAttendance()),
+            GetPage(name: '/DateAttendance', page: () => DateAttendance()),
+            GetPage(name: '/ViewStudentAttendance', page: () => ViewStudentAttendance()),
+            GetPage(name: '/Exam', page: () => Exam()),
+            GetPage(name: '/ExamType', page: ()=>ExamType()),
+            GetPage(name: '/Exam_Course', page: () => Exam_Course()),
+            GetPage(name: '/exam_marks', page: () => exam_marks()),
             // student view attendance //
-            // GetPage(
-            //     name: '/StudentViewAttendance',
-            //     page: () => const StudentViewAttendance()),
-            GetPage(
-                name: '/CourseAttendanceView',
-                page: () => CourseAttendanceView()),
-            GetPage(
-                name: '/StudentAttendanceDetailes',
-                page: () => StudentAttendanceDetailes()),
+            GetPage(name: '/StudentViewAttendance',page: () => const StudentViewAttendance()),
+            GetPage(name: '/CourseAttendanceView',page: () => CourseAttendanceView()),
+            GetPage(name: '/StudentAttendanceDetailes',page: () => StudentAttendanceDetailes()),
           ],
           theme: ThemeData(
             primarySwatch: Colors.orange,

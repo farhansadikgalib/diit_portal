@@ -89,10 +89,10 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorChanger.scaffoldcolor,
-      body: SafeArea(
-        child: SingleChildScrollView(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: ColorChanger.scaffoldcolor,
+        body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
@@ -219,7 +219,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                     height: MediaQuery.of(context).size.height / 5,
                     width: MediaQuery.of(context).size.width / 2.30,
                     child: NeumorphicButton(
-                      onPressed: () => Get.toNamed('/CourseAttendanceView'),
+                      onPressed: () => Get.toNamed('/TeacherViewAttendance'),
                       style: NeumorphicStyle(
                           shape: NeumorphicShape.concave,
                           boxShape: NeumorphicBoxShape.roundRect(
@@ -253,6 +253,42 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                   ),
                 ],
               ),
+              SizedBox(height: 15,),
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 5,
+                width: MediaQuery.of(context).size.width / 2.30,
+                child: NeumorphicButton(
+                  onPressed: () => Get.toNamed('/Exam_Course'),
+                  style: NeumorphicStyle(
+                      shape: NeumorphicShape.concave,
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(12)),
+                      depth: 3,
+                      lightSource: LightSource.topLeft,
+                      color: Colors.white),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        "assets/exammark.png",
+                        height: MediaQuery.of(context).size.height / 8.2,
+                        width: MediaQuery.of(context).size.width / 3,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Text(
+                        "Exam Marks",
+                        style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: 15,
+                            color: Colors.black54,
+                            fontWeight: FontWeight.w300),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               Padding(
                 padding:  EdgeInsets.only(
                   top: 20,
@@ -266,7 +302,11 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                   maxLength: 200,
                   cursorHeight: 20,
                   autofocus: false,
+                  style: const TextStyle(color: Colors.white),
                   decoration: InputDecoration(
+                    fillColor: Colors.white,
+                    focusColor: Colors.white,
+
                     contentPadding:  EdgeInsets.symmetric(
                         vertical: 10, horizontal: 10),
                     hintText: 'Create Notification',
@@ -274,7 +314,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                     suffixIcon: IconButton(
                       onPressed: () {
                         Get.snackbar('Notification', "Sent Successfully",
-                            backgroundColor: Colors.black12,
+                            backgroundColor: Colors.white,
                             snackPosition: SnackPosition.TOP,
                             messageText: Text(
                               'Done',
@@ -296,7 +336,10 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                         color: Colors.orange,
                       ),
                     ),
-                    border: const OutlineInputBorder(),
+                   focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderSide: BorderSide(width:2,color: Colors.white),
+                    ),
                   ),
                 ),
               ),
@@ -304,6 +347,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                 children: [
                   const Divider(
                     thickness: 1,
+                    color: Colors.white24,
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height / 22,
@@ -317,7 +361,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                           children: const [
                             Text(
                               'Setting',
-                              style: TextStyle(fontSize: 16,color: Colors.white),
+                              style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.bold),
                             ),
                             Icon(
                               Icons.arrow_forward_ios_outlined,
@@ -329,8 +373,9 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                       ),
                     ),
                   ),
-                  const Divider(
+                   Divider(
                     thickness: 1,
+                    color: Colors.white24,
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height / 22,
@@ -344,7 +389,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                           children: const [
                             Text(
                               'Help & Support',
-                              style: TextStyle(fontSize: 16,color:Colors.white),
+                              style: TextStyle(fontSize: 16,color:Colors.white,fontWeight: FontWeight.bold),
                             ),
                             Icon(
                               Icons.arrow_forward_ios_outlined,
@@ -358,6 +403,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                   ),
                   const Divider(
                     thickness: 1,
+                    color: Colors.white24,
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height / 22,
@@ -371,7 +417,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                           children: const [
                             Text(
                               'Logout',
-                              style: TextStyle(fontSize: 16,color: Colors.white),
+                              style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.bold),
                             ),
                             Icon(
                               Icons.logout,
@@ -385,6 +431,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                   ),
                   const Divider(
                     thickness: 1,
+                    color: Colors.white24,
                   ),
                 ],
               )
