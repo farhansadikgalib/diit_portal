@@ -87,7 +87,7 @@ class _SelectCourceAttendenceState extends State<SelectCourceAttendence> {
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black54,
+                                color: Colors.white,
                               ),
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -144,7 +144,7 @@ class _SelectCourceAttendenceState extends State<SelectCourceAttendence> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 30,),
+                 SizedBox(height: 30,),
                 SizedBox(
                   width: 300,
                   height: 50,
@@ -159,7 +159,7 @@ class _SelectCourceAttendenceState extends State<SelectCourceAttendence> {
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black54,
+                                color: Colors.white,
                               ),
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -216,7 +216,8 @@ class _SelectCourceAttendenceState extends State<SelectCourceAttendence> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 30,),
+
+                SizedBox(height: 30,),
                 SizedBox(
                   width: 300,
                   height: 50,
@@ -231,7 +232,7 @@ class _SelectCourceAttendenceState extends State<SelectCourceAttendence> {
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black54,
+                                color: Colors.white,
                               ),
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -288,7 +289,7 @@ class _SelectCourceAttendenceState extends State<SelectCourceAttendence> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 30,),
+                 SizedBox(height: 30,),
                 SizedBox(
                   width: 300,
                   height: 50,
@@ -303,7 +304,7 @@ class _SelectCourceAttendenceState extends State<SelectCourceAttendence> {
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black54,
+                                color: Colors.white,
                               ),
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -371,7 +372,7 @@ class _SelectCourceAttendenceState extends State<SelectCourceAttendence> {
                     decoration: InputDecoration(
                           hintText: 'Date',
 
-                      hintStyle:  TextStyle(fontSize: 20,color: Colors.white, fontWeight: FontWeight.bold,),
+                      hintStyle:  TextStyle(fontSize: 16,color: Colors.white, fontWeight: FontWeight.bold,),
                       suffixIcon: IconButton(
                          icon:  Icon(Icons.calendar_month,size: 25,color: Colors.white,),
                         onPressed: ()=>_selected(context),

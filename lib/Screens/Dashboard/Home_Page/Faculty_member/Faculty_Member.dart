@@ -35,7 +35,7 @@ class _FacultyProfileState extends State<FacultyProfile> {
 
 
               return  SizedBox(
-                               height: 260,
+                               height: MediaQuery.of(context).size.height/8,
                                width: double.infinity,
                                child: Card(
                                  elevation: 5,

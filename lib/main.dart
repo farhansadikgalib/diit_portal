@@ -39,6 +39,9 @@ import 'package:diit_portal/Screens/Dashboard/Home_Page/quick_pay/QuickPayment.d
 import 'package:diit_portal/Screens/Dashboard/Dashboard.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Student_attendance_view/student_attendanceview_login.dart';
 import 'package:diit_portal/Screens/Dashboard/Notification/All_Notification.dart';
+import 'package:diit_portal/Screens/Dashboard/Student_Dashboard/Total_Paid/total_paid.dart';
+import 'package:diit_portal/Screens/Dashboard/Student_Dashboard/Total_due/total_due.dart';
+import 'package:diit_portal/Screens/Dashboard/Student_Dashboard/Total_fine/total_fine.dart';
 import 'package:diit_portal/Screens/Dashboard/Student_Dashboard/student_dashboard.dart';
 import 'package:diit_portal/Screens/Dashboard/Student_Profile/student_profile.dart';
 import 'package:diit_portal/Screens/IntroScreen/IntroScreen_Start.dart';
@@ -113,19 +116,22 @@ class MyApp extends StatelessWidget {
 
             //Club //
 
-            GetPage(
-                name: '/ClassRoutineViewer', page: () => ClassRoutineViewer()),
+            GetPage(name: '/ClassRoutineViewer', page: () => ClassRoutineViewer()),
             //class Routine close //
 
             // home page close //
+
+            // Student Dashboard//
             GetPage(name: '/StudentDashBoard', page: () => StudentDashBoard()),
-            GetPage(
-                name: '/StudentNotification', page: () => AllNotification()),
+            GetPage(name: '/TOTALPAID', page: () => TOTALPAID()),
+            GetPage(name: '/TOTALDUE', page: () => TOTALDUE()),
+            GetPage(name: '/TOTALFINE', page: () => TOTALFINE()),
+            // Student Dashborad //
+            GetPage(name: '/StudentNotification', page: () => AllNotification()),
             GetPage(name: '/StudentProfile', page: () => StudentProfile()),
 
             // horigental button//
-            GetPage(
-                name: '/FacultyProfile', page: () => const FacultyProfile()),
+            GetPage(name: '/FacultyProfile', page: () => const FacultyProfile()),
             GetPage(name: '/QuickPayment', page: () => const QuickPayment()),
             GetPage(name: '/NU_Portal', page: () => const NU_Portal()),
             // question pdf //

@@ -1,6 +1,7 @@
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:multi_charts/multi_charts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -131,127 +132,136 @@ class _StudentDashBoardState extends State<StudentDashBoard> {
                   const SizedBox(
                     height: 10,
                   ),
-                  Container(
-                    height: 120,
-                    width: 400,
-                    decoration: BoxDecoration(
-                        color: const Color(0xff81E85E),
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Row(
-                      children: [
-                        Expanded(
-                            flex: 1, child: Image.asset('assets/taka.png')),
-                        Expanded(
-                          flex: 2,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              Text(
-                                '2,00,000/-',
-                                style: TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                'Total Paid',
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white,
-                                    fontFamily: 'Poppins'),
-                              )
-                            ],
+                  InkWell(
+                    onTap: ()=>Get.toNamed('/TOTALPAID'),
+                    child: Container(
+                      height: 120,
+                      width: 400,
+                      decoration: BoxDecoration(
+                          color: const Color(0xff81E85E),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Row(
+                        children: [
+                          Expanded(
+                              flex: 1, child: Image.asset('assets/taka.png')),
+                          Expanded(
+                            flex: 2,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: const [
+                                Text(
+                                  '2,00,000/-',
+                                  style: TextStyle(
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text(
+                                  'Total Paid',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white,
+                                      fontFamily: 'Poppins'),
+                                )
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  Container(
-                    height: 120,
-                    width: 400,
-                    decoration: BoxDecoration(
-                        color: const Color(0xff5DD8D0),
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Row(
-                      children: [
-                        Expanded(
-                            flex: 1, child: Image.asset('assets/taka.png')),
-                        Expanded(
-                          flex: 2,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              Text(
-                                '80,000/-',
-                                style: TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                'Total Due',
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white,
-                                    fontFamily: 'Poppins'),
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
+                 InkWell(
+                   onTap: ()=>Get.toNamed('/TOTALDUE'),
+                 child:   Container(
+                   height: 120,
+                   width: 400,
+                   decoration: BoxDecoration(
+                       color: const Color(0xff5DD8D0),
+                       borderRadius: BorderRadius.circular(20)),
+                   child: Row(
+                     children: [
+                       Expanded(
+                           flex: 1, child: Image.asset('assets/taka.png')),
+                       Expanded(
+                         flex: 2,
+                         child: Column(
+                           mainAxisAlignment: MainAxisAlignment.center,
+                           children: const [
+                             Text(
+                               '80,000/-',
+                               style: TextStyle(
+                                   fontSize: 30,
+                                   fontWeight: FontWeight.w500,
+                                   color: Colors.white),
+                             ),
+                             SizedBox(
+                               height: 10,
+                             ),
+                             Text(
+                               'Total Due',
+                               style: TextStyle(
+                                   fontSize: 20,
+                                   fontWeight: FontWeight.w500,
+                                   color: Colors.white,
+                                   fontFamily: 'Poppins'),
+                             )
+                           ],
+                         ),
+                       ),
+                     ],
+                   ),
+                 ),
+                 ),
+                   SizedBox(
                     height: 10,
                   ),
-                  Container(
-                    height: 120,
-                    width: 400,
-                    decoration: BoxDecoration(
-                        color: const Color(0xbc4fa4cd),
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Row(
-                      children: [
-                        Expanded(
-                            flex: 1, child: Image.asset('assets/taka.png')),
-                        Expanded(
-                          flex: 2,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              Text(
-                                '0/-',
-                                style: TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                'Total Fine',
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white,
-                                    fontFamily: 'Poppins'),
-                              )
-                            ],
+                  InkWell(
+                    onTap: ()=>Get.toNamed('/TOTALFINE'),
+                    child: Container(
+                      height: 120,
+                      width: 400,
+                      decoration: BoxDecoration(
+                          color: const Color(0xbc4fa4cd),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Row(
+                        children: [
+                          Expanded(
+                              flex: 1, child: Image.asset('assets/taka.png')),
+                          Expanded(
+                            flex: 2,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: const [
+                                Text(
+                                  '0/-',
+                                  style: TextStyle(
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text(
+                                  'Total Fine',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white,
+                                      fontFamily: 'Poppins'),
+                                )
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ],
