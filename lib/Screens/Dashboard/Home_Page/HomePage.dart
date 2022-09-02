@@ -570,9 +570,7 @@ class _HomePageState extends State<HomePage> {
                                 height: MediaQuery.of(context).size.height / 15,
                                 width: MediaQuery.of(context).size.width / 2.30,
                                 child: NeumorphicButton(
-                                  onPressed: () {
-                                    print('neumorphic Btn');
-                                  },
+                                  onPressed: ()=>Get.toNamed('/DiitNotics'),
                                   style: NeumorphicStyle(
                                       shape: NeumorphicShape.concave,
                                       boxShape: NeumorphicBoxShape.roundRect(

@@ -25,6 +25,8 @@ import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Wednes
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/Routine_View.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Club/club.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Club/helping_birds.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Diit_notics/diit_notics.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Diit_notics/notics_details.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Faculty_member/Faculty_Member.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/NU_Portal/screens/NU_Portal.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/dept_bba/bba_question.dart';
@@ -131,9 +133,12 @@ class MyApp extends StatelessWidget {
             GetPage(name: '/StudentProfile', page: () => StudentProfile()),
 
             // horigental button//
-            GetPage(name: '/FacultyProfile', page: () => const FacultyProfile()),
-            GetPage(name: '/QuickPayment', page: () => const QuickPayment()),
-            GetPage(name: '/NU_Portal', page: () => const NU_Portal()),
+            GetPage(name: '/FacultyProfile', page: () =>  FacultyProfile()),
+            GetPage(name: '/QuickPayment', page: () =>  QuickPayment()),
+            GetPage(name: '/NU_Portal', page: () =>  NU_Portal()),
+            GetPage(name: '/DiitNotics', page: () =>  DiitNotics()),
+            GetPage(name: '/NoticsDetails', page: () =>  NoticsDetails()),
+
             // question pdf //
             GetPage(name: '/pdf_viewPage', page: () => const pdf_viewPage()),
 
