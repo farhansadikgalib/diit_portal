@@ -22,6 +22,8 @@ class Faculty{
       required this.DOB,  
       this.isActive = true,
 });
+
+
 }
 class Student{
     final String studentEnrollmentNo;

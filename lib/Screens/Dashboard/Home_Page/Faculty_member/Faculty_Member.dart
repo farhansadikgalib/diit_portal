@@ -1,7 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_expandable/expander.dart';
-import 'package:getwidget/components/image/gf_image_overlay.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
 class FacultyProfile extends StatelessWidget {
@@ -65,13 +65,33 @@ class FacultyProfile extends StatelessWidget {
                                 CrossAxisAlignment.center,
                                 children: [
 
-                                   CircleAvatar(
-                                     radius: 55,
-                                     backgroundImage:
-                                     NetworkImage(snap[index]['img']),
-                                     backgroundColor: Colors.transparent,
+                                  //  CircleAvatar(
+                                  //    radius: 55,
+                                  //    backgroundImage:
+                                  //    NetworkImage(snap[index]['img']),
+                                  //    backgroundColor: Colors.transparent,
+                                  //
+                                  // ),
 
+                                  CachedNetworkImage(
+                                    imageUrl: snap[index]['img'],
+                                    imageBuilder: (context, imageProvider) => Container(
+                                      width: 100.0,
+                                      height: 100.0,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                            image: imageProvider, fit: BoxFit.fill),
+                                      ),
+                                    ),
+                                    placeholder: (context, url) => CircularProgressIndicator(),
+                                    errorWidget: (context, url, error) => Icon(Icons.error),
                                   ),
+
+
+
+
+
 
                                   SizedBox(
                                     height: 5,
