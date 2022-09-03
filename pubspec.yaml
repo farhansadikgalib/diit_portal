@@ -118,7 +118,7 @@ dependencies:
 
 
   #  Firebase
-  firebase_core: ^1.17.0
+  firebase_core: ^1.20.0
   firebase_auth: ^3.3.18
   firebase_storage: ^10.2.16
   firebase_database: ^9.0.16

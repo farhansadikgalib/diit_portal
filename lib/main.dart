@@ -25,6 +25,7 @@ import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Wednes
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/Routine_View.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Club/club.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Club/helping_birds.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Community/screens/Community.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Diit_notics/diit_notics.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Diit_notics/notics_details.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Faculty_member/Faculty_Member.dart';
@@ -78,6 +79,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return GetMaterialApp(
           title: 'DiiT Portal',
+          initialRoute: '/',
           defaultTransition: Transition.leftToRight,
           getPages: [
             GetPage(
@@ -138,6 +140,8 @@ class MyApp extends StatelessWidget {
             GetPage(name: '/NU_Portal', page: () =>  NU_Portal()),
             GetPage(name: '/DiitNotics', page: () =>  DiitNotics()),
             GetPage(name: '/NoticsDetails', page: () =>  NoticsDetails()),
+            GetPage(name: '/Community', page: () =>  Community()),
+
 
             // question pdf //
             GetPage(name: '/pdf_viewPage', page: () => const pdf_viewPage()),

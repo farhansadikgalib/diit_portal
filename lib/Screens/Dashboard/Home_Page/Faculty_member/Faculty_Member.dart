@@ -1,1458 +1,168 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:diit_portal/Utility/App_Colors/app_color.dart';
-import 'package:flutter/material.dart' ;
+import 'package:flutter/material.dart';
+import 'package:flutter_expandable/expander.dart';
+import 'package:getwidget/components/image/gf_image_overlay.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+class FacultyProfile extends StatelessWidget {
 
-class FacultyProfile extends StatefulWidget {
-  const FacultyProfile({Key? key}) : super(key: key);
+  CollectionReference ref = FirebaseFirestore.instance.collection('Faculty');
 
-  @override
-  State<FacultyProfile> createState() => _FacultyProfileState();
-}
-
-class _FacultyProfileState extends State<FacultyProfile> {
-  final Stream<QuerySnapshot> _TeachersInageStream = FirebaseFirestore.instance.collection('Teachers Images').snapshots();
 
   @override
   Widget build(BuildContext context) {
-
-    return Scaffold(
-      backgroundColor: ColorChanger.scaffoldcolor,
-      body: StreamBuilder<QuerySnapshot>(
-        stream: _TeachersInageStream,
-        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-          if (snapshot.hasError) {
-            return const Text('Something went wrong');
+    return FutureBuilder<QuerySnapshot>(
+      future: ref.get(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          if (snapshot.data!.docs.length == 0) {
+            return Scaffold(
+              backgroundColor: const Color.fromRGBO(1, 60, 88, 1),
+              body: Center(
+                child: Text(
+                  "No data is here!",
+                  style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.white54,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            );
           }
 
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Text("Loading");
-          }
+          return Scaffold(
+              backgroundColor: const Color.fromRGBO(1, 60, 88, 1),
+              body: ListView.builder(
+                itemCount: snapshot.data!.docs.length,
+                itemBuilder: (context, index) {
+                  final snap = snapshot.data!.docs;
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
 
-          return ListView(
-            children: snapshot.data!.docs.map((DocumentSnapshot document) {
-              Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
+                      Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Card(
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                              color: Colors.orangeAccent,
+                            ),
+                            borderRadius: BorderRadius.circular(20.0),
+
+                          ),
+                           color: Color.fromRGBO(194, 205, 255,1),
+                          // color: Colors.orangeAccent,
+                          elevation: 10,
+                          child: Padding(
+                            padding:
+                            EdgeInsets.only(left: 10, right: 10, top: 10),
+                            child: SizedBox(
+                              // height: MediaQuery.of(context).size.height / 4,
+                              width: MediaQuery.of(context).size.width,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment:
+                                CrossAxisAlignment.center,
+                                children: [
+
+                                   CircleAvatar(
+                                     radius: 55,
+                                     backgroundImage:
+                                     NetworkImage(snap[index]['img']),
+                                     backgroundColor: Colors.transparent,
+
+                                  ),
+
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+
+                                  Text(
+                                    snap[index]['name'],
+                                    textAlign: TextAlign.center,
+
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
 
 
-              return  SizedBox(
-                               height: MediaQuery.of(context).size.height/8,
-                               width: double.infinity,
-                               child: Card(
-                                 elevation: 5,
-                                 child: Column(
-                                   children: [
-                                     Expanded(
-                                       flex: 1,
-                                       child: Container(
-                                         width: double.infinity,
-                                         color: const Color(0xff909E89),
-                                            child:  CircleAvatar(
-                                              radius: 30,
-                                              child: ClipOval(
-                                                child: Image.network(data['img'],fit:BoxFit.cover ,),
-                                              )
-                                            ),
-                                       ),
-                                     ),
 
-                                     Expanded(
-                                       flex: 1,
-                                       child: Container(
-                                         width: double.infinity,
-                                         color: const Color(0xa2f4deeb),
-                                         child: Column(
-                                           children: [
-                                             Text(data["name"],
-                                               style: const TextStyle(fontSize: 16,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-                                             ),
-                                             const SizedBox(height: 5,),
-                                             Text(data['position'],
-                                               style: const TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-                                             ),
-                                             const SizedBox(height: 5,),
-                                             Text(data['education'],
-                                               style: const TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-                                             ),
-                                             const SizedBox(height: 10,),
-                                             Row(
-                                               mainAxisAlignment: MainAxisAlignment.center,
-                                               children: [
-                                                 const Icon(Icons.call,size: 20,color: Colors.red,),
-                                                 const SizedBox(width: 5,),
-                                                 Text(data['phone'],
-                                                   style: const TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-                                                 ),
-                                               ],
-                                             ),
-                                           ],
-                                         ),
-                                       ),
-                                     ),
-                                   ],
-                                 ),
-                               ),
-                             );
-            }).toList(),
+                                  InkWell(
+                                    onTap: (){
+                                      launch("tel://${snap[index]
+                                      ['phone']}");
+                                    },
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.call,
+                                          size: 22,
+                                          color: Colors.black,
+                                        ),
+                                        SizedBox(width: 5,),
+                                        Text(
+                                          snap[index]['phone'],
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+
+
+                                  Text(
+                                    snap[index]['title'],
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    snap[index]['edu'],
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w400),
+                                  ),
+
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              ));
+        } else {
+          return Center(
+            child: CircularProgressIndicator(),
           );
-        },
-      ),
+        }
+      },
     );
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // return Scaffold(
-    //   body: SafeArea(
-    //     child: SingleChildScrollView(
-    //       scrollDirection: Axis.vertical,
-    //       child: Column(
-    //         children: [
-    //            Container(
-    //              height: 260,
-    //              width: double.infinity,
-    //              child: Card(
-    //
-    //                elevation: 5,
-    //                child: Column(
-    //                  children: [
-    //                    Expanded(
-    //                      flex: 1,
-    //                      child: Container(
-    //                        width: double.infinity,
-    //                        color: Color(0xff909E89),
-    //                           child: CircleAvatar(
-    //                             radius: 30,
-    //                             child: ClipOval(
-    //                               child:  Image.asset('assets/teacher/cse/principal_sir.jpg',fit: BoxFit.fill,),
-    //                             )
-    //                           ),
-    //                      ),
-    //                    ),
-    //
-    //                    Expanded(
-    //                      flex: 1,
-    //                      child: Container(
-    //                        width: double.infinity,
-    //                        color: Color(0xa2f4deeb),
-    //                        child: Column(
-    //                          children: [
-    //                            Text('Prof. Dr. Mohammad Shakhawat Hossain',
-    //                              style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //                            ),
-    //                            SizedBox(height: 5,),
-    //                            Text('Principal,DIIT',
-    //                              style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //                            ),
-    //                            SizedBox(height: 5,),
-    //                            Text('M.Com(Finance),MBA(Markting),DBA(In Progress), DU',
-    //                              style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //                            ),
-    //                            SizedBox(height: 10,),
-    //                            Row(
-    //                              mainAxisAlignment: MainAxisAlignment.center,
-    //                              children: [
-    //                                Icon(Icons.call,size: 20,color: Colors.red,),
-    //                                SizedBox(width: 5,),
-    //                                Text('+8801713493160',
-    //                                  style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //                                ),
-    //                              ],
-    //                            ),
-    //                          ],
-    //                        ),
-    //                      ),
-    //                    ),
-    //                  ],
-    //                ),
-    //              ),
-    //            ),
-    //           SizedBox(height: 5,),
-    //
-    //
-    //
-    //
-    //
-    //
-    //           // Container(
-    //           //    height: 260,
-    //           //    width: double.infinity,
-    //           //    child: Card(
-    //           //
-    //           //      elevation: 5,
-    //           //      child: Column(
-    //           //        children: [
-    //           //          Expanded(
-    //           //            flex: 1,
-    //           //            child: Container(
-    //           //              width: double.infinity,
-    //           //              color: Color(0xff909E89),
-    //           //                 child: CircleAvatar(
-    //           //                   radius: 30,
-    //           //                   child: ClipOval(
-    //           //                     child:  Image.asset('assets/teacher/cse/principal_sir.jpg',fit: BoxFit.fill,),
-    //           //                   )
-    //           //                 ),
-    //           //            ),
-    //           //          ),
-    //           //
-    //           //          Expanded(
-    //           //            flex: 1,
-    //           //            child: Container(
-    //           //              width: double.infinity,
-    //           //              color: Color(0xa2f4deeb),
-    //           //              child: Column(
-    //           //                children: [
-    //           //                  Text('Prof. Dr. Mohammad Shakhawat Hossain',
-    //           //                    style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //           //                  ),
-    //           //                  SizedBox(height: 5,),
-    //           //                  Text('Principal,DIIT',
-    //           //                    style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //           //                  ),
-    //           //                  SizedBox(height: 5,),
-    //           //                  Text('M.Com(Finance),MBA(Markting),DBA(In Progress), DU',
-    //           //                    style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //           //                  ),
-    //           //                  SizedBox(height: 10,),
-    //           //                  Row(
-    //           //                    mainAxisAlignment: MainAxisAlignment.center,
-    //           //                    children: [
-    //           //                      Icon(Icons.call,size: 20,color: Colors.red,),
-    //           //                      SizedBox(width: 5,),
-    //           //                      Text('+8801713493160',
-    //           //                        style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //           //                      ),
-    //           //                    ],
-    //           //                  ),
-    //           //                ],
-    //           //              ),
-    //           //            ),
-    //           //          ),
-    //           //        ],
-    //           //      ),
-    //           //    ),
-    //           //  ),
-    //           // SizedBox(height: 5,),
-    //           // Container(
-    //           //   height: 260,
-    //           //   width: double.infinity,
-    //           //   child: Card(
-    //           //
-    //           //     elevation: 5,
-    //           //     child: Column(
-    //           //       children: [
-    //           //         Expanded(
-    //           //
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //
-    //           //             width: double.infinity,
-    //           //             color: Color(0xff909E89),
-    //           //             child: CircleAvatar(
-    //           //
-    //           //                 radius: 60,
-    //           //                 child: ClipOval(
-    //           //                   child:  Image.asset('assets/teacher/cse/imran.jpg',fit: BoxFit.fill,width: 130,),
-    //           //                 )
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xa2f4deeb),
-    //           //             child: Column(
-    //           //               children: [
-    //           //                 Text('Md.Imran Hossain',
-    //           //                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('Lecturer & Coordinator, Dept of CSE',
-    //           //                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('PGD in IT (DU) and BSc. & MSc. in Mathematics (SUST)',
-    //           //                   style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //           //                 ),
-    //           //                 SizedBox(height: 10,),
-    //           //                 Row(
-    //           //                   mainAxisAlignment: MainAxisAlignment.center,
-    //           //                   children: [
-    //           //                     Icon(Icons.call,size: 20,color: Colors.red,),
-    //           //                     SizedBox(width: 5,),
-    //           //                     Text('+8801558347201',
-    //           //                       style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //           //                     ),
-    //           //                   ],
-    //           //                 ),
-    //           //               ],
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //       ],
-    //           //     ),
-    //           //   ),
-    //           // ),
-    //           // SizedBox(height: 5,),
-    //           // Container(
-    //           //   height: 260,
-    //           //   width: double.infinity,
-    //           //   child: Card(
-    //           //
-    //           //     elevation: 5,
-    //           //     child: Column(
-    //           //       children: [
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xff909E89),
-    //           //             child: CircleAvatar(
-    //           //                 radius: 30,
-    //           //                 child: ClipOval(
-    //           //                   child:  Image.asset('assets/teacher/cse/Poly_bhoumik.png',width: 126,fit: BoxFit.fill,),
-    //           //                 )
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xa2f4deeb),
-    //           //             child: Column(
-    //           //               children: [
-    //           //                 Text('Poly Bhoumik',
-    //           //                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text(' Lecturer, Dept of CSE',
-    //           //                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('BSc. in CSE (IUBAT) & MSc. in CSE (JU)',
-    //           //                   style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //           //                 ),
-    //           //                 SizedBox(height: 10,),
-    //           //                 Row(
-    //           //                   mainAxisAlignment: MainAxisAlignment.center,
-    //           //                   children: [
-    //           //                     Icon(Icons.call,size: 20,color: Colors.red,),
-    //           //                     SizedBox(width: 5,),
-    //           //                     Text('+8800000000000',
-    //           //                       style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //           //                     ),
-    //           //                   ],
-    //           //                 ),
-    //           //               ],
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //       ],
-    //           //     ),
-    //           //   ),
-    //           // ),
-    //           // SizedBox(height: 5,),
-    //           // Container(
-    //           //   height: 260,
-    //           //   width: double.infinity,
-    //           //   child: Card(
-    //           //
-    //           //     elevation: 5,
-    //           //     child: Column(
-    //           //       children: [
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xff909E89),
-    //           //             child: CircleAvatar(
-    //           //                 radius: 30,
-    //           //                 child: ClipOval(
-    //           //                   child:  Image.asset('assets/teacher/cse/Saidur_Rahman.jpg',width: 126,fit: BoxFit.fill,),
-    //           //                 )
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xa2f4deeb),
-    //           //             child: Column(
-    //           //               children: [
-    //           //                 Text('Md. Saidur Rahman',
-    //           //                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('Lecturer, Dept of CSE',
-    //           //                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('BSc. in EEE (AIUB) & MSc. in DIU',
-    //           //                   style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //           //                 ),
-    //           //                 SizedBox(height: 10,),
-    //           //                 Row(
-    //           //                   mainAxisAlignment: MainAxisAlignment.center,
-    //           //                   children: [
-    //           //                     Icon(Icons.call,size: 20,color: Colors.red,),
-    //           //                     SizedBox(width: 5,),
-    //           //                     Text('+8800000000000',
-    //           //                       style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //           //                     ),
-    //           //                   ],
-    //           //                 ),
-    //           //               ],
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //       ],
-    //           //     ),
-    //           //   ),
-    //           // ),
-    //           // SizedBox(height: 5,),
-    //           // Container(
-    //           //   height: 260,
-    //           //   width: double.infinity,
-    //           //   child: Card(
-    //           //
-    //           //     elevation: 5,
-    //           //     child: Column(
-    //           //       children: [
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xff909E89),
-    //           //             child: CircleAvatar(
-    //           //                 radius: 30,
-    //           //                 child: ClipOval(
-    //           //                   child:  Image.asset('assets/teacher/cse/mijanur.png',width: 126,fit: BoxFit.fill,),
-    //           //                 )
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xa2f4deeb),
-    //           //             child: Column(
-    //           //               children: [
-    //           //                 Text('Mizanur Rahman',
-    //           //                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('Lecturer, Dept of CSE',
-    //           //                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('Bsc.in ICE (PUST) & Msc in CSE(RUET)',
-    //           //                   style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //           //                 ),
-    //           //                 SizedBox(height: 10,),
-    //           //                 Row(
-    //           //                   mainAxisAlignment: MainAxisAlignment.center,
-    //           //                   children: [
-    //           //                     Icon(Icons.call,size: 20,color: Colors.red,),
-    //           //                     SizedBox(width: 5,),
-    //           //                     Text('+8801521121738',
-    //           //                       style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //           //                     ),
-    //           //                   ],
-    //           //                 ),
-    //           //               ],
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //       ],
-    //           //     ),
-    //           //   ),
-    //           // ),
-    //           // SizedBox(height: 5,),
-    //           // Container(
-    //           //   height: 260,
-    //           //   width: double.infinity,
-    //           //   child: Card(
-    //           //
-    //           //     elevation: 5,
-    //           //     child: Column(
-    //           //       children: [
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xff909E89),
-    //           //             child: CircleAvatar(
-    //           //                 radius: 30,
-    //           //                 child: ClipOval(
-    //           //                   child:  Image.asset('assets/teacher/cse/Nusrhat_Jahan_Sarker.png',width: 126,fit: BoxFit.fill,),
-    //           //                 )
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xa2f4deeb),
-    //           //             child: Column(
-    //           //               children: [
-    //           //                 Text('Nusrhat Jahan Sarker',
-    //           //                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('Lecturer, Dept of CSE',
-    //           //                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('B.Sc in CSE (NU) & M.Sc in CSE (Continuing) (NU)',
-    //           //                   style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //           //                 ),
-    //           //                 SizedBox(height: 10,),
-    //           //                 Row(
-    //           //                   mainAxisAlignment: MainAxisAlignment.center,
-    //           //                   children: [
-    //           //                     Icon(Icons.call,size: 20,color: Colors.red,),
-    //           //                     SizedBox(width: 5,),
-    //           //                     Text('+8801621341867',
-    //           //                       style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //           //                     ),
-    //           //                   ],
-    //           //                 ),
-    //           //               ],
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //       ],
-    //           //     ),
-    //           //   ),
-    //           // ),
-    //           // SizedBox(height: 5,),
-    //           // Container(
-    //           //   height: 275,
-    //           //   width: double.infinity,
-    //           //   child: Card(
-    //           //
-    //           //     elevation: 5,
-    //           //     child: Column(
-    //           //       children: [
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xff909E89),
-    //           //             child: CircleAvatar(
-    //           //                 radius: 30,
-    //           //                 child: ClipOval(
-    //           //                   child:  Image.asset('assets/teacher/bba&bthm/mokarramsir.jpg',width: 133,fit: BoxFit.fill,),
-    //           //                 )
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xa2f4deeb),
-    //           //             child: Column(
-    //           //               children: [
-    //           //                 Text('Md. Mokarram Hossainr',
-    //           //                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('Associate Professor, Dept of BBA',
-    //           //                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('BSc. & MSc. in Statistics (JU), MBA (DIU),\n History of Philosophy (NUST)',
-    //           //                   style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //           //                 ),
-    //           //                 SizedBox(height: 10,),
-    //           //                 Row(
-    //           //                   mainAxisAlignment: MainAxisAlignment.center,
-    //           //                   children: [
-    //           //                     Icon(Icons.call,size: 20,color: Colors.red,),
-    //           //                     SizedBox(width: 5,),
-    //           //                     Text('+8801552380849',
-    //           //                       style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //           //                     ),
-    //           //                   ],
-    //           //                 ),
-    //           //               ],
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //       ],
-    //           //     ),
-    //           //   ),
-    //           // ),
-    //           // SizedBox(height: 5,),
-    //           // Container(
-    //           //   height: 275,
-    //           //   width: double.infinity,
-    //           //   child: Card(
-    //           //
-    //           //     elevation: 5,
-    //           //     child: Column(
-    //           //       children: [
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xff909E89),
-    //           //             child: CircleAvatar(
-    //           //                 radius: 30,
-    //           //                 child: ClipOval(
-    //           //                   child:  Image.asset('assets/teacher/bba&bthm/robi_das.jpg',width: 133,fit: BoxFit.fill,),
-    //           //                 )
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xa2f4deeb),
-    //           //             child: Column(
-    //           //               children: [
-    //           //                 Text('Lakkhan Chandra Robidas',
-    //           //                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('Assistant Professor & Head of the Dept. BBA',
-    //           //                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('BBA(NU),MBA(DIU), Marketing',
-    //           //                   style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //           //                 ),
-    //           //                 SizedBox(height: 10,),
-    //           //                 Row(
-    //           //                   mainAxisAlignment: MainAxisAlignment.center,
-    //           //                   children: [
-    //           //                     Icon(Icons.call,size: 20,color: Colors.red,),
-    //           //                     SizedBox(width: 5,),
-    //           //                     Text('+8801919491005',
-    //           //                       style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //           //                     ),
-    //           //                   ],
-    //           //                 ),
-    //           //               ],
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //       ],
-    //           //     ),
-    //           //   ),
-    //           // ),
-    //           // SizedBox(height: 5,),
-    //           // Container(
-    //           //   height: 275,
-    //           //   width: double.infinity,
-    //           //   child: Card(
-    //           //
-    //           //     elevation: 5,
-    //           //     child: Column(
-    //           //       children: [
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xff909E89),
-    //           //             child: CircleAvatar(
-    //           //                 radius: 30,
-    //           //                 child: ClipOval(
-    //           //                   child:  Image.asset('assets/teacher/bba&bthm/Sabrina_Qudir.png',width: 133,fit: BoxFit.fill,),
-    //           //                 )
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xa2f4deeb),
-    //           //             child: Column(
-    //           //               children: [
-    //           //                 Text('Mst. Sabrina Quadir',
-    //           //                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('Senior Lecturer, Dept of BBA',
-    //           //                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('M.Phil(1st Part) (JU), MA & BA(English) (IU)',
-    //           //                   style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //           //                 ),
-    //           //                 SizedBox(height: 10,),
-    //           //                 Row(
-    //           //                   mainAxisAlignment: MainAxisAlignment.center,
-    //           //                   children: [
-    //           //                     Icon(Icons.call,size: 20,color: Colors.red,),
-    //           //                     SizedBox(width: 5,),
-    //           //                     Text('+8801796584546',
-    //           //                       style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //           //                     ),
-    //           //                   ],
-    //           //                 ),
-    //           //               ],
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //       ],
-    //           //     ),
-    //           //   ),
-    //           // ),
-    //           // SizedBox(height: 5,),
-    //           // Container(
-    //           //   height: 275,
-    //           //   width: double.infinity,
-    //           //   child: Card(
-    //           //
-    //           //     elevation: 5,
-    //           //     child: Column(
-    //           //       children: [
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xff909E89),
-    //           //             child: CircleAvatar(
-    //           //                 radius: 30,
-    //           //                 child: ClipOval(
-    //           //                   child:  Image.asset('assets/teacher/bba&bthm/israt_nu.jpg',width: 133,fit: BoxFit.fill,),
-    //           //                 )
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xa2f4deeb),
-    //           //             child: Column(
-    //           //               children: [
-    //           //                 Text('Israt Moriom Khan',
-    //           //                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('Senior Lecturer, Dept of BBA',
-    //           //                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('BBA (NU), MBA (DIU), Marketing',
-    //           //                   style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //           //                 ),
-    //           //                 SizedBox(height: 10,),
-    //           //                 Row(
-    //           //                   mainAxisAlignment: MainAxisAlignment.center,
-    //           //                   children: [
-    //           //                     Icon(Icons.call,size: 20,color: Colors.red,),
-    //           //                     SizedBox(width: 5,),
-    //           //                     Text('+8801673662000',
-    //           //                       style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //           //                     ),
-    //           //                   ],
-    //           //                 ),
-    //           //               ],
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //       ],
-    //           //     ),
-    //           //   ),
-    //           // ),
-    //           // SizedBox(height: 5,),
-    //           // Container(
-    //           //   height: 275,
-    //           //   width: double.infinity,
-    //           //   child: Card(
-    //           //
-    //           //     elevation: 5,
-    //           //     child: Column(
-    //           //       children: [
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xff909E89),
-    //           //             child: CircleAvatar(
-    //           //                 radius: 30,
-    //           //                 child: ClipOval(
-    //           //                   child:  Image.asset('assets/teacher/bba&bthm/nipa_nu.png',width: 133,fit: BoxFit.fill,),
-    //           //                 )
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xa2f4deeb),
-    //           //             child: Column(
-    //           //               children: [
-    //           //                 Text('Shakila Jahan Nipa',
-    //           //                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('Senior Lecturer, Dept of BBA',
-    //           //                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('BBA & MBA (Marketing), National University',
-    //           //                   style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //           //                 ),
-    //           //                 SizedBox(height: 10,),
-    //           //                 Row(
-    //           //                   mainAxisAlignment: MainAxisAlignment.center,
-    //           //                   children: [
-    //           //                     Icon(Icons.call,size: 20,color: Colors.red,),
-    //           //                     SizedBox(width: 5,),
-    //           //                     Text('+8800000000000',
-    //           //                       style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //           //                     ),
-    //           //                   ],
-    //           //                 ),
-    //           //               ],
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //       ],
-    //           //     ),
-    //           //   ),
-    //           // ),
-    //           // SizedBox(height: 5,),
-    //           // Container(
-    //           //   height: 275,
-    //           //   width: double.infinity,
-    //           //   child: Card(
-    //           //
-    //           //     elevation: 5,
-    //           //     child: Column(
-    //           //       children: [
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xff909E89),
-    //           //             child: CircleAvatar(
-    //           //                 radius: 30,
-    //           //                 child: ClipOval(
-    //           //                   child:  Image.asset('assets/teacher/bba&bthm/russel_sir_.jpg',width: 133,fit: BoxFit.fill,),
-    //           //                 )
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xa2f4deeb),
-    //           //             child: Column(
-    //           //               children: [
-    //           //                 Text('Aminul Haque Russel',
-    //           //                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('Senior Lecturer, Dept of BBA',
-    //           //                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('BBA (NU) & MBA (DIU) in Finance',
-    //           //                   style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //           //                 ),
-    //           //                 SizedBox(height: 10,),
-    //           //                 Row(
-    //           //                   mainAxisAlignment: MainAxisAlignment.center,
-    //           //                   children: [
-    //           //                     Icon(Icons.call,size: 20,color: Colors.red,),
-    //           //                     SizedBox(width: 5,),
-    //           //                     Text('+8801720206512',
-    //           //                       style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //           //                     ),
-    //           //                   ],
-    //           //                 ),
-    //           //               ],
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //       ],
-    //           //     ),
-    //           //   ),
-    //           // ),
-    //           // SizedBox(height: 5,),
-    //           // Container(
-    //           //   height: 275,
-    //           //   width: double.infinity,
-    //           //   child: Card(
-    //           //
-    //           //     elevation: 5,
-    //           //     child: Column(
-    //           //       children: [
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xff909E89),
-    //           //             child: CircleAvatar(
-    //           //                 radius: 30,
-    //           //                 child: ClipOval(
-    //           //                   child:  Image.asset('assets/teacher/bba&bthm/atikul-bba.jpg',width: 133,fit: BoxFit.fill,),
-    //           //                 )
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xa2f4deeb),
-    //           //             child: Column(
-    //           //               children: [
-    //           //                 Text('Md. Sanowar Hossain Atiq',
-    //           //                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('Senior Lecturer, Dept of BBA',
-    //           //                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('BBA & MBA (Accounting), Rajshahi University',
-    //           //                   style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //           //                 ),
-    //           //                 SizedBox(height: 10,),
-    //           //                 Row(
-    //           //                   mainAxisAlignment: MainAxisAlignment.center,
-    //           //                   children: [
-    //           //                     Icon(Icons.call,size: 20,color: Colors.red,),
-    //           //                     SizedBox(width: 5,),
-    //           //                     Text('+8801717928680',
-    //           //                       style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //           //                     ),
-    //           //                   ],
-    //           //                 ),
-    //           //               ],
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //       ],
-    //           //     ),
-    //           //   ),
-    //           // ),
-    //           // SizedBox(height: 5,),
-    //           // Container(
-    //           //   height: 275,
-    //           //   width: double.infinity,
-    //           //   child: Card(
-    //           //
-    //           //     elevation: 5,
-    //           //     child: Column(
-    //           //       children: [
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xff909E89),
-    //           //             child: CircleAvatar(
-    //           //                 radius: 30,
-    //           //                 child: ClipOval(
-    //           //                   child:  Image.asset('assets/teacher/bba&bthm/fahmida.png',width: 135,fit: BoxFit.fill,),
-    //           //                 )
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xa2f4deeb),
-    //           //             child: Column(
-    //           //               children: [
-    //           //                 Text('Fahmida Akter',
-    //           //                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text(' Lecturer, Dept of BBA',
-    //           //                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('BBA(NU),MBA(DIU), Finance',
-    //           //                   style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //           //                 ),
-    //           //                 SizedBox(height: 10,),
-    //           //                 Row(
-    //           //                   mainAxisAlignment: MainAxisAlignment.center,
-    //           //                   children: [
-    //           //                     Icon(Icons.call,size: 20,color: Colors.red,),
-    //           //                     SizedBox(width: 5,),
-    //           //                     Text('+8801717448287',
-    //           //                       style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //           //                     ),
-    //           //                   ],
-    //           //                 ),
-    //           //               ],
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //       ],
-    //           //     ),
-    //           //   ),
-    //           // ),
-    //           // SizedBox(height: 5,),
-    //           // Container(
-    //           //   height: 275,
-    //           //   width: double.infinity,
-    //           //   child: Card(
-    //           //
-    //           //     elevation: 5,
-    //           //     child: Column(
-    //           //       children: [
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xff909E89),
-    //           //             child: CircleAvatar(
-    //           //                 radius: 30,
-    //           //                 child: ClipOval(
-    //           //                   child:  Image.asset('assets/teacher/bba&bthm/Antara.jpg',width: 133,fit: BoxFit.fill,),
-    //           //                 )
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xa2f4deeb),
-    //           //             child: Column(
-    //           //               children: [
-    //           //                 Text('Antara Saha',
-    //           //                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('Lecturer, Dept of BBA',
-    //           //                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('BBA (Management) & MBA (HRM), Jagannath University',
-    //           //                   style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //           //                 ),
-    //           //                 SizedBox(height: 10,),
-    //           //                 Row(
-    //           //                   mainAxisAlignment: MainAxisAlignment.center,
-    //           //                   children: [
-    //           //                     Icon(Icons.call,size: 20,color: Colors.red,),
-    //           //                     SizedBox(width: 5,),
-    //           //                     Text('+8801681919133',
-    //           //                       style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //           //                     ),
-    //           //                   ],
-    //           //                 ),
-    //           //               ],
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //       ],
-    //           //     ),
-    //           //   ),
-    //           // ),
-    //           // SizedBox(height: 5,),
-    //           // Container(
-    //           //   height: 275,
-    //           //   width: double.infinity,
-    //           //   child: Card(
-    //           //
-    //           //     elevation: 5,
-    //           //     child: Column(
-    //           //       children: [
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xff909E89),
-    //           //             child: CircleAvatar(
-    //           //                 radius: 30,
-    //           //                 child: ClipOval(
-    //           //                   child:  Image.asset('assets/teacher/bba&bthm/Asma_nu.png',width: 133,fit: BoxFit.fill,),
-    //           //                 )
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xa2f4deeb),
-    //           //             child: Column(
-    //           //               children: [
-    //           //                 Text('Asma-Ul-Husna',
-    //           //                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('Lecturer, Dept of BBA',
-    //           //                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('BBA & MBA(Banking), University of Dhaka',
-    //           //                   style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //           //                 ),
-    //           //                 SizedBox(height: 10,),
-    //           //                 Row(
-    //           //                   mainAxisAlignment: MainAxisAlignment.center,
-    //           //                   children: [
-    //           //                     Icon(Icons.call,size: 20,color: Colors.red,),
-    //           //                     SizedBox(width: 5,),
-    //           //                     Text('+8801721336277',
-    //           //                       style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //           //                     ),
-    //           //                   ],
-    //           //                 ),
-    //           //               ],
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //       ],
-    //           //     ),
-    //           //   ),
-    //           // ),
-    //           // SizedBox(height: 5,),
-    //           // Container(
-    //           //   height: 275,
-    //           //   width: double.infinity,
-    //           //   child: Card(
-    //           //
-    //           //     elevation: 5,
-    //           //     child: Column(
-    //           //       children: [
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xff909E89),
-    //           //             child: CircleAvatar(
-    //           //                 radius: 30,
-    //           //                 child: ClipOval(
-    //           //                   child:  Image.asset('assets/teacher/bba&bthm/Md._Omar_Faruk.jpg',width: 133,fit: BoxFit.fill,),
-    //           //                 )
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xa2f4deeb),
-    //           //             child: Column(
-    //           //               children: [
-    //           //                 Text('Md. Omar Faruk',
-    //           //                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('Assistant Professor & Head of Department,MBA',
-    //           //                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('BBA & MBA (Accounting), University of Dhaka',
-    //           //                   style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //           //                 ),
-    //           //                 SizedBox(height: 10,),
-    //           //                 Row(
-    //           //                   mainAxisAlignment: MainAxisAlignment.center,
-    //           //                   children: [
-    //           //                     Icon(Icons.call,size: 20,color: Colors.red,),
-    //           //                     SizedBox(width: 5,),
-    //           //                     Text('+8801683689117',
-    //           //                       style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //           //                     ),
-    //           //                   ],
-    //           //                 ),
-    //           //               ],
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //       ],
-    //           //     ),
-    //           //   ),
-    //           // ),
-    //           // SizedBox(height: 5,),
-    //           // Container(
-    //           //   height: 275,
-    //           //   width: double.infinity,
-    //           //   child: Card(
-    //           //
-    //           //     elevation: 5,
-    //           //     child: Column(
-    //           //       children: [
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xff909E89),
-    //           //             child: CircleAvatar(
-    //           //                 radius: 30,
-    //           //                 child: ClipOval(
-    //           //                   child:  Image.asset('assets/teacher/bba&bthm/bodruzdzza.jpg',width: 133,fit: BoxFit.fill,),
-    //           //                 )
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xa2f4deeb),
-    //           //             child: Column(
-    //           //               children: [
-    //           //                 Text('Mohammad Badruddoza Talukder',
-    //           //                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('Assistant Professor & Head of Department,THM',
-    //           //                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('BHM & MHM, MBA (HRM), M.Phil (Pursuing)',
-    //           //                   style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //           //                 ),
-    //           //                 SizedBox(height: 10,),
-    //           //                 Row(
-    //           //                   mainAxisAlignment: MainAxisAlignment.center,
-    //           //                   children: [
-    //           //                     Icon(Icons.call,size: 20,color: Colors.red,),
-    //           //                     SizedBox(width: 5,),
-    //           //                     Text('+8801911620004',
-    //           //                       style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //           //                     ),
-    //           //                   ],
-    //           //                 ),
-    //           //               ],
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //       ],
-    //           //     ),
-    //           //   ),
-    //           // ),
-    //           // SizedBox(height: 5,),
-    //           // Container(
-    //           //   height: 275,
-    //           //   width: double.infinity,
-    //           //   child: Card(
-    //           //
-    //           //     elevation: 5,
-    //           //     child: Column(
-    //           //       children: [
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xff909E89),
-    //           //             child: CircleAvatar(
-    //           //                 radius: 30,
-    //           //                 child: ClipOval(
-    //           //                   child:  Image.asset('assets/teacher/bba&bthm/rony-bba.jpg',width: 133,fit: BoxFit.fill,),
-    //           //                 )
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xa2f4deeb),
-    //           //             child: Column(
-    //           //               children: [
-    //           //                 Text('Md. Jahidul Islam Rony',
-    //           //                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('Senior Lecturer & Coordinator, Dept of THM',
-    //           //                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('BBA & MBA (Finance), Daffodil International University',
-    //           //                   style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //           //                 ),
-    //           //                 SizedBox(height: 10,),
-    //           //                 Row(
-    //           //                   mainAxisAlignment: MainAxisAlignment.center,
-    //           //                   children: [
-    //           //                     Icon(Icons.call,size: 20,color: Colors.red,),
-    //           //                     SizedBox(width: 5,),
-    //           //                     Text('+8801719678798',
-    //           //                       style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //           //                     ),
-    //           //                   ],
-    //           //                 ),
-    //           //               ],
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //       ],
-    //           //     ),
-    //           //   ),
-    //           // ),
-    //           // SizedBox(height: 5,),
-    //           // Container(
-    //           //   height: 275,
-    //           //   width: double.infinity,
-    //           //   child: Card(
-    //           //
-    //           //     elevation: 5,
-    //           //     child: Column(
-    //           //       children: [
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xff909E89),
-    //           //             child: CircleAvatar(
-    //           //                 radius: 30,
-    //           //                 child: ClipOval(
-    //           //                   child:  Image.asset('assets/teacher/bba&bthm/Shaifullah_Rabbi.png',width: 133,fit: BoxFit.fill,),
-    //           //                 )
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xa2f4deeb),
-    //           //             child: Column(
-    //           //               children: [
-    //           //                 Text('Md. Shaifullar Rabbi',
-    //           //                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('Lecturer, Dept of THM',
-    //           //                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('BBA & MBA, Major in THM, faculty of Business Studies,(DU)',
-    //           //                   style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //           //                 ),
-    //           //                 SizedBox(height: 10,),
-    //           //                 Row(
-    //           //                   mainAxisAlignment: MainAxisAlignment.center,
-    //           //                   children: [
-    //           //                     Icon(Icons.call,size: 20,color: Colors.red,),
-    //           //                     SizedBox(width: 5,),
-    //           //                     Text('+8801520102045',
-    //           //                       style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //           //                     ),
-    //           //                   ],
-    //           //                 ),
-    //           //               ],
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //       ],
-    //           //     ),
-    //           //   ),
-    //           // ),
-    //           // SizedBox(height: 5,),
-    //           // Container(
-    //           //   height: 275,
-    //           //   width: double.infinity,
-    //           //   child: Card(
-    //           //
-    //           //     elevation: 5,
-    //           //     child: Column(
-    //           //       children: [
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xff909E89),
-    //           //             child: CircleAvatar(
-    //           //                 radius: 30,
-    //           //                 child: ClipOval(
-    //           //                   child:  Image.asset('assets/teacher/bba&bthm/Tanjila.jpg',width: 133,fit: BoxFit.fill,),
-    //           //                 )
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //
-    //           //         Expanded(
-    //           //           flex: 1,
-    //           //           child: Container(
-    //           //             width: double.infinity,
-    //           //             color: Color(0xa2f4deeb),
-    //           //             child: Column(
-    //           //               children: [
-    //           //                 Text('Tanjila Afroz Mou',
-    //           //                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Poppins',color: Color(0xff0D7A46)),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('Lecturer, Dept of THM',
-    //           //                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,fontFamily: 'Poppins',color: Colors.red),
-    //           //                 ),
-    //           //                 SizedBox(height: 5,),
-    //           //                 Text('BBA & MBA, Major in THM, (DU)',
-    //           //                   style: TextStyle(fontSize: 13,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Color(0xffB59E28)),
-    //           //                 ),
-    //           //                 SizedBox(height: 10,),
-    //           //                 Row(
-    //           //                   mainAxisAlignment: MainAxisAlignment.center,
-    //           //                   children: [
-    //           //                     Icon(Icons.call,size: 20,color: Colors.red,),
-    //           //                     SizedBox(width: 5,),
-    //           //                     Text('+8801933762675',
-    //           //                       style: TextStyle(fontSize: 15,fontWeight: FontWeight.w200,fontFamily: 'Poppins',color: Colors.green),
-    //           //                     ),
-    //           //                   ],
-    //           //                 ),
-    //           //               ],
-    //           //             ),
-    //           //           ),
-    //           //         ),
-    //           //       ],
-    //           //     ),
-    //           //   ),
-    //           // ),
-    //           SizedBox(height: 10,),
-    //
-    //         ],
-    //       ),
-    //     ),
-    //   ),
-    // );
   }
 }
-

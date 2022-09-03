@@ -8,12 +8,12 @@ import '../provider/navigationBarProvider.dart';
 import '../widgets/no_internet_widget.dart';
 import '../widgets/load_web_view.dart';
 
-class NU_Portal_WebView extends StatefulWidget {
+class Community_WebView extends StatefulWidget {
   @override
-  State<NU_Portal_WebView> createState() => _NU_Portal_WebViewState();
+  State<Community_WebView> createState() => _Community_WebViewState();
 }
 
-class _NU_Portal_WebViewState extends State<NU_Portal_WebView> with TickerProviderStateMixin {
+class _Community_WebViewState extends State<Community_WebView> with TickerProviderStateMixin {
   String _connectionStatus = 'ConnectivityResult.none';
   final Connectivity _connectivity = Connectivity();
   late StreamSubscription<ConnectivityResult> _connectivitySubscription;
@@ -67,7 +67,7 @@ class _NU_Portal_WebViewState extends State<NU_Portal_WebView> with TickerProvid
             child: _connectionStatus == 'ConnectivityResult.none'
                 ?  NoInternetWidget()
                 : LoadWebView(
-                    'https://www.nu.ac.bd/recent-news-notice.php', true)),
+                    'https://www.google.com', true)),
       ]),
     );
   }

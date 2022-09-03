@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:diit_portal/BinaryClock/Clock.dart';
 import 'package:diit_portal/Screens/Dashboard/Notification/Notification_Service.dart';
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:diit_portal/Screens/Weather/data_service.dart';
@@ -321,11 +322,11 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(
                         height: 5,
                       ),
-                      // Card(
-                      //   elevation: 3,
-                      //   shadowColor: Colors.orange,
-                      //   child: Clock(),
-                      // ),
+                      Card(
+                        elevation: 3,
+                        shadowColor: Colors.orange,
+                        child: Clock(),
+                      ),
 
                       SizedBox(height: 5,),
                       InkWell(
@@ -843,7 +844,8 @@ class _HomePageState extends State<HomePage> {
                             height: MediaQuery.of(context).size.height / 5,
                             width: MediaQuery.of(context).size.width / 2.50,
                             child: NeumorphicButton(
-                              onPressed: _launchUrl,
+                              onPressed: () =>
+                                  Get.toNamed('/Community'),
                               style: NeumorphicStyle(
                                   shape: NeumorphicShape.concave,
                                   boxShape: NeumorphicBoxShape.roundRect(
@@ -866,7 +868,7 @@ class _HomePageState extends State<HomePage> {
                                       SizedBox(
                                         height: 10.h,
                                       ),
-                                      const Text(
+                                       Text(
                                         "Community",
                                         style: TextStyle(
                                             fontFamily: "Poppins",
@@ -905,9 +907,5 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Future<void> _launchUrl() async {
-    if (!await launchUrl(_url)) {
-      throw 'Could not launch $_url';
-    }
-  }
+
 }

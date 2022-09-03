@@ -11,7 +11,7 @@ class StudentDashBoard extends StatefulWidget {
 }
 
 class _StudentDashBoardState extends State<StudentDashBoard> {
-  late DatabaseReference ref = FirebaseDatabase.instance.ref();
+  // late DatabaseReference ref = FirebaseDatabase.instance.ref();
   late SharedPreferences logindata;
   late String email;
   late String id;
@@ -21,36 +21,36 @@ class _StudentDashBoardState extends State<StudentDashBoard> {
   // reference().child('Student').child('batch17').child('170001');
   @override
   void initState() {
-    userData();
+    // userData();
   }
-
-  userData() async {
-    logindata = await SharedPreferences.getInstance();
-    email = logindata.getString('user_email')!;
-    id = logindata.getString('user_id')!;
-
-    batch= id.substring(0,2);
-
-    print(id);
-    print(batch);
-    print(email);
-    getFirebaseData();
-  }
-
-  getFirebaseData() {
-      ref
-        .child('Student')
-        .child('batch'+batch)
-        .child(id).child('payment')
-        .once()
-        .then((DatabaseEvent databaseEvent) {
-      print(databaseEvent.snapshot.value.toString());
-
-
-      Due= databaseEvent.snapshot.value! as String?;
-
-    });
-  }
+  //
+  // userData() async {
+  //   logindata = await SharedPreferences.getInstance();
+  //   email = logindata.getString('user_email')!;
+  //   id = logindata.getString('user_id')!;
+  //
+  //   batch= id.substring(0,2);
+  //
+  //   print(id);
+  //   print(batch);
+  //   print(email);
+  //   getFirebaseData();
+  // }
+  //
+  // getFirebaseData() {
+  //     ref
+  //       .child('Student')
+  //       .child('batch'+batch)
+  //       .child(id).child('payment')
+  //       .once()
+  //       .then((DatabaseEvent databaseEvent) {
+  //     print(databaseEvent.snapshot.value.toString());
+  //
+  //
+  //     Due= databaseEvent.snapshot.value! as String?;
+  //
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
