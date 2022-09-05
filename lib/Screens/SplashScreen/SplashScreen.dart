@@ -1,4 +1,5 @@
 
+import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:liquid_progress_indicator_ns/liquid_progress_indicator.dart';
 
@@ -7,7 +8,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(1, 60, 88, 1),
+      backgroundColor: ColorChanger.scaffoldcolor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,

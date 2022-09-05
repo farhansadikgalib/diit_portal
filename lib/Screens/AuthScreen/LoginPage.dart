@@ -1,3 +1,4 @@
+import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:diit_portal/services/firebaseServices.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(1, 60, 88, 1),
+      backgroundColor: ColorChanger.scaffoldcolor,
       body: Center(
 
         child: SingleChildScrollView(
