@@ -5,4 +5,4 @@ DIIT PORTAL is one of the apps similar to the Student Portal type. There are two
 ## Prototype
 
 <a href="https://www.figma.com/file/IeIYYLEYNQaNKzkzsGRBEs/DiiT-Portal">
-Prottoyon Prototype</a>
+DiiT Portal</a>
