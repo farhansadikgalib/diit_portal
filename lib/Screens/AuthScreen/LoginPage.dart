@@ -32,20 +32,19 @@ class _LoginPageState extends State<LoginPage> {
     // Firebase.initializeApp();
     logindata = await SharedPreferences.getInstance();
     newuser = (logindata!.getBool('login') ?? true);
-    selectuser=logindata!.getInt('select');
+    selectuser = logindata!.getInt('select');
     print(newuser);
     if (newuser == false) {
       print("ok");
-      if(selectuser==0){
+      if (selectuser == 0) {
         Get.offAndToNamed('/DashBoard');
         print(selectuser);
-      }else{
+      } else {
         print(selectuser);
 
         Get.offAndToNamed('/TeacherDashbord');
       }
     }
-
   }
 
   @override
@@ -68,7 +67,6 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: ColorChanger.scaffoldcolor,
       body: Center(
-
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
@@ -109,11 +107,9 @@ class _LoginPageState extends State<LoginPage> {
                             print(select);
                           },
                         ),
-
                         SizedBox(
                           height: 15,
                         ),
-
                         TextFormField(
                           controller: emailCtrl,
                           keyboardType: TextInputType.emailAddress,
@@ -191,8 +187,8 @@ class _LoginPageState extends State<LoginPage> {
                                   'All fields are required.',
                                   colorText: Colors.white,
                                   backgroundColor: Colors.lightGreen,
-                                  margin:
-                                  const EdgeInsets.only(top: 30, bottom: 30),
+                                  margin: const EdgeInsets.only(
+                                      top: 30, bottom: 30),
                                   snackPosition: SnackPosition.BOTTOM,
                                   isDismissible: true,
                                   forwardAnimationCurve: Curves.easeOutBack,
@@ -201,29 +197,34 @@ class _LoginPageState extends State<LoginPage> {
                                 User? result = await FirebaseServices()
                                     .login(emailCtrl.text, passwordCtrl.text);
                                 if (result != null) {
-
                                   logindata!.setBool('login', false);
-                                  logindata!.setInt('select',select );
+                                  logindata!.setInt('select', select);
                                   logindata!
                                       .setString('user_email', emailCtrl.text);
                                   var id = result.email!
                                       .replaceAll(new RegExp(r'[^0-9]'), '');
                                   // dynamic getId= id as int;
                                   logindata!.setString('user_id', id);
+                                  print(id);
 
-                                  if(select==1){
+
+
+
+
+                                  // var email = "tony@diit.info";
+                                  // bool emailValid =  RegExp(r"^[0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(email);
+
+                                  // var xxuser_name = result.email!
+                                  //     .replaceAll(new RegExp(r'^[0-9]'),'');
+                                  //
+                                  // print(xxuser_name);
+
+                                  if (select == 1) {
                                     Get.offAndToNamed('/TeacherDashbord');
-                                    print(id);
-                                    print(result.email);
-                                  }else{
-                                    // print(id);
-                                    print(result.email);
+                                  } else {
+                                    // print(result.email);
                                     Get.offAndToNamed('/IntroScreen');
                                   }
-
-
-
-
 
                                   // else {
                                   //   User? result = await FirebaseServices()
@@ -288,13 +289,6 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-
-
-
-
-
-
-
 
 // import 'package:diit_portal/services/firebaseServices.dart';
 // import 'package:firebase_auth/firebase_auth.dart';

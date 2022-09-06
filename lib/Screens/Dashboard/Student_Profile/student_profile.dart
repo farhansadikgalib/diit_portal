@@ -31,7 +31,6 @@ class _StudentProfileState extends State<StudentProfile> {
   @override
   void initState()  {
     super.initState();
-     // email =user_email!;
     getUserData();
   }
 
@@ -47,8 +46,6 @@ class _StudentProfileState extends State<StudentProfile> {
 
     });
   }
-
-
 
 
   String? selectedValue;

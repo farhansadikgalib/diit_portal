@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -27,11 +28,11 @@ class _IntroPage3State extends State<IntroPage3> {
       user_batch = prefs.getString('batch')!;
       user_section = prefs.getString('section')!;
 
-    print(user_email);
-    print(user_id);
-    print(user_section);
-    print(user_department);
-    print(user_batch);
+    // print(user_email);
+    // print(user_id);
+    // print(user_section);
+    // print(user_department);
+    // print(user_batch);
     // return user_email;
   }
 
@@ -53,7 +54,7 @@ class _IntroPage3State extends State<IntroPage3> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return Scaffold(
-              backgroundColor: Color.fromRGBO(0, 68, 88, 1),
+              backgroundColor: ColorChanger.scaffoldcolor,
               body: SafeArea(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -73,7 +74,7 @@ class _IntroPage3State extends State<IntroPage3> {
                     ),
                     Center(
                         child: Text(
-                      "Welcome",
+                      "Welcome To DiiT Portal",
                       style: TextStyle(
                           fontSize: 25,
                           color: Colors.white,

@@ -37,6 +37,8 @@ class _HomePageState extends State<HomePage> {
     initFirestoreData();
     FCM();
     getCurrentUser();
+    _setUserData();
+
   }
 
   static const String oneSignalId = "6d6a341b-9a0c-4637-9ba7-fd600bff21a0";
@@ -136,19 +138,18 @@ class _HomePageState extends State<HomePage> {
       // uname = user.displayName;
     print(uid);
     print(uemail);
-    _setData();
   }
 
   final firestoreInstance = FirebaseFirestore.instance;
 
-   _setData() async{
-
+   _setUserData() async{
      SharedPreferences prefs = await SharedPreferences.getInstance();
+
      // String  user_email = prefs.getString('user_email')!;
-     String user_id = prefs.getString('user_id')!;
-     String user_department = prefs.getString('department')!;
-     String user_batch = prefs.getString('batch')!;
-     String  user_section = prefs.getString('section')!;
+      user_id = prefs.getString('user_id')!;
+      user_department = prefs.getString('department')!;
+      user_batch = prefs.getString('batch')!;
+      user_section = prefs.getString('section')!;
 
     var firebaseUser = await FirebaseAuth.instance.currentUser!;
     firestoreInstance.collection("user_data").doc(firebaseUser.uid).set(
@@ -180,12 +181,15 @@ class _HomePageState extends State<HomePage> {
   }
 
 //Shared Preference Data
+  String user_email = '';
+  String user_id = '';
+  String user_department = '';
+  String user_batch = '';
+  String user_section = '';
 
-  //  user_email = '';
-  // String user_id = '';
-  // String user_department = '';
-  // String user_batch = '';
-  // String user_section = '';
+  _sharedPreferencesGetData()async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+  }
 
 
 //Shared Preference Data
