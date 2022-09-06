@@ -1,12 +1,8 @@
-# diit_portal
+IT's a Student Portal Project.
 
-A new Flutter project.
+DIIT PORTAL is one of the apps similar to the Student Portal type. There are two types of users. One is the Student other is the Teacher.  Here teacher role can take attendance, view attendance, send notifications, and add students' internal marks for internal exams. Student roles can check attendance, and class routine can pay their academic fees, they can check their payment info, academic results, nu portal, previous year's questions, and so many things. But this application is more advanced in features than any other Portal app on the play store. 
 
-## Getting Started
+## Prototype
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<a href="https://www.figma.com/file/IeIYYLEYNQaNKzkzsGRBEs/DiiT-Portal">
+Prottoyon Prototype</a>
