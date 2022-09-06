@@ -6,6 +6,7 @@ import 'package:diit_portal/Screens/Dashboard/Notification/Notification_Service.
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:diit_portal/Screens/Weather/data_service.dart';
 import 'package:diit_portal/Screens/Weather/weather_model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,8 +26,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  late CollectionReference ref;
-  String sec= 'A';
+
 
   @override
   void initState() {
@@ -35,11 +35,12 @@ class _HomePageState extends State<HomePage> {
     getWeather();
     initFirestoreData();
     FCM();
-
+    getCurrentUser();
   }
 
   static const String oneSignalId = "6d6a341b-9a0c-4637-9ba7-fd600bff21a0";
-
+  late CollectionReference ref;
+  String sec= 'A';
   //community url
 
   final Uri _url = Uri.parse('https://chat.whatsapp.com/G3SiHAapFJH4DaThU1ngW7');
@@ -63,6 +64,9 @@ class _HomePageState extends State<HomePage> {
       this.max = showData['main']['temp_max'];
     });
   }
+
+
+
 
 
   //
@@ -122,6 +126,32 @@ class _HomePageState extends State<HomePage> {
 }
 
 
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  var uid,uemail,uname ;
+  getCurrentUser() async {
+    final User? user = _auth.currentUser;
+     uid = user!.uid;
+     uemail = user.email;
+      // uname = user.displayName;
+    print(uid);
+    print(uemail);
+    _setData();
+  }
+
+  final firestoreInstance = FirebaseFirestore.instance;
+
+  void _setData() async{
+    var firebaseUser = await FirebaseAuth.instance.currentUser!;
+    firestoreInstance.collection("user_data").doc(firebaseUser.uid).set(
+        {
+          "name" : "Farhan",
+          "id" : "$uid",
+          "email" : "$uemail",
+        }).then((_){
+      print("success!");
+    });
+  }
+
   //Firebase
 
   Future<void> intitPlatformState() async {
@@ -132,6 +162,10 @@ class _HomePageState extends State<HomePage> {
     final response = await _dataService.getWeather("Dhaka");
     setState(() => _response = response);
   }
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -324,11 +358,11 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(
                         height: 5,
                       ),
-                      Card(
-                        elevation: 3,
-                        shadowColor: Colors.orange,
-                        child: Clock(),
-                      ),
+                      // Card(
+                      //   elevation: 3,
+                      //   shadowColor: Colors.orange,
+                      //   child: Clock(),
+                      // ),
 
                       SizedBox(height: 5,),
                       InkWell(

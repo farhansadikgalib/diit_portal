@@ -18,6 +18,9 @@ class _StudentProfileState extends State<StudentProfile> {
    // SharedPreferences? logindata;
   String user_email='';
   String user_id='';
+  String user_department = '';
+  String user_batch = '';
+  String user_section = '';
 
 
   Future _signOut() async {
@@ -37,12 +40,18 @@ class _StudentProfileState extends State<StudentProfile> {
     setState(() {
       user_email = prefs.getString('user_email')!;
       user_id = prefs.getString('user_id')!;
+      // user_department = prefs.getString('department')!;
+      // user_batch = prefs.getString('batch')!;
+      // user_section = prefs.getString('section')!;
+
       prefs.setBool('login', true);
 
 
     });
     print(user_email);
-    // return user_email;
+    // print(user_section);
+    // print(user_department);
+    // print(user_batch);    // return user_email;
   }
 
 

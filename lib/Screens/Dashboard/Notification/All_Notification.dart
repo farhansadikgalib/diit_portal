@@ -9,9 +9,9 @@ class AllNotification extends StatefulWidget {
 }
 
 class _AllNotificationState extends State<AllNotification> {
-  String notificationTitle = 'No Title';
-  String notificationBody = 'No Body';
-  String notificationData = 'No Data';
+  String notificationTitle = 'No Notification Here!';
+  String notificationBody = '';
+  String notificationData = '';
 
   @override
   void initState() {
@@ -38,6 +38,7 @@ class _AllNotificationState extends State<AllNotification> {
           children: [
             Text(
               notificationTitle,
+
               style: Theme.of(context).textTheme.headline4,
             ),
             Text(
