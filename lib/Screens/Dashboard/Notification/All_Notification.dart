@@ -1,4 +1,5 @@
 
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Diit_notics/diit_notics.dart';
 import 'package:diit_portal/Screens/Dashboard/Notification/Notification_Service.dart';
 import 'package:flutter/material.dart';
 
@@ -47,6 +48,7 @@ class _AllNotificationState extends State<AllNotification> {
               notificationData,
               style: Theme.of(context).textTheme.headline6,
             ),
+
           ],
         ),
       ),

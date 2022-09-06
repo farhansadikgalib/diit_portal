@@ -135,6 +135,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
+
     return FutureBuilder<QuerySnapshot>(
       future: ref.get(),
       builder: (context, snapshot) {
@@ -160,7 +162,7 @@ class _HomePageState extends State<HomePage> {
                               color: Color(0xff00DCA8),
                               borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(5))),
-                          height: MediaQuery.of(context).size.height /4,
+                          height: Get.height/4,
                           width: double.infinity,
                           child: Row(
                             children: <Widget>[
@@ -462,17 +464,15 @@ class _HomePageState extends State<HomePage> {
                               ),
                               SizedBox(
                                 height: MediaQuery.of(context).size.height / 15,
-                                width: MediaQuery.of(context).size.width / 2.30,
+                                width: MediaQuery.of(context).size.width / 2.40,
                                 child: NeumorphicButton(
-                                  onPressed: () {
-                                    print('neumorphic Btn');
-                                  },
+                                  onPressed: ()=>Get.toNamed('/TutionFees'),
                                   style: NeumorphicStyle(
                                       shape: NeumorphicShape.concave,
                                       boxShape: NeumorphicBoxShape.roundRect(
                                           BorderRadius.circular(12)),
                                       depth: 1,
-                                      lightSource: LightSource.topLeft,
+                                       lightSource: LightSource.topLeft,
                                       color: Colors.white),
                                   child: const Center(
                                       child: Text(

@@ -37,6 +37,7 @@ import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/dept_mba/m
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/pdf_view.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Question_bank/question_bank.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/HomePage.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Tution_Fees/tution_fees.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/quick_pay/QuickPayment.dart';
 
 import 'package:diit_portal/Screens/Dashboard/Dashboard.dart';
@@ -138,6 +139,7 @@ class MyApp extends StatelessWidget {
             GetPage(name: '/FacultyProfile', page: () =>  FacultyProfile()),
             GetPage(name: '/QuickPayment', page: () =>  QuickPayment()),
             GetPage(name: '/NU_Portal', page: () =>  NU_Portal()),
+            GetPage(name: '/TutionFees', page: () =>  TutionFees()),
             GetPage(name: '/DiitNotics', page: () =>  DiitNotics()),
             GetPage(name: '/NoticsDetails', page: () =>  NoticsDetails()),
             GetPage(name: '/Community', page: () =>  Community()),
