@@ -80,11 +80,6 @@ class _LoginPageState extends State<LoginPage> {
                     padding: const EdgeInsets.only(left: 50.0, right: 50),
                     child: Column(
                       children: <Widget>[
-                        // ElevatedButton(
-                        //     onPressed: () {
-                        //       Get.offAndToNamed('/DashBoard');
-                        //     },
-                        //     child: Text("Bypass Button")),
                         Image.asset(
                           "assets/portallogo.png",
                           height: 150,
@@ -114,14 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                             print(select);
                           },
                         ),
-                        // FkToggle(
-                        //     width: 100,
-                        //     height: 40,
-                        //     labels:  ['Student', 'Teacher',],
-                        //
-                        //     selectedColor: Colors.white,
-                        //     backgroundColor: Color.fromRGBO(1, 60, 88, 1),
-                        //     onSelected: select ),
+
                         SizedBox(
                           height: 15,
                         ),

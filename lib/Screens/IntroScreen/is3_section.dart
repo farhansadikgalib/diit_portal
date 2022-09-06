@@ -1,28 +1,39 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class IntroPage2 extends StatefulWidget {
-  const IntroPage2({Key? key}) : super(key: key);
+class Section extends StatefulWidget {
+  const Section({Key? key}) : super(key: key);
 
   @override
-  State<IntroPage2> createState() => _IntroPage2State();
+  State<Section> createState() => _SectionState();
 }
 
-class _IntroPage2State extends State<IntroPage2> {
-
-  final List<String> section = [
-    'A Section',
-    'B Section',
-    'C Section',
-    'D Section',
-  ];
+class _SectionState extends State<Section> {
 
 
-  String? selectedSection;
-  SharedPreferences? logindata;
-  String sec = '';
+  String? dropdownValue;
+  late SharedPreferences prefs;
+  final _key = 'section';
+  String select_text = 'Select from here';
+
+
+  @override
+  void initState() {
+    super.initState();
+    _read(); // read in initState
+  }
+
+  _read() async {
+    prefs = await SharedPreferences.getInstance();
+    setState(() {
+      dropdownValue = prefs.getString(_key) ?? "A"; // get the value
+    });
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -36,94 +47,95 @@ class _IntroPage2State extends State<IntroPage2> {
             SizedBox(height: 20,),
             Center(
               child: Lottie.asset('assets/intro_asset/second.json',
-                height: MediaQuery.of(context).size.height/4,
-                width: MediaQuery.of(context).size.width/1,),
+                height: Get.height / 3,
+                width: Get.width / 1,
+              ),
             ),
-            SizedBox(height: 30,),
-            Text("Select Section",style: TextStyle(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold),),
-            Container(
-              width: MediaQuery.of(context).size.width/2,
-              height: MediaQuery.of(context).size.height/5,
-              child: Center(
-                child: DropdownButtonHideUnderline(
-                  child: DropdownButton2(
-                    isExpanded: true,
-                    hint: Row(
-                      children: const [
-
-                        Expanded(
-                          child: Text(
-                            'Select from here',
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                      ],
-                    ),
-                    items: section
-                        .map((item) =>
-                        DropdownMenuItem<String>(
-                          value: item,
-                          child: Text(
-                            item,
-                            style: const TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+              Text(
+                "Select Your Section",
+                style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              ),
+              Container(
+                width: Get.width / 2,
+                height: Get.height / 5,
+                child: Center(
+                  child: DropdownButtonHideUnderline(
+                    child: DropdownButton2(
+                      isExpanded: true,
+                      hint: Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              select_text,
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                              overflow: TextOverflow.ellipsis,
                             ),
                           ),
-                        ))
-                        .toList(),
-                    value: selectedSection,
-                    onChanged: (value) {
-                      setState(() {
-                        selectedSection = value as String;
-                        sec = selectedSection!;
-                        logindata?.setString('section', sec);
-                        print(sec);
-
-                      });
-                    },
-                    icon: const Icon(
-                      Icons.arrow_forward_ios_outlined,
-                    ),
-                    iconSize: 14,
-                    iconEnabledColor: Colors.white,
-                    iconDisabledColor: Colors.grey,
-                    buttonHeight: 50,
-                    buttonWidth: 160,
-                    buttonPadding: const EdgeInsets.only(left: 14, right: 14),
-                    buttonDecoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(14),
-                      border: Border.all(
-                        color: Colors.black26,
+                        ],
                       ),
-                      color: Colors.white54,
+                      value: dropdownValue,
+                      onChanged: (String? value) {
+                        setState(() {
+                          dropdownValue = value!;
+                        });
+                        prefs.setString(_key,
+                            dropdownValue!); // save value to SharedPreference
+                      },
+                      items: ['A', 'B', 'C', 'D']
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value,
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              )),
+                        );
+                      }).toList(),
+                      icon: const Icon(
+                        Icons.arrow_forward_ios_outlined,
+                      ),
+                      iconSize: 14,
+                      iconEnabledColor: Colors.white,
+                      iconDisabledColor: Colors.grey,
+                      buttonHeight: 50,
+                      buttonWidth: 160,
+                      buttonPadding: const EdgeInsets.only(left: 14, right: 14),
+                      buttonDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        border: Border.all(
+                          color: Colors.black26,
+                        ),
+                        color: Colors.white54,
+                      ),
+                      buttonElevation: 2,
+                      itemHeight: 40,
+                      dropdownDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        color: Colors.orange,
+                      ),
+                      dropdownElevation: 8,
+                      scrollbarRadius: const Radius.circular(40),
+                      scrollbarThickness: 6,
+                      scrollbarAlwaysShow: true,
                     ),
-                    buttonElevation: 2,
-                    itemHeight: 40,
-                    dropdownDecoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(14),
-                      color: Colors.orange,
-                    ),
-                    dropdownElevation: 8,
-                    scrollbarRadius: const Radius.circular(40),
-                    scrollbarThickness: 6,
-                    scrollbarAlwaysShow: true,
                   ),
                 ),
               ),
+              SizedBox(
+                height: Get.height / 4,
+              ),
+              ],
             ),
-
-            SizedBox(height: MediaQuery.of(context).size.height/4,),
-          ],
-        ),
       ),
-
     );
   }
 }

@@ -9,33 +9,27 @@ class Department extends StatefulWidget {
   const Department({Key? key}) : super(key: key);
 
   @override
-
   State<Department> createState() => _DepartmentState();
 }
 
 class _DepartmentState extends State<Department> {
+  String? dropdownValue;
+  late SharedPreferences prefs;
+  final _key = 'department';
+  String select_text = 'Select from here';
 
-  SharedPreferences? logindata;
-  String? selectedValue;
-  String dept='';
-  String select_text= 'Select from here';
-
-  List<String> department = [
-    'CSE',
-    'BBA',
-    'BTHM',
-    'MBA',
-  ];
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-
+    _read(); // read in initState
   }
 
-
-
-
+  _read() async {
+    prefs = await SharedPreferences.getInstance();
+    setState(() {
+      dropdownValue = prefs.getString(_key) ?? "CSE"; // get the value
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +41,9 @@ class _DepartmentState extends State<Department> {
           children: [
             Lottie.asset(
               'assets/intro_asset/department.json',
-              height: MediaQuery.of(context).size.height / 3,
-              width: MediaQuery.of(context).size.width / 1,
+              height: Get.height / 3,
+              width: Get.width / 1,
             ),
-
             Text(
               "Select Department",
               style: TextStyle(
@@ -58,19 +51,18 @@ class _DepartmentState extends State<Department> {
                   color: Colors.white,
                   fontWeight: FontWeight.bold),
             ),
-
             Container(
-              width: MediaQuery.of(context).size.width/2,
-              height: MediaQuery.of(context).size.height/5,
+              width: Get.width / 2,
+              height: Get.height / 5,
               child: Center(
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton2(
                     isExpanded: true,
                     hint: Row(
-                      children:  [
-
+                      children: [
                         Expanded(
-                          child: Text(select_text,
+                          child: Text(
+                            select_text,
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
@@ -81,37 +73,26 @@ class _DepartmentState extends State<Department> {
                         ),
                       ],
                     ),
-                    items: department
-                        .map((item) =>
-                        DropdownMenuItem<String>(
-                          value: item,
-                          child: Text(
-                            item,
-                            style: const TextStyle(
+                    value: dropdownValue,
+                    onChanged: (String? value) {
+                      setState(() {
+                        dropdownValue = value!;
+                      });
+                      prefs.setString(_key,
+                          dropdownValue!); // save value to SharedPreference
+                    },
+                    items: ['CSE', 'BBA', 'THM', 'MBA']
+                        .map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value,
+                            style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
-                            ),
-                          ),
-                        ))
-                        .toList(),
-                    value: selectedValue,
-                    onChanged: (value) {
-                      setState(() {
-                        selectedValue = value as String;
-
-                        dept = selectedValue!;
-
-                        // if(selectedValue!.isNotEmpty){
-                        //
-                          logindata
-                              ?.setString('department', dept);
-                        // }
-
-                        print(dept);
-
-                      });
-                    },
+                            )),
+                      );
+                    }).toList(),
                     icon: const Icon(
                       Icons.arrow_forward_ios_outlined,
                     ),
@@ -143,7 +124,7 @@ class _DepartmentState extends State<Department> {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height / 4,
+              height: Get.height / 4,
             ),
           ],
         ),

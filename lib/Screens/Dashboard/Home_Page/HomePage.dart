@@ -17,6 +17,7 @@ import 'package:getwidget/getwidget.dart';
 import 'package:intl/intl.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
@@ -140,17 +141,32 @@ class _HomePageState extends State<HomePage> {
 
   final firestoreInstance = FirebaseFirestore.instance;
 
-  void _setData() async{
+   _setData() async{
+
+     SharedPreferences prefs = await SharedPreferences.getInstance();
+     // String  user_email = prefs.getString('user_email')!;
+     String user_id = prefs.getString('user_id')!;
+     String user_department = prefs.getString('department')!;
+     String user_batch = prefs.getString('batch')!;
+     String  user_section = prefs.getString('section')!;
+
     var firebaseUser = await FirebaseAuth.instance.currentUser!;
     firestoreInstance.collection("user_data").doc(firebaseUser.uid).set(
         {
-          "name" : "Farhan",
+          "name" : "$uname",
           "id" : "$uid",
           "email" : "$uemail",
+          "department":"$user_department",
+          "batch":"$user_batch",
+          "section":"$user_section",
+          "class_id":"$user_id"
+
+
         }).then((_){
       print("success!");
     });
   }
+
 
   //Firebase
 
@@ -163,8 +179,16 @@ class _HomePageState extends State<HomePage> {
     setState(() => _response = response);
   }
 
+//Shared Preference Data
+
+  //  user_email = '';
+  // String user_id = '';
+  // String user_department = '';
+  // String user_batch = '';
+  // String user_section = '';
 
 
+//Shared Preference Data
 
 
   @override

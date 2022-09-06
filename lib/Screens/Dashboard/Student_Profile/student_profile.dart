@@ -40,39 +40,16 @@ class _StudentProfileState extends State<StudentProfile> {
     setState(() {
       user_email = prefs.getString('user_email')!;
       user_id = prefs.getString('user_id')!;
-      // user_department = prefs.getString('department')!;
-      // user_batch = prefs.getString('batch')!;
-      // user_section = prefs.getString('section')!;
-
+      user_department = prefs.getString('department')!;
+      user_batch = prefs.getString('batch')!;
+      user_section = prefs.getString('section')!;
       prefs.setBool('login', true);
 
-
     });
-    print(user_email);
-    // print(user_section);
-    // print(user_department);
-    // print(user_batch);    // return user_email;
   }
 
 
 
-
-  final List<String> Batch = [
-    '17th Batch',
-    '18th Batch',
-    '19th Batch',
-    '20th Batch',
-    '21th Batch',
-    '22th Batch',
-    '23th Batch',
-    '24th Batch',
-  ];
-  final List<String> Section = [
-    'A Section',
-    'B Section',
-    'C Section',
-    'D Section',
-  ];
 
   String? selectedValue;
   String? selectedSection;
@@ -145,7 +122,7 @@ class _StudentProfileState extends State<StudentProfile> {
                                     SizedBox(
                                       height: 5,
                                     ),
-                                    Text(user_email??''
+                                    Text(user_email??'user@mail.com'
                                       ,style: TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.w200,
@@ -249,65 +226,63 @@ class _StudentProfileState extends State<StudentProfile> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        CustomDropdownButton2(
-                          scrollbarThickness: 5.0,
-                          scrollbarAlwaysShow: true,
-                          dropdownDecoration: BoxDecoration(
-                            color: Colors.orangeAccent,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          hint: 'Select Batch',
-                          dropdownItems: Batch,
-                          value: selectedValue == "" ? null : selectedValue,
-                          onChanged: (value) {
-                            setState(() {
-                              selectedValue = value;
-                            });
-                          },
+                  SizedBox(height: 10,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        alignment: Alignment.center,
+                        height: MediaQuery.of(context).size.height/18,
+                        width: MediaQuery.of(context).size.width/3.5,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.black12,
                         ),
-                        const SizedBox(
-                          width: 5,
+                        child:  Text(
+                          user_department,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontWeight: FontWeight.w700, fontSize: 16),
                         ),
-                        CustomDropdownButton2(
-                          dropdownDecoration: BoxDecoration(
-                            color: Colors.orangeAccent,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          hint: 'Section',
-                          dropdownItems: Section,
-                          value: selectedSection == "" ? null : selectedSection,
-                          onChanged: (value) {
-                            setState(() {
-                              selectedSection = value;
-                            });
-                          },
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        height: MediaQuery.of(context).size.height/18,
+                        width: MediaQuery.of(context).size.width/3.5,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.black12,
                         ),
-                        const SizedBox(
-                          width: 5,
+                        child:  Text(
+                          user_section,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontWeight: FontWeight.w700, fontSize: 16),
                         ),
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          height: MediaQuery.of(context).size.height/18,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            color: Colors.black12,
-                          ),
-                          child:  Padding(
-                            padding: EdgeInsets.only(left: 10),
-                            child: Text(
-                              user_id,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w300, fontSize: 16),
-                            ),
-                          ),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        height: MediaQuery.of(context).size.height/18,
+                        width: MediaQuery.of(context).size.width/3.5,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.black12,
                         ),
-                      ],
-                    ),
+                        child:  Text(
+                          user_id,
+                          textAlign: TextAlign.center,
+
+                          style: TextStyle(
+                              fontWeight: FontWeight.w700, fontSize: 16),
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 20,
@@ -320,7 +295,7 @@ class _StudentProfileState extends State<StudentProfile> {
                           child: Column(
                             children: [
                               const Text(
-                                'Midterm',
+                                'Mid-Term',
                                 style: TextStyle(fontSize: 18),
                               ),
                               const SizedBox(
@@ -406,7 +381,7 @@ class _StudentProfileState extends State<StudentProfile> {
                           child: Column(
                             children: [
                               const Text(
-                                'AVG(CGPA)',
+                                'AVG (CGPA)',
                                 style: TextStyle(fontSize: 18),
                               ),
                               const SizedBox(

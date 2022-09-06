@@ -5,7 +5,6 @@ import 'package:diit_portal/Screens/IntroScreen/is3_section.dart';
 import 'package:diit_portal/Screens/IntroScreen/is4_welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 
 
@@ -27,12 +26,6 @@ class _Introscreen_StartState extends State<Introscreen_Start> {
   bool LastPage = false;
 
 
-  String user_email='';
-  String user_id='';
-  String user_department='';
-  String user_batch='';
-  String user_section='';
-
 
   @override
   void initState() {
@@ -41,26 +34,6 @@ class _Introscreen_StartState extends State<Introscreen_Start> {
   }
 
 
-  getUserData() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      user_email = prefs.getString('user_email')!;
-      user_id = prefs.getString('user_id')!;
-      user_department = prefs.getString('department')!;
-      user_batch = prefs.getString('batch')!;
-      user_section = prefs.getString('section')!;
-
-      print(user_id);
-      print(user_email);
-      print(user_department);
-      print(user_batch);
-      print(user_section);
-
-
-
-
-    });
-  }
 
 
 
@@ -79,8 +52,8 @@ class _Introscreen_StartState extends State<Introscreen_Start> {
            },
            children: [
              Department(),
-             IntroScreen1(),
-             IntroPage2(),
+             Batch(),
+             Section(),
              IntroPage3(),
 
            ],
@@ -92,9 +65,9 @@ class _Introscreen_StartState extends State<Introscreen_Start> {
               children: [
                 
                 SmoothPageIndicator(
-                  effect:JumpingDotEffect(
-                    activeDotColor: Colors.white,
-                  ),
+                   // effect:JumpingDotEffect(
+                   //   activeDotColor: Colors.white,
+                   // ),
 
                     controller: _controller, count: 4),
 
@@ -102,7 +75,6 @@ class _Introscreen_StartState extends State<Introscreen_Start> {
                      onTap: (){
                       // Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
                        Get.offAndToNamed('/DashBoard');
-                       getUserData();
 
 
                      },
@@ -111,6 +83,11 @@ class _Introscreen_StartState extends State<Introscreen_Start> {
                      onTap: (){
                        _controller.nextPage(duration: Duration(milliseconds: 500),
                            curve:Curves.easeIn );
+                           // .then((value){
+                           //   setState(() {
+                           //
+                           //   });
+                      // });
                      },
                      child:Icon(Icons.keyboard_double_arrow_right,color: Colors.white,size: 30,),
                 )
