@@ -41,8 +41,8 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
                             elevation: 3,
                             shadowColor: Colors.orange,
                             child: Container(
-                              height: MediaQuery.of(context).size.height/8,
-                              width: MediaQuery.of(context).size.width,
+                              height: Get.height/8,
+                              width: Get.width,
                               color:  Color(0xffCCBDBD),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,

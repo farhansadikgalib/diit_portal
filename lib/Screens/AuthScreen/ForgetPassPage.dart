@@ -1,3 +1,4 @@
+import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -47,14 +48,14 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(1, 60, 88, 1),
+        backgroundColor: ColorChanger.scaffoldcolor,
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.lightGreen),
           onPressed: () => Get.back(),
         ),
       ),
-      backgroundColor: const Color.fromRGBO(1, 60, 88, 1),
+      backgroundColor:ColorChanger.scaffoldcolor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,

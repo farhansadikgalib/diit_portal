@@ -35,8 +35,8 @@ class _ExamState extends State<Exam> {
                 children: [
                   Image.asset(
                     "assets/exammark.png",
-                    height: MediaQuery.of(context).size.height / 8.2,
-                    width: MediaQuery.of(context).size.width / 3,
+                    height: Get.height / 8.2,
+                    width: Get.width / 3,
                   ),
                   const SizedBox(
                     height: 10,

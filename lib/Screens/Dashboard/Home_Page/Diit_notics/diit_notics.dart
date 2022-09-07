@@ -17,8 +17,8 @@ class _DiitNoticsState extends State<DiitNotics> {
     return Scaffold(
      backgroundColor: ColorChanger.scaffoldcolor,
       body:  GlassContainer(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
+        height: Get.height,
+        width: Get.width,
         gradient: LinearGradient(
           colors: [
             Colors.white70.withOpacity(0.35),

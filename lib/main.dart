@@ -1,5 +1,6 @@
 import 'package:diit_portal/Screens/AuthScreen/ForgetPassPage.dart';
 import 'package:diit_portal/Screens/AuthScreen/LoginPage.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Academic_result/academic_result.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Student_attendance_view/student_attendance_detailes.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Student_attendance_view/student_course_%20attendanceview.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/course_selecta_attendence.dart';
@@ -140,6 +141,7 @@ class MyApp extends StatelessWidget {
             GetPage(name: '/QuickPayment', page: () =>  QuickPayment()),
             GetPage(name: '/NU_Portal', page: () =>  NU_Portal()),
             GetPage(name: '/TutionFees', page: () =>  TutionFees()),
+            GetPage(name: '/AcademicResult', page: () =>  AcademicResult()),
             GetPage(name: '/DiitNotics', page: () =>  DiitNotics()),
             GetPage(name: '/NoticsDetails', page: () =>  NoticsDetails()),
             GetPage(name: '/Community', page: () =>  Community()),

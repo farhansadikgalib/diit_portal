@@ -20,8 +20,8 @@ class _SubjectDetailsState extends State<SubjectDetails> {
           mainAxisAlignment: MainAxisAlignment.center,
            children: [
              GlassContainer(
-               height: MediaQuery.of(context).size.height/3,
-               width: MediaQuery.of(context).size.width,
+               height:Get.height/3,
+               width: Get.width,
                gradient: LinearGradient(
                  colors: [
                    Colors.white70.withOpacity(0.35),

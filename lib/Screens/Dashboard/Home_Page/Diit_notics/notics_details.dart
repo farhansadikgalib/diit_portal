@@ -1,5 +1,6 @@
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:glass_kit/glass_kit.dart';
 
 class NoticsDetails extends StatefulWidget {
@@ -16,8 +17,8 @@ class _NoticsDetailsState extends State<NoticsDetails> {
     return Scaffold(
      backgroundColor: ColorChanger.scaffoldcolor,
       body:  GlassContainer(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
+          height: Get.height,
+          width: Get.width,
           gradient: LinearGradient(
             colors: [
               Colors.white70.withOpacity(0.35),

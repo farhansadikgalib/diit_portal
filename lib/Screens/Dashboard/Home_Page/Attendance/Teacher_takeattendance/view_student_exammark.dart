@@ -51,7 +51,7 @@ class _exam_marksState extends State<exam_marks> {
                       title: Text(data[index]['Name']),
                       subtitle: Text(data[index]['Id']),
                       trailing: Container(
-                        height: MediaQuery.of(context).size.height/1,
+                        height: Get.height/1,
                         width: 120,
                         child: Card(
                           color: Colors.black12,

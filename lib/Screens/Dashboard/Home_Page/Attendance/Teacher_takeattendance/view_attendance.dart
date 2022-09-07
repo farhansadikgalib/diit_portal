@@ -48,8 +48,8 @@ class _TeacherViewAttendanceState extends State<TeacherViewAttendance> {
                            mainAxisAlignment: MainAxisAlignment.center,
                            children: [
                                    Image.asset("assets/attendance_ic.png",
-                                     height: MediaQuery.of(context).size.height/10,
-                                     width: MediaQuery.of(context).size.width/2,
+                                     height: Get.height/10,
+                                     width: Get.width/2,
                                    ),
                              SizedBox(height: 10,),
                                Text(subname[index],style: TextStyle(fontSize: 18,color: Colors.black45,fontWeight: FontWeight.bold),)

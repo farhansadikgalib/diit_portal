@@ -143,7 +143,7 @@ dependencies:
   # call
   flutter_phone_direct_caller: ^2.1.1
 
-
+  intro_screen_onboarding_flutter: ^1.0.0
 
 #  flutter_document_picker: ^5.1.0
 #  pdf_viewer_plugin: ^2.0.1
@@ -185,6 +185,9 @@ dependencies:
   #flutter_expandable
   flutter_expandable: ^1.0.0
   #flutter_expandable
+
+
+
 
 flutter_icons:
   image_path: "assets/icon/portal_logo.png"

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
@@ -13,6 +14,8 @@ class AcademicResult extends StatefulWidget {
 
 class _AcademicResultState extends State<AcademicResult> {
 
+
+  CollectionReference users = FirebaseFirestore.instance.collection('users');
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -29,7 +32,10 @@ class _AcademicResultState extends State<AcademicResult> {
                    child: Text('Academic Result',
                      style:TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 25),),
                  ),
-               )
+               ),
+
+
+
              ],
            ),
          ),

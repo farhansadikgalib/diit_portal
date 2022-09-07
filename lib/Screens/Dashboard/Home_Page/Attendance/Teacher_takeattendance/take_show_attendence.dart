@@ -48,8 +48,8 @@ class TakeandShowAttendence extends StatelessWidget {
                 // ),
 
                 SizedBox(
-                  height: MediaQuery.of(context).size.height/5,
-                  width: MediaQuery.of(context).size.width/2.30,
+                  height: Get.height/5,
+                  width: Get.width/2.30,
                   child: NeumorphicButton(
                     onPressed: ()=>Get.toNamed('/TeacherAttendance'),
                     style: NeumorphicStyle(
