@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:diit_portal/BinaryClock/Clock.dart';
 import 'package:diit_portal/Screens/Dashboard/Notification/Notification_Service.dart';
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:diit_portal/Screens/Weather/data_service.dart';
@@ -18,7 +17,6 @@ import 'package:intl/intl.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -34,6 +32,7 @@ class _HomePageState extends State<HomePage> {
     weatherService();
     intitPlatformState();
     getWeather();
+    getFirebaseUserDataInLocally();
     initFirestoreData();
     FCM();
     getCurrentUser();
@@ -126,30 +125,30 @@ class _HomePageState extends State<HomePage> {
         .doc('Saturday')
         .collection('ClassList');
 
-}
+  }
 
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   var uid,uemail,uname ;
   getCurrentUser() async {
     final User? user = _auth.currentUser;
-     uid = user!.uid;
-     uemail = user.email;
-      // uname = user.displayName;
+    uid = user!.uid;
+    uemail = user.email;
+    // uname = user.displayName;
     print(uid);
     print(uemail);
   }
 
   final firestoreInstance = FirebaseFirestore.instance;
 
-   _setUserData() async{
-     SharedPreferences prefs = await SharedPreferences.getInstance();
+  _setUserData() async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
 
-     // String  user_email = prefs.getString('user_email')!;
-      user_id = prefs.getString('user_id')!;
-      user_department = prefs.getString('department')!;
-      user_batch = prefs.getString('batch')!;
-      user_section = prefs.getString('section')!;
+    // String  user_email = prefs.getString('user_email')!;
+    user_id = prefs.getString('user_id')!;
+    user_department = prefs.getString('department')!;
+    user_batch = prefs.getString('batch')!;
+    user_section = prefs.getString('section')!;
 
     var firebaseUser = await FirebaseAuth.instance.currentUser!;
     firestoreInstance.collection("user_data").doc(firebaseUser.uid).set(
@@ -161,7 +160,6 @@ class _HomePageState extends State<HomePage> {
           "batch":"$user_batch",
           "section":"$user_section",
           "class_id":"$user_id"
-
 
         }).then((_){
       print("success!");
@@ -187,8 +185,35 @@ class _HomePageState extends State<HomePage> {
   String user_batch = '';
   String user_section = '';
 
-  _sharedPreferencesGetData()async{
+  // _sharedPreferencesGetData()async{
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  // }
+
+
+  getFirebaseUserDataInLocally()async{
+    var firebaseUser = await FirebaseAuth.instance.currentUser!;
+
+    final snapshot = await FirebaseFirestore.instance
+        .collection('user_data').doc(firebaseUser.uid).get();
+    // print( snapshot['id']);
+    print(snapshot['batch']);
+    print(snapshot['department']);
+    print(snapshot['section']);
+
+    String department = snapshot['department'];
+    String batch = snapshot['batch'];
+    String section = snapshot['section'];
+
     SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    prefs.setString('department', department);
+    prefs.setString('batch', batch);
+    prefs.setString('section', section);
+
+    print(section);
+
+
+
   }
 
 
@@ -205,7 +230,7 @@ class _HomePageState extends State<HomePage> {
         if (snapshot.hasData) {
           return SafeArea(
             child: Scaffold(
-               backgroundColor:  ColorChanger.scaffoldcolor,
+              backgroundColor:  ColorChanger.scaffoldcolor,
               body: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Padding(
@@ -235,7 +260,7 @@ class _HomePageState extends State<HomePage> {
                                   children: <Widget>[
                                     Padding(
                                       padding:
-                                          EdgeInsets.only(top: 8, left: 15),
+                                      EdgeInsets.only(top: 8, left: 15),
                                       child: Text(
                                         '${_response?.weatherInfo.description.toUpperCase()}',
                                         style: const TextStyle(
@@ -249,7 +274,7 @@ class _HomePageState extends State<HomePage> {
                                       children: <Widget>[
                                         Padding(
                                           padding:
-                                              EdgeInsets.only(top: 8, left: 15),
+                                          EdgeInsets.only(top: 8, left: 15),
                                           child: Text(
                                             "Max Temp".toUpperCase(),
                                             style: const TextStyle(
@@ -263,7 +288,7 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsets.only(top: 8, left: 15),
+                                          EdgeInsets.only(top: 8, left: 15),
                                           child: Text(
                                             max != null
                                                 ? "${max.ceil()+3}° C"
@@ -280,7 +305,7 @@ class _HomePageState extends State<HomePage> {
                                       children: <Widget>[
                                         Padding(
                                           padding:
-                                              EdgeInsets.only(top: 8, left: 15),
+                                          EdgeInsets.only(top: 8, left: 15),
                                           child: Text(
                                             "min temp  ".toUpperCase(),
                                             style: const TextStyle(
@@ -294,7 +319,7 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsets.only(top: 8, left: 15),
+                                          EdgeInsets.only(top: 8, left: 15),
                                           child: Text(
                                             min != null
                                                 ? "${min.ceil()-2}° C"
@@ -341,7 +366,7 @@ class _HomePageState extends State<HomePage> {
                                       children: <Widget>[
                                         Padding(
                                           padding:
-                                              EdgeInsets.only(top: 8, left: 15),
+                                          EdgeInsets.only(top: 8, left: 15),
                                           child: Text(
                                             'Today’s  Date'.toUpperCase(),
                                             style:  TextStyle(
@@ -355,7 +380,7 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsets.only(top: 8, left: 11),
+                                          EdgeInsets.only(top: 8, left: 11),
                                           child: Text(
                                             '$todaysDate',
                                             style: const TextStyle(
@@ -470,7 +495,7 @@ class _HomePageState extends State<HomePage> {
                         child: GFCarousel(
                           autoPlay: true,
                           items: imageList.map(
-                            (url) {
+                                (url) {
                               return Container(
                                 margin: const EdgeInsets.only(
                                     left: 5, right: 5, top: 5, bottom: 10),
@@ -505,7 +530,7 @@ class _HomePageState extends State<HomePage> {
                                     Get.toNamed('/StudentDashBoard');
                                   },
                                   style: NeumorphicStyle(
-                                      // shape: NeumorphicShape.concave,
+                                    // shape: NeumorphicShape.concave,
                                       boxShape: NeumorphicBoxShape.roundRect(
                                           BorderRadius.circular(12)),
                                       depth: 1,
@@ -513,12 +538,12 @@ class _HomePageState extends State<HomePage> {
                                       color: Colors.white),
                                   child: const Center(
                                       child: Text(
-                                    "STUDENT PROTAL",
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        color: Colors.black45,
-                                        fontWeight: FontWeight.bold),
-                                  )),
+                                        "STUDENT PROTAL",
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.black45,
+                                            fontWeight: FontWeight.bold),
+                                      )),
                                 ),
                               ),
                               SizedBox(
@@ -534,16 +559,16 @@ class _HomePageState extends State<HomePage> {
                                       boxShape: NeumorphicBoxShape.roundRect(
                                           BorderRadius.circular(12)),
                                       depth: 1,
-                                       lightSource: LightSource.topLeft,
+                                      lightSource: LightSource.topLeft,
                                       color: Colors.white),
                                   child: const Center(
                                       child: Text(
-                                    "TUTION FEES",
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        color: Colors.black45,
-                                        fontWeight: FontWeight.bold),
-                                  )),
+                                        "TUTION FEES",
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.black45,
+                                            fontWeight: FontWeight.bold),
+                                      )),
                                 ),
                               ),
                               SizedBox(
@@ -564,12 +589,12 @@ class _HomePageState extends State<HomePage> {
                                       color: Colors.white),
                                   child: const Center(
                                       child: Text(
-                                    "FACULTY MEMBER",
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        color: Colors.black45,
-                                        fontWeight: FontWeight.bold),
-                                  )),
+                                        "FACULTY MEMBER",
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.black45,
+                                            fontWeight: FontWeight.bold),
+                                      )),
                                 ),
                               ),
                               SizedBox(
@@ -591,12 +616,12 @@ class _HomePageState extends State<HomePage> {
                                       color: Colors.white),
                                   child: const Center(
                                       child: Text(
-                                    "ACADEMIC RESULT",
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        color: Colors.black45,
-                                        fontWeight: FontWeight.bold),
-                                  )),
+                                        "ACADEMIC RESULT",
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.black45,
+                                            fontWeight: FontWeight.bold),
+                                      )),
                                 ),
                               ),
                               SizedBox(
@@ -618,12 +643,12 @@ class _HomePageState extends State<HomePage> {
                                       color: Colors.white),
                                   child: const Center(
                                       child: Text(
-                                    "NU PROTAL",
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        color: Colors.black45,
-                                        fontWeight: FontWeight.bold),
-                                  )),
+                                        "NU PROTAL",
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.black45,
+                                            fontWeight: FontWeight.bold),
+                                      )),
                                 ),
                               ),
                               SizedBox(
@@ -643,12 +668,12 @@ class _HomePageState extends State<HomePage> {
                                       color: Colors.white),
                                   child: const Center(
                                       child: Text(
-                                    "DIIT NOTICS",
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        color: Colors.black45,
-                                        fontWeight: FontWeight.bold),
-                                  )),
+                                        "DIIT NOTICS",
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.black45,
+                                            fontWeight: FontWeight.bold),
+                                      )),
                                 ),
                               ),
 
@@ -684,11 +709,11 @@ class _HomePageState extends State<HomePage> {
                                       Image.asset(
                                         "assets/ic_questionbank.png",
                                         height:
-                                            MediaQuery.of(context).size.height /
-                                                8.7,
+                                        MediaQuery.of(context).size.height /
+                                            8.7,
                                         width:
-                                            MediaQuery.of(context).size.width /
-                                                3,
+                                        MediaQuery.of(context).size.width /
+                                            3,
                                       ),
                                       SizedBox(
                                         height: 10.h,
@@ -734,11 +759,11 @@ class _HomePageState extends State<HomePage> {
                                       Image.asset(
                                         "assets/ic_routine.png",
                                         height:
-                                            MediaQuery.of(context).size.height /
-                                                8.2,
+                                        MediaQuery.of(context).size.height /
+                                            8.2,
                                         width:
-                                            MediaQuery.of(context).size.width /
-                                                3,
+                                        MediaQuery.of(context).size.width /
+                                            3,
                                       ),
                                       SizedBox(
                                         height: 10.h,
@@ -783,7 +808,7 @@ class _HomePageState extends State<HomePage> {
                                 Image.asset(
                                   "assets/ic_club.png",
                                   height:
-                                      MediaQuery.of(context).size.height / 8.2,
+                                  MediaQuery.of(context).size.height / 8.2,
                                   width: MediaQuery.of(context).size.width / 3,
                                 ),
                                 SizedBox(
@@ -825,11 +850,11 @@ class _HomePageState extends State<HomePage> {
                                       Image.asset(
                                         "assets/ic_attendance.png",
                                         height:
-                                            MediaQuery.of(context).size.height /
-                                                8.2,
+                                        MediaQuery.of(context).size.height /
+                                            8.2,
                                         width:
-                                            MediaQuery.of(context).size.width /
-                                                3,
+                                        MediaQuery.of(context).size.width /
+                                            3,
                                       ),
                                       SizedBox(
                                         height: 10.h,
@@ -930,7 +955,7 @@ class _HomePageState extends State<HomePage> {
                                       SizedBox(
                                         height: 10.h,
                                       ),
-                                       Text(
+                                      Text(
                                         "Community",
                                         style: TextStyle(
                                             fontFamily: "Poppins",
