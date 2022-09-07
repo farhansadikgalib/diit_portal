@@ -67,8 +67,8 @@ class QuestionBank extends StatelessWidget {
                   // ),
 
                   SizedBox(
-                    height: MediaQuery.of(context).size.height/4.6,
-                    width: MediaQuery.of(context).size.width/2.50,
+                    height: Get.height/4.6,
+                    width: Get.width/2.50,
                     child: NeumorphicButton(
                       onPressed: () => Get.toNamed('/CseDepertment'),
                       style: NeumorphicStyle(

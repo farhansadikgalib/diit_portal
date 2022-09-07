@@ -33,8 +33,8 @@ class _ExamTypeState extends State<ExamType> {
           SizedBox(height: 50,),
 
                 SizedBox(
-                  height: MediaQuery.of(context).size.height / 5,
-                  width: MediaQuery.of(context).size.width / 2.30,
+                  height: Get.height / 5,
+                  width: Get.width / 2.30,
                   child: NeumorphicButton(
                     onPressed: () => Get.toNamed('/exam_marks'),
                     style: NeumorphicStyle(

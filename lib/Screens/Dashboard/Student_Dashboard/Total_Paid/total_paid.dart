@@ -1,5 +1,6 @@
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TOTALPAID extends StatefulWidget {
   const TOTALPAID({Key? key}) : super(key: key);
@@ -15,8 +16,8 @@ class _TOTALPAIDState extends State<TOTALPAID> {
       backgroundColor: ColorChanger.scaffoldcolor,
       body: ListView.builder(itemBuilder: (context,index){
         return Container(
-          height: MediaQuery.of(context).size.height/10,
-          width: MediaQuery.of(context).size.width/1,
+          height: Get.height/10,
+          width: Get.width/1,
 
           child: Card(
             color: Colors.white,

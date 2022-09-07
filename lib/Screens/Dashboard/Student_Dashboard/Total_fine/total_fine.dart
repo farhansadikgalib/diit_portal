@@ -1,5 +1,6 @@
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:glass_kit/glass_kit.dart';
 
 class TOTALFINE extends StatefulWidget {
@@ -18,8 +19,8 @@ class _TOTALFINEState extends State<TOTALFINE> {
         body:
 
         GlassContainer(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
+          height: Get.height,
+          width: Get.width,
           gradient: LinearGradient(
             colors: [
               Colors.white70.withOpacity(0.35),

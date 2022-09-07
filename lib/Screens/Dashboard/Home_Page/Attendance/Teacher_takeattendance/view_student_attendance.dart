@@ -53,7 +53,7 @@ class _ViewStudentAttendanceState extends State<ViewStudentAttendance> {
                        elevation: 3,
                        shadowColor: Colors.orange,
                        child: Container(
-                         height: MediaQuery.of(context).size.height/8,
+                         height: Get.height/8,
                          width: MediaQuery.of(context).size.width,
                          color:  Color(0xffCCBDBD),
                          child: Column(

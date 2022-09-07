@@ -100,7 +100,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                 padding:  EdgeInsets.only(top: 20, left: 10, right: 10),
                 child: Container(
                   height: 150,
-                  width: MediaQuery.of(context).size.width,
+                  width: Get.width,
                   decoration: const BoxDecoration(
                       color: Color(0xffc2caec),
                       borderRadius: BorderRadius.all(Radius.circular(20))),
@@ -156,8 +156,8 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                   // ),
 
                   SizedBox(
-                    height: MediaQuery.of(context).size.height / 5,
-                    width: MediaQuery.of(context).size.width / 2.30,
+                    height: Get.height / 5,
+                    width: Get.width / 2.30,
                     child: NeumorphicButton(
                       onPressed: () => Get.toNamed('/SelectCourceAttendence'),
                       style: NeumorphicStyle(
@@ -172,8 +172,8 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                         children: [
                           Image.asset(
                             "assets/ic_attendance.png",
-                            height: MediaQuery.of(context).size.height / 8.2,
-                            width: MediaQuery.of(context).size.width / 3,
+                            height: Get.height / 8.2,
+                            width: Get.width / 3,
                           ),
                           const SizedBox(
                             height: 10,
@@ -216,8 +216,8 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                   // ),
 
                   SizedBox(
-                    height: MediaQuery.of(context).size.height / 5,
-                    width: MediaQuery.of(context).size.width / 2.30,
+                    height: Get.height / 5,
+                    width: Get.width / 2.30,
                     child: NeumorphicButton(
                       onPressed: () => Get.toNamed('/TeacherViewAttendance'),
                       style: NeumorphicStyle(
@@ -232,8 +232,8 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                         children: [
                           Image.asset(
                             "assets/viewattendence.png",
-                            height: MediaQuery.of(context).size.height / 8.2,
-                            width: MediaQuery.of(context).size.width / 3,
+                            height: Get.height / 8.2,
+                            width: Get.width / 3,
                             color: Colors.orangeAccent,
                           ),
                           const SizedBox(
@@ -255,8 +255,8 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
               ),
               SizedBox(height: 15,),
               SizedBox(
-                height: MediaQuery.of(context).size.height / 5,
-                width: MediaQuery.of(context).size.width / 2.30,
+                height: Get.height / 5,
+                width: Get.width / 2.30,
                 child: NeumorphicButton(
                   onPressed: () => Get.toNamed('/Exam_Course'),
                   style: NeumorphicStyle(
@@ -271,8 +271,8 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                     children: [
                       Image.asset(
                         "assets/exammark.png",
-                        height: MediaQuery.of(context).size.height / 8.2,
-                        width: MediaQuery.of(context).size.width / 3,
+                        height: Get.height / 8.2,
+                        width: Get.width / 3,
                       ),
                       const SizedBox(
                         height: 10,
@@ -350,7 +350,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                     color: Colors.white24,
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height / 22,
+                    height: Get.height / 22,
                     width: double.infinity,
                     child: InkWell(
                       onTap: () {},
@@ -378,7 +378,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                     color: Colors.white24,
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height / 22,
+                    height: Get.height / 22,
                     width: double.infinity,
                     child: InkWell(
                       onTap: () {},
@@ -406,7 +406,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                     color: Colors.white24,
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height / 22,
+                    height: Get.height / 22,
                     width: double.infinity,
                     child: InkWell(
                       onTap: () => _signOut(),
