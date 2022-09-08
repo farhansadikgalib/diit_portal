@@ -1,91 +1,139 @@
+import 'dart:math';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
-import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:multi_charts/multi_charts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-class StudentDashBoard extends StatefulWidget {
+class StudentPortal extends StatefulWidget {
   @override
-  State<StudentDashBoard> createState() => _StudentDashBoardState();
+  State<StudentPortal> createState() => _StudentPortalState();
 }
 
-class _StudentDashBoardState extends State<StudentDashBoard> {
-  // late DatabaseReference ref = FirebaseDatabase.instance.ref();
-  late SharedPreferences logindata;
-  late String email;
-  late String id;
-  late String batch;
-  String? Payable, Paid, Due, Fine;
+class _StudentPortalState extends State<StudentPortal> {
+   String? payable, paid, due, fine;
+    double _payable=90, _paid=500, _due=700, _fine=900;
+    double total=0,_payablePersantage=0,_paidPersantage=0,_duePersantage=0,_finePersantage=0;
 
-  // reference().child('Student').child('batch17').child('170001');
+   double roundDouble(double value, int places){
+     num mod = pow(10.0, places);
+     return ((value * mod).round().toDouble() / mod);
+   }
+
+
+   // reference().child('Student').child('batch17').child('170001');
   @override
   void initState() {
-    // userData();
+    getFirebaseUserData();
   }
-  //
-  // userData() async {
-  //   logindata = await SharedPreferences.getInstance();
-  //   email = logindata.getString('user_email')!;
-  //   id = logindata.getString('user_id')!;
-  //
-  //   batch= id.substring(0,2);
-  //
-  //   print(id);
-  //   print(batch);
-  //   print(email);
-  //   getFirebaseData();
-  // }
-  //
-  // getFirebaseData() {
-  //     ref
-  //       .child('Student')
-  //       .child('batch'+batch)
-  //       .child(id).child('payment')
-  //       .once()
-  //       .then((DatabaseEvent databaseEvent) {
-  //     print(databaseEvent.snapshot.value.toString());
-  //
-  //
-  //     Due= databaseEvent.snapshot.value! as String?;
-  //
-  //   });
-  // }
 
-  @override
-  Widget build(BuildContext context) {
+  final firestoreInstance = FirebaseFirestore.instance;
+
+
+  _setStudent_Portal_info() async{
+
+
+    var firebaseUser = await FirebaseAuth.instance.currentUser!;
+    firestoreInstance.collection("user_data").doc(firebaseUser.uid).collection('Student_Information').doc('Portal_Info').set(
+        {
+          "payable" : "",
+          "paid" : "",
+          "due" : "",
+          "fine" : "",
+
+        }).then((_){
+      print("database created!");
+    });
+  }
+
+   getFirebaseUserData() async {
+     var firebaseUser = await FirebaseAuth.instance.currentUser!;
+     final snapshot = await FirebaseFirestore.instance
+         .collection('user_data')
+         .doc(firebaseUser.uid).collection('Student_Information').doc('Portal_Info')
+         .get();
+
+     if(snapshot.exists){
+
+       payable = snapshot['payable'];
+       paid = snapshot['paid'];
+       due = snapshot['due'];
+       fine = snapshot['fine'];
+
+        _payable = double.parse(payable!);
+       _paid = double.parse(paid!);
+       _due = double.parse(due!);
+       _fine = double.parse(fine!);
+
+       //Persantage Calculation
+        total = _payable+_paid+_due+_fine;
+        _payablePersantage = roundDouble(((_payable/total)*100), 2);
+        _paidPersantage = roundDouble((_paid/total)*100, 2);
+        _duePersantage = roundDouble((_due/total)*100, 2);
+        _finePersantage = roundDouble((_fine/total)*100, 2);
+       //Persantage Calculation
+
+
+
+
+
+
+       print(_payablePersantage);
+       print(_paidPersantage);
+
+
+
+       // print(_due);
+     }else{
+       _setStudent_Portal_info();
+       print('database is not created');
+     }
+
+
+   }
+
+
+   CollectionReference ref = FirebaseFirestore.instance
+       .collection('user_data')
+       .doc(FirebaseAuth.instance.currentUser!.uid).collection('Student_Information');
+
+   @override
+   Widget build(BuildContext context) {
+     return FutureBuilder<QuerySnapshot>(
+         future: ref.get(),
+     builder: (context, snapshot) {
+     if (snapshot.hasData) {
     return Scaffold(
       backgroundColor: ColorChanger.scaffoldcolor,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 50),
-              child: SizedBox(
-                height: 300,
-                width: 300,
-                child: PieChart(
-                  values: [15, 75, 5, 5],
-                  labels: [
-                    "Payable",
-
-                    "Paid",
-                    "Due",
-                    "Fine",
-                  ],
-                  legendTextColor: Colors.white,
-                  sliceFillColors: [
-                    Color(0xffCDC845),
-                    Color(0xff81E85E),
-                    Color(0xff5DD8D0),
-                    Color(0xbc4fa4cd),
-                  ],
-                  animationDuration: Duration(milliseconds: 2000),
-                  legendPosition: LegendPosition.Right,
-                ),
-              ),
-            ),
+             SizedBox(
+               height: 300,
+               width: Get.width,
+               child: PieChart(
+                 values: [_payablePersantage, _paidPersantage, _duePersantage, _finePersantage],
+                 labels: [
+                   "Payable",
+                   "Paid",
+                   "Due",
+                   "Fine",
+                 ],
+                 legendTextColor: Colors.white,
+                 sliceFillColors: [
+                   Color(0xffCDC845),
+                   Color(0xff81E85E),
+                   Color(0xff5DD8D0),
+                   Color(0xbc4fa4cd),
+                 ],
+                 animationDuration: Duration(milliseconds: 2000),
+                 legendPosition: LegendPosition.Bottom,
+                 legendTextSize: 14,
+               ),
+             ),
             Padding(
               padding: const EdgeInsets.only(right: 10, left: 10),
               child: Column(
@@ -104,9 +152,9 @@ class _StudentDashBoardState extends State<StudentDashBoard> {
                           flex: 2,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
+                            children:  [
                               Text(
-                                '2,80,000/-',
+                                payable??'285000'+'/-',
                                 style: TextStyle(
                                     fontSize: 30,
                                     fontWeight: FontWeight.w500,
@@ -148,9 +196,9 @@ class _StudentDashBoardState extends State<StudentDashBoard> {
                             flex: 2,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
+                              children:  [
                                 Text(
-                                  '2,00,000/-',
+                                  paid??'75000'+'/-',
                                   style: TextStyle(
                                       fontSize: 30,
                                       fontWeight: FontWeight.w500,
@@ -193,9 +241,9 @@ class _StudentDashBoardState extends State<StudentDashBoard> {
                          flex: 2,
                          child: Column(
                            mainAxisAlignment: MainAxisAlignment.center,
-                           children: const [
+                           children:  [
                              Text(
-                               '80,000/-',
+                               due??'85000'+'/-',
                                style: TextStyle(
                                    fontSize: 30,
                                    fontWeight: FontWeight.w500,
@@ -238,9 +286,10 @@ class _StudentDashBoardState extends State<StudentDashBoard> {
                             flex: 2,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
+                              children:  [
                                 Text(
-                                  '0/-',
+                              fine??'3000'+'/-'
+                                  ,
                                   style: TextStyle(
                                       fontSize: 30,
                                       fontWeight: FontWeight.w500,
@@ -274,5 +323,14 @@ class _StudentDashBoardState extends State<StudentDashBoard> {
         ),
       ),
     );
-  }
+  }else {
+       return Center(
+         child: SizedBox(),
+       );
+     }
+     },
+     );
+   }
+
+//   Scaffold(
 }

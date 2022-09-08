@@ -16,7 +16,6 @@ class StudentProfile extends StatefulWidget {
 }
 
 class _StudentProfileState extends State<StudentProfile> {
-  // SharedPreferences? logindata;
   String user_email = '';
   String user_id = '';
   String user_department = '';

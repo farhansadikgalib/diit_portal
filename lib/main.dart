@@ -44,10 +44,12 @@ import 'package:diit_portal/Screens/Dashboard/Home_Page/quick_pay/QuickPayment.d
 import 'package:diit_portal/Screens/Dashboard/Dashboard.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Student_attendance_view/student_attendanceview_login.dart';
 import 'package:diit_portal/Screens/Dashboard/Notification/All_Notification.dart';
-import 'package:diit_portal/Screens/Dashboard/Student_Dashboard/Total_Paid/total_paid.dart';
-import 'package:diit_portal/Screens/Dashboard/Student_Dashboard/Total_due/total_due.dart';
-import 'package:diit_portal/Screens/Dashboard/Student_Dashboard/Total_fine/total_fine.dart';
-import 'package:diit_portal/Screens/Dashboard/Student_Dashboard/student_dashboard.dart';
+import 'package:diit_portal/Screens/Dashboard/Student_Portal/Total_Paid/total_paid.dart';
+import 'package:diit_portal/Screens/Dashboard/Student_Portal/Total_due/total_due.dart';
+
+
+import 'package:diit_portal/Screens/Dashboard/Student_Portal/Total_fine/total_fine.dart';
+import 'package:diit_portal/Screens/Dashboard/Student_Portal/Student_Portal.dart';
 import 'package:diit_portal/Screens/Dashboard/Student_Profile/student_profile.dart';
 import 'package:diit_portal/Screens/IntroScreen/IntroScreen_Start.dart';
 import 'package:diit_portal/Screens/NoInternet/NoInternetConnection.dart';
@@ -58,6 +60,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+
 
 
 void main() async {
@@ -128,7 +131,7 @@ class MyApp extends StatelessWidget {
             // home page close //
 
             // Student Dashboard//
-            GetPage(name: '/StudentDashBoard', page: () => StudentDashBoard()),
+            GetPage(name: '/StudentDashBoard', page: () => StudentPortal()),
             GetPage(name: '/TOTALPAID', page: () => TOTALPAID()),
             GetPage(name: '/TOTALDUE', page: () => TOTALDUE()),
             GetPage(name: '/TOTALFINE', page: () => TOTALFINE()),

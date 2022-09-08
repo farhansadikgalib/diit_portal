@@ -1,10 +1,12 @@
 
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:diit_portal/Screens/Dashboard/Notification/All_Notification.dart';
-import 'package:diit_portal/Screens/Dashboard/Student_Dashboard/student_dashboard.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/HomePage.dart';
+import 'package:diit_portal/Screens/Dashboard/Student_Portal/Student_Portal.dart';
 import 'package:diit_portal/Screens/Dashboard/Student_Profile/student_profile.dart';
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:diit_portal/CustomWidgets/App_Bar/app_bar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -18,62 +20,15 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  //
-  // String user_email='';
-  // String user_id='';
-  // String user_department='';
-  // String user_batch='';
-  // String user_section='';
-  //
-  //
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    getUserData();
   }
-  //
-  //
-  // getUserData() async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   setState(() {
-  //     user_email = prefs.getString('user_email')!;
-  //     user_id = prefs.getString('user_id')!;
-  //     user_department = prefs.getString('department')!;
-  //     user_batch = prefs.getString('batch')!;
-  //     user_section = prefs.getString('section')!;
-  //
-  //     print(user_id);
-  //     print(user_email);
-  //     print(user_department);
-  //     print(user_batch);
-  //     print(user_section);
-  //
-  //
-  //
-  //
-  //   });
-  // }
-  String user_email = '';
-  String user_id = '';
-  String user_department = '';
-  String user_batch = '';
-  String user_section = '';
 
-  getUserData() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    user_email = prefs.getString('user_email')!;
-    user_id = prefs.getString('user_id')!;
-    user_department = prefs.getString('department')!;
-    user_batch = prefs.getString('batch')!;
-    user_section = prefs.getString('section')!;
 
-    print(user_email);
-    print(user_section);
-    print(user_department);
-    print(user_batch);
-    // return user_email;
-  }
+
 
 
 
@@ -83,7 +38,7 @@ class _DashboardState extends State<Dashboard> {
 
   List NavBarPageControlar = [
     HomePage(),
-    StudentDashBoard(),
+    StudentPortal(),
     AllNotification(),
     StudentProfile(),
   ];
