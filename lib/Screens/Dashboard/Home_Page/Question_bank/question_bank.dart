@@ -8,7 +8,7 @@ class QuestionBank extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorChanger.scaffoldcolor,
-      appBar: AppBarString,
+
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -23,12 +23,7 @@ class QuestionBank extends StatelessWidget {
                       fontFamily: "azonix",
                       fontWeight: FontWeight.bold),
                   child: Text("Select Your Department")
-                // AnimatedTextKit(
-                //   animatedTexts: [
-                //     WavyAnimatedText('Question Bank'),
-                //   ],
-                //   isRepeatingAnimation: true,
-                // ),
+
               ),
             ),
             Padding(
@@ -36,36 +31,6 @@ class QuestionBank extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  // GestureDetector(
-                  //   onTap: () => Get.toNamed('/CseDepertment'),
-                  //   child: Card(
-                  //     elevation: 3,
-                  //     shadowColor: Colors.orange,
-                  //
-                  //     child: Container(
-                  //       height: MediaQuery.of(context).size.height/6,
-                  //       width: MediaQuery.of(context).size.width/2.75,
-                  //
-                  //       child: Column(
-                  //         children: [
-                  //           Image.asset(
-                  //             'assets/questions.png',
-                  //             height: 100,
-                  //             width: 100,
-                  //           ),
-                  //           Text(
-                  //             'CSE',
-                  //             style: TextStyle(
-                  //                 fontSize: 25,
-                  //                 fontFamily: 'Baloo',
-                  //                 fontWeight: FontWeight.w500),
-                  //           )
-                  //         ],
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
-
                   SizedBox(
                     height: Get.height/4.6,
                     width: Get.width/2.50,
@@ -84,7 +49,7 @@ class QuestionBank extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Image.asset(
-                                'assets/questions.png',
+                                'assets/paper.png',
                                 height: MediaQuery.of(context).size.height/8.2,
                                 width: MediaQuery.of(context).size.width/3,
                               ),
@@ -108,33 +73,7 @@ class QuestionBank extends StatelessWidget {
 
                   const SizedBox(width: 18,),
 
-                  // Card(
-                  //   elevation: 3,
-                  //   shadowColor: Colors.orange,
-                  //   child: GestureDetector(
-                  //     onTap: () => Get.toNamed('/BbaDepertment'),
-                  //     child: Container(
-                  //       height: MediaQuery.of(context).size.height/6,
-                  //       width: MediaQuery.of(context).size.width/2.75,
-                  //       child: Column(
-                  //         children: [
-                  //           Image.asset(
-                  //             'assets/questions.png',
-                  //             height: 100,
-                  //             width: 100,
-                  //           ),
-                  //           Text(
-                  //             'BBA',
-                  //             style: TextStyle(
-                  //                 fontSize: 25,
-                  //                 fontFamily: 'Baloo',
-                  //                 fontWeight: FontWeight.w500),
-                  //           )
-                  //         ],
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
+
                   SizedBox(
                     height: MediaQuery.of(context).size.height/4.6,
                     width: MediaQuery.of(context).size.width/2.50,
@@ -153,7 +92,7 @@ class QuestionBank extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Image.asset(
-                                'assets/questions.png',
+                                'assets/paper.png',
                                 height: MediaQuery.of(context).size.height/8.2,
                                 width: MediaQuery.of(context).size.width/3,
                               ),
@@ -178,38 +117,10 @@ class QuestionBank extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 25, right: 25, top: 20),
+              padding: const EdgeInsets.only(left: 25, right: 25, top: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  // Card(
-                  //   elevation: 3,
-                  //   shadowColor: Colors.orange,
-                  //   child: GestureDetector(
-                  //     onTap: () => Get.toNamed('/BthmDepertment'),
-                  //     child: Container(
-                  //       height: MediaQuery.of(context).size.height/6,
-                  //       width: MediaQuery.of(context).size.width/2.75,
-                  //
-                  //       child: Column(
-                  //         children: [
-                  //           Image.asset(
-                  //             'assets/questions.png',
-                  //             height: 100,
-                  //             width: 100,
-                  //           ),
-                  //           Text(
-                  //             'BTHM',
-                  //             style: TextStyle(
-                  //                 fontSize: 25,
-                  //                 fontFamily: 'Baloo',
-                  //                 fontWeight: FontWeight.w500),
-                  //           )
-                  //         ],
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
 
                   SizedBox(
                     height: MediaQuery.of(context).size.height/4.6,
@@ -229,7 +140,7 @@ class QuestionBank extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Image.asset(
-                                'assets/questions.png',
+                                'assets/paper.png',
                                 height: MediaQuery.of(context).size.height/8.2,
                                 width: MediaQuery.of(context).size.width/3,
                               ),
@@ -271,7 +182,7 @@ class QuestionBank extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Image.asset(
-                                'assets/questions.png',
+                                'assets/paper.png',
                                 height: MediaQuery.of(context).size.height/8.2,
                                 width: MediaQuery.of(context).size.width/3,
                               ),

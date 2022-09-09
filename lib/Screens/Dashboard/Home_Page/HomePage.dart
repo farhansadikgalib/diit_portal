@@ -572,9 +572,9 @@ class _HomePageState extends State<HomePage> {
                                 height: MediaQuery.of(context).size.height / 15,
                                 width: MediaQuery.of(context).size.width / 2.30,
                                 child: NeumorphicButton(
-                                  onPressed: () {
-                                    Get.toNamed('/AcademicResult');
-                                  },
+                                  onPressed: ()=>
+                                    Get.toNamed('/AcademicResult'),
+
                                   style: NeumorphicStyle(
                                       shape: NeumorphicShape.concave,
                                       boxShape: NeumorphicBoxShape.roundRect(

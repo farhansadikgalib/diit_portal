@@ -1,5 +1,8 @@
 import 'package:diit_portal/Screens/AuthScreen/ForgetPassPage.dart';
 import 'package:diit_portal/Screens/AuthScreen/LoginPage.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Academic_result/Class_test/class_test.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Academic_result/Internal_final/internal_final.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Academic_result/Mid_term/mid_term.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Academic_result/academic_result.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Student_attendance_view/student_attendance_detailes.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Student_attendance_view/student_course_%20attendanceview.dart';
@@ -139,12 +142,18 @@ class MyApp extends StatelessWidget {
             GetPage(name: '/StudentNotification', page: () => AllNotification()),
             GetPage(name: '/StudentProfile', page: () => StudentProfile()),
 
-            // horigental button//
+            // horigental button start//
             GetPage(name: '/FacultyProfile', page: () =>  FacultyProfile()),
             GetPage(name: '/QuickPayment', page: () =>  QuickPayment()),
             GetPage(name: '/NU_Portal', page: () =>  NU_Portal()),
             GetPage(name: '/TutionFees', page: () =>  TutionFees()),
+
+             // AcademicResult
             GetPage(name: '/AcademicResult', page: () =>  AcademicResult()),
+            GetPage(name: '/ClassText', page: () =>  ClassText()),
+            GetPage(name: '/MidTerm', page: () =>  MidTerm()),
+            GetPage(name: '/InternalFinal', page: () =>  InternalFinal()),
+            // AcademicResult
             GetPage(name: '/DiitNotics', page: () =>  DiitNotics()),
             GetPage(name: '/NoticsDetails', page: () =>  NoticsDetails()),
             GetPage(name: '/Community', page: () =>  Community()),

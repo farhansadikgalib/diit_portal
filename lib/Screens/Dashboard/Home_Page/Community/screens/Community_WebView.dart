@@ -54,7 +54,7 @@ class _Community_WebViewState extends State<Community_WebView> with TickerProvid
       extendBody: true,
       backgroundColor: Colors.transparent,
       appBar: AppBar(
-         title: const Text('NU Portal',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 22),),centerTitle: true,
+         title: const Text('Community',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 22),),centerTitle: true,
         backgroundColor: const Color.fromRGBO(84, 149, 206,1),
         leading:  InkWell(
             onTap: (){

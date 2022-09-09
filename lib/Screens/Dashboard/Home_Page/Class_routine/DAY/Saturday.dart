@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable/expandable.dart';
 import 'package:flutter_expandable/expander.dart';
+import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Saturday extends StatefulWidget {
@@ -51,7 +53,7 @@ class _SaturdayState extends State<Saturday>  with TickerProviderStateMixin {
         if (snapshot.hasData) {
           if (snapshot.data!.docs.length == 0) {
             return Scaffold(
-              backgroundColor: const Color.fromRGBO(1, 60, 88, 1),
+              backgroundColor: ColorChanger.scaffoldcolor,
               body: Center(
                 child: Text(
                   "You have no Class Today!",
@@ -65,7 +67,7 @@ class _SaturdayState extends State<Saturday>  with TickerProviderStateMixin {
           }
 
           return Scaffold(
-              backgroundColor: const Color.fromRGBO(1, 60, 88, 1),
+              backgroundColor: ColorChanger.scaffoldcolor,
               body: ListView.builder(
                 itemCount: snapshot.data!.docs.length,
                 itemBuilder: (context, index) {
@@ -82,7 +84,7 @@ class _SaturdayState extends State<Saturday>  with TickerProviderStateMixin {
                           EdgeInsets.only(left: 10, right: 10, top: 10),
                           child: SizedBox(
                             // height: MediaQuery.of(context).size.height / 4,
-                            width: MediaQuery.of(context).size.width,
+                            width: Get.width,
                             child: Column(children: [
                               Row(
                                 mainAxisAlignment:
@@ -200,7 +202,7 @@ class _SaturdayState extends State<Saturday>  with TickerProviderStateMixin {
                                   Text(
                                     snap[index]['lecturer_title'],
                                     style: TextStyle(
-                                        fontSize: 18,
+                                        fontSize: 16,
                                         color: Colors.black,
                                         fontWeight: FontWeight.w400),
                                   ),
@@ -216,7 +218,7 @@ class _SaturdayState extends State<Saturday>  with TickerProviderStateMixin {
                                       Text(
                                         snap[index]['time_start'],
                                         style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: 16,
                                             color: Colors.black,
                                             fontWeight: FontWeight.w400),
                                       ),
@@ -246,14 +248,13 @@ class _SaturdayState extends State<Saturday>  with TickerProviderStateMixin {
                               ),
                               Expandable(
                                   height:
-                                  MediaQuery.of(context).size.height / 3,
+                                  Get.height / 3,
                                   controller: controller,
                                   duration: const Duration(seconds: 1),
                                   child: Container(
                                       color: const Color(0xff4D4A4A),
                                       height:
-                                      MediaQuery.of(context).size.height /
-                                          8,
+                                     Get.height /8,
                                       width: double.infinity,
                                       child: Padding(
                                         padding: EdgeInsets.only(

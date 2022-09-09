@@ -14,7 +14,6 @@ class _pdf_viewPageState extends State<pdf_viewPage> {
 
 
   final receivePDF = Get.arguments[0];
-
   final RxBool _loaded = false.obs;
 
   @override

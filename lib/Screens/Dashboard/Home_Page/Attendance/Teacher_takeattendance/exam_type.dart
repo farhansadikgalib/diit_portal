@@ -56,7 +56,7 @@ class _ExamTypeState extends State<ExamType> {
                           height: 10,
                         ),
                         const Text(
-                          "Class Text",
+                          "Class Test",
                           style: TextStyle(
                               fontFamily: "Poppins",
                               fontSize: 15,
