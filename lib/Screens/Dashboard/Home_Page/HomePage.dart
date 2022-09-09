@@ -35,14 +35,16 @@ class _HomePageState extends State<HomePage> {
     getFirebaseUserDataInLocally();
     initFirestoreData();
     FCM();
-    getCurrentUser();
-    _setUserData();
+    // getCurrentUser();
+    // _setUserData();
 
   }
 
   static const String oneSignalId = "6d6a341b-9a0c-4637-9ba7-fd600bff21a0";
   late CollectionReference ref;
   String sec= 'A';
+  String dept='CSE';
+  String batch= '17';
   //community url
 
   final Uri _url = Uri.parse('https://chat.whatsapp.com/G3SiHAapFJH4DaThU1ngW7');
@@ -117,54 +119,20 @@ class _HomePageState extends State<HomePage> {
     ref = FirebaseFirestore.instance
         .collection("ClassRoutine")
         .doc('Department')
-        .collection('CSE')
-        .doc('17')
+        .collection(dept)
+        .doc(batch)
         .collection('Section')
         .doc(sec)
         .collection('Day')
-        .doc('Saturday')
+        .doc(todaysWeeklyName)
         .collection('ClassList');
 
   }
 
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  var uid,uemail,uname ;
-  getCurrentUser() async {
-    final User? user = _auth.currentUser;
-    uid = user!.uid;
-    uemail = user.email;
-    // uname = user.displayName;
-    print(uid);
-    print(uemail);
-  }
 
-  final firestoreInstance = FirebaseFirestore.instance;
 
-  _setUserData() async{
-    SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    // String  user_email = prefs.getString('user_email')!;
-    user_id = prefs.getString('user_id')!;
-    user_department = prefs.getString('department')!;
-    user_batch = prefs.getString('batch')!;
-    user_section = prefs.getString('section')!;
-
-    var firebaseUser = await FirebaseAuth.instance.currentUser!;
-    firestoreInstance.collection("user_data").doc(firebaseUser.uid).set(
-        {
-          "name" : "$uname",
-          "id" : "$uid",
-          "email" : "$uemail",
-          "department":"$user_department",
-          "batch":"$user_batch",
-          "section":"$user_section",
-          "class_id":"$user_id"
-
-        }).then((_){
-      print("success!");
-    });
-  }
 
 
   //Firebase

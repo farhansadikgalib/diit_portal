@@ -14,8 +14,10 @@ class StudentPortal extends StatefulWidget {
 
 class _StudentPortalState extends State<StudentPortal> {
    String? payable, paid, due, fine;
-    double _payable=90, _paid=500, _due=700, _fine=900;
+    double _payable=0, _paid=0, _due=0, _fine=0;
     double total=0,_payablePersantage=0,_paidPersantage=0,_duePersantage=0,_finePersantage=0;
+   double _dpayable=49.13, _dpaid=14.67, _ddue= 34.48, _dfine=1.72;
+
 
    double roundDouble(double value, int places){
      num mod = pow(10.0, places);
@@ -115,7 +117,7 @@ class _StudentPortalState extends State<StudentPortal> {
                height: 300,
                width: Get.width,
                child: PieChart(
-                 values: [_payablePersantage, _paidPersantage, _duePersantage, _finePersantage],
+                 values: [_payablePersantage??_dpayable, _paidPersantage??_dpaid, _duePersantage??_ddue, _finePersantage??_dfine],
                  labels: [
                    "Payable",
                    "Paid",
@@ -154,7 +156,7 @@ class _StudentPortalState extends State<StudentPortal> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children:  [
                               Text(
-                                payable??'285000'+'/-',
+                                payable??'0'+'/-',
                                 style: TextStyle(
                                     fontSize: 30,
                                     fontWeight: FontWeight.w500,
@@ -198,7 +200,7 @@ class _StudentPortalState extends State<StudentPortal> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children:  [
                                 Text(
-                                  paid??'75000'+'/-',
+                                  paid??'0'+'/-',
                                   style: TextStyle(
                                       fontSize: 30,
                                       fontWeight: FontWeight.w500,
@@ -243,7 +245,7 @@ class _StudentPortalState extends State<StudentPortal> {
                            mainAxisAlignment: MainAxisAlignment.center,
                            children:  [
                              Text(
-                               due??'85000'+'/-',
+                               due??'0'+'/-',
                                style: TextStyle(
                                    fontSize: 30,
                                    fontWeight: FontWeight.w500,
@@ -288,7 +290,7 @@ class _StudentPortalState extends State<StudentPortal> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children:  [
                                 Text(
-                              fine??'3000'+'/-'
+                              fine??'0'+'/-'
                                   ,
                                   style: TextStyle(
                                       fontSize: 30,

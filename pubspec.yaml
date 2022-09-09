@@ -96,8 +96,6 @@ dependencies:
   dropdown_button2: ^1.7.2
   #multi_charts
   multi_charts: ^0.3.0
-  pie_chart: ^5.3.2
-  syncfusion_flutter_charts: ^20.2.48
   #multi_charts
 
   # flutter button button

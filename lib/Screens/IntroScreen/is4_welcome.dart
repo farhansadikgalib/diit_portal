@@ -42,17 +42,65 @@ class _IntroPage3State extends State<IntroPage3> {
       .collection('user_data');
 
 
+
+
+
+
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  var uid,uemail,uname ;
+  getCurrentUser() async {
+    final User? user = _auth.currentUser;
+    uid = user!.uid;
+    uemail = user.email;
+    // uname = user.displayName;
+    print(uid);
+    print(uemail);
+
+    _setUserData();
+  }
+
+
+
+  _setUserData() async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    // String  user_email = prefs.getString('user_email')!;
+    user_id = prefs.getString('user_id')!;
+    user_department = prefs.getString('department')!;
+    user_batch = prefs.getString('batch')!;
+    user_section = prefs.getString('section')!;
+
+    var firebaseUser = await FirebaseAuth.instance.currentUser!;
+    FirebaseFirestore.instance.collection("user_data").doc(firebaseUser.uid).set(
+        {
+          "name" : "$uname",
+          "id" : "$uid",
+          "email" : "$uemail",
+          "department":"$user_department",
+          "batch":"$user_batch",
+          "section":"$user_section",
+          "class_id":"$user_id"
+
+        }).then((_){
+      print("success!");
+    });
+  }
+
+
+
   @override
   void initState() {
     getUserData();
+    getCurrentUser();
   }
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: _reference.get(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
+    // return FutureBuilder(
+    //     future: _reference.get(),
+    //     builder: (context, snapshot) {
+    //       if (snapshot.hasData) {
             return Scaffold(
               backgroundColor: ColorChanger.scaffoldcolor,
               body: SafeArea(
@@ -87,11 +135,11 @@ class _IntroPage3State extends State<IntroPage3> {
             );
           }
 
-          else {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-        });
+        //   else {
+        //     return Center(
+        //       child: CircularProgressIndicator(),
+        //     );
+        //   }
+        // });
   }
-}
+
