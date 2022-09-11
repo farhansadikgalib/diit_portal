@@ -19,18 +19,23 @@ class _AcademicResultState extends State<AcademicResult> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: ColorChanger.scaffoldcolor,
+        appBar: AppBar(title:   Text(
+          "Result Type",
+          style: TextStyle(
+              fontFamily: "Poppins",
+              fontSize:25,
+              color: Colors.white,
+              fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        automaticallyImplyLeading: false,
+          backgroundColor: ColorChanger.scaffoldcolor,
+        ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "Result Type",
-                style: TextStyle(
-                    fontFamily: "Poppins",
-                    fontSize:25,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-              ),
+
               SizedBox(height: 50,),
 
               SizedBox(

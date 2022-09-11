@@ -95,6 +95,8 @@ class _IntroPage3State extends State<IntroPage3> {
     getCurrentUser();
   }
 
+  TextEditingController _Studentname = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     // return FutureBuilder(
@@ -103,7 +105,8 @@ class _IntroPage3State extends State<IntroPage3> {
     //       if (snapshot.hasData) {
             return Scaffold(
               backgroundColor: ColorChanger.scaffoldcolor,
-              body: SafeArea(
+              body: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -113,8 +116,8 @@ class _IntroPage3State extends State<IntroPage3> {
                     Center(
                       child: Lottie.asset(
                         'assets/intro_asset/thard.json',
-                        height: MediaQuery.of(context).size.height / 3,
-                        width: MediaQuery.of(context).size.width / 1,
+                        height: Get.height / 3.5,
+                        width: Get.width / 1,
                       ),
                     ),
                     SizedBox(
@@ -129,6 +132,35 @@ class _IntroPage3State extends State<IntroPage3> {
                           fontWeight: FontWeight.bold),
                     )),
 
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding:  EdgeInsets.only(left: 50,right: 50),
+                      child: TextFormField(
+                        controller: _Studentname,
+                        keyboardType: TextInputType.emailAddress,
+                        style: const TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                          hintText: "Enter Your Name",
+                          hintStyle: const TextStyle(color: Colors.white),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                            borderSide: BorderSide(
+                              color: Theme.of(context).primaryColor,
+                              width: 3,
+                            ),
+                          ),
+                          prefixIcon: IconTheme(
+                            data: IconThemeData(
+                              color: Theme.of(context).primaryColor,
+                            ),
+                            child:  Icon(Icons.person),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 100,),
                   ],
                 ),
               ),

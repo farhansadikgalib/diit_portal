@@ -61,6 +61,7 @@ class _Introscreen_StartState extends State<Introscreen_Start> {
 
              ],
             ),
+
             Container(
               alignment: Alignment(0,0.75),
               child: Row(
