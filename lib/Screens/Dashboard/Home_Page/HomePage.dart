@@ -42,9 +42,9 @@ class _HomePageState extends State<HomePage> {
 
   static const String oneSignalId = "6d6a341b-9a0c-4637-9ba7-fd600bff21a0";
   late CollectionReference ref;
-  String sec= 'A';
-  String dept='CSE';
-  String batch= '17';
+  String sec= 'B';
+  String dept='BBA';
+  String batch= '18';
   //community url
 
   final Uri _url = Uri.parse('https://chat.whatsapp.com/G3SiHAapFJH4DaThU1ngW7');
@@ -172,6 +172,7 @@ class _HomePageState extends State<HomePage> {
     String batch = snapshot['batch'];
     String section = snapshot['section'];
 
+
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     prefs.setString('department', department);
@@ -179,8 +180,6 @@ class _HomePageState extends State<HomePage> {
     prefs.setString('section', section);
 
     print(section);
-
-
 
   }
 

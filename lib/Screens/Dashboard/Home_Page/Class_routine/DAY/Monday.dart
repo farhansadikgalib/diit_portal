@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable/expandable.dart';
 import 'package:flutter_expandable/expander.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Monday extends StatefulWidget {
@@ -13,11 +14,16 @@ class Monday extends StatefulWidget {
 
 class _SaturdayState extends State<Monday> with TickerProviderStateMixin {
   late AnimationController controller;
+  String user_department = '';
+  String user_batch = '';
+  String user_section = '';
+  late CollectionReference ref;
 
   @override
   void initState() {
     super.initState();
     animationController();
+    getSharedPreferenceUserData();
   }
   animationController(){
     controller = AnimationController(
@@ -25,22 +31,29 @@ class _SaturdayState extends State<Monday> with TickerProviderStateMixin {
           milliseconds: 100,
         ),
         vsync: this);
+  }
+
+  getSharedPreferenceUserData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      user_department = prefs.getString('department')!;
+      user_batch = prefs.getString('batch')!;
+      user_section = prefs.getString('section')!;
+      prefs.setBool('login', true);
+    });
+
+    ref = FirebaseFirestore.instance
+        .collection("ClassRoutine")
+        .doc('Department')
+        .collection(user_department)
+        .doc(user_batch)
+        .collection('Section')
+        .doc(user_section)
+        .collection('Day')
+        .doc('Monday')
+        .collection('ClassList');
 
   }
-  
-  // late  bool notification = false;
-  CollectionReference ref = FirebaseFirestore.instance
-      .collection("ClassRoutine")
-      .doc('Department')
-      .collection('CSE')
-      .doc('17')
-      .collection('Section')
-      .doc('A')
-      .collection('Day')
-      .doc('Monday')
-      .collection('ClassList');
-
-  // late  bool notification = false;
 
   @override
   Widget build(BuildContext context) {

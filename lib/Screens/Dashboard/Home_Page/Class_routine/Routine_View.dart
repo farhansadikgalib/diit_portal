@@ -53,9 +53,9 @@ class _ClassRoutineViewerState extends State<ClassRoutineViewer>
             child: TabBarView(
               controller: _tabController,
               children: [
-                const Saturday(),
-                const Sunday(),
-                const Monday(),
+                 Saturday(),
+                 Sunday(),
+                 Monday(),
                 Tuesday(),
                 Wednesday(),
                 Thursday(),

@@ -1,45 +1,57 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable/expandable.dart';
 import 'package:flutter_expandable/expander.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Thursday extends StatefulWidget {
-  
-
   @override
   State<Thursday> createState() => _ThursdayState();
 }
 
-class _ThursdayState extends State<Thursday>  with TickerProviderStateMixin {
+class _ThursdayState extends State<Thursday> with TickerProviderStateMixin {
   late AnimationController controller;
+  String user_department = '';
+  String user_batch = '';
+  String user_section = '';
+  late CollectionReference ref;
 
   @override
   void initState() {
     super.initState();
     animationController();
+    getSharedPreferenceUserData();
   }
-  animationController(){
+
+  animationController() {
     controller = AnimationController(
         duration: const Duration(
           milliseconds: 100,
         ),
         vsync: this);
-
   }
 
-  // late  bool notification = false;
-  CollectionReference ref = FirebaseFirestore.instance
-      .collection("ClassRoutine")
-      .doc('Department')
-      .collection('CSE')
-      .doc('17')
-      .collection('Section')
-      .doc('A')
-      .collection('Day')
-      .doc('Thrusday')
-      .collection('ClassList');
+  getSharedPreferenceUserData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      user_department = prefs.getString('department')!;
+      user_batch = prefs.getString('batch')!;
+      user_section = prefs.getString('section')!;
+      prefs.setBool('login', true);
+    });
+
+    ref = FirebaseFirestore.instance
+        .collection("ClassRoutine")
+        .doc('Department')
+        .collection(user_department)
+        .doc(user_batch)
+        .collection('Section')
+        .doc(user_section)
+        .collection('Day')
+        .doc('Thrusday')
+        .collection('ClassList');
+  }
 
   // late  bool notification = false;
 
@@ -79,18 +91,18 @@ class _ThursdayState extends State<Thursday>  with TickerProviderStateMixin {
                         color: Color(0xff92B9A6),
                         child: Padding(
                           padding:
-                          EdgeInsets.only(left: 10, right: 10, top: 10),
+                              EdgeInsets.only(left: 10, right: 10, top: 10),
                           child: SizedBox(
                             // height: MediaQuery.of(context).size.height / 4,
                             width: MediaQuery.of(context).size.width,
                             child: Column(children: [
                               Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Column(
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         snap[index]['course_name'],
@@ -137,18 +149,18 @@ class _ThursdayState extends State<Thursday>  with TickerProviderStateMixin {
                                   rotatingArrowSize: 40,
                                   rotatingArrowColor: Colors.black,
                                   arrowRotationDuration:
-                                  Duration(milliseconds: 100),
+                                      Duration(milliseconds: 100),
                                   triggerWidgets: [
                                     Container(
                                         height: 3,
                                         width:
-                                        MediaQuery.of(context).size.width /
-                                            1.25,
+                                            MediaQuery.of(context).size.width /
+                                                1.25,
                                         color: Colors.white)
                                   ]),
                               Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     snap[index]['lecturer_name'],
@@ -195,7 +207,7 @@ class _ThursdayState extends State<Thursday>  with TickerProviderStateMixin {
                               ),
                               Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     snap[index]['lecturer_title'],
@@ -246,14 +258,14 @@ class _ThursdayState extends State<Thursday>  with TickerProviderStateMixin {
                               ),
                               Expandable(
                                   height:
-                                  MediaQuery.of(context).size.height / 3,
+                                      MediaQuery.of(context).size.height / 3,
                                   controller: controller,
                                   duration: const Duration(seconds: 1),
                                   child: Container(
                                       color: const Color(0xff4D4A4A),
                                       height:
-                                      MediaQuery.of(context).size.height /
-                                          8,
+                                          MediaQuery.of(context).size.height /
+                                              8,
                                       width: double.infinity,
                                       child: Padding(
                                         padding: EdgeInsets.only(
@@ -263,7 +275,7 @@ class _ThursdayState extends State<Thursday>  with TickerProviderStateMixin {
                                             flex: 2,
                                             child: Column(
                                               mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Row(
                                                   children: [
@@ -289,9 +301,9 @@ class _ThursdayState extends State<Thursday>  with TickerProviderStateMixin {
                                                   height: 10,
                                                 ),
                                                 InkWell(
-                                                  onTap: (){
-                                                    launch("tel://${snap[index]
-                                                    ['lecturer_number']}");
+                                                  onTap: () {
+                                                    launch(
+                                                        "tel://${snap[index]['lecturer_number']}");
                                                   },
                                                   child: Row(
                                                     children: [
@@ -302,7 +314,7 @@ class _ThursdayState extends State<Thursday>  with TickerProviderStateMixin {
                                                       ),
                                                       Text(
                                                         snap[index]
-                                                        ['lecturer_number'],
+                                                            ['lecturer_number'],
                                                         style: TextStyle(
                                                             fontSize: 18,
                                                             color: Color(
@@ -319,7 +331,7 @@ class _ThursdayState extends State<Thursday>  with TickerProviderStateMixin {
                                           ),
                                           Padding(
                                             padding:
-                                            EdgeInsets.only(bottom: 10),
+                                                EdgeInsets.only(bottom: 10),
                                             child: Container(
                                               width: 2,
                                               height: 75,
@@ -333,7 +345,7 @@ class _ThursdayState extends State<Thursday>  with TickerProviderStateMixin {
                                             flex: 2,
                                             child: Column(
                                               mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Row(
                                                   children: [
