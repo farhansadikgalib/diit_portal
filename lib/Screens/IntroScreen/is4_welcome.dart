@@ -15,6 +15,9 @@ class IntroPage3 extends StatefulWidget {
 
 class _IntroPage3State extends State<IntroPage3> {
   String user_email = '';
+  String user_name = '';
+  String get_user_name = '';
+
   String user_id = '';
   String user_department = '';
   String user_batch = '';
@@ -36,10 +39,7 @@ class _IntroPage3State extends State<IntroPage3> {
     // return user_email;
   }
 
-  CollectionReference _reference = FirebaseFirestore.instance
-      .collection('Users')
-      .doc(FirebaseAuth.instance.currentUser!.uid)
-      .collection('user_data');
+
 
 
 
@@ -57,7 +57,6 @@ class _IntroPage3State extends State<IntroPage3> {
     print(uid);
     print(uemail);
 
-    _setUserData();
   }
 
 
@@ -66,15 +65,19 @@ class _IntroPage3State extends State<IntroPage3> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     // String  user_email = prefs.getString('user_email')!;
+    prefs.setString('user_name', _studentName.text);
     user_id = prefs.getString('user_id')!;
     user_department = prefs.getString('department')!;
     user_batch = prefs.getString('batch')!;
     user_section = prefs.getString('section')!;
+    user_name=prefs.getString('user_name')!;
+
+    get_user_name =_studentName.text;
 
     var firebaseUser = await FirebaseAuth.instance.currentUser!;
     FirebaseFirestore.instance.collection("user_data").doc(firebaseUser.uid).set(
         {
-          "name" : "$uname",
+          "name" : "$get_user_name",
           "id" : "$uid",
           "email" : "$uemail",
           "department":"$user_department",
@@ -84,6 +87,7 @@ class _IntroPage3State extends State<IntroPage3> {
 
         }).then((_){
       print("success!");
+        Get.offAndToNamed('/DashBoard');
     });
   }
 
@@ -95,7 +99,7 @@ class _IntroPage3State extends State<IntroPage3> {
     getCurrentUser();
   }
 
-  TextEditingController _Studentname = TextEditingController();
+  TextEditingController _studentName = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -105,62 +109,86 @@ class _IntroPage3State extends State<IntroPage3> {
     //       if (snapshot.hasData) {
             return Scaffold(
               backgroundColor: ColorChanger.scaffoldcolor,
-              body: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
+              body: Center(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Center(
-                      child: Lottie.asset(
-                        'assets/intro_asset/thard.json',
-                        height: Get.height / 3.5,
-                        width: Get.width / 1,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Center(
-                        child: Text(
-                      "Welcome To DiiT Portal",
-                      style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
-                    )),
+                    Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
 
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Padding(
-                      padding:  EdgeInsets.only(left: 50,right: 50),
-                      child: TextFormField(
-                        controller: _Studentname,
-                        keyboardType: TextInputType.emailAddress,
-                        style: const TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
-                          hintText: "Enter Your Name",
-                          hintStyle: const TextStyle(color: Colors.white),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: BorderSide(
-                              color: Theme.of(context).primaryColor,
-                              width: 3,
+                            SizedBox(
+                              height: 20,
                             ),
-                          ),
-                          prefixIcon: IconTheme(
-                            data: IconThemeData(
-                              color: Theme.of(context).primaryColor,
+                            Center(
+                              child: Lottie.asset(
+                                'assets/intro_asset/thard.json',
+                                height: Get.height / 3.5,
+                                width: Get.width / 1,
+                              ),
                             ),
-                            child:  Icon(Icons.person),
-                          ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Center(
+                                child: Text(
+                                  "Welcome To DiiT Portal",
+                                  style: TextStyle(
+                                      fontSize: 25,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                )),
+
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Padding(
+                              padding:  EdgeInsets.only(left: 50,right: 50),
+                              child: TextFormField(
+                                controller: _studentName,
+                                keyboardType: TextInputType.emailAddress,
+                                style: const TextStyle(color: Colors.white),
+                                decoration: InputDecoration(
+                                  hintText: "Enter Your Name",
+                                  hintStyle: const TextStyle(color: Colors.white),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(20),
+                                    borderSide: BorderSide(
+                                      color: Theme.of(context).primaryColor,
+                                      width: 3,
+                                    ),
+                                  ),
+                                  prefixIcon: IconTheme(
+                                    data: IconThemeData(
+                                      color: Theme.of(context).primaryColor,
+                                    ),
+                                    child:  Icon(Icons.info),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+
+
+                          ],
                         ),
-                      ),
-                    ),
-                    SizedBox(height: 100,),
+
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: 30),
+                          child: ElevatedButton(onPressed: _setUserData, child: Text("Enter",style: TextStyle(fontSize: 16,color: Colors.white),),style: ButtonStyle(),),
+                        ),
+                        SizedBox(height: Get.height/10,),
+                      ],
+                    )
+
                   ],
                 ),
               ),

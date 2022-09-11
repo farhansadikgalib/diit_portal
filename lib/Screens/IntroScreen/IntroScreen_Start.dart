@@ -78,11 +78,11 @@ class _Introscreen_StartState extends State<Introscreen_Start> {
                   LastPage? GestureDetector(
                        onTap: (){
                         // Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
-                         Get.offAndToNamed('/DashBoard');
+                        //  Get.offAndToNamed('/DashBoard');
 
 
                        },
-                       child:  Text("Done",style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.bold),),
+                        child:  Text("",style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.bold),),
                   ) : GestureDetector(
                        onTap: (){
                          _controller.nextPage(duration: Duration(milliseconds: 500),

@@ -17,6 +17,8 @@ class StudentProfile extends StatefulWidget {
 
 class _StudentProfileState extends State<StudentProfile> {
   String user_email = '';
+  String user_name = '';
+
   String user_id = '';
   String user_department = '';
   String user_batch = '';
@@ -24,13 +26,14 @@ class _StudentProfileState extends State<StudentProfile> {
 
   Future _signOut() async {
     await FirebaseAuth.instance.signOut();
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    await preferences.clear();
     Get.offAndToNamed('/LoginPage');
   }
 
   @override
   void initState() {
     super.initState();
-    getSharedPreferenceUserData();
     getFirebaseUserData();
   }
 
@@ -42,26 +45,18 @@ class _StudentProfileState extends State<StudentProfile> {
         .doc(firebaseUser.uid)
         .get();
     // print( snapshot['id']);
-    print(snapshot['batch']);
-    print(snapshot['department']);
-    print(snapshot['section']);
+    // print(snapshot['name']);
+    // print(snapshot['email']);
+    // print(snapshot['class_id']);
+    user_id = snapshot['class_id'];
+    user_name = snapshot['name'];
+     user_email = snapshot['email'];
 
     user_department = snapshot['department'];
     user_batch = snapshot['batch'];
     user_section = snapshot['section'];
   }
 
-  getSharedPreferenceUserData() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      user_email = prefs.getString('user_email')!;
-      user_id = prefs.getString('user_id')!;
-      // user_department = prefs.getString('department')!;
-      // user_batch = prefs.getString('batch')!;
-      // user_section = prefs.getString('section')!;
-      prefs.setBool('login', true);
-    });
-  }
 
   CollectionReference ref = FirebaseFirestore.instance
       .collection('user_data')
@@ -153,7 +148,7 @@ class _StudentProfileState extends State<StudentProfile> {
                                           ),
 
                                           Text(
-                                            "Md.Abdur Rahman",
+                                            user_name,
                                             style: TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.w200,
@@ -484,89 +479,96 @@ class _StudentProfileState extends State<StudentProfile> {
                     const SizedBox(
                       height: 20,
                     ),
-                    const Spacer(),
-                    const Divider(
-                      thickness: 1,
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height/22,
-                      width: double.infinity,
-                      child: InkWell(
-                        onTap: () {},
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 10, right: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
-                              Text(
-                                'Setting',
-                                style: TextStyle(fontSize: 16),
-                              ),
-                              Icon(
-                                Icons.arrow_forward_ios_outlined,
-                                size: 18,
-                              )
-                            ],
+
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Column(
+                        children: [
+                          const Divider(
+                            thickness: 1,
                           ),
-                        ),
-                      ),
-                    ),
-                    const Divider(
-                      thickness: 1,
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height/22,
-                      width: double.infinity,
-                      child: InkWell(
-                        onTap: () {},
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 10, right: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
-                              Text(
-                                'Help & Support',
-                                style: TextStyle(fontSize: 16),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height/22,
+                            width: double.infinity,
+                            child: InkWell(
+                              onTap: () {},
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 10, right: 10),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: const [
+                                    Text(
+                                      'Setting',
+                                      style: TextStyle(fontSize: 16),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward_ios_outlined,
+                                      size: 18,
+                                    )
+                                  ],
+                                ),
                               ),
-                              Icon(
-                                Icons.arrow_forward_ios_outlined,
-                                size: 18,
-                              )
-                            ],
+                            ),
                           ),
-                        ),
-                      ),
-                    ),
-                    const Divider(
-                      thickness: 1,
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height/22,
-                      width: double.infinity,
-                      child: InkWell(
-                        onTap: ()=>
-                            _signOut(),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 10, right: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
-                              Text(
-                                'Logout',
-                                style: TextStyle(fontSize: 16),
+                          const Divider(
+                            thickness: 1,
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height/22,
+                            width: double.infinity,
+                            child: InkWell(
+                              onTap: () {},
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 10, right: 10),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: const [
+                                    Text(
+                                      'Help & Support',
+                                      style: TextStyle(fontSize: 16),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward_ios_outlined,
+                                      size: 18,
+                                    )
+                                  ],
+                                ),
                               ),
-                              Icon(
-                                Icons.logout,
-                                size: 20,
-                              )
-                            ],
+                            ),
                           ),
-                        ),
+                          const Divider(
+                            thickness: 1,
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height/22,
+                            width: double.infinity,
+                            child: InkWell(
+                              onTap: ()=>
+                                  _signOut(),
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 10, right: 10),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: const [
+                                    Text(
+                                      'Logout',
+                                      style: TextStyle(fontSize: 16),
+                                    ),
+                                    Icon(
+                                      Icons.logout,
+                                      size: 20,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          const Divider(
+                            thickness: 1,
+                          ),
+                        ],
                       ),
-                    ),
-                    const Divider(
-                      thickness: 1,
-                    ),
+                    )
                   ],
                 ),
               ),
