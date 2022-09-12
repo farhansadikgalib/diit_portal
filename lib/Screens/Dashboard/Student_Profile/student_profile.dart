@@ -41,7 +41,7 @@ class _StudentProfileState extends State<StudentProfile> {
     var firebaseUser = await FirebaseAuth.instance.currentUser!;
 
     final snapshot = await FirebaseFirestore.instance
-        .collection('user_data')
+        .collection('UserData')
         .doc(firebaseUser.uid)
         .get();
     // print( snapshot['id']);
@@ -59,7 +59,7 @@ class _StudentProfileState extends State<StudentProfile> {
 
 
   CollectionReference ref = FirebaseFirestore.instance
-      .collection('user_data')
+      .collection('UserData')
       .doc(FirebaseAuth.instance.currentUser!.uid).parent;
 
   @override

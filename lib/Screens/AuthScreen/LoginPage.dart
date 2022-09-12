@@ -23,8 +23,6 @@ class _LoginPageState extends State<LoginPage> {
   var select = 0;
   int? selectuser;
 
-
-
   @override
   void initState() {
     // TODO: implement initState
@@ -32,31 +30,31 @@ class _LoginPageState extends State<LoginPage> {
     getFirebaseUserData();
   }
 
-
   String user_department = '';
   String user_batch = '';
   String user_section = '';
+  String? user_name;
 
   getFirebaseUserData() async {
     var firebaseUser = await FirebaseAuth.instance.currentUser!;
 
     final snapshot = await FirebaseFirestore.instance
-        .collection('user_data')
+        .collection('UserData')
         .doc(firebaseUser.uid)
         .get();
     // print( snapshot['id']);
-    print(snapshot['batch']);
+    print(snapshot['name']);
     print(snapshot['department']);
     print(snapshot['section']);
 
     user_department = snapshot['department'];
     user_batch = snapshot['batch'];
     user_section = snapshot['section'];
+    user_name = snapshot['name'];
   }
 
-
   check_if_already_login() async {
-    // Firebase.initializeApp();
+
     logindata = await SharedPreferences.getInstance();
     newuser = (logindata!.getBool('login') ?? true);
     selectuser = logindata!.getInt('select');
@@ -234,10 +232,6 @@ class _LoginPageState extends State<LoginPage> {
                                   logindata!.setString('user_id', id);
                                   print(id);
 
-
-
-
-
                                   // var email = "tony@diit.info";
                                   // bool emailValid =  RegExp(r"^[0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(email);
 
@@ -251,13 +245,19 @@ class _LoginPageState extends State<LoginPage> {
                                   } else {
                                     // print(result.email);
 
-                                  if (user_department=='CSE'||user_department=='BBA'||user_department=='MBA'||user_department=='THM'){
-                                    Get.offAndToNamed('/Dashboard');
-
-                                  }else{
-                                    Get.offAndToNamed('/IntroScreen');
-                                  }
-
+                                    if (user_department == 'CSE' ||
+                                        user_department == 'BBA' ||
+                                        user_department == 'MBA' ||
+                                        user_department == 'THM') {
+                                      if ((user_name == '' ||
+                                          user_name == 'null')) {
+                                        Get.offAndToNamed('/IntroScreen');
+                                      } else {
+                                        Get.offAndToNamed('/Dashboard');
+                                      }
+                                    } else {
+                                      Get.offAndToNamed('/IntroScreen');
+                                    }
                                   }
 
                                   // else {

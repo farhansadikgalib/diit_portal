@@ -30,7 +30,8 @@ class _SectionState extends State<Section> {
   _read() async {
     prefs = await SharedPreferences.getInstance();
     setState(() {
-      dropdownValue = prefs.getString(_key) ?? "A"; // get the value
+      dropdownValue = prefs.getString(_key) ?? "A";
+      print(dropdownValue);// get the value
     });
   }
 

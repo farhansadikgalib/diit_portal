@@ -57,7 +57,7 @@ class _Introscreen_StartState extends State<Introscreen_Start> {
                Department(),
                Batch(),
                Section(),
-               IntroPage3(),
+               Welcome(),
 
              ],
             ),
