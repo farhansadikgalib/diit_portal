@@ -68,19 +68,6 @@ class _StudentProfileState extends State<StudentProfile> {
       future: ref.get(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          // dynamic z = snapshot.data!.docs.length;
-
-          // if (snapshot.data!.docs.length == 0) {
-          //   return Center(
-          //     child: Text(
-          //       "You have no saved Notes !",
-          //       style: TextStyle(
-          //         color: Colors.blue,
-          //       ),
-          //     ),
-          //   );
-          // }
-
           return Scaffold(
               backgroundColor: ColorChanger.scaffoldcolor,
               body: SafeArea(
