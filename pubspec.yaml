@@ -163,7 +163,8 @@ dependencies:
 
   #Notification System
   onesignal_flutter: ^3.3.1
-  firebase_messaging: ^11.1.0
+  firebase_messaging: ^11.2.4
+  awesome_notifications: ^0.6.19
 
   overlay_support: ^2.0.1
   #Notification System

@@ -1,3 +1,4 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:diit_portal/Screens/AuthScreen/ForgetPassPage.dart';
 import 'package:diit_portal/Screens/AuthScreen/LoginPage.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Academic_result/Class_test/class_test.dart';
@@ -59,6 +60,7 @@ import 'package:diit_portal/Screens/NoInternet/NoInternetConnection.dart';
 import 'package:diit_portal/Screens/SplashScreen/SplashScreen.dart';
 import 'package:diit_portal/Screens/SplashScreen/SplashScreenBinding.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -74,8 +76,52 @@ void main() async {
     DeviceOrientation.portraitDown,
   ]);
 
+
+
+  AwesomeNotifications().initialize(
+      'resource://drawable/notification_icon',
+      [            // notification icon
+        NotificationChannel(
+          channelGroupKey: 'basic_test',
+          channelKey: 'basic',
+          channelName: 'Basic notifications',
+          channelDescription: 'Notification channel for basic tests',
+          channelShowBadge: true,
+          importance: NotificationImportance.High,
+        ),
+        //add more notification type with different configuration
+
+      ]
+  );
+
+
+  AwesomeNotifications().actionStream.listen((ReceivedNotification receivedNotification){
+    print(receivedNotification.payload!['title']);
+    //output from local notification click.
+  });
+
+  FirebaseMessaging.instance.subscribeToTopic("all");
+  FirebaseMessaging.onBackgroundMessage(firebaseBackgroundMessage);
+
+
   runApp(MyApp());
 }
+
+Future<void> firebaseBackgroundMessage(RemoteMessage message) async {
+  print(message.data);
+  AwesomeNotifications().createNotification(
+      content: NotificationContent( //with image from URL
+          id: 1,
+          channelKey: 'basic', //channel configuration key
+          title: message.data["title"],
+          body: message.data["body"],
+          bigPicture: message.data["image"],
+          notificationLayout: NotificationLayout.BigPicture,
+          payload: {"name":"flutter"}
+      )
+  );
+}
+
 
 class MyApp extends StatelessWidget {
   @override

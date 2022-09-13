@@ -26,20 +26,11 @@ class _Introscreen_StartState extends State<Introscreen_Start> {
 
   bool LastPage = false;
 
-
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
   }
-
-
-
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -62,11 +53,11 @@ class _Introscreen_StartState extends State<Introscreen_Start> {
 
              ],
             ),
-
+            Spacer(),
             Container(
               alignment: Alignment(0,0.75),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
 
                   SmoothPageIndicator(

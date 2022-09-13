@@ -13,27 +13,28 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
 
   var formkey = GlobalKey<FormState>();
 
-
-
   Future passReset() async {
     try {
       await FirebaseAuth.instance
           .sendPasswordResetEmail(email: emailCtrl.text.trim());
       Get.defaultDialog(
-        backgroundColor: Colors.lightGreen,
-          content: const Text("Password reset link sent! Check your email",style: TextStyle(color: Colors.black),));
+          backgroundColor: Colors.lightGreen,
+          content: const Text(
+            "Password reset link sent! Check your email",
+            style: TextStyle(color: Colors.black),
+          ));
     } on FirebaseAuthException catch (e) {
       print(e);
 
-      Get.snackbar('Caution !', e.message.toString(),
+      Get.snackbar(
+        'Caution !',
+        e.message.toString(),
         colorText: Colors.white,
         backgroundColor: Colors.lightGreen,
         margin: const EdgeInsets.only(top: 30, bottom: 30),
         snackPosition: SnackPosition.BOTTOM,
         isDismissible: true,
         forwardAnimationCurve: Curves.easeOutBack,
-
-
       );
     }
   }
@@ -55,7 +56,7 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
           onPressed: () => Get.back(),
         ),
       ),
-      backgroundColor:ColorChanger.scaffoldcolor,
+      backgroundColor: ColorChanger.scaffoldcolor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -114,12 +115,15 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                       ),
                       SizedBox(
                         height: 40,
-                        child: RaisedButton(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.lightGreen,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15)),
+                          ),
                           onPressed: () {
-                            passReset();                          },
-                          color: Colors.lightGreen,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
+                            passReset();
+                          },
                           child: const Text(
                             "Help Me",
                             style: TextStyle(

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable/expandable.dart';
 import 'package:flutter_expandable/expander.dart';
@@ -18,8 +19,6 @@ class _SaturdayState extends State<Monday> with TickerProviderStateMixin {
   String user_batch = '';
   String user_section = '';
   late CollectionReference ref;
-
-  @override
   void initState() {
     super.initState();
     animationController();
@@ -39,7 +38,6 @@ class _SaturdayState extends State<Monday> with TickerProviderStateMixin {
       user_department = prefs.getString('department')!;
       user_batch = prefs.getString('batch')!;
       user_section = prefs.getString('section')!;
-      prefs.setBool('login', true);
     });
 
     ref = FirebaseFirestore.instance

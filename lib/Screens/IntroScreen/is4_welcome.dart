@@ -7,14 +7,14 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class IntroPage3 extends StatefulWidget {
-  const IntroPage3({Key? key}) : super(key: key);
+class Welcome extends StatefulWidget {
+  const Welcome({Key? key}) : super(key: key);
 
   @override
-  State<IntroPage3> createState() => _IntroPage3State();
+  State<Welcome> createState() => _WelcomeState();
 }
 
-class _IntroPage3State extends State<IntroPage3> {
+class _WelcomeState extends State<Welcome> {
   String user_email = '';
   String user_name = '';
   String get_user_name = '';

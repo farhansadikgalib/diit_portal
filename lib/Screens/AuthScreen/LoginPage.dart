@@ -187,7 +187,7 @@ class _LoginPageState extends State<LoginPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            FlatButton(
+                            TextButton(
                               onPressed: () {
                                 Get.toNamed('/ForgetPassPage');
                               },
