@@ -54,8 +54,9 @@ class _Introscreen_StartState extends State<Introscreen_Start> {
                  });
              },
              children: [
-               Department(),
                Batch(),
+               Department(),
+
                Section(),
                IntroPage3(),
 

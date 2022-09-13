@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -65,14 +66,14 @@ class _IntroPage3State extends State<IntroPage3> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     // String  user_email = prefs.getString('user_email')!;
-    prefs.setString('user_name', _studentName.text);
+    // prefs.setString('user_name', _studentName.text);
     user_id = prefs.getString('user_id')!;
     user_department = prefs.getString('department')!;
     user_batch = prefs.getString('batch')!;
     user_section = prefs.getString('section')!;
     user_name=prefs.getString('user_name')!;
 
-    get_user_name =_studentName.text;
+    // get_user_name =_studentName.text;
 
     var firebaseUser = await FirebaseAuth.instance.currentUser!;
     FirebaseFirestore.instance.collection("user_data").doc(firebaseUser.uid).set(
@@ -93,13 +94,10 @@ class _IntroPage3State extends State<IntroPage3> {
 
 
 
-  @override
-  void initState() {
-    getUserData();
-    getCurrentUser();
-  }
 
-  TextEditingController _studentName = TextEditingController();
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -140,38 +138,6 @@ class _IntroPage3State extends State<IntroPage3> {
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold),
                                 )),
-
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Padding(
-                              padding:  EdgeInsets.only(left: 50,right: 50),
-                              child: TextFormField(
-                                controller: _studentName,
-                                keyboardType: TextInputType.emailAddress,
-                                style: const TextStyle(color: Colors.white),
-                                decoration: InputDecoration(
-                                  hintText: "Enter Your Name",
-                                  hintStyle: const TextStyle(color: Colors.white),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(20),
-                                    borderSide: BorderSide(
-                                      color: Theme.of(context).primaryColor,
-                                      width: 3,
-                                    ),
-                                  ),
-                                  prefixIcon: IconTheme(
-                                    data: IconThemeData(
-                                      color: Theme.of(context).primaryColor,
-                                    ),
-                                    child:  Icon(Icons.info),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
 
 
                           ],

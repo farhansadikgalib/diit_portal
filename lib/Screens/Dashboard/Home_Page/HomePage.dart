@@ -489,30 +489,30 @@ class _HomePageState extends State<HomePage> {
                           scrollDirection: Axis.horizontal,
                           child: Row(
                             children: [
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 15,
-                                width: MediaQuery.of(context).size.width / 2.40,
-                                child: NeumorphicButton(
-                                  onPressed: () {
-                                    Get.toNamed('/StudentDashBoard');
-                                  },
-                                  style: NeumorphicStyle(
-                                    // shape: NeumorphicShape.concave,
-                                      boxShape: NeumorphicBoxShape.roundRect(
-                                          BorderRadius.circular(12)),
-                                      depth: 1,
-                                      lightSource: LightSource.topLeft,
-                                      color: Colors.white),
-                                  child: const Center(
-                                      child: Text(
-                                        "STUDENT PROTAL",
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.black45,
-                                            fontWeight: FontWeight.bold),
-                                      )),
-                                ),
-                              ),
+                              // SizedBox(
+                              //   height: MediaQuery.of(context).size.height / 15,
+                              //   width: MediaQuery.of(context).size.width / 2.40,
+                              //   child: NeumorphicButton(
+                              //     onPressed: () {
+                              //       Get.toNamed('/StudentDashBoard');
+                              //     },
+                              //     style: NeumorphicStyle(
+                              //       // shape: NeumorphicShape.concave,
+                              //         boxShape: NeumorphicBoxShape.roundRect(
+                              //             BorderRadius.circular(12)),
+                              //         depth: 1,
+                              //         lightSource: LightSource.topLeft,
+                              //         color: Colors.white),
+                              //     child: const Center(
+                              //         child: Text(
+                              //           "STUDENT PROTAL",
+                              //           style: TextStyle(
+                              //               fontSize: 15,
+                              //               color: Colors.black45,
+                              //               fontWeight: FontWeight.bold),
+                              //         )),
+                              //   ),
+                              // ),
                               SizedBox(
                                 width: 10.w,
                               ),
@@ -569,7 +569,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                               SizedBox(
                                 height: MediaQuery.of(context).size.height / 15,
-                                width: MediaQuery.of(context).size.width / 2.30,
+                                width: MediaQuery.of(context).size.width / 2.10,
                                 child: NeumorphicButton(
                                   onPressed: ()=>
                                     Get.toNamed('/AcademicResult'),
@@ -621,28 +621,28 @@ class _HomePageState extends State<HomePage> {
                               SizedBox(
                                 width: 10.w,
                               ),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 15,
-                                width: MediaQuery.of(context).size.width / 2.30,
-                                child: NeumorphicButton(
-                                  onPressed: ()=>Get.toNamed('/DiitNotics'),
-                                  style: NeumorphicStyle(
-                                      shape: NeumorphicShape.concave,
-                                      boxShape: NeumorphicBoxShape.roundRect(
-                                          BorderRadius.circular(12)),
-                                      depth: 1,
-                                      lightSource: LightSource.topLeft,
-                                      color: Colors.white),
-                                  child: const Center(
-                                      child: Text(
-                                        "DIIT NOTICS",
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.black45,
-                                            fontWeight: FontWeight.bold),
-                                      )),
-                                ),
-                              ),
+                              // SizedBox(
+                              //   height: MediaQuery.of(context).size.height / 15,
+                              //   width: MediaQuery.of(context).size.width / 2.30,
+                              //   child: NeumorphicButton(
+                              //     onPressed: ()=>Get.toNamed('/DiitNotics'),
+                              //     style: NeumorphicStyle(
+                              //         shape: NeumorphicShape.concave,
+                              //         boxShape: NeumorphicBoxShape.roundRect(
+                              //             BorderRadius.circular(12)),
+                              //         depth: 1,
+                              //         lightSource: LightSource.topLeft,
+                              //         color: Colors.white),
+                              //     child: const Center(
+                              //         child: Text(
+                              //           "DIIT NOTICS",
+                              //           style: TextStyle(
+                              //               fontSize: 15,
+                              //               color: Colors.black45,
+                              //               fontWeight: FontWeight.bold),
+                              //         )),
+                              //   ),
+                              // ),
 
                               SizedBox(
                                 width: 10.w,
