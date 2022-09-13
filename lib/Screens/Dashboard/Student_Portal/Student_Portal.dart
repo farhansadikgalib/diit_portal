@@ -38,7 +38,7 @@ class _StudentPortalState extends State<StudentPortal> {
 
 
     var firebaseUser = await FirebaseAuth.instance.currentUser!;
-    firestoreInstance.collection("user_data").doc(firebaseUser.uid).collection('Student_Information').doc('Portal_Info').set(
+    firestoreInstance.collection("UserData").doc(firebaseUser.uid).collection('Student_Information').doc('Portal_Info').set(
         {
           "payable" : "",
           "paid" : "",
@@ -53,7 +53,7 @@ class _StudentPortalState extends State<StudentPortal> {
    getFirebaseUserData() async {
      var firebaseUser = await FirebaseAuth.instance.currentUser!;
      final snapshot = await FirebaseFirestore.instance
-         .collection('user_data')
+         .collection('UserData')
          .doc(firebaseUser.uid).collection('Student_Information').doc('Portal_Info')
          .get();
 

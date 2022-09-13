@@ -32,19 +32,15 @@ class _HomePageState extends State<HomePage> {
     weatherService();
     intitPlatformState();
     getWeather();
-    getFirebaseUserDataInLocally();
+    retriveFirebaseUserData();
     initFirestoreData();
     FCM();
-    // getCurrentUser();
-    // _setUserData();
 
   }
 
   static const String oneSignalId = "6d6a341b-9a0c-4637-9ba7-fd600bff21a0";
-  late CollectionReference ref;
-  String sec= 'B';
-  String dept='BBA';
-  String batch= '18';
+
+
   //community url
 
   final Uri _url = Uri.parse('https://chat.whatsapp.com/G3SiHAapFJH4DaThU1ngW7');
@@ -52,7 +48,8 @@ class _HomePageState extends State<HomePage> {
   // community url
 
 
-//weather
+
+/// weather data
   WeatherResponse? _response;
 
   var min,max;
@@ -69,10 +66,6 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-
-
-
-
   //
   // Future getSunriseSunset() async {
   //   final collectdata = await http.get(Uri.parse(
@@ -86,6 +79,11 @@ class _HomePageState extends State<HomePage> {
   //   });
   // }
 //weather
+
+  late var temp = (((_response?.tempInfo.temperature)! - 32) * 5) / 9;
+  ///Weather Datq
+
+
   final DataService _dataService = DataService();
 
   bool buttonselect = false;
@@ -95,7 +93,6 @@ class _HomePageState extends State<HomePage> {
   dynamic currentTime = DateFormat.jm().format(DateTime.now());
   String todaysWeeklyName = DateFormat('EEEE').format(DateTime.now());
 
-  late var temp = (((_response?.tempInfo.temperature)! - 32) * 5) / 9;
 
   final List<String> imageList = [
     "assets/slider_image/banner.png",
@@ -115,14 +112,16 @@ class _HomePageState extends State<HomePage> {
 
   //Firebase
 
+
+
   Future<void> initFirestoreData() async{
     ref = FirebaseFirestore.instance
         .collection("ClassRoutine")
         .doc('Department')
-        .collection(dept)
-        .doc(batch)
+        .collection(user_department)
+        .doc(user_batch)
         .collection('Section')
-        .doc(sec)
+        .doc(user_section)
         .collection('Day')
         .doc(todaysWeeklyName)
         .collection('ClassList');
@@ -137,28 +136,31 @@ class _HomePageState extends State<HomePage> {
 
   //Firebase
 
+
+  ///One Signal
+
   Future<void> intitPlatformState() async {
     OneSignal.shared.setAppId(oneSignalId);
   }
+
+  ///One Signal
 
   void weatherService() async {
     final response = await _dataService.getWeather("Dhaka");
     setState(() => _response = response);
   }
 
-//Shared Preference Data
+///Get Firebase Data
   String user_email = '';
-  String user_id = '';
+  String user_name = '';
   String user_department = '';
   String user_batch = '';
   String user_section = '';
+  CollectionReference ref = FirebaseFirestore.instance
+      .collection('UserData')
+      .doc(FirebaseAuth.instance.currentUser!.uid).parent;
 
-  // _sharedPreferencesGetData()async{
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  // }
-
-
-  getFirebaseUserDataInLocally()async{
+  retriveFirebaseUserData()async{
     var firebaseUser = await FirebaseAuth.instance.currentUser!;
 
     final snapshot = await FirebaseFirestore.instance
@@ -168,23 +170,29 @@ class _HomePageState extends State<HomePage> {
     print(snapshot['department']);
     print(snapshot['section']);
 
-    String department = snapshot['department'];
-    String batch = snapshot['batch'];
-    String section = snapshot['section'];
+     user_department = snapshot['department'];
+     user_batch = snapshot['batch'];
+     user_section = snapshot['section'];
+
+
+    if ((user_name == '' ||
+        user_name == 'null')) {
+      Get.offAndToNamed('/IntroScreen');
+    }
 
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('department', user_department);
+    prefs.setString('batch', user_batch);
+    prefs.setString('section', user_section);
 
-    prefs.setString('department', department);
-    prefs.setString('batch', batch);
-    prefs.setString('section', section);
 
-    print(section);
+
 
   }
 
 
-//Shared Preference Data
+  /// Get Firebase Data
 
 
   @override
@@ -430,7 +438,7 @@ class _HomePageState extends State<HomePage> {
                                               fontWeight: FontWeight.w300),
                                         ),
                                         Text(
-                                          "${snapshot.data!.docs.length}",
+                                          "${snapshot.data!.docs.length-1}",
                                           style: TextStyle(
                                               fontSize: 16,
                                               fontFamily: "Poppins",

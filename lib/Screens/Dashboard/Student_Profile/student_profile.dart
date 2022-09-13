@@ -41,7 +41,7 @@ class _StudentProfileState extends State<StudentProfile> {
     var firebaseUser = await FirebaseAuth.instance.currentUser!;
 
     final snapshot = await FirebaseFirestore.instance
-        .collection('user_data')
+        .collection('UserData')
         .doc(firebaseUser.uid)
         .get();
     // print( snapshot['id']);
@@ -59,7 +59,7 @@ class _StudentProfileState extends State<StudentProfile> {
 
 
   CollectionReference ref = FirebaseFirestore.instance
-      .collection('user_data')
+      .collection('UserData')
       .doc(FirebaseAuth.instance.currentUser!.uid).parent;
 
   @override
@@ -68,19 +68,6 @@ class _StudentProfileState extends State<StudentProfile> {
       future: ref.get(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          // dynamic z = snapshot.data!.docs.length;
-
-          // if (snapshot.data!.docs.length == 0) {
-          //   return Center(
-          //     child: Text(
-          //       "You have no saved Notes !",
-          //       style: TextStyle(
-          //         color: Colors.blue,
-          //       ),
-          //     ),
-          //   );
-          // }
-
           return Scaffold(
               backgroundColor: ColorChanger.scaffoldcolor,
               body: SafeArea(

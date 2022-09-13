@@ -58,7 +58,7 @@ class _Introscreen_StartState extends State<Introscreen_Start> {
                Department(),
 
                Section(),
-               IntroPage3(),
+               Welcome(),
 
              ],
             ),
