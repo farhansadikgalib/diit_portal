@@ -52,7 +52,7 @@ class _Exam_CourseState extends State<Exam_Course> {
                                      width: Get.width/2,
                                    ),
                              SizedBox(height: 10,),
-                               Text(subname[index],style: TextStyle(fontSize: 18,color: Colors.black45,fontWeight: FontWeight.bold),)
+                               Text(subname[index],style: TextStyle(fontSize: 18,color: Colors.black54,fontWeight: FontWeight.bold),)
                            ],
                          ),
                        ),

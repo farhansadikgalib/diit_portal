@@ -1,5 +1,6 @@
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:glass_kit/glass_kit.dart';
 
@@ -17,79 +18,145 @@ class _SubjectDetailsState extends State<SubjectDetails> {
       child: Scaffold(
         backgroundColor:ColorChanger.scaffoldcolor,
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
            children: [
-             GlassContainer(
-               height:Get.height/3,
+             SizedBox(height: 20,),
+             Container(
+               height: Get.height/4.5,
                width: Get.width,
-               gradient: LinearGradient(
-                 colors: [
-                   Colors.white70.withOpacity(0.35),
-                   Colors.white70.withOpacity(0.35)
-                 ],
-                 begin: Alignment.topLeft,
-                 end: Alignment.bottomRight,
+               decoration: BoxDecoration(
+                 color:Colors.white,
+                 borderRadius: BorderRadius.all(Radius.circular(20)),
                ),
-               borderGradient: LinearGradient(
-                 colors: [
-                   Colors.white.withOpacity(0.60),
-                   Colors.white.withOpacity(0.10),
-                   Colors.lightBlueAccent.withOpacity(0.05),
-                   Colors.lightBlueAccent.withOpacity(0.6)
+               child: Column(
+                 mainAxisAlignment: MainAxisAlignment.center,
+                 children: [
+                   Row(
+                     mainAxisAlignment: MainAxisAlignment.center,
+
+                     children: [
+                       Text('Department :',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                       SizedBox(width: 10,),
+                       Text('CSE',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                     ],
+                   ),
+                   SizedBox(height:Get.height/30 ,),
+                   Row(
+                     mainAxisAlignment: MainAxisAlignment.center,
+
+                     children: [
+                       Text('Batch :',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                       SizedBox(width: 10,),
+                       Text('17th',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                     ],
+                   ),
+                   SizedBox(height:Get.height/30 ,),
+                   Row(
+                     mainAxisAlignment: MainAxisAlignment.center,
+                     children: [
+                       Text('Section :',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                       SizedBox(width: 10,),
+                       Text('B',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                     ],
+                   ),
                  ],
-                 begin: Alignment.topLeft,
-                 end: Alignment.bottomRight,
-                 stops: const [0.0, 0.39, 0.40, 1.0],
                ),
-               blur: 15.0,
-               borderWidth: 1.5,
-               elevation: 3.0,
-               isFrostedGlass: true,
-               shadowColor: Colors.white.withOpacity(0.20),
-               alignment: Alignment.center,
-               frostedOpacity: 0.12,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Department : CSE',
-                        style: TextStyle(fontSize: 20,color: Colors.black45,fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(height: 8,),Text('Course Name : Network Security',
-                        style: TextStyle(fontSize: 20,color: Colors.black45,fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(height: 8,),
-                      Text('Batch : 17th',
-                        style: TextStyle(fontSize: 20,color: Colors.black45,fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(height: 8,),
-                      Text('Section : B',
-                        style: TextStyle(fontSize: 20,color: Colors.black45,fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(height: 8,),
-                      Text('Classes Taken : 28 / 30',
-                        style: TextStyle(fontSize: 20,color: Colors.black45,fontWeight: FontWeight.bold),
-                      ),SizedBox(height: 8,),
-                      Text('Quizes : 2',
-                        style: TextStyle(fontSize: 20,color: Colors.black45,fontWeight: FontWeight.bold),
-                      ),SizedBox(height: 8,),
-                      Text('Presentation : 1',
-                        style: TextStyle(fontSize: 20,color: Colors.black45,fontWeight: FontWeight.bold),
-                      ),SizedBox(height: 8,),
-                      Text('Assingment : 2',
-                        style: TextStyle(fontSize: 20,color: Colors.black45,fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
              ),
-             SizedBox(height: 50,),
-             SizedBox(
-               width: 200,
-               child: ElevatedButton(onPressed: ()=>Get.toNamed('/DateAttendance'),
-                   child: Text('Next',style: TextStyle(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold),)),
+            SizedBox(height: Get.height/25,),
+             Container(
+               height: Get.height/2.5,
+               width: Get.width,
+               decoration: BoxDecoration(
+                 color:Colors.white,
+                 borderRadius: BorderRadius.all(Radius.circular(20)),
+               ),
+               child: Column(
+                 mainAxisAlignment: MainAxisAlignment.center,
+                 children: [
+                   Row(
+                     mainAxisAlignment: MainAxisAlignment.center,
+                     children: [
+                       Text('Subject Name :',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                       SizedBox(width: 10,),
+                       Text('Computer Network',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                     ],
+                   ),
+
+                   SizedBox(height:Get.height/40 ,),
+                   Padding(
+                     padding: const EdgeInsets.only(left: 10,right: 10),
+                     child: Divider(
+                       thickness: 1.2,
+                       color: Colors.black54,
+                     ),
+                   ),
+                   InkWell(
+                     onTap: ()=>Get.toNamed('/DateAttendance'),
+                     hoverColor: Colors.black54,
+                     child: Row(
+                       mainAxisAlignment: MainAxisAlignment.center,
+
+                       children: [
+                         Text('Class Teken :',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                         SizedBox(width: 10,),
+                         Text('20 / 35',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                       ],
+                     ),
+                   ),
+
+                   SizedBox(height:Get.height/40 ,),
+                   Padding(
+                     padding: const EdgeInsets.only(left: 10,right: 10),
+                     child: Divider(
+                       thickness: 1.2,
+                       color: Colors.black54,
+                     ),
+                   ),
+                   Row(
+                     mainAxisAlignment: MainAxisAlignment.center,
+                     children: [
+                       Text('Presentation :',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                       SizedBox(width: 10,),
+                       Text('1',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                     ],
+                   ),
+                   SizedBox(height:Get.height/30 ,),
+                   Padding(
+                     padding: const EdgeInsets.only(left: 10,right: 10),
+                     child: Divider(
+                       thickness: 1.2,
+                       color: Colors.black54,
+                     ),
+                   ),
+
+                   Row(
+                     mainAxisAlignment: MainAxisAlignment.center,
+
+                     children: [
+                       Text('Assingment :',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                       SizedBox(width: 10,),
+                       Text('2',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                     ],
+                   ),
+                   SizedBox(height:Get.height/30 ,),
+                   Padding(
+                     padding: const EdgeInsets.only(left: 10,right: 10),
+                     child: Divider(
+                       thickness: 1.2,
+                       color: Colors.black54,
+                     ),
+                   ),
+                   Row(
+                     mainAxisAlignment: MainAxisAlignment.center,
+                     children: [
+                       Text('Quize :',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                       SizedBox(width: 10,),
+                       Text('2',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                     ],
+                   ),
+                 ],
+               ),
              ),
+
            ],
         ),
       ),

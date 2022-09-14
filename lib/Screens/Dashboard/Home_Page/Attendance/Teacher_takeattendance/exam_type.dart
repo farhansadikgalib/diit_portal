@@ -16,20 +16,25 @@ class _ExamTypeState extends State<ExamType> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: ColorChanger.scaffoldcolor,
+        appBar: AppBar(title:   Text(
+          "Exam Type",
+          style: TextStyle(
+              fontFamily: "Poppins",
+              fontSize:25,
+              color: Colors.white,
+              fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+          automaticallyImplyLeading: false,
+          backgroundColor: ColorChanger.scaffoldcolor,
+        ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Center(
             child: Column(
              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  "Exam Type",
-                  style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontSize:25,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold),
-                ),
+
           SizedBox(height: 50,),
 
                 SizedBox(
@@ -43,7 +48,7 @@ class _ExamTypeState extends State<ExamType> {
                             BorderRadius.circular(12)),
                         depth: 3,
                         lightSource: LightSource.topLeft,
-                        color: Colors.white),
+                        color: ColorChanger.scaffoldcolor),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -60,7 +65,7 @@ class _ExamTypeState extends State<ExamType> {
                           style: TextStyle(
                               fontFamily: "Poppins",
                               fontSize: 15,
-                              color: Colors.black54,
+                              color: Colors.white,
                               fontWeight: FontWeight.w300),
                         ),
                       ],
@@ -79,7 +84,7 @@ class _ExamTypeState extends State<ExamType> {
                             BorderRadius.circular(12)),
                         depth: 3,
                         lightSource: LightSource.topLeft,
-                        color: Colors.white),
+                        color: ColorChanger.scaffoldcolor),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -96,7 +101,7 @@ class _ExamTypeState extends State<ExamType> {
                           style: TextStyle(
                               fontFamily: "Poppins",
                               fontSize: 15,
-                              color: Colors.black54,
+                              color: Colors.white,
                               fontWeight: FontWeight.w300),
                         ),
                       ],
@@ -115,7 +120,7 @@ class _ExamTypeState extends State<ExamType> {
                             BorderRadius.circular(12)),
                         depth: 3,
                         lightSource: LightSource.topLeft,
-                        color: Colors.white),
+                        color: ColorChanger.scaffoldcolor),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -132,7 +137,7 @@ class _ExamTypeState extends State<ExamType> {
                           style: TextStyle(
                               fontFamily: "Poppins",
                               fontSize: 15,
-                              color: Colors.black54,
+                              color: Colors.white,
                               fontWeight: FontWeight.w300),
                         ),
                       ],

@@ -99,7 +99,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
               Padding(
                 padding:  EdgeInsets.only(top: 20, left: 10, right: 10),
                 child: Container(
-                  height: 150,
+                  height: Get.height/4,
                   width: Get.width,
                   decoration: const BoxDecoration(
                       color: Color(0xffc2caec),
@@ -130,33 +130,13 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                 ),
               ),
                SizedBox(
-                height: 10,
+                height: Get.height/18,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Container(
-                  //   width: 150.w,
-                  //   height: 160.h,
-                  //   child: InkWell(
-                  //     onTap: ()=>Get.toNamed('/SelectCourceAttendence'),
-                  //     child: Card(
-                  //       elevation: 5,
-                  //       color: Color(0xffF8EFEF),
-                  //       child: Column(
-                  //         mainAxisAlignment: MainAxisAlignment.center,
-                  //         children: [
-                  //           Image.asset("assets/ic_attendance.png",height: 100,width: 100,),
-                  //           SizedBox(height: 10,),
-                  //           Text( "Take Attendence",style: TextStyle(fontFamily: "Poppins",fontSize: 15,color: Colors.black,fontWeight: FontWeight.w300),),
-                  //         ],
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
-
                   SizedBox(
-                    height: Get.height / 5,
+                    height: Get.height / 4,
                     width: Get.width / 2.30,
                     child: NeumorphicButton(
                       onPressed: () => Get.toNamed('/SelectCourceAttendence'),
@@ -166,7 +146,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                               BorderRadius.circular(12)),
                           depth: 3,
                           lightSource: LightSource.topLeft,
-                          color: Colors.white),
+                          color: ColorChanger.scaffoldcolor),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -183,7 +163,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                             style: TextStyle(
                                 fontFamily: "Poppins",
                                 fontSize: 15,
-                                color: Colors.black54,
+                                color: Colors.white,
                                 fontWeight: FontWeight.w300),
                           ),
                         ],
@@ -216,7 +196,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                   // ),
 
                   SizedBox(
-                    height: Get.height / 5,
+                    height: Get.height / 4,
                     width: Get.width / 2.30,
                     child: NeumorphicButton(
                       onPressed: () => Get.toNamed('/TeacherViewAttendance'),
@@ -226,7 +206,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                               BorderRadius.circular(12)),
                           depth: 3,
                           lightSource: LightSource.topLeft,
-                          color: Colors.white),
+                          color:ColorChanger.scaffoldcolor),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -234,7 +214,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                             "assets/viewattendence.png",
                             height: Get.height / 8.2,
                             width: Get.width / 3,
-                            color: Colors.orangeAccent,
+                            color: Colors.white,
                           ),
                           const SizedBox(
                             height: 10,
@@ -244,7 +224,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                             style: TextStyle(
                                 fontFamily: "Poppins",
                                 fontSize: 15,
-                                color: Colors.black54,
+                                color: Colors.white,
                                 fontWeight: FontWeight.w300),
                           ),
                         ],
@@ -253,7 +233,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                   ),
                 ],
               ),
-              SizedBox(height: 15,),
+              SizedBox(height: Get.height/25,),
               SizedBox(
                 height: Get.height / 5,
                 width: Get.width / 2.30,
@@ -265,7 +245,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                           BorderRadius.circular(12)),
                       depth: 3,
                       lightSource: LightSource.topLeft,
-                      color: Colors.white),
+                      color: ColorChanger.scaffoldcolor),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -282,7 +262,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 15,
-                            color: Colors.black54,
+                            color: Colors.white,
                             fontWeight: FontWeight.w300),
                       ),
                     ],
@@ -343,97 +323,101 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                   ),
                 ),
               ),
-              Column(
-                children: [
-                  const Divider(
-                    thickness: 1,
-                    color: Colors.white24,
-                  ),
-                  SizedBox(
-                    height: Get.height / 22,
-                    width: double.infinity,
-                    child: InkWell(
-                      onTap: () {},
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 10, right: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
-                              'Setting',
-                              style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.bold),
-                            ),
-                            Icon(
-                              Icons.arrow_forward_ios_outlined,
-                              size: 18,
-                                color: Colors.white
-                            )
-                          ],
+              Padding(
+                padding: const EdgeInsets.only(left: 10,right: 10),
+                child: Column(
+                  children: [
+                     Divider(
+                      thickness: 1,
+                      color: Colors.white24,
+                    ),
+                    SizedBox(
+                      height: Get.height / 22,
+                      width: double.infinity,
+                      child: InkWell(
+                        onTap: () {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: const [
+                              Text(
+                                'Setting',
+                                style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.bold),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios_outlined,
+                                size: 18,
+                                  color: Colors.white
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                   Divider(
-                    thickness: 1,
-                    color: Colors.white24,
-                  ),
-                  SizedBox(
-                    height: Get.height / 22,
-                    width: double.infinity,
-                    child: InkWell(
-                      onTap: () {},
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 10, right: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
-                              'Help & Support',
-                              style: TextStyle(fontSize: 16,color:Colors.white,fontWeight: FontWeight.bold),
-                            ),
-                            Icon(
-                              Icons.arrow_forward_ios_outlined,
-                              size: 18,
-                                color: Colors.white
-                            )
-                          ],
+                     Divider(
+                      thickness: 1,
+                      color: Colors.white24,
+                    ),
+                    SizedBox(
+                      height: Get.height / 22,
+                      width: double.infinity,
+                      child: InkWell(
+                        onTap: () {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: const [
+                              Text(
+                                'Help & Support',
+                                style: TextStyle(fontSize: 16,color:Colors.white,fontWeight: FontWeight.bold),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios_outlined,
+                                size: 18,
+                                  color: Colors.white
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  const Divider(
-                    thickness: 1,
-                    color: Colors.white24,
-                  ),
-                  SizedBox(
-                    height: Get.height / 22,
-                    width: double.infinity,
-                    child: InkWell(
-                      onTap: () => _signOut(),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 10, right: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
-                              'Logout',
-                              style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.bold),
-                            ),
-                            Icon(
-                              Icons.logout,
-                              size: 20,
-                                color: Colors.white
-                            )
-                          ],
+                     Divider(
+                      thickness: 1,
+                      color: Colors.white24,
+                    ),
+                    SizedBox(
+                      height: Get.height / 22,
+                      width: double.infinity,
+                      child: InkWell(
+                        onTap: () => _signOut(),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: const [
+                              Text(
+                                'Logout',
+                                style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.bold),
+                              ),
+                              Icon(
+                                Icons.logout,
+                                size: 20,
+                                  color: Colors.white
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  const Divider(
-                    thickness: 1,
-                    color: Colors.white24,
-                  ),
-                ],
+                     Divider(
+                      thickness: 1,
+                      color: Colors.white24,
+                    ),
+                    SizedBox(height: Get.height/15,)
+                  ],
+                ),
               )
             ],
 
