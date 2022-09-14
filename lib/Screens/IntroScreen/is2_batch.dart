@@ -8,14 +8,14 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Batch extends StatefulWidget {
-  const Batch({Key? key}) : super(key: key);
+class Personal_Information extends StatefulWidget {
+  const Personal_Information({Key? key}) : super(key: key);
 
   @override
-  State<Batch> createState() => _BatchState();
+  State<Personal_Information> createState() => _Personal_InformationState();
 }
 
-class _BatchState extends State<Batch> {
+class _Personal_InformationState extends State<Personal_Information> {
 
 
 
@@ -24,13 +24,29 @@ class _BatchState extends State<Batch> {
 
   String? blooddropdownValue;
   late SharedPreferences prefs;
-  final _bloodkey = 'Blood';
+  final _bloodkey = 'blood';
   String bloodselect_text = 'Select Blood Group';
+
+
+
+
+  _setUserPersonalInformation()async{
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('name', _studentName.text);
+    prefs.setString('number', _studentnumber.text);
+    prefs.setString('blood', blooddropdownValue!);
+    prefs.setString('ablity', radioSelected.toString());
+
+  }
+
+
+
 
   _blood() async {
     prefs = await SharedPreferences.getInstance();
     setState(() {
-      blooddropdownValue = prefs.getString(_bloodkey) ?? "A"; // get the value
+      blooddropdownValue = prefs.getString(_bloodkey) ?? "A+"; // get the value
     });
   }
   List<String> blood_group = [
@@ -51,7 +67,7 @@ class _BatchState extends State<Batch> {
     super.initState();
   }
   final int _Value = 0;
-  bool radioSelected1 = false;
+  bool radioSelected = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,7 +93,7 @@ class _BatchState extends State<Batch> {
               padding:  EdgeInsets.only(left: 50,right: 50),
               child: TextFormField(
                 controller: _studentName,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.text,
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   hintText: "Enter Your Name",
@@ -105,7 +121,7 @@ class _BatchState extends State<Batch> {
               padding:  EdgeInsets.only(left: 50,right: 50),
               child: TextFormField(
                 controller: _studentnumber,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   hintText: "Enter Your number",
@@ -149,32 +165,39 @@ class _BatchState extends State<Batch> {
                       ),
                     ],
                   ),
-                  items: blood_group
-                      .map((item) =>
-                      DropdownMenuItem<String>(
-                        value: item,
-                        child: Text(
-                          item,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ))
-                      .toList(),
+                   items: [
+                     'A+',
+                     'A-',
+                     'B+',
+                     'B-',
+                     'O+',
+                     'O-',
+                     'AB+',
+                     'AB-',]
+                        .map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value,
+              style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              )),
+              );
+              }).toList(),
                   value: selectedValue,
-                  onChanged: (value) {
-
+                  onChanged: (String? value) {
                     setState(() {
-                      selectedValue = value as String;
-                      // this.searchBar(selectedValue);
-
-                      // if(selectedValue!.isNotEmpty){
-                      //
-                      print(selectedValue);
-
+                      selectedValue = value!;
                     });
+
+                    prefs.setString('name', _studentName.text);
+                    prefs.setString('number', _studentnumber.text);
+
+
+                    prefs.setString('blood',
+                        selectedValue!);
+                    print(selectedValue);// save value to SharedPreference
                   },
                   icon:  Icon(
                     Icons.arrow_forward_ios_outlined,
@@ -220,12 +243,14 @@ class _BatchState extends State<Batch> {
                   children: [
                     GlowRadio<bool>(
                       value: true,
-                      groupValue: radioSelected1,
+                      groupValue: radioSelected,
                       color: Colors.orangeAccent,
                       onChange: (value) {
                         setState(() {
-                          radioSelected1 = value;
+                          radioSelected = value;
                           log(value.toString());
+                          prefs.setString('availablity', radioSelected.toString());
+
                         });
                       },
                     ),
@@ -239,11 +264,12 @@ class _BatchState extends State<Batch> {
                     GlowRadio<bool>(
                       value: false,
                       color: Colors.orangeAccent,
-                      groupValue: radioSelected1,
+                      groupValue: radioSelected,
                       onChange: (value) {
                         setState(() {
-                          radioSelected1 = value;
+                          radioSelected = value;
                           log(value.toString());
+                          prefs.setString('availablity', radioSelected.toString());
                         });
                       },
                     ),

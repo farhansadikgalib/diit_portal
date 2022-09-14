@@ -27,8 +27,19 @@ class _DepartmentState extends State<Department> {
   _read() async {
     prefs = await SharedPreferences.getInstance();
     setState(() {
-      dropdownValue = prefs.getString(_key) ?? "CSE"; // get the value
+      dropdownValue = prefs.getString(_key) ?? "CSE";// get the value
     });
+
+    var blood= prefs.getString('blood');
+    var name= prefs.getString('name');
+    var number= prefs.getString('number');
+    var ablity=prefs.getString('availablity');
+
+    print(blood);
+    print(name);
+    print(number);
+    print(ablity);
+
   }
 
   // Department //

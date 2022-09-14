@@ -5,7 +5,6 @@ import 'package:diit_portal/Screens/IntroScreen/is2_batch.dart';
 import 'package:diit_portal/Screens/IntroScreen/is3_section.dart';
 import 'package:diit_portal/Screens/IntroScreen/is4_welcome.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 
 
@@ -45,7 +44,7 @@ class _Introscreen_StartState extends State<Introscreen_Start> {
                  });
              },
              children: [
-               Batch(),
+               Personal_Information(),
                Department(),
 
                Section(),
@@ -77,7 +76,7 @@ class _Introscreen_StartState extends State<Introscreen_Start> {
                         child:  Text("",style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.bold),),
                   ) : GestureDetector(
                        onTap: (){
-                         _controller.nextPage(duration: Duration(milliseconds: 500),
+                         _controller.nextPage(duration: Duration(milliseconds: 100),
                              curve:Curves.easeIn );
                              // .then((value){
                              //   setState(() {
@@ -85,7 +84,8 @@ class _Introscreen_StartState extends State<Introscreen_Start> {
                              //   });
                         // });
                        },
-                       child:Icon(Icons.keyboard_double_arrow_right,color: Colors.white,size: 30,),
+                    child: SizedBox(),
+                       // child:Icon(Icons.keyboard_double_arrow_right,color: Colors.white,size: 30,),
                   )
                 ],
               ),
