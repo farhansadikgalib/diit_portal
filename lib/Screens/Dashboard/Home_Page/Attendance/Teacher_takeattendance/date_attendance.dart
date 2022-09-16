@@ -19,31 +19,63 @@ class _DateAttendanceState extends State<DateAttendance> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: ColorChanger.scaffoldcolor,
-        body: ListView.builder(
-          itemCount: Classno.length,
-            itemBuilder: (context,index){
-          return InkWell(
-            onTap: ()=>Get.toNamed('/ViewStudentAttendance'),
-            child: Container(
-                height: 80,
-                width: 100,
-                child: Card(
-                  color: Colors.white,
-                  child: Row(
-                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text('Class No : ${Classno[index]}',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black54),),
-                      Text('P/A : 27/23',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black54),),
-                      Text(' Date : ${ClassDate[index]}',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black54),),
+        body: Column(
+          children: [
+            Expanded(
+                flex:1,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10,right: 10),
+                  child: Container(
+                    height: Get.height/10,
 
-                    ],
+                    width: double.infinity,
+                    child: Card(
+                      color: Colors.white,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(' Class No',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black54),),
+                          Text('P/A : ',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black54),),
+                          Text(' Class Date',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black54),),
+
+                        ],
+                      ),
+                    ),
                   ),
+                )),
+            Expanded(
+              flex: 10,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 10,right: 10),
+                child: ListView.builder(
+                  itemCount: Classno.length,
+                    itemBuilder: (context,index){
+                  return InkWell(
+                    onTap: ()=>Get.toNamed('/ViewStudentAttendance'),
+                    child: Container(
+                        height: 80,
+                        width: 100,
+                        child: Card(
+                          color: Colors.white,
+                          child: Row(
+                         mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text(' ${Classno[index]}',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black54),),
+                              Text('27/23',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black54),),
+                              Text(' ${ClassDate[index]}',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black54),),
 
-                ),
+                            ],
+                          ),
+
+                        ),
+                    ),
+                  );
+                   }
+                  ),
+              ),
             ),
-          );
-           }
-          ),
+          ],
+        ),
       ),
     );
   }

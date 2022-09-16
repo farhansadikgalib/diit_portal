@@ -89,55 +89,70 @@ class _SubjectDetailsState extends State<SubjectDetails> {
                        color: Colors.black54,
                      ),
                    ),
-                   InkWell(
-                     onTap: ()=>Get.toNamed('/DateAttendance'),
-                     hoverColor: Colors.black54,
+                   Padding(
+                     padding: const EdgeInsets.only(left: 10,right: 10),
+                     child: Container(
+                       height: Get.height/15,
+                       width: Get.width,
+                       color: Colors.deepPurpleAccent.shade100,
+
+                       child: InkWell(
+                         onTap: ()=>Get.toNamed('/DateAttendance'),
+                         hoverColor: Colors.black54,
+                         child: Row(
+                           mainAxisAlignment: MainAxisAlignment.center,
+
+                           children: [
+                             Text('Class Teken :',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                             SizedBox(width: 10,),
+                             Text('20 / 35',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                           ],
+                         ),
+                       ),
+                     ),
+                   ),
+
+
+                   Padding(
+                     padding: const EdgeInsets.only(left: 10,right: 10),
+                     child: Divider(
+                       thickness: 1.2,
+                       color: Colors.black54,
+                     ),
+                   ),
+                   Padding(
+                     padding: const EdgeInsets.only(top: 10),
+                     child: Row(
+                       mainAxisAlignment: MainAxisAlignment.center,
+                       children: [
+                         Text('Presentation :',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                         SizedBox(width: 10,),
+                         Text('1',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                       ],
+                     ),
+                   ),
+                   SizedBox(height:Get.height/45 ,),
+                   Padding(
+                     padding: const EdgeInsets.only(left: 10,right: 10),
+                     child: Divider(
+                       thickness: 1.2,
+                       color: Colors.black54,
+                     ),
+                   ),
+
+                   Padding(
+                     padding: const EdgeInsets.only(top: 10),
                      child: Row(
                        mainAxisAlignment: MainAxisAlignment.center,
 
                        children: [
-                         Text('Class Teken :',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                         Text('Assingment :',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
                          SizedBox(width: 10,),
-                         Text('20 / 35',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                         Text('2',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
                        ],
                      ),
                    ),
-
-                   SizedBox(height:Get.height/40 ,),
-                   Padding(
-                     padding: const EdgeInsets.only(left: 10,right: 10),
-                     child: Divider(
-                       thickness: 1.2,
-                       color: Colors.black54,
-                     ),
-                   ),
-                   Row(
-                     mainAxisAlignment: MainAxisAlignment.center,
-                     children: [
-                       Text('Presentation :',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
-                       SizedBox(width: 10,),
-                       Text('1',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
-                     ],
-                   ),
-                   SizedBox(height:Get.height/30 ,),
-                   Padding(
-                     padding: const EdgeInsets.only(left: 10,right: 10),
-                     child: Divider(
-                       thickness: 1.2,
-                       color: Colors.black54,
-                     ),
-                   ),
-
-                   Row(
-                     mainAxisAlignment: MainAxisAlignment.center,
-
-                     children: [
-                       Text('Assingment :',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
-                       SizedBox(width: 10,),
-                       Text('2',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
-                     ],
-                   ),
-                   SizedBox(height:Get.height/30 ,),
+                   SizedBox(height:Get.height/45 ,),
                    Padding(
                      padding: const EdgeInsets.only(left: 10,right: 10),
                      child: Divider(

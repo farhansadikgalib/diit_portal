@@ -13,50 +13,86 @@ class _TOTALDUEState extends State<TOTALDUE> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorChanger.scaffoldcolor,
-      body: ListView.builder(itemBuilder: (context,index){
-        return Container(
-          height: Get.height/10,
-          width: Get.width/1,
+        backgroundColor: ColorChanger.scaffoldcolor,
+        appBar:AppBar(title: Text('Due Information',
+          style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20,),
+        ),
+          centerTitle: true,
+          automaticallyImplyLeading: false,
+          backgroundColor:ColorChanger.scaffoldcolor,
+        ) ,
+        body: Column(
+          children:<Widget> [
+            SizedBox(height: 10,),
+            Padding(
+              padding: const EdgeInsets.only(left: 15,right: 15),
+              child: Container(
+                height: Get.height/14,
+                child: Card(
 
-          child: Card(
-            color: Colors.white,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('Date',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 16,),),
-                    SizedBox(height: 5,),
-                    Text('10/06/22',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 16,),),
-
-                  ],
+                  child:Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding:  EdgeInsets.only(left: 10),
+                        child: Text('Date',
+                          style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18,),
+                        ),
+                      ),
+                      Text('Paid',
+                        style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18,),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: Text('Type',
+                          style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18,),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('Payment',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 16,),),
-                    SizedBox(height: 5,),
-                    Text('-',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 16,),),
+              ),
+            ),
+            SizedBox(height: 2,),
+            Expanded(
+              child: ListView.builder(
+                  itemCount: 100,
+                  itemBuilder: (BuildContext context,index){
+                    return Padding(
+                      padding: const EdgeInsets.only(left: 15,right: 15),
+                      child: Container(
+                        height: Get.height/13,
+                        child: Card(
 
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('Type',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 16,),),
-                    SizedBox(height: 5,),
-                    Text('-',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 16,),),
+                          child:Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10),
+                                child: Text('10/06/22',
+                                  style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 16,),
+                                ),
+                              ),
+                              Text('-',
+                                style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 16,),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 10),
+                                child: Text('-',
+                                  style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 16,),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  }
+              ),
+            ),
 
-                  ],
-                ),
-              ],
-            )
-          ),
-        );
-      })
+          ],
+        )
     );
   }
 }
