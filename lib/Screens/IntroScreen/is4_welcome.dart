@@ -80,6 +80,7 @@ class _WelcomeState extends State<Welcome> {
         .set({
       "name": "$get_user_name",
       "number": "$get_user_number",
+      "blood":"$dropdownValue",
       "id": "$uid",
       "email": "$uemail",
       "department": "$user_department",

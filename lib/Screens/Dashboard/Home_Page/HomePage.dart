@@ -170,6 +170,7 @@ class _HomePageState extends State<HomePage> {
     print(snapshot['department']);
     print(snapshot['section']);
 
+
      user_department = snapshot['department'];
      user_batch = snapshot['batch'];
      user_section = snapshot['section'];
@@ -185,6 +186,8 @@ class _HomePageState extends State<HomePage> {
     prefs.setString('department', user_department);
     prefs.setString('batch', user_batch);
     prefs.setString('section', user_section);
+    var x=   prefs.getString('blood');
+    print(x);
 
 
 
