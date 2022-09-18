@@ -27,8 +27,7 @@ class _SelectCourceAttendenceState extends State<SelectCourceAttendence> {
   ];
 
   final List<String> Batch= [
-    '17th','18th','19th','20th','21th','22th','23th','24th','24th','25th','26th','27th','28th','29th','30th',
-
+    '17th','18th','19th','20th','21th','22th','23th',
 
   ];
   final List<String> Semester = [

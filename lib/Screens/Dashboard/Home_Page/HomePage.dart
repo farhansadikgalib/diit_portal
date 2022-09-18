@@ -164,7 +164,7 @@ class _HomePageState extends State<HomePage> {
     var firebaseUser = await FirebaseAuth.instance.currentUser!;
 
     final snapshot = await FirebaseFirestore.instance
-        .collection('user_data').doc(firebaseUser.uid).get();
+        .collection('UserData').doc(firebaseUser.uid).get();
     // print( snapshot['id']);
     print(snapshot['batch']);
     print(snapshot['department']);
@@ -174,17 +174,18 @@ class _HomePageState extends State<HomePage> {
      user_batch = snapshot['batch'];
      user_section = snapshot['section'];
 
-
-    if ((user_name == '' ||
-        user_name == 'null')) {
-      Get.offAndToNamed('/IntroScreen');
-    }
+    //
+    // if ((user_name == '' ||
+    //     user_name == 'null')) {
+    //   Get.offAndToNamed('/IntroScreen');
+    // }
 
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('department', user_department);
     prefs.setString('batch', user_batch);
     prefs.setString('section', user_section);
+
 
 
 
