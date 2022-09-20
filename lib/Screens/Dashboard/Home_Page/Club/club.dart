@@ -69,8 +69,8 @@ class _All_ClubsState extends State<All_Clubs> {
                   height: MediaQuery.of(context).size.height / 4.6,
                   width: MediaQuery.of(context).size.width / 2.50,
                   child: NeumorphicButton(
-                    // onPressed: () =>
-                    //     Get.toNamed('/StudentViewAttendance'),
+                    onPressed: () =>
+                        Get.toNamed('/AttendanceTake'),
                     style: NeumorphicStyle(
                         shape: NeumorphicShape.concave,
                         boxShape: NeumorphicBoxShape.roundRect(

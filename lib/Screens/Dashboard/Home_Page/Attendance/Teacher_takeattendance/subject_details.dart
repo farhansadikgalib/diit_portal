@@ -18,6 +18,7 @@ class _SubjectDetailsState extends State<SubjectDetails> {
       child: Scaffold(
         backgroundColor:ColorChanger.scaffoldcolor,
         body: Column(
+
            children: [
              SizedBox(height: 20,),
              Container(
@@ -61,7 +62,7 @@ class _SubjectDetailsState extends State<SubjectDetails> {
                  ],
                ),
              ),
-            SizedBox(height: Get.height/25,),
+            SizedBox(height: Get.height/10,),
              Container(
                height: Get.height/2.5,
                width: Get.width,
@@ -94,7 +95,7 @@ class _SubjectDetailsState extends State<SubjectDetails> {
                      child: Container(
                        height: Get.height/15,
                        width: Get.width,
-                       color: Colors.deepPurpleAccent.shade100,
+                       color: Colors.orangeAccent.shade100,
 
                        child: InkWell(
                          onTap: ()=>Get.toNamed('/DateAttendance'),

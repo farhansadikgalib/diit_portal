@@ -28,6 +28,7 @@ import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Thursd
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Tuesday.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/DAY/Wednesday.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Class_routine/Routine_View.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Club/atten/takeattendance.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Club/club.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Club/helping_birds.dart';
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Community/screens/Community.dart';
@@ -210,6 +211,7 @@ class MyApp extends StatelessWidget {
 
             // Attendance //
             GetPage(name: '/TakeandShowAttendence',page: () => const TakeandShowAttendence()),
+            GetPage(name: '/AttendanceTake',page: () => AttendanceTake()),
             GetPage(name: '/TeacherAttendance', page: () => TeacherAttendance()),
             GetPage(name: '/TeacherDashbord', page: () => TeacherDashbord()),
             GetPage(name: '/SelectCourceAttendence', page: () => SelectCourceAttendence()),
