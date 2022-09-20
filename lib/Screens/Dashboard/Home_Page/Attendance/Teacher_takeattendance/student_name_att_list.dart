@@ -7,7 +7,6 @@ import 'package:flutter_glow/flutter_glow.dart';
 import 'package:focused_menu/focused_menu.dart';
 import 'package:focused_menu/modals.dart';
 
-
 class StudentAttennameList extends StatefulWidget {
   @override
   State<StudentAttennameList> createState() => _StudentAttennameListState();
@@ -32,16 +31,19 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
 
   CollectionReference ref = FirebaseFirestore.instance.collection('UserData');
 
-
   /// firebase
 
   final int _Value = 0;
   bool radioSelected1 = false;
+  String _attendance='';
+
+  List<String> labels = ['Present', 'Absent'];
 
   // bool radioSelected2 = false;
   // bool radioSelected3 = false;
   // bool radioSelected4 = false;
   // bool radioSelected5 = false;
+
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +51,9 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
       future: ref.get(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
+
+
+
           if (snapshot.data!.docs.length == 0) {
             return Scaffold(
               backgroundColor: const Color.fromRGBO(1, 60, 88, 1),
@@ -70,7 +75,19 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
                 itemCount: snapshot.data!.docs.length,
                 itemBuilder: (context, index) {
                   final snap = snapshot.data!.docs;
+                  // DocumentSnapshot data = snapshot.data!.docs[index];
 
+                  // final firestoreInstance = FirebaseFirestore.instance;
+
+                  // var firebaseUser =  FirebaseAuth.instance.currentUser!;
+                  // firestoreInstance.collection("TeachersData").doc(firebaseUser.uid).collection('Student_Information').doc('Attendance').set(
+                  //     {
+                  //       "id" : "${snap[index]['class_id']}",
+                  //       "attendance" : "$_attendance",
+                  //
+                  //     }).then((_){
+                  //   print("database created!");
+                  // });
 
 
 
@@ -80,14 +97,8 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
                         elevation: 3,
                         shadowColor: Colors.orange,
                         child: Container(
-                            height: MediaQuery
-                                .of(context)
-                                .size
-                                .height / 8,
-                            width: MediaQuery
-                                .of(context)
-                                .size
-                                .width,
+                            height: MediaQuery.of(context).size.height / 6,
+                            width: MediaQuery.of(context).size.width,
                             color: Color(0xffCCBDBD),
                             child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -114,6 +125,37 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
                                   SizedBox(
                                     height: 5,
                                   ),
+
+                                  Padding(
+                                    padding:
+                                        EdgeInsets.only(left: 20, right: 20),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: labels.map((s) {
+                                        return Column(
+                                          children: <Widget>[
+                                            GlowRadio(
+                                              groupValue: _attendance,
+                                              value: s,
+                                              color: Colors.orangeAccent,
+                                              onChange: (value) {
+                                                setState(() {
+                                                  print(value);
+                                                  // value=s;
+                                                  //  snap[index]['class_id'] = value;
+                                                });
+                                              },
+                                            ),
+                                            Text(s,
+                                                style: TextStyle(
+                                                    color: Colors.black))
+                                          ],
+                                        );
+                                      }).toList(),
+                                    ),
+                                  )
+
                                   // Padding(
                                   //     padding:
                                   //         EdgeInsets.only(left: 20, right: 20),
@@ -178,11 +220,4 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
 
     //   Scaffold(
   }
-
-
-
 }
-
-
-
-
