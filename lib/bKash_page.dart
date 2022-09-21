@@ -53,7 +53,7 @@ class _bKashPageState extends State<bKashPage> {
   _setPaymentInfo() async{
 
     var firebaseUser = await FirebaseAuth.instance.currentUser!;
-    firestoreInstance.collection("UserData").doc(firebaseUser.uid).collection('Payment_Info').doc('Payment_Info').set(
+    firestoreInstance.collection("UserData").doc(firebaseUser.uid).collection('Payment_Info').doc().set(
         {
           "amount" : "${_amountController.text.toString()}",
           "date" : "${formattedDate.toString()}",
