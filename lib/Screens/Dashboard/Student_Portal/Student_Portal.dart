@@ -91,7 +91,7 @@ class _StudentPortalState extends State<StudentPortal> {
   }
 
   CollectionReference ref = FirebaseFirestore.instance
-      .collection('user_data')
+      .collection('UserData')
       .doc(FirebaseAuth.instance.currentUser!.uid)
       .collection('Student_Information');
 
