@@ -133,7 +133,6 @@ dependencies:
   #Focus Menu
 
 
-
   #  file save
   path_provider: ^2.0.9
   dio: ^4.0.6
@@ -240,6 +239,13 @@ flutter:
     - assets/teacher/bba&bthm/
     - assets/club_icons/
     - assets/student_atten_view/
+    - assets/www/
+    - assets/www/checkout_bkash.html
+    - assets/www/js/
+    - assets/www/css/
+    - assets/www/fonts/
+    - assets/www/images/
+
 
   #   - images/a_dot_ham.jpeg
   #   - images/a_dot_ham.jpeg

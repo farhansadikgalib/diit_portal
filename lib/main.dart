@@ -60,6 +60,7 @@ import 'package:diit_portal/Screens/IntroScreen/IntroScreen_Start.dart';
 import 'package:diit_portal/Screens/NoInternet/NoInternetConnection.dart';
 import 'package:diit_portal/Screens/SplashScreen/SplashScreen.dart';
 import 'package:diit_portal/Screens/SplashScreen/SplashScreenBinding.dart';
+import 'package:diit_portal/bKash_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -192,6 +193,8 @@ class MyApp extends StatelessWidget {
             // horigental button start//
             GetPage(name: '/FacultyProfile', page: () =>  FacultyProfile()),
             GetPage(name: '/QuickPayment', page: () =>  QuickPayment()),
+            GetPage(name: '/bKash', page: () =>  bKashPage(title: 'Quick Pay')),
+
             GetPage(name: '/NU_Portal', page: () =>  NU_Portal()),
             GetPage(name: '/TutionFees', page: () =>  TutionFees()),
 
