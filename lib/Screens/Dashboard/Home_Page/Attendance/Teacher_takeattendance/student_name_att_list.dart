@@ -1,14 +1,9 @@
-
-
-
 import 'dart:ffi';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_glow/flutter_glow.dart';
-import 'package:focused_menu/focused_menu.dart';
-import 'package:focused_menu/modals.dart';
 import 'package:get/get.dart';
 
 class StudentAttennameList extends StatefulWidget {
@@ -19,48 +14,57 @@ class StudentAttennameList extends StatefulWidget {
 class _StudentAttennameListState extends State<StudentAttennameList> {
 
 
-
-
-
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     UserData();
-
   }
 
   ///firebase
 
-  String user_department = '';
-  String user_batch = '';
-  String user_section = '';
-
-
-  // CollectionReference ref = FirebaseFirestore.instance
-  //     .collection('UserData')
-  //     .doc(FirebaseAuth.instance.currentUser!.uid).parent;
-
   CollectionReference ref = FirebaseFirestore.instance.collection('UserData');
+  var _sendId = '';
+  var _sendAttendance = '';
 
   /// firebase
 
   // final int _Value = 0;
   // bool radioSelected1 = false;
 
-  UserData(){
-     student({
-       'id':'class_id'
-     });
-     attendance ['class_id'] ='';
-   }
+  UserData() {
+    student({
+      'id': 'class_id'
+    });
+    attendance ['class_id'] = '';
+  }
 
 
   Map<String, String> attendance = {};
 
   List<String> labels = ['Present', 'Absent'];
 
+
+  /// test
+  final List<String> datax = <String>['A', 'B', 'C', 'D'];
+
+  /// test
+
+  _SubmitButton() {
+    final firestoreInstance = FirebaseFirestore.instance;
+
+    var firebaseUser = FirebaseAuth.instance.currentUser!;
+    firestoreInstance.collection("TeachersData").doc(firebaseUser.uid)
+        .collection('Student_Information').doc('Attendance').set(
+        {
+          "id": "$_sendId",
+          "attendance": "$_sendAttendance",
+
+        })
+        .then((_) {
+      print("database send on firebase!");
+    });
+  }
 
 
   @override
@@ -69,9 +73,6 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
       future: ref.get(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-
-
-
           if (snapshot.data!.docs.length == 0) {
             return Scaffold(
               backgroundColor: const Color.fromRGBO(1, 60, 88, 1),
@@ -99,20 +100,6 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
                         final snap = snapshot.data!.docs;
                         // DocumentSnapshot data = snapshot.data!.docs[index];
 
-                        // final firestoreInstance = FirebaseFirestore.instance;
-
-                        // var firebaseUser =  FirebaseAuth.instance.currentUser!;
-                        // firestoreInstance.collection("TeachersData").doc(firebaseUser.uid).collection('Student_Information').doc('Attendance').set(
-                        //     {
-                        //       "id" : "${snap[index]['class_id']}",
-                        //       "attendance" : "$_attendance",
-                        //
-                        //     }).then((_){
-                        //   print("database created!");
-                        // });
-
-
-
 
                         return Column(children: [
                           Card(
@@ -123,7 +110,8 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
                                   width: Get.width,
                                   color: Color(0xffCCBDBD),
                                   child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment
+                                          .center,
                                       children: [
                                         SizedBox(
                                           height: 5,
@@ -150,87 +138,78 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
 
                                         Padding(
                                           padding:
-                                              EdgeInsets.only(left: 20, right: 20),
+                                          EdgeInsets.only(left: 20, right: 20),
                                           child: Row(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.spaceAround,
+                                            MainAxisAlignment.spaceAround,
                                             children: labels.map((s) {
                                               return Row(
                                                 children: <Widget>[
                                                   GlowRadio(
-                                                    groupValue:  attendance [snap[index]['id']],
+                                                    groupValue: attendance [snap[index]['id']],
                                                     value: s,
                                                     color: Colors.orangeAccent,
                                                     onChange: (value) {
                                                       setState(() {
-                                                        print(value);
-                                                        value=s;
+                                                        // print(value);
 
-                                                         attendance [snap[index]['id']]= s;
+                                                        attendance [snap[index]['id']] = s;
+
+                                                        _sendId =
+                                                        snap[index]['class_id'];
+                                                        _sendAttendance = s;
+
+                                                        print(
+                                                            snap[index]['class_id']);
+
+
+                                                        List<
+                                                            StudentsData> stData = [
+                                                        ];
+
+                                                        stData.add(StudentsData(
+                                                            id: _sendId,
+                                                            name: "Farhan",
+                                                            attendance: _sendAttendance)
+                                                        );
+
+
+                                                        for(var i=0; i<=snap.length;i++){
+                                                          Student(name: _sendId, rollno: _sendAttendance);
+                                                        }
+
+
+                                                        print(stData);
+
+                                                        //
+                                                        // final firestoreInstance = FirebaseFirestore.instance;
+                                                        //
+                                                        // var firebaseUser =  FirebaseAuth.instance.currentUser!;
+                                                        // firestoreInstance.collection("TeachersData").doc(firebaseUser.uid).collection('Student_Information').doc('Attendance').set(
+                                                        //     {
+                                                        //       "id" : "$_sendId",
+                                                        //       "attendance" : "$_sendAttendance",
+                                                        //
+                                                        //     }).then((_){
+                                                        //   print("database send on firebase!");
+                                                        // });
+
+
                                                       });
                                                     },
                                                   ),
 
-                                                     SizedBox(width: 8,),
+                                                  SizedBox(width: 8,),
                                                   Text(s,
                                                       style: TextStyle(
-                                                          color: Colors.black,fontSize: 16))
+                                                          color: Colors.black,
+                                                          fontSize: 16))
                                                 ],
                                               );
                                             }).toList(),
                                           ),
                                         )
 
-                                        // Padding(
-                                        //     padding:
-                                        //         EdgeInsets.only(left: 20, right: 20),
-                                        //     child:
-                                        //     Row(children: [
-                                        //       Row(
-                                        //         children: [
-                                        //           GlowRadio<bool>(
-                                        //             value: false,
-                                        //             groupValue: radioSelected1,
-                                        //             color: Colors.orangeAccent,
-                                        //             onChange: (value) {
-                                        //               setState(() {
-                                        //                 radioSelected1 = value;
-                                        //                 log(value.toString());
-                                        //               });
-                                        //             },
-                                        //           ),
-                                        //           SizedBox(
-                                        //             width: 15,
-                                        //           ),
-                                        //           Text(
-                                        //             "Present",
-                                        //             style: TextStyle(fontSize: 18),
-                                        //           )
-                                        //         ],
-                                        //       ),
-                                        //
-                                        //       Spacer(),
-                                        //       Row(
-                                        //         children: [
-                                        //           GlowRadio<bool>(
-                                        //             value: true,
-                                        //             color: Colors.orangeAccent,
-                                        //             groupValue: radioSelected1,
-                                        //             onChange: (value) {
-                                        //               setState(() {
-                                        //                 radioSelected1 = value;
-                                        //                 log(value.toString());
-                                        //               });
-                                        //             },
-                                        //           ),
-                                        //
-                                        //           SizedBox(width: 15,),
-                                        //           Text("Absent",
-                                        //             style: TextStyle(
-                                        //                 fontSize: 18),)
-                                        //         ],
-                                        //       ),
-                                        //     ]))
                                       ])))
                         ]);
                       },
@@ -244,8 +223,12 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
                           SizedBox(
                             width: 150,
                             height: 45,
-                            child:  ElevatedButton(
-                              onPressed: (){
+                            child: ElevatedButton(
+                              onPressed: () {
+                                // _SubmitButton();
+                                print('successful');
+                                List<Student> studentx=[];
+                                print(studentx);
 
                                 Get.defaultDialog(
                                     title: "Class Attendance",
@@ -284,7 +267,7 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
                                                   Text('Present'),
                                                   SizedBox(height: 10,),
                                                   Text(
-                                                    'null',
+                                                    '7',
                                                     style: TextStyle(
                                                         fontSize: 20,
                                                         fontWeight: FontWeight.w400),
@@ -299,7 +282,7 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
                                                 children:  [
                                                   Text('Absent'),
                                                   SizedBox(height: 10,),
-                                                  Text('20'),
+                                                  Text('7'),
                                                 ],
                                               ),
                                             ),
@@ -319,6 +302,8 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
                                                 messageText: Text('Done',style: TextStyle(fontSize: 16),) ,
                                                 titleText:  Text('Class Attendance',style: TextStyle(fontSize: 18),)
                                             );
+                                            Get.offAndToNamed("/TeacherDashbord");
+
 
                                           },
                                           child: Text('CONFIRM',style: TextStyle(fontSize: 16),),
@@ -337,7 +322,10 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
                                 );
 
                               },
-                              child: Text('SUBMIT',style: TextStyle(fontSize: 18,letterSpacing: 1.5,color: Colors.white),),
+                              child: Text('SUBMIT', style: TextStyle(
+                                  fontSize: 18,
+                                  letterSpacing: 1.5,
+                                  color: Colors.white),),
                             ),
                           ),
 
@@ -362,3 +350,20 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
 
   }
 }
+
+
+class StudentsData {
+  //modal class for Person object
+  String id, name, attendance;
+
+  StudentsData(
+      {required this.id, required this.name, required this.attendance});
+}
+class Student{
+  String name;
+  String rollno;
+
+  Student({required this.name, required this.rollno});
+}
+
+/// /// test

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:diit_portal/BinaryClock/Clock.dart';
 import 'package:diit_portal/Screens/Dashboard/Notification/Notification_Service.dart';
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:diit_portal/Screens/Weather/data_service.dart';
@@ -49,7 +50,7 @@ class _HomePageState extends State<HomePage> {
 
 
 
-/// weather data
+  /// weather data
   WeatherResponse? _response;
 
   var min,max;
@@ -82,7 +83,6 @@ class _HomePageState extends State<HomePage> {
 
   late var temp = (((_response?.tempInfo.temperature)! - 32) * 5) / 9;
   ///Weather Datq
-
 
   final DataService _dataService = DataService();
 
@@ -138,19 +138,17 @@ class _HomePageState extends State<HomePage> {
 
 
   ///One Signal
-
   Future<void> intitPlatformState() async {
     OneSignal.shared.setAppId(oneSignalId);
   }
 
   ///One Signal
-
   void weatherService() async {
     final response = await _dataService.getWeather("Dhaka");
     setState(() => _response = response);
   }
 
-///Get Firebase Data
+  ///Get Firebase Data
   String user_email = '';
   String user_name = '';
   String user_department = '';
@@ -171,9 +169,9 @@ class _HomePageState extends State<HomePage> {
     print(snapshot['section']);
 
 
-     user_department = snapshot['department'];
-     user_batch = snapshot['batch'];
-     user_section = snapshot['section'];
+    user_department = snapshot['department'];
+    user_batch = snapshot['batch'];
+    user_section = snapshot['section'];
 
     //
     // if ((user_name == '' ||
@@ -197,7 +195,6 @@ class _HomePageState extends State<HomePage> {
 
 
   /// Get Firebase Data
-
 
   @override
   Widget build(BuildContext context) {
@@ -390,11 +387,11 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(
                         height: 5,
                       ),
-                      // Card(
-                      //   elevation: 3,
-                      //   shadowColor: Colors.orange,
-                      //   child: Clock(),
-                      // ),
+                      Card(
+                        elevation: 3,
+                        shadowColor: Colors.orange,
+                        child: Clock(),
+                      ),
 
                       SizedBox(height: 5,),
                       InkWell(
@@ -441,8 +438,9 @@ class _HomePageState extends State<HomePage> {
                                               fontFamily: "Poppins",
                                               fontWeight: FontWeight.w300),
                                         ),
+                                        // ${snapshot.data!.docs.length}
                                         Text(
-                                          "${snapshot.data!.docs.length-1}",
+                                          "0",
                                           style: TextStyle(
                                               fontSize: 16,
                                               fontFamily: "Poppins",
@@ -584,7 +582,7 @@ class _HomePageState extends State<HomePage> {
                                 width: MediaQuery.of(context).size.width / 2.10,
                                 child: NeumorphicButton(
                                   onPressed: ()=>
-                                    Get.toNamed('/AcademicResult'),
+                                      Get.toNamed('/AcademicResult'),
 
                                   style: NeumorphicStyle(
                                       shape: NeumorphicShape.concave,

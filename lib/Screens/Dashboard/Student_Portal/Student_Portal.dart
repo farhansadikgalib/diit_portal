@@ -36,7 +36,6 @@ class _StudentPortalState extends State<StudentPortal> {
 
   _setStudent_Portal_info() async{
 
-
     var firebaseUser = await FirebaseAuth.instance.currentUser!;
     firestoreInstance.collection("UserData").doc(firebaseUser.uid).collection('Student_Information').doc('Portal_Info').set(
         {
