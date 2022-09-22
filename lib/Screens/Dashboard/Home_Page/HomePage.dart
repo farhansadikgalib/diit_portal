@@ -30,11 +30,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+    initFirestoreData();
     weatherService();
     intitPlatformState();
     getWeather();
     retriveFirebaseUserData();
-    initFirestoreData();
     FCM();
 
   }
@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
 
 
   Future<void> initFirestoreData() async{
-    ref = FirebaseFirestore.instance
+   ref = FirebaseFirestore.instance
         .collection("ClassRoutine")
         .doc('Department')
         .collection(user_department)
@@ -125,6 +125,7 @@ class _HomePageState extends State<HomePage> {
         .collection('Day')
         .doc(todaysWeeklyName)
         .collection('ClassList');
+
 
   }
 
@@ -154,7 +155,7 @@ class _HomePageState extends State<HomePage> {
   String user_department = '';
   String user_batch = '';
   String user_section = '';
-  CollectionReference ref = FirebaseFirestore.instance
+   CollectionReference ref = FirebaseFirestore.instance
       .collection('UserData')
       .doc(FirebaseAuth.instance.currentUser!.uid).parent;
 
@@ -199,11 +200,28 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
-
+    // CollectionReference ref=  FirebaseFirestore.instance
+    //     .collection("ClassRoutine")
+    //     .doc('Department')
+    //     .collection(user_department)
+    //     .doc(user_batch)
+    //     .collection('Section')
+    //     .doc(user_section)
+    //     .collection('Day')
+    //     .doc(todaysWeeklyName)
+    //     .collection('ClassList');
     return FutureBuilder<QuerySnapshot>(
       future: ref.get(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
+
+
+
+
+
+        // print(snap.toString());
+
+
           return SafeArea(
             child: Scaffold(
               backgroundColor:  ColorChanger.scaffoldcolor,

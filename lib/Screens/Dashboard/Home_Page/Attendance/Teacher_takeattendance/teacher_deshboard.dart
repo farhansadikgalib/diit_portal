@@ -1,6 +1,5 @@
 import 'dart:convert';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
@@ -36,6 +35,9 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
     // email =user_email!;
     getUserData();
     intitPlatformState();
+
+
+
   }
 
   getUserData() async {
@@ -85,6 +87,21 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
 
         "contents": {"en": "Notification Send"},
       }),
+    );
+  }
+
+
+
+  void Notify() async{
+    // local notification
+    AwesomeNotifications().createNotification(
+        content: NotificationContent(
+            id: 10,
+            channelKey: 'basic_channel',
+            title: 'Simple Notification',
+            body: 'Simple body',
+            bigPicture:'assets://images/protocoderlogo.png'
+        )
     );
   }
 
@@ -295,6 +312,7 @@ return SafeArea(
                 hintStyle: TextStyle(color: Colors.white),
                 suffixIcon: IconButton(
                   onPressed: () {
+                    Notify();
                     Get.snackbar('Notification', "Sent Successfully",
                         backgroundColor: Colors.white,
                         snackPosition: SnackPosition.TOP,

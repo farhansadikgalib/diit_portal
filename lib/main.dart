@@ -73,6 +73,7 @@ import 'package:get/get.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
  await Firebase.initializeApp();
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -81,18 +82,15 @@ void main() async {
 
 
   AwesomeNotifications().initialize(
-      'resource://drawable/notification_icon',
-      [            // notification icon
+      null,
+      [
         NotificationChannel(
-          channelGroupKey: 'basic_test',
-          channelKey: 'basic',
-          channelName: 'Basic notifications',
-          channelDescription: 'Notification channel for basic tests',
-          channelShowBadge: true,
-          importance: NotificationImportance.High,
-        ),
-        //add more notification type with different configuration
-
+            channelKey: 'basic_channel',
+            channelName: 'Basic notifications',
+            channelDescription: 'Notification channel for basic tests',
+            defaultColor: Colors.orangeAccent,
+            ledColor: Colors.white
+        )
       ]
   );
 
@@ -107,6 +105,13 @@ void main() async {
 
 
   runApp(MyApp());
+}
+
+
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  print("Handling a background message: ${message.messageId}");
+  //call awesomenotification to how the push notification.
+  AwesomeNotifications().createNotificationFromJsonData(message.data);
 }
 
 Future<void> firebaseBackgroundMessage(RemoteMessage message) async {
