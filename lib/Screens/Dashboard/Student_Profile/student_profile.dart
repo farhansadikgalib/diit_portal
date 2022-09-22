@@ -605,7 +605,7 @@ class _StudentProfileState extends State<StudentProfile> {
               )));
         } else {
           return Center(
-            child: SizedBox(),
+            child: CircularProgressIndicator(),
           );
         }
       },

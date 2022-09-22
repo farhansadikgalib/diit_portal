@@ -174,14 +174,14 @@ dependencies:
   #Notification System
 
   #WebView
-  flutter_inappwebview: ^5.3.2
+  flutter_inappwebview: ^5.4.3+7
   webview_cookie_manager: ^2.0.6
   connectivity: ^3.0.6
   url_launcher: ^6.0.17
   #WebView
 
   # for handling permissions for downloading tasks
-  permission_handler: ^8.3.0
+  permission_handler: any
   # for handling permissions for downloading tasks
 
   #draw svg icons
@@ -205,6 +205,12 @@ flutter_icons:
 flutter_app_name:
   name: "DiiT Portal"
 
+
+dependency_overrides:
+  flutter_inappwebview:
+    git:
+      url: https://github.com/rshrc/flutter_inappwebview
+      ref: master
 
 dev_dependencies:
   flutter_test:
