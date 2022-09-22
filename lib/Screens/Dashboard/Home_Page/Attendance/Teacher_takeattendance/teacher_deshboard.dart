@@ -98,8 +98,8 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
         content: NotificationContent(
             id: 10,
             channelKey: 'basic_channel',
-            title: 'Simple Notification',
-            body: 'Simple body',
+            title: 'DiiT Portal',
+            body: '${_createNotification.text}',
             bigPicture:'assets://images/protocoderlogo.png'
         )
     );

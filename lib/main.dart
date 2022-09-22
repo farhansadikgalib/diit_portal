@@ -89,19 +89,19 @@ void main() async {
             channelName: 'Basic notifications',
             channelDescription: 'Notification channel for basic tests',
             defaultColor: Colors.orangeAccent,
-            ledColor: Colors.white
+            ledColor: Colors.black,
+            enableLights: true,
+          enableVibration: true,
+          playSound: true,
+
         )
       ]
   );
 
 
-  AwesomeNotifications().actionStream.listen((ReceivedNotification receivedNotification){
-    print(receivedNotification.payload!['title']);
-    //output from local notification click.
-  });
 
-  FirebaseMessaging.instance.subscribeToTopic("all");
-  FirebaseMessaging.onBackgroundMessage(firebaseBackgroundMessage);
+  // FirebaseMessaging.instance.subscribeToTopic("all");
+  // FirebaseMessaging.onBackgroundMessage(firebaseBackgroundMessage);
 
 
   runApp(MyApp());
