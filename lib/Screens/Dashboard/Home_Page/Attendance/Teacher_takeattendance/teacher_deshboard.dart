@@ -328,6 +328,7 @@ return SafeArea(
                     }else{
                       Notify();
 
+                      _createNotification.clear();
                       Get.snackbar('Notification', "Sent Successfully",
                           backgroundColor: Colors.lightGreen,
                           snackPosition: SnackPosition.BOTTOM,
