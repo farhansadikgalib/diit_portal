@@ -62,6 +62,9 @@ class _StudentProfileState extends State<StudentProfile> {
       .doc(FirebaseAuth.instance.currentUser!.uid)
       .parent;
 
+
+
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<QuerySnapshot>(

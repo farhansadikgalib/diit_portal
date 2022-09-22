@@ -1,6 +1,6 @@
-import 'dart:ffi';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/view_student_attendance.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_glow/flutter_glow.dart';
@@ -12,6 +12,8 @@ class StudentAttennameList extends StatefulWidget {
 }
 
 class _StudentAttennameListState extends State<StudentAttennameList> {
+
+
 
 
   @override
@@ -37,10 +39,10 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
       'id': 'class_id'
     });
     attendance ['class_id'] = '';
+
   }
 
-
-  Map<String, String> attendance = {};
+  Map<String, dynamic> attendance = {};
 
   List<String> labels = ['Present', 'Absent'];
 
@@ -65,6 +67,7 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
       print("database send on firebase!");
     });
   }
+
 
 
   @override
@@ -155,16 +158,13 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
 
                                                         attendance [snap[index]['id']] = s;
 
-                                                        _sendId =
-                                                        snap[index]['class_id'];
+                                                        _sendId = snap[index]['class_id'];
                                                         _sendAttendance = s;
 
-                                                        print(
-                                                            snap[index]['class_id']);
+                                                        print(snap[index]['class_id']);
 
 
-                                                        List<
-                                                            StudentsData> stData = [
+                                                        List<StudentsData> stData = [
                                                         ];
 
                                                         stData.add(StudentsData(
@@ -295,6 +295,7 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
                                         width: 110,
                                         child: ElevatedButton(
                                           onPressed: (){
+
                                             Get.snackbar(
                                                 'Class Attendance',"Done",
                                                 backgroundColor: Colors.white,
@@ -306,6 +307,7 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
 
 
                                           },
+
                                           child: Text('CONFIRM',style: TextStyle(fontSize: 16),),
                                         ),
                                       ),
@@ -320,7 +322,6 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
                                       ),
                                     ]
                                 );
-
                               },
                               child: Text('SUBMIT', style: TextStyle(
                                   fontSize: 18,
@@ -365,5 +366,6 @@ class Student{
 
   Student({required this.name, required this.rollno});
 }
+
 
 /// /// test

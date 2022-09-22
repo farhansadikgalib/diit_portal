@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:diit_portal/Screens/Dashboard/Student_Profile/student_profile.dart';
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -82,6 +83,7 @@ class _exam_marksState extends State<exam_marks> {
                                   child: Card(
                                     color: Colors.black12,
                                     child: TextFormField(
+                                      controller: _inputResult,
                                       style: TextStyle(
                                           fontSize: 20,
                                           color: Colors.white,
@@ -106,6 +108,7 @@ class _exam_marksState extends State<exam_marks> {
                             height: 45,
                             child: ElevatedButton(
                               onPressed: () {
+
                                 Get.defaultDialog(
                                     title: "Result Publish",
                                     backgroundColor: Colors.white,
@@ -169,6 +172,7 @@ class _exam_marksState extends State<exam_marks> {
                                         width: 110,
                                         child: ElevatedButton(
                                           onPressed: () {
+
                                             Get.offAndToNamed("/TeacherDashbord");
                                             Get.snackbar(
                                                 'Result Publish', "Done",
