@@ -312,18 +312,35 @@ return SafeArea(
                 hintStyle: TextStyle(color: Colors.white),
                 suffixIcon: IconButton(
                   onPressed: () {
-                    Notify();
-                    Get.snackbar('Notification', "Sent Successfully",
-                        backgroundColor: Colors.white,
-                        snackPosition: SnackPosition.TOP,
-                        messageText: Text(
-                          'Done',
-                          style: TextStyle(fontSize: 16,color: Colors.white),
-                        ),
-                        titleText:  Text(
-                          'Notification',
-                          style: TextStyle(fontSize: 18,color: Colors.white),
-                        ));
+                    if(_createNotification.text==''){
+                      Get.snackbar('', "",
+                          backgroundColor: Colors.lightGreen,
+                          snackPosition: SnackPosition.BOTTOM,
+                          messageText: Text(
+                            ' Please write somthing to send notification',
+                            style: TextStyle(fontSize: 16,color: Colors.white),
+                          ),
+                          titleText:  Text(
+                            'Caution',
+                            style: TextStyle(fontSize: 18,color: Colors.white),
+                          ));
+
+                    }else{
+                      Notify();
+
+                      Get.snackbar('Notification', "Sent Successfully",
+                          backgroundColor: Colors.lightGreen,
+                          snackPosition: SnackPosition.BOTTOM,
+                          messageText: Text(
+                            'Sent Successfully',
+                            style: TextStyle(fontSize: 16,color: Colors.white),
+                          ),
+                          titleText:  Text(
+                            'Notification',
+                            style: TextStyle(fontSize: 18,color: Colors.white),
+                          ));
+
+                    }
 
                     String content = _createNotification.text.trim();
                     setState(() {

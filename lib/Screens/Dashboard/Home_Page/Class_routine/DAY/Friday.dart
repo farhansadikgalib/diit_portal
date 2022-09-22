@@ -41,7 +41,6 @@ class _FridayState extends State<Friday>  with TickerProviderStateMixin {
       user_department = prefs.getString('department')!;
       user_batch = prefs.getString('batch')!;
       user_section = prefs.getString('section')!;
-      prefs.setBool('login', true);
     });
 
     ref = FirebaseFirestore.instance
