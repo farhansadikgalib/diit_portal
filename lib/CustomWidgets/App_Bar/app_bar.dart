@@ -1,4 +1,5 @@
 
+import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -6,12 +7,12 @@ final AppBar AppBarString = AppBar(
 
   title: Shimmer.fromColors(
     baseColor: Colors.white,
-    highlightColor: Colors.black54,
+    highlightColor: Colors.orangeAccent,
     child: Column(
       children: const [
 
         Text(
-          'Daffodil Institute of IT',
+          'DiiT Portal',
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 18.0,
@@ -22,7 +23,7 @@ final AppBar AppBarString = AppBar(
       ],
     ),
   ),
-  backgroundColor:  Color.fromRGBO(1, 60, 88, 1),
+  backgroundColor:  ColorChanger.appbarColor,
   centerTitle: true,
   automaticallyImplyLeading: false,
 );

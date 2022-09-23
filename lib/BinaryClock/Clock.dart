@@ -29,12 +29,12 @@ class _ClockState extends State<Clock> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: const BoxDecoration(
-            // color: Color.fromRGBO(99, 78, 119, 1),
-          color: Color.fromRGBO(120, 100, 220,1.0),
-            borderRadius:
-            BorderRadius.only(topLeft: Radius.circular(5))),
+    return SizedBox(
+        // decoration: const BoxDecoration(
+        //     // color: Color.fromRGBO(99, 78, 119, 1),
+        //   color: Color.fromRGBO(120, 100, 220,1.0),
+        //     borderRadius:
+        //     BorderRadius.only(topLeft: Radius.circular(5))),
 
       child: Padding(
         padding: const EdgeInsets.all(15.0),

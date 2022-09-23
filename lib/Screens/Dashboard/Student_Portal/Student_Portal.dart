@@ -44,10 +44,10 @@ class _StudentPortalState extends State<StudentPortal> {
         .collection('Student_Information')
         .doc('Portal_Info')
         .set({
-      "payable": "",
-      "paid": "",
-      "due": "",
-      "fine": "",
+      "payable": "0",
+      "paid": "0",
+      "due": "0",
+      "fine": "0",
     }).then((_) {
       print("database created!");
     });

@@ -1,6 +1,7 @@
 
 import 'package:diit_portal/Screens/Dashboard/Home_Page/Diit_notics/diit_notics.dart';
 import 'package:diit_portal/Screens/Dashboard/Notification/Notification_Service.dart';
+import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:flutter/material.dart';
 
 class AllNotification extends StatefulWidget {
@@ -9,7 +10,7 @@ class AllNotification extends StatefulWidget {
 }
 
 class _AllNotificationState extends State<AllNotification> {
-  String notificationTitle = 'No Notification Here!';
+  String notificationTitle = 'No New Notification Here!';
   String notificationBody = '';
   String notificationData = '';
 
@@ -32,15 +33,13 @@ class _AllNotificationState extends State<AllNotification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorChanger.scaffoldcolor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              notificationTitle,
-
-              style: Theme.of(context).textTheme.headline4,
-            ),
+              notificationTitle,style: TextStyle(color: Colors.white,fontSize: 22,fontWeight: FontWeight.w600),),
             Text(
               notificationBody,
               style: Theme.of(context).textTheme.headline6,

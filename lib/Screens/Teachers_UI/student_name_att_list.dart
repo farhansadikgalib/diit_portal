@@ -1,17 +1,19 @@
+
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:diit_portal/Screens/Dashboard/Home_Page/Attendance/Teacher_takeattendance/student_name_att_list.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_glow/flutter_glow.dart';
 import 'package:get/get.dart';
 
-class ViewStudentAttendance extends StatefulWidget {
-
-
+class StudentAttennameList extends StatefulWidget {
   @override
-  State<ViewStudentAttendance> createState() => _ViewStudentAttendanceState();
+  State<StudentAttennameList> createState() => _StudentAttennameListState();
 }
 
-class _ViewStudentAttendanceState extends State<ViewStudentAttendance> {
+class _StudentAttennameListState extends State<StudentAttennameList> {
+
+
+
 
   @override
   void initState() {
@@ -42,6 +44,28 @@ class _ViewStudentAttendanceState extends State<ViewStudentAttendance> {
   Map<String, dynamic> attendance = {};
 
   List<String> labels = ['Present', 'Absent'];
+
+
+  /// test
+  final List<String> datax = <String>['A', 'B', 'C', 'D'];
+
+  /// test
+
+  _SubmitButton() {
+    final firestoreInstance = FirebaseFirestore.instance;
+
+    var firebaseUser = FirebaseAuth.instance.currentUser!;
+    firestoreInstance.collection("TeachersData").doc(firebaseUser.uid)
+        .collection('Student_Information').doc('Attendance').set(
+        {
+          "id": "$_sendId",
+          "attendance": "$_sendAttendance",
+
+        })
+        .then((_) {
+      print("database send on firebase!");
+    });
+  }
 
 
 
@@ -156,18 +180,18 @@ class _ViewStudentAttendanceState extends State<ViewStudentAttendance> {
 
                                                         print(stData);
 
-                                                        //
-                                                        // final firestoreInstance = FirebaseFirestore.instance;
-                                                        //
-                                                        // var firebaseUser =  FirebaseAuth.instance.currentUser!;
-                                                        // firestoreInstance.collection("TeachersData").doc(firebaseUser.uid).collection('Student_Information').doc('Attendance').set(
-                                                        //     {
-                                                        //       "id" : "$_sendId",
-                                                        //       "attendance" : "$_sendAttendance",
-                                                        //
-                                                        //     }).then((_){
-                                                        //   print("database send on firebase!");
-                                                        // });
+
+                                                        final firestoreInstance = FirebaseFirestore.instance;
+
+                                                        var firebaseUser =  FirebaseAuth.instance.currentUser!;
+                                                        firestoreInstance.collection("TeachersData").doc(firebaseUser.uid).collection('Student_Information').doc('Attendance').collection('20-21-23').doc().set(
+                                                            {
+                                                              "id" : "$_sendId",
+                                                              "attendance" : "$_sendAttendance",
+
+                                                            }).then((_){
+                                                          print("database send on firebase!");
+                                                        });
 
 
                                                       });
@@ -206,7 +230,7 @@ class _ViewStudentAttendanceState extends State<ViewStudentAttendance> {
                                 print(studentx);
 
                                 Get.defaultDialog(
-                                    title: "Update Class Attendance",
+                                    title: "Class Attendance",
                                     backgroundColor: Colors.white,
                                     titleStyle:  TextStyle(color: Colors.black),
 
@@ -272,11 +296,11 @@ class _ViewStudentAttendanceState extends State<ViewStudentAttendance> {
                                           onPressed: (){
 
                                             Get.snackbar(
-                                                'Update Class Attendance',"Done",
+                                                'Class Attendance',"Done",
                                                 backgroundColor: Colors.white,
                                                 snackPosition: SnackPosition.TOP,
                                                 messageText: Text('Done',style: TextStyle(fontSize: 16),) ,
-                                                titleText:  Text('Update Class Attendance',style: TextStyle(fontSize: 18),)
+                                                titleText:  Text('Class Attendance',style: TextStyle(fontSize: 18),)
                                             );
                                             Get.offAndToNamed("/TeacherDashbord");
 
@@ -298,7 +322,7 @@ class _ViewStudentAttendanceState extends State<ViewStudentAttendance> {
                                     ]
                                 );
                               },
-                              child: Text('UPDATE', style: TextStyle(
+                              child: Text('SUBMIT', style: TextStyle(
                                   fontSize: 18,
                                   letterSpacing: 1.5,
                                   color: Colors.white),),
@@ -318,10 +342,22 @@ class _ViewStudentAttendanceState extends State<ViewStudentAttendance> {
         }
       },
     );
+
+    //   Scaffold(
   }
 
-  void student(Map<String, String> map) {}
+  void student(Map<String, String> map) {
 
+  }
+}
+
+
+class StudentsData {
+  //modal class for Person object
+  String id, name, attendance;
+
+  StudentsData(
+      {required this.id, required this.name, required this.attendance});
 }
 class Student{
   String name;
@@ -329,3 +365,6 @@ class Student{
 
   Student({required this.name, required this.rollno});
 }
+
+
+/// /// test

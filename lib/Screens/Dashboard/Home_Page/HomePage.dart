@@ -228,15 +228,18 @@ class _HomePageState extends State<HomePage> {
                       ),
 
                       Card(
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            color: Colors.orangeAccent,
+                          ),
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        color : Color(0xff00DCA8),
                         elevation: 3,
                         shadowColor: Color(0xff00DCA8),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Color(0xff00DCA8),
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(5))),
-                          height: Get.height/4,
-                          width: double.infinity,
+                        child: SizedBox(
+                          height: Get.height/4.9,
+                          width: Get.width,
                           child: Row(
                             children: <Widget>[
                               Expanded(
@@ -398,6 +401,13 @@ class _HomePageState extends State<HomePage> {
                         height: 5,
                       ),
                       Card(
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            color: Colors.orangeAccent,
+                          ),
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        color : Color.fromRGBO(120, 100, 220,1.0),
                         elevation: 3,
                         shadowColor: Colors.orange,
                         child: Clock(),
@@ -411,11 +421,17 @@ class _HomePageState extends State<HomePage> {
                         },
 
                         child: Card(
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                              color: Colors.deepPurpleAccent, //<-- SEE HERE
+                            ),
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          color: Colors.orange,
                           elevation: 3,
                           shadowColor: Colors.orange,
-                          child: Container(
+                          child: SizedBox(
                             height: 65.0.h,
-                            color: Colors.orangeAccent,
                             child: Row(
                               children: <Widget>[
                                 Container(
@@ -485,7 +501,7 @@ class _HomePageState extends State<HomePage> {
                                 (url) {
                               return Container(
                                 margin: const EdgeInsets.only(
-                                    left: 5, right: 5, top: 5, bottom: 10),
+                                    left: 5, right: 5, top: 10, bottom: 10),
                                 child: ClipRRect(
                                   borderRadius: const BorderRadius.all(
                                       Radius.circular(5.0)),

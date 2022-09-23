@@ -6,7 +6,7 @@ class ColorChanger{
 
 
  static const scaffoldcolor = Color.fromRGBO(5, 50, 90, 1);
-
+ static const appbarColor = Color.fromRGBO(1, 60, 100, 1);
 
  static const kBackgroundColor = Color(0xFF1A1E28);
  static const kPrimaryColor = Color(0xFF262F40);
