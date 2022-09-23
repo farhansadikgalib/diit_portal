@@ -64,7 +64,7 @@ class _ExamState extends State<Exam> {
                       BorderRadius.circular(12)),
                   depth: 3,
                   lightSource: LightSource.topLeft,
-                  color: Colors.white),
+                  color: Colors.white70),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -116,7 +116,7 @@ class _ExamState extends State<Exam> {
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 15,
-                        color: Colors.black54,
+                        color: Colors.white70,
                         fontWeight: FontWeight.w300),
                   ),
                 ],
@@ -134,7 +134,7 @@ class _ExamState extends State<Exam> {
                       BorderRadius.circular(12)),
                   depth: 3,
                   lightSource: LightSource.topLeft,
-                  color: Colors.white),
+                  color: Colors.white70),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -151,7 +151,7 @@ class _ExamState extends State<Exam> {
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 15,
-                        color: Colors.black54,
+                        color: Colors.white70,
                         fontWeight: FontWeight.w300),
                   ),
                 ],

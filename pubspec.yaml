@@ -132,7 +132,6 @@ dependencies:
 
 
   #Focus Menu
-  focused_menu: ^1.0.5
   #Focus Menu
 
 
@@ -190,6 +189,7 @@ dependencies:
   #draw svg icons
   flutter_svg: ^1.0.0
   #draw svg icons
+
 
   #flutter_expandable
   flutter_expandable: ^1.0.0

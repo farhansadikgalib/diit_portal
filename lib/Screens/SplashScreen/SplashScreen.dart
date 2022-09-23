@@ -21,9 +21,15 @@ class SplashScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(15.0),
                   child: Image.asset(
                     "assets/diit_logo.png",
+
                   ),
                 )),
+
+
+
+
           ),
+
           const SizedBox(
             height: 100,
           ),

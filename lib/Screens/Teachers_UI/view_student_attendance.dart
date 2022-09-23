@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:diit_portal/Screens/Teachers_UI/student_name_att_list.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_glow/flutter_glow.dart';
 import 'package:get/get.dart';
@@ -83,111 +84,120 @@ class _ViewStudentAttendanceState extends State<ViewStudentAttendance> {
 
                           return Column(children: [
                             Card(
+                                shape: RoundedRectangleBorder(
+                                  side: BorderSide(
+                                    color: Colors.white10,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                color : Colors.white12,
                                 elevation: 3,
-                                shadowColor: Colors.orange,
-                                child: Container(
-                                    height: Get.height / 8,
-                                    width: Get.width,
-                                    color: Color(0xffCCBDBD),
-                                    child: Column(
-                                        mainAxisAlignment: MainAxisAlignment
-                                            .center,
-                                        children: [
-                                          SizedBox(
-                                            height: 5,
-                                          ),
-                                          Text(
-                                            snap[index]['name'],
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black),
-                                          ),
-                                          SizedBox(
-                                            height: 5,
-                                          ),
-                                          Text(
-                                            snap[index]['class_id'],
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.w400),
-                                          ),
-                                          SizedBox(
-                                            height: 5,
-                                          ),
+                                shadowColor: Colors.white10,
 
-                                          Padding(
-                                            padding:
-                                            EdgeInsets.only(left: 20, right: 20),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                              children: labels.map((s) {
-                                                return Row(
-                                                  children: <Widget>[
-                                                    GlowRadio(
-                                                      groupValue: attendance [snap[index]['id']],
-                                                      value: s,
-                                                      color: Colors.orangeAccent,
-                                                      onChange: (value) {
-                                                        setState(() {
-                                                          // print(value);
+                                child: SizedBox(
+                                  height: Get.height/8,
+                                  width:Get.width/1.05,
+                                  child: Column(
+                                      mainAxisAlignment: MainAxisAlignment
+                                          .center,
+                                      children: [
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          snap[index]['name'],
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white70),
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          snap[index]['class_id'],
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              color: Colors.white70,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
 
-                                                          attendance [snap[index]['id']] = s;
+                                        Padding(
+                                          padding:
+                                          EdgeInsets.only(left: 20, right: 20),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                            children: labels.map((s) {
+                                              return Row(
+                                                children: <Widget>[
+                                                  GlowRadio(
+                                                    groupValue: attendance [snap[index]['id']],
+                                                    value: s,
+                                                    color: Colors.orangeAccent,
+                                                    onChange: (value) {
+                                                      setState(() {
+                                                        // print(value);
 
-                                                          _sendId = snap[index]['class_id'];
-                                                          _sendAttendance = s;
+                                                        attendance [snap[index]['id']] = s;
 
-                                                          print(snap[index]['class_id']);
+                                                        _sendId = snap[index]['class_id'];
+                                                        _sendAttendance = s;
 
-
-                                                          List<StudentsData> stData = [
-                                                          ];
-
-                                                          stData.add(StudentsData(
-                                                              id: _sendId,
-                                                              name: "Farhan",
-                                                              attendance: _sendAttendance)
-                                                          );
+                                                        print(snap[index]['class_id']);
 
 
-                                                          for(var i=0; i<=snap.length;i++){
-                                                            Student(name: _sendId, rollno: _sendAttendance);
-                                                          }
+                                                        List<StudentsData> stData = [
+                                                        ];
+
+                                                        stData.add(StudentsData(
+                                                            id: _sendId,
+                                                            name: "Farhan",
+                                                            attendance: _sendAttendance)
+                                                        );
 
 
-                                                          print(stData);
-
-                                                          //
-                                                          // final firestoreInstance = FirebaseFirestore.instance;
-                                                          //
-                                                          // var firebaseUser =  FirebaseAuth.instance.currentUser!;
-                                                          // firestoreInstance.collection("TeachersData").doc(firebaseUser.uid).collection('Student_Information').doc('Attendance').set(
-                                                          //     {
-                                                          //       "id" : "$_sendId",
-                                                          //       "attendance" : "$_sendAttendance",
-                                                          //
-                                                          //     }).then((_){
-                                                          //   print("database send on firebase!");
-                                                          // });
+                                                        for(var i=0; i<=snap.length;i++){
+                                                          Student(name: _sendId, rollno: _sendAttendance);
+                                                        }
 
 
+                                                        print(stData);
+
+
+                                                        final firestoreInstance = FirebaseFirestore.instance;
+
+                                                        var firebaseUser =  FirebaseAuth.instance.currentUser!;
+                                                        firestoreInstance.collection("TeachersData").doc(firebaseUser.uid).collection('Student_Information').doc('Attendance').collection('20-21-23').doc().set(
+                                                            {
+                                                              "id" : "$_sendId",
+                                                              "attendance" : "$_sendAttendance",
+
+                                                            }).then((_){
+                                                          print("database send on firebase!");
                                                         });
-                                                      },
-                                                    ),
 
-                                                    SizedBox(width: 8,),
-                                                    Text(s,
-                                                        style: TextStyle(
-                                                            color: Colors.black,
-                                                            fontSize: 16))
-                                                  ],
-                                                );
-                                              }).toList(),
-                                            ),
-                                          )
 
-                                        ])))
+                                                      });
+                                                    },
+                                                  ),
+
+                                                  SizedBox(width: 8,),
+                                                  Text(s,
+                                                      style: TextStyle(
+                                                          color: Colors.white70,
+                                                          fontSize: 16))
+                                                ],
+                                              );
+                                            }).toList(),
+                                          ),
+                                        )
+
+                                      ]),
+                                ))
                           ]);
                         },
                       ),

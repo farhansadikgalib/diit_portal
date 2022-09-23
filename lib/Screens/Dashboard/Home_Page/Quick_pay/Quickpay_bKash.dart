@@ -76,7 +76,7 @@ class _BkashPaymentState extends State<BkashPayment> {
           backgroundColor: Colors.redAccent,
           automaticallyImplyLeading: false,
           leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back,color: Colors.white70,),
             color: Colors.white,
             onPressed: () => Navigator.pop(context, true),
           ),

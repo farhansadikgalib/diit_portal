@@ -46,7 +46,7 @@ class _exam_marksState extends State<exam_marks> {
           if (snapshot.hasData) {
             if (snapshot.data!.docs.length == 0) {
               return Scaffold(
-                backgroundColor: const Color.fromRGBO(1, 60, 88, 1),
+                backgroundColor:ColorChanger.scaffoldcolor,
                 body: Center(
                   child: Text(
                     "There is no Student added in this Course!",
@@ -90,21 +90,31 @@ class _exam_marksState extends State<exam_marks> {
                             return Container(
                               height: 80,
                               width: 100,
+                              padding: EdgeInsets.only(left: 10,right: 10),
                               child: Card(
-                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  side: BorderSide(
+                                    color: Colors.white10,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                color : Colors.white12,
+                                elevation: 3,
+                                shadowColor: Colors.white10,
                                 child: ListTile(
-                                  title: Text(snap[index]['name']),
-                                  subtitle: Text(snap[index]['class_id']),
+                                  title: Text(snap[index]['name'],style: TextStyle(color: Colors.white70),),
+                                  subtitle: Text(snap[index]['class_id'],style: TextStyle(color: Colors.white70)),
                                   trailing: Container(
                                     height: Get.height / 1,
-                                    width: 120,
+                                    width: 100,
                                     child: Card(
-                                      color: Colors.black12,
-                                      child: TextFormField(
+                                      color : Colors.white12,
+                                      elevation: 3,
+                                      shadowColor: Colors.white12,                                      child: TextFormField(
                                         controller: _inputResult,
                                         style: TextStyle(
                                             fontSize: 20,
-                                            color: Colors.white,
+                                            color: Colors.white70,
                                             fontWeight: FontWeight.bold),
                                         keyboardType: TextInputType.text,
                                         textAlign: TextAlign.center,
@@ -129,10 +139,10 @@ class _exam_marksState extends State<exam_marks> {
 
                                   Get.defaultDialog(
                                       title: "Result Publish",
-                                      backgroundColor: Colors.white,
-                                      titleStyle: TextStyle(color: Colors.black),
-                                      cancelTextColor: Colors.black,
-                                      confirmTextColor: Colors.white,
+                                      backgroundColor: Colors.grey,
+                                      titleStyle: TextStyle(color: Colors.white70),
+                                      cancelTextColor: Colors.white70,
+                                      confirmTextColor: Colors.white70,
                                       barrierDismissible: false,
                                       radius: 15,
                                       content: Column(
@@ -143,11 +153,11 @@ class _exam_marksState extends State<exam_marks> {
                                                 flex: 2,
                                                 child: Column(
                                                   children: [
-                                                    Text('Total Student'),
+                                                    Text('Total Student',style: TextStyle(color: Colors.white70)),
                                                     SizedBox(
                                                       height: 10,
                                                     ),
-                                                    Text('50'),
+                                                    Text('50',style: TextStyle(color: Colors.white70)),
                                                   ],
                                                 ),
                                               ),
@@ -158,11 +168,11 @@ class _exam_marksState extends State<exam_marks> {
                                                 flex: 1,
                                                 child: Column(
                                                   children: const [
-                                                    Text('Pass'),
+                                                    Text('Pass',style: TextStyle(color: Colors.white70)),
                                                     SizedBox(
                                                       height: 10,
                                                     ),
-                                                    Text('30'),
+                                                    Text('30',style: TextStyle(color: Colors.white70)),
                                                   ],
                                                 ),
                                               ),
@@ -173,11 +183,11 @@ class _exam_marksState extends State<exam_marks> {
                                                 flex: 1,
                                                 child: Column(
                                                   children: [
-                                                    Text('Fail'),
+                                                    Text('Fail',style: TextStyle(color: Colors.white70),),
                                                     SizedBox(
                                                       height: 10,
                                                     ),
-                                                    Text('20'),
+                                                    Text('20',style: TextStyle(color: Colors.white70)),
                                                   ],
                                                 ),
                                               ),
@@ -192,25 +202,27 @@ class _exam_marksState extends State<exam_marks> {
                                             onPressed: () {
 
                                               Get.offAndToNamed("/TeacherDashbord");
-                                              Get.snackbar(
-                                                  'Result Publish', "Done",
-                                                  backgroundColor: Colors.white,
-                                                  snackPosition:
-                                                      SnackPosition.TOP,
+                                              Get.snackbar('Notification', "Sent Successfully",
+                                                  colorText: Colors.white70,
+                                                  backgroundColor: Colors.lightGreen,
+                                                  margin: const EdgeInsets.only(
+                                                      top: 30, bottom: 30),
+                                                  snackPosition: SnackPosition.BOTTOM,
+                                                  isDismissible: true,
+                                                  forwardAnimationCurve: Curves.easeOutBack,
                                                   messageText: Text(
-                                                    'Done',
-                                                    style:
-                                                        TextStyle(fontSize: 16),
+                                                    'Result Published Successfully',
+                                                    style: TextStyle(
+                                                        fontSize: 16, color: Colors.white70),
                                                   ),
                                                   titleText: Text(
-                                                    'Result Publish',
-                                                    style:
-                                                        TextStyle(fontSize: 18),
-                                                  ));
-                                            },
+                                                    'Successful',
+                                                    style: TextStyle(
+                                                        fontSize: 18, color: Colors.white70),
+                                                  ));                                            },
                                             child: Text(
                                               'CONFIRM',
-                                              style: TextStyle(fontSize: 16),
+                                              style: TextStyle(fontSize: 16,color: Colors.white70),
                                             ),
                                           ),
                                         ),
@@ -225,7 +237,7 @@ class _exam_marksState extends State<exam_marks> {
                                             },
                                             child: Text(
                                               'CANCEL',
-                                              style: TextStyle(fontSize: 16),
+                                              style: TextStyle(fontSize: 16,color: Colors.white70),
                                             ),
                                           ),
                                         ),
@@ -235,7 +247,7 @@ class _exam_marksState extends State<exam_marks> {
                                   'Result Add',
                                   style: TextStyle(
                                       fontSize: 18,
-                                      color: Colors.white,
+                                      color: Colors.white70,
                                       fontWeight: FontWeight.bold),
                                 ),
                               ),
@@ -247,10 +259,10 @@ class _exam_marksState extends State<exam_marks> {
                                 onPressed: () {
                                   Get.defaultDialog(
                                       title: "Update Result Publish",
-                                      backgroundColor: Colors.white,
-                                      titleStyle: TextStyle(color: Colors.black),
-                                      cancelTextColor: Colors.black,
-                                      confirmTextColor: Colors.white,
+                                      backgroundColor: Colors.grey,
+                                      titleStyle: TextStyle(color: Colors.white70),
+                                      cancelTextColor: Colors.white70,
+                                      confirmTextColor: Colors.white70,
                                       barrierDismissible: false,
                                       radius: 15,
                                       content: Column(
@@ -261,11 +273,11 @@ class _exam_marksState extends State<exam_marks> {
                                                 flex: 2,
                                                 child: Column(
                                                   children: [
-                                                    Text('Total Student'),
+                                                    Text('Total Student',style: TextStyle(color: Colors.white70),),
                                                     SizedBox(
                                                       height: 10,
                                                     ),
-                                                    Text('50'),
+                                                    Text('50',style: TextStyle(color: Colors.white70)),
                                                   ],
                                                 ),
                                               ),
@@ -276,11 +288,11 @@ class _exam_marksState extends State<exam_marks> {
                                                 flex: 1,
                                                 child: Column(
                                                   children: const [
-                                                    Text('Pass'),
+                                                    Text('Pass',style: TextStyle(color: Colors.white70)),
                                                     SizedBox(
                                                       height: 10,
                                                     ),
-                                                    Text('31'),
+                                                    Text('31',style: TextStyle(color: Colors.white70)),
                                                   ],
                                                 ),
                                               ),
@@ -291,11 +303,11 @@ class _exam_marksState extends State<exam_marks> {
                                                 flex: 1,
                                                 child: Column(
                                                   children: [
-                                                    Text('Fail'),
+                                                    Text('Fail',style: TextStyle(color: Colors.white70)),
                                                     SizedBox(
                                                       height: 10,
                                                     ),
-                                                    Text('19'),
+                                                    Text('19',style: TextStyle(color: Colors.white70)),
                                                   ],
                                                 ),
                                               ),
@@ -308,27 +320,30 @@ class _exam_marksState extends State<exam_marks> {
                                           width: 110,
                                           child: ElevatedButton(
                                             onPressed: () {
-                                              Get.snackbar(
-                                                  'Update Result Publish', "Done",
-                                                  backgroundColor: Colors.white,
-                                                  snackPosition:
-                                                      SnackPosition.TOP,
-                                                  messageText: Text(
-                                                    'Done',
-                                                    style:
-                                                        TextStyle(fontSize: 16),
-                                                  ),
-                                                  titleText: Text(
-                                                    'Update Result Publish',
-                                                    style:
-                                                        TextStyle(fontSize: 18),
-                                                  ));
+                                                  Get.snackbar('Notification', "Sent Successfully",
+                                                      colorText: Colors.white,
+                                                      backgroundColor: Colors.lightGreen,
+                                                      margin: const EdgeInsets.only(
+                                                          top: 30, bottom: 30),
+                                                      snackPosition: SnackPosition.BOTTOM,
+                                                      isDismissible: true,
+                                                      forwardAnimationCurve: Curves.easeOutBack,
+                                                      messageText: Text(
+                                                        'Result Updated!',
+                                                        style: TextStyle(
+                                                            fontSize: 16, color: Colors.white),
+                                                      ),
+                                                      titleText: Text(
+                                                        'Successful',
+                                                        style: TextStyle(
+                                                            fontSize: 18, color: Colors.white),
+                                                      ));
                                               Get.offAndToNamed("/TeacherDashbord");
 
                                             },
                                             child: Text(
                                               'CONFIRM',
-                                              style: TextStyle(fontSize: 16),
+                                              style: TextStyle(fontSize: 16,color: Colors.white70),
                                             ),
                                           ),
                                         ),
@@ -343,7 +358,7 @@ class _exam_marksState extends State<exam_marks> {
                                             },
                                             child: Text(
                                               'CANCEL',
-                                              style: TextStyle(fontSize: 16),
+                                              style: TextStyle(fontSize: 16,color: Colors.white70),
                                             ),
                                           ),
                                         ),
@@ -353,7 +368,7 @@ class _exam_marksState extends State<exam_marks> {
                                   'Update Result ',
                                   style: TextStyle(
                                       fontSize: 18,
-                                      color: Colors.white,
+                                      color: Colors.white70,
                                       fontWeight: FontWeight.bold),
                                 ),
                               ),
@@ -363,8 +378,12 @@ class _exam_marksState extends State<exam_marks> {
                   ],
                 ));
           } else {
-            return Center(
-              child: Lottie.asset('assets/lotti_file/loading_animation.json',height:100,width: 100),
+            return Scaffold(
+              backgroundColor: ColorChanger.scaffoldcolor,
+              body: Center(
+                child: Lottie.asset('assets/lotti_file/loading_animation.json',
+                    height: 100, width: 100),
+              ),
             );
           }
         },

@@ -11,7 +11,7 @@ class Exam_Course extends StatefulWidget {
 
 class _Exam_CourseState extends State<Exam_Course> {
 
-  List<String> subname = ['Computer Network',"Computer\n Network Lab", "Image Processing",'Web'];
+  List<String> subname = ['Computer Network',"DLD", "Image Processing",'Web'];
 
 
   @override
@@ -39,7 +39,7 @@ class _Exam_CourseState extends State<Exam_Course> {
             children: [
 
               Padding(
-                padding: const EdgeInsets.only(top: 25),
+                padding: const EdgeInsets.only(top: 25,left: 10,right: 10),
                 child: GridView.builder(
                     itemCount: subname.length,
                     physics: NeverScrollableScrollPhysics(),
@@ -53,16 +53,26 @@ class _Exam_CourseState extends State<Exam_Course> {
                      return InkWell(
                        onTap: ()=>Get.toNamed('/ExamType'),
                        child: Card(
-                         color: Colors.white,
+
+                         shape: RoundedRectangleBorder(
+                           side: BorderSide(
+                             color: Colors.white10,
+                           ),
+                           borderRadius: BorderRadius.circular(20.0),
+                         ),
+                         color : Colors.white12,
+                         elevation: 3,
+                         shadowColor: Colors.white10,
                          child: Column(
                            mainAxisAlignment: MainAxisAlignment.center,
                            children: [
                                    Image.asset("assets/attendance_ic.png",
                                      height: Get.height/10,
                                      width: Get.width/2,
+                                     color: Colors.white70,
                                    ),
                              SizedBox(height: 10,),
-                               Text(subname[index],style: TextStyle(fontSize: 18,color: Colors.black54,fontWeight: FontWeight.bold),)
+                               Text(subname[index],style: TextStyle(fontSize: 18,color: Colors.white70,fontWeight: FontWeight.bold),)
                            ],
                          ),
                        ),

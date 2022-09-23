@@ -39,7 +39,7 @@ class _AllNotificationState extends State<AllNotification> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              notificationTitle,style: TextStyle(color: Colors.white,fontSize: 22,fontWeight: FontWeight.w600),),
+              notificationTitle,style: TextStyle(color: Colors.white70,fontSize: 22,fontWeight: FontWeight.w600),),
             Text(
               notificationBody,
               style: Theme.of(context).textTheme.headline6,

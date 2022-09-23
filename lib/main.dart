@@ -231,7 +231,7 @@ class MyApp extends StatelessWidget {
             GetPage(name: '/Exam_Course', page: () => Exam_Course()),
             GetPage(name: '/exam_marks', page: () => exam_marks()),
             // student view attendance //
-            GetPage(name: '/StudentViewAttendance',page: () => const StudentViewAttendance()),
+            // GetPage(name: '/StudentViewAttendance',page: () => const StudentViewAttendance()),
             GetPage(name: '/CourseAttendanceView',page: () => CourseAttendanceView()),
             GetPage(name: '/StudentAttendanceDetailes',page: () => StudentAttendanceDetailes()),
           ],

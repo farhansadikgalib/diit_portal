@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:connectivity/connectivity.dart';
+import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/src/provider.dart';
@@ -55,7 +56,7 @@ class _Community_WebViewState extends State<Community_WebView> with TickerProvid
       backgroundColor: Colors.transparent,
       appBar: AppBar(
          title: const Text('Community',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 22),),centerTitle: true,
-        backgroundColor: const Color.fromRGBO(84, 149, 206,1),
+        backgroundColor: ColorChanger.appbarColor,
         leading:  InkWell(
             onTap: (){
               Get.back();
@@ -67,7 +68,7 @@ class _Community_WebViewState extends State<Community_WebView> with TickerProvid
             child: _connectionStatus == 'ConnectivityResult.none'
                 ?  NoInternetWidget()
                 : LoadWebView(
-                    'https://www.google.com', true)),
+                    'https://chat.whatsapp.com/G3SiHAapFJH4DaThU1ngW7', true)),
       ]),
     );
   }

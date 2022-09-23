@@ -116,8 +116,8 @@ class _LoginPageState extends State<LoginPage> {
                           minHeight: 50,
                           cornerRadius: 15.0,
                           activeBgColors: [
-                            [Colors.lightGreen!],
-                            [Colors.lightGreen!]
+                            [Colors.orangeAccent],
+                            [Colors.orangeAccent]
                           ],
                           activeFgColor: Colors.white,
                           inactiveBgColor: Colors.orangeAccent[900],
@@ -299,7 +299,7 @@ class _LoginPageState extends State<LoginPage> {
                               }
                             },
                             style: ElevatedButton.styleFrom(
-                              primary: Colors.lightGreen,
+                              primary: Colors.orangeAccent,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15)),
                             ),

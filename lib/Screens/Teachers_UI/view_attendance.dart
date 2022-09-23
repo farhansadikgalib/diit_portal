@@ -11,7 +11,7 @@ class TeacherViewAttendance extends StatefulWidget {
 
 class _TeacherViewAttendanceState extends State<TeacherViewAttendance> {
 
-  List<String> subname = ['Computer Network',"Computer\n Network Lab", "Image Processing",'Web'];
+  List<String> subname = ['Computer Network',"DLD", "Image Processing",'Web'];
 
 
   @override
@@ -27,7 +27,7 @@ class _TeacherViewAttendanceState extends State<TeacherViewAttendance> {
             style: TextStyle(
               fontSize: 18.0,
               fontFamily: "azonix",
-              color: Colors.white,
+              color: Colors.white70,
               fontWeight: FontWeight.bold,
             ),
 
@@ -52,18 +52,29 @@ class _TeacherViewAttendanceState extends State<TeacherViewAttendance> {
                     itemBuilder: (BuildContext context, index){
                      return InkWell(
                        onTap: ()=>Get.toNamed('/SubjectDetails'),
-                       child: Card(
-                         color: Colors.white,
-                         child: Column(
-                           mainAxisAlignment: MainAxisAlignment.center,
-                           children: [
-                                   Image.asset("assets/attendance_ic.png",
-                                     height: Get.height/10,
-                                     width: Get.width/2,
-                                   ),
-                             SizedBox(height: 10,),
-                               Text(subname[index],style: TextStyle(fontSize: 18,color: Colors.black45,fontWeight: FontWeight.bold),)
-                           ],
+                       child: Padding(
+                         padding: const EdgeInsets.only(left: 2,right: 2),
+                         child: Card(
+                           shape: RoundedRectangleBorder(
+                             side: BorderSide(
+                               color: Colors.white10,
+                             ),
+                             borderRadius: BorderRadius.circular(20.0),
+                           ),
+                           color : Colors.white12,
+                           elevation: 3,
+                           shadowColor: Colors.white10,
+                           child: Column(
+                             mainAxisAlignment: MainAxisAlignment.center,
+                             children: [
+                                     Image.asset("assets/attendance_ic.png",
+                                       height: Get.height/10,
+                                       width: Get.width/2,
+                                     ),
+                               SizedBox(height: 10,),
+                                 Text(subname[index],style: TextStyle(fontSize: 18,color: Colors.white70,fontWeight: FontWeight.bold),)
+                             ],
+                           ),
                          ),
                        ),
                      );

@@ -8,6 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
 
 
 enum Intent { sale, authorization }
@@ -79,35 +80,13 @@ class _bKashPageState extends State<bKashPage> {
     return Scaffold(
       backgroundColor: ColorChanger.scaffoldcolor,
       key: _scaffoldKey,
-      appBar: AppBar(title: Text(widget.title),centerTitle: true,),
+      appBar: AppBar(title: Text(widget.title,style: TextStyle(color: Colors.white70),),centerTitle: true,
+      automaticallyImplyLeading: false,
+      backgroundColor: ColorChanger.scaffoldcolor,),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-
-          // ListTile(
-          //   title: const Text('Immediate'),
-          //   leading: Radio(
-          //     value: Intent.sale,
-          //     groupValue: _intent,
-          //     onChanged: (value) {
-          //       setState(() => _intent = value!);
-          //     },
-          //   ),
-          //   dense: true,
-          // ),
-          // ListTile(
-          //   title: const Text('Auth and Capture'),
-          //   leading: Radio(
-          //     value: Intent.authorization,
-          //     groupValue: _intent,
-          //     onChanged: (value) {
-          //       setState(() => _intent = value!);
-          //     },
-          //   ),
-          //   dense: true,
-          // ),
-          const SizedBox(height: 6.0),
 
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
@@ -115,11 +94,11 @@ class _bKashPageState extends State<bKashPage> {
               keyboardType: TextInputType.number,
               controller: _amountController,
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.white70),
               decoration: InputDecoration(
                 hintText: "Enter your Amount",
-                fillColor:  Colors.white,
-                hintStyle: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w500),
+                fillColor:  Colors.white70,
+                hintStyle: TextStyle(color: Colors.white70,fontSize: 18,fontWeight: FontWeight.w500),
                 border: new OutlineInputBorder(
 
                   borderRadius: const BorderRadius.all(
@@ -127,7 +106,7 @@ class _bKashPageState extends State<bKashPage> {
                     const Radius.circular(8.0),
                   ),
                   borderSide: new BorderSide(
-                    color: Colors.orange,
+                    color: Colors.white10,
                     width: 2.0,
                   ),
                 ),
@@ -138,9 +117,9 @@ class _bKashPageState extends State<bKashPage> {
             ),
           ),
           CupertinoButton(
-              color: Colors.orangeAccent,
+              color: Colors.white24,
               child: const Text("Pay Amount",
-                style: TextStyle(color: Colors.white,
+                style: TextStyle(color: Colors.white70,
                     fontSize: 18
                 ),),
 
@@ -220,9 +199,13 @@ class _bKashPageState extends State<bKashPage> {
       ),
     );
   } else {
-  return Center(
-  child: CircularProgressIndicator(),
-  );
+          return Scaffold(
+            backgroundColor: ColorChanger.scaffoldcolor,
+            body: Center(
+              child: Lottie.asset('assets/lotti_file/loading_animation.json',
+                  height: 100, width: 100),
+            ),
+          );
   }
 },
 );

@@ -134,7 +134,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                         shape: NeumorphicShape.concave,
                         boxShape: NeumorphicBoxShape.roundRect(
                             BorderRadius.circular(12)),
-                        depth: 3,
+                        depth: 2,
                         lightSource: LightSource.topLeft,
                         color: ColorChanger.scaffoldcolor),
                     child: Column(
@@ -178,7 +178,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                           shape: NeumorphicShape.concave,
                           boxShape: NeumorphicBoxShape.roundRect(
                               BorderRadius.circular(12)),
-                          depth: 3,
+                          depth: 2,
                           lightSource: LightSource.topLeft,
                           color: ColorChanger.scaffoldcolor),
                       child: Column(
@@ -197,7 +197,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                             style: TextStyle(
                                 fontFamily: "Poppins",
                                 fontSize: 15,
-                                color: Colors.white,
+                                color: Colors.white70,
                                 fontWeight: FontWeight.w300),
                           ),
                         ],
@@ -208,26 +208,6 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                   const SizedBox(
                     width: 15,
                   ),
-                  // Container(
-                  //   width: 150.w,
-                  //   height: 160.h,
-                  //   child: InkWell(
-                  //     onTap: ()=>Get.toNamed('/CourseAttendanceView'),
-                  //     child: Card(
-                  //       elevation: 5,
-                  //       color: Color(0xffF8EFEF),
-                  //       child: Column(
-                  //         mainAxisAlignment: MainAxisAlignment.center,
-                  //         children: [
-                  //           Image.asset("assets/viewattendence.png",color: Colors.orange,height: 100,width: 100,),
-                  //           SizedBox(height: 10,),
-                  //           Text( "View Attendence",
-                  //             style: TextStyle(fontFamily: "Poppins",fontSize: 15,color: Colors.black,fontWeight: FontWeight.w300),),
-                  //         ],
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
 
                   SizedBox(
                     height: Get.height / 4.5,
@@ -238,7 +218,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                           shape: NeumorphicShape.concave,
                           boxShape: NeumorphicBoxShape.roundRect(
                               BorderRadius.circular(12)),
-                          depth: 3,
+                          depth: 2,
                           lightSource: LightSource.topLeft,
                           color: ColorChanger.scaffoldcolor),
                       child: Column(
@@ -258,7 +238,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                             style: TextStyle(
                                 fontFamily: "Poppins",
                                 fontSize: 15,
-                                color: Colors.white,
+                                color: Colors.white70,
                                 fontWeight: FontWeight.w300),
                           ),
                         ],
@@ -279,7 +259,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                       shape: NeumorphicShape.concave,
                       boxShape: NeumorphicBoxShape.roundRect(
                           BorderRadius.circular(12)),
-                      depth: 3,
+                      depth: 2,
                       lightSource: LightSource.topLeft,
                       color: ColorChanger.scaffoldcolor),
                   child: Column(
@@ -298,7 +278,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 15,
-                            color: Colors.white,
+                            color: Colors.white70,
                             fontWeight: FontWeight.w300),
                       ),
                     ],
@@ -317,7 +297,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                       shape: NeumorphicShape.concave,
                       boxShape: NeumorphicBoxShape.roundRect(
                           BorderRadius.circular(12)),
-                      depth: 3,
+                      depth: 2,
                       lightSource: LightSource.topLeft,
                       color: ColorChanger.scaffoldcolor),
                   child: TextFormField(
@@ -325,14 +305,14 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                     maxLines: 4,
                     cursorHeight: 20,
                     autofocus: false,
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white70),
                     decoration: InputDecoration(
-                      fillColor: Colors.white,
-                      focusColor: Colors.white,
+                      fillColor: Colors.white70,
+                      focusColor: Colors.white70,
                       contentPadding:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                       hintText: 'Create Notification',
-                      hintStyle: TextStyle(color: Colors.white),
+                      hintStyle: TextStyle(color: Colors.white70),
                       suffixIcon: IconButton(
                         onPressed: () {
                           if (_createNotification.text == '') {
@@ -354,8 +334,13 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
 
                             _createNotification.clear();
                             Get.snackbar('Notification', "Sent Successfully",
+                                colorText: Colors.white,
                                 backgroundColor: Colors.lightGreen,
+                                margin: const EdgeInsets.only(
+                                    top: 30, bottom: 30),
                                 snackPosition: SnackPosition.BOTTOM,
+                                isDismissible: true,
+                                forwardAnimationCurve: Curves.easeOutBack,
                                 messageText: Text(
                                   'Sent Successfully',
                                   style: TextStyle(
@@ -389,7 +374,7 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
 
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 10, right: 10),
+                padding: const EdgeInsets.only(left: 25, right: 25),
                 child: Column(
                   children: [
                     Divider(
@@ -410,11 +395,11 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                                 'Setting',
                                 style: TextStyle(
                                     fontSize: 16,
-                                    color: Colors.white,
+                                    color: Colors.white70,
                                     fontWeight: FontWeight.bold),
                               ),
                               Icon(Icons.arrow_forward_ios_outlined,
-                                  size: 18, color: Colors.white)
+                                  size: 18, color: Colors.white70)
                             ],
                           ),
                         ),
@@ -438,11 +423,11 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                                 'Help & Support',
                                 style: TextStyle(
                                     fontSize: 16,
-                                    color: Colors.white,
+                                    color: Colors.white70,
                                     fontWeight: FontWeight.bold),
                               ),
                               Icon(Icons.arrow_forward_ios_outlined,
-                                  size: 18, color: Colors.white)
+                                  size: 18, color: Colors.white70)
                             ],
                           ),
                         ),
@@ -466,10 +451,10 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                                 'Logout',
                                 style: TextStyle(
                                     fontSize: 16,
-                                    color: Colors.white,
+                                    color: Colors.white70,
                                     fontWeight: FontWeight.bold),
                               ),
-                              Icon(Icons.logout, size: 20, color: Colors.white)
+                              Icon(Icons.logout, size: 20, color: Colors.white70)
                             ],
                           ),
                         ),

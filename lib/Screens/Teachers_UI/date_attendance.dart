@@ -27,7 +27,7 @@ class _DateAttendanceState extends State<DateAttendance> {
             style: TextStyle(
               fontSize: 18.0,
               fontFamily: "azonix",
-              color: Colors.white,
+              color: Colors.white70,
               fontWeight: FontWeight.bold,
             ),
 
@@ -44,13 +44,21 @@ class _DateAttendanceState extends State<DateAttendance> {
 
                     width: double.infinity,
                     child: Card(
-                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          color: Colors.white10,
+                        ),
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      color : Colors.white12,
+                      elevation: 3,
+                      shadowColor: Colors.white10,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Text(' Class No',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black54),),
-                          Text('P/A : ',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black54),),
-                          Text(' Class Date',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black54),),
+                          Text(' Class No',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.white70),),
+                          Text('P/A : ',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.white70),),
+                          Text(' Class Date',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.white70),),
 
                         ],
                       ),
@@ -70,13 +78,21 @@ class _DateAttendanceState extends State<DateAttendance> {
                         height: 80,
                         width: 100,
                         child: Card(
-                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                              color: Colors.white10,
+                            ),
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          color : Colors.white12,
+                          elevation: 3,
+                          shadowColor: Colors.white10,
                           child: Row(
                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text(' ${Classno[index]}',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black54),),
-                              Text('27/23',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black54),),
-                              Text(' ${ClassDate[index]}',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black54),),
+                              Text(' ${Classno[index]}',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.white70),),
+                              Text('27/23',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.white70),),
+                              Text(' ${ClassDate[index]}',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.white70),),
 
                             ],
                           ),

@@ -513,7 +513,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       SizedBox(
-                        height: 15.h,
+                        height: 5,
                       ),
 
                       SingleChildScrollView(
@@ -532,8 +532,7 @@ class _HomePageState extends State<HomePage> {
                                     shape: NeumorphicShape.concave,
                                     boxShape: NeumorphicBoxShape.roundRect(
                                         BorderRadius.circular(12)),
-                                    depth: 1,
-                                    lightSource: LightSource.topLeft,
+                                    depth: 0,
                                     color: Colors.white12),
                                 child: const Center(
                                     child: Text(
@@ -558,8 +557,7 @@ class _HomePageState extends State<HomePage> {
                                     shape: NeumorphicShape.concave,
                                     boxShape: NeumorphicBoxShape.roundRect(
                                         BorderRadius.circular(12)),
-                                    depth: 1,
-                                    lightSource: LightSource.topLeft,
+                                    depth: 0,
                                     color: Colors.white12),
                                 child: const Center(
                                     child: Text(
@@ -585,8 +583,7 @@ class _HomePageState extends State<HomePage> {
                                     shape: NeumorphicShape.concave,
                                     boxShape: NeumorphicBoxShape.roundRect(
                                         BorderRadius.circular(12)),
-                                    depth: 1,
-                                    lightSource: LightSource.topLeft,
+                                    depth: 0,
                                     color: Colors.white12),
                                 child: const Center(
                                     child: Text(
@@ -612,8 +609,7 @@ class _HomePageState extends State<HomePage> {
                                     shape: NeumorphicShape.concave,
                                     boxShape: NeumorphicBoxShape.roundRect(
                                         BorderRadius.circular(12)),
-                                    depth: 1,
-                                    lightSource: LightSource.topLeft,
+                                    depth: 0,
                                     color: Colors.white12),
                                 child: const Center(
                                     child: Text(
@@ -637,7 +633,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
 
-                      SizedBox(height: 15.h),
+                      SizedBox(height: 5),
 
                       GFCarousel(
                         autoPlay: true,
@@ -678,7 +674,7 @@ class _HomePageState extends State<HomePage> {
                                       BorderRadius.circular(12)),
                                   depth: 1,
                                   lightSource: LightSource.topLeft,
-                                  color: Colors.white24),
+                                  color: Colors.white12),
                               child: Column(
                                 children: [
                                   Column(
@@ -701,7 +697,7 @@ class _HomePageState extends State<HomePage> {
                                         style: TextStyle(
                                             fontFamily: "Poppins",
                                             fontSize: 15,
-                                            color: Colors.white,
+                                            color: Colors.white70,
                                             fontWeight: FontWeight.w300),
                                       ),
                                     ],
@@ -728,7 +724,7 @@ class _HomePageState extends State<HomePage> {
                                       BorderRadius.circular(12)),
                                   depth: 1,
                                   lightSource: LightSource.topLeft,
-                                  color: Colors.white24),
+                                  color: Colors.white12),
                               child: Column(
                                 children: [
                                   Column(
@@ -751,7 +747,7 @@ class _HomePageState extends State<HomePage> {
                                         style: TextStyle(
                                             fontFamily: "Poppins",
                                             fontSize: 15,
-                                            color: Colors.white,
+                                            color: Colors.white70,
                                             fontWeight: FontWeight.w300),
                                       ),
                                     ],
@@ -781,7 +777,7 @@ class _HomePageState extends State<HomePage> {
                                       BorderRadius.circular(12)),
                                   depth: 1,
                                   lightSource: LightSource.topLeft,
-                                  color: Colors.white24),
+                                  color: Colors.white12),
                               child: Column(children: [
                                 Image.asset(
                                   "assets/ic_club.png",
@@ -798,7 +794,7 @@ class _HomePageState extends State<HomePage> {
                                       fontFamily: "Poppins",
                                       fontSize: 15,
 
-                                      color: Colors.white,
+                                      color: Colors.white70,
                                       fontWeight: FontWeight.w300),
                                 ),
                               ]),
@@ -820,7 +816,7 @@ class _HomePageState extends State<HomePage> {
                                       BorderRadius.circular(12)),
                                   depth: 1,
                                   lightSource: LightSource.topLeft,
-                                  color: Colors.white24),
+                                  color: Colors.white12),
                               child: Column(
                                 children: [
                                   Column(
@@ -843,7 +839,7 @@ class _HomePageState extends State<HomePage> {
                                         style: TextStyle(
                                             fontFamily: "Poppins",
                                             fontSize: 15,
-                                            color: Colors.white,
+                                            color: Colors.white70,
                                             fontWeight: FontWeight.w300),
                                       ),
                                     ],
@@ -870,9 +866,9 @@ class _HomePageState extends State<HomePage> {
                                   shape: NeumorphicShape.concave,
                                   boxShape: NeumorphicBoxShape.roundRect(
                                       BorderRadius.circular(12)),
-                                  depth: 0,
+                                  depth: 1,
                                   lightSource: LightSource.topLeft,
-                                  color: Colors.white24),
+                                  color: Colors.white12),
                               child: Column(
                                 children: [
                                   Column(
@@ -893,7 +889,7 @@ class _HomePageState extends State<HomePage> {
                                         style: TextStyle(
                                             fontFamily: "Poppins",
                                             fontSize: 15,
-                                            color: Colors.white,
+                                            color: Colors.white70,
                                             fontWeight: FontWeight.w300),
                                       ),
                                     ],
@@ -916,9 +912,9 @@ class _HomePageState extends State<HomePage> {
                                   shape: NeumorphicShape.concave,
                                   boxShape: NeumorphicBoxShape.roundRect(
                                       BorderRadius.circular(12)),
-                                  depth: 0,
+                                  depth: 1,
                                   lightSource: LightSource.topLeft,
-                                  color: Colors.white24),
+                                  color: Colors.white12),
                               child: Column(
                                 children: [
                                   Column(
@@ -939,7 +935,7 @@ class _HomePageState extends State<HomePage> {
                                         style: TextStyle(
                                             fontFamily: "Poppins",
                                             fontSize: 15,
-                                            color: Colors.white,
+                                            color: Colors.white70,
                                             fontWeight: FontWeight.w300),
                                       ),
                                     ],

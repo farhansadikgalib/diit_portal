@@ -65,7 +65,7 @@ class _CourseAttendanceViewState extends State<CourseAttendanceView> {
                child: Column(
                  children: [
 
-                   Text('View Attendance',style: TextStyle(fontSize: 25,color: Colors.orange,fontWeight: FontWeight.bold),),
+                   Text('Check Your Attendance',style: TextStyle(fontSize: 25,color: Colors.white70,fontWeight: FontWeight.bold,fontFamily: ''),),
                    SizedBox(height: 50,),
                    SizedBox(
                      width: 300,
@@ -80,7 +80,7 @@ class _CourseAttendanceViewState extends State<CourseAttendanceView> {
                                  style: TextStyle(
                                    fontSize: 16,
                                    fontWeight: FontWeight.bold,
-                                   color: Colors.black54,
+                                   color: Colors.white70,
                                  ),
                                  overflow: TextOverflow.ellipsis,
                                ),
@@ -96,7 +96,7 @@ class _CourseAttendanceViewState extends State<CourseAttendanceView> {
                                  style: const TextStyle(
                                    fontSize: 14,
                                    fontWeight: FontWeight.bold,
-                                   color: Colors.white,
+                                   color: Colors.white70,
                                  ),
                                ),
                              ))
@@ -112,7 +112,7 @@ class _CourseAttendanceViewState extends State<CourseAttendanceView> {
                            Icons.arrow_forward_ios_outlined,
                          ),
                          iconSize: 14,
-                         iconEnabledColor: Colors.white,
+                         iconEnabledColor: Colors.white70,
                          iconDisabledColor: Colors.grey,
                          buttonHeight: 50,
                          buttonWidth: 160,
@@ -128,7 +128,7 @@ class _CourseAttendanceViewState extends State<CourseAttendanceView> {
                          itemHeight: 40,
                          dropdownDecoration: BoxDecoration(
                            borderRadius: BorderRadius.circular(14),
-                           color: Colors.orange,
+                           color: Colors.grey,
                          ),
                          dropdownElevation: 8,
                          scrollbarRadius: const Radius.circular(40),
@@ -151,7 +151,7 @@ class _CourseAttendanceViewState extends State<CourseAttendanceView> {
                                  style: TextStyle(
                                    fontSize: 16,
                                    fontWeight: FontWeight.bold,
-                                   color: Colors.black54,
+                                   color: Colors.white70,
                                  ),
                                  overflow: TextOverflow.ellipsis,
                                ),
@@ -167,7 +167,7 @@ class _CourseAttendanceViewState extends State<CourseAttendanceView> {
                                  style: const TextStyle(
                                    fontSize: 14,
                                    fontWeight: FontWeight.bold,
-                                   color: Colors.white,
+                                   color: Colors.white70,
                                  ),
                                ),
                              ))
@@ -183,7 +183,7 @@ class _CourseAttendanceViewState extends State<CourseAttendanceView> {
                            Icons.arrow_forward_ios_outlined,
                          ),
                          iconSize: 14,
-                         iconEnabledColor: Colors.white,
+                         iconEnabledColor: Colors.white70,
                          iconDisabledColor: Colors.grey,
                          buttonHeight: 50,
                          buttonWidth: 160,
@@ -199,7 +199,7 @@ class _CourseAttendanceViewState extends State<CourseAttendanceView> {
                          itemHeight: 40,
                          dropdownDecoration: BoxDecoration(
                            borderRadius: BorderRadius.circular(14),
-                           color: Colors.orange,
+                           color: Colors.grey,
                          ),
                          dropdownElevation: 8,
                          scrollbarRadius: const Radius.circular(40),
@@ -210,24 +210,24 @@ class _CourseAttendanceViewState extends State<CourseAttendanceView> {
                    ),
                   const SizedBox(height: 80,),
                    SizedBox(
+                     height: 50,
                      width: MediaQuery.of(context).size.width/3,
                       child: NeumorphicButton(
                          onPressed: () {
                            Get.toNamed('/StudentAttendanceDetailes');
                          },
                          style: NeumorphicStyle(
-                           // shape: NeumorphicShape.concave,
+                            shape: NeumorphicShape.concave,
                              boxShape: NeumorphicBoxShape.roundRect(
                                  BorderRadius.circular(12)),
                              depth: 1,
-                             lightSource: LightSource.topLeft,
-                             color: Colors.white),
+                             color: Colors.white54),
                          child: const Center(
                              child: Text(
                                "NEXT",
                                style: TextStyle(
                                    fontSize: 15,
-                                   color: Colors.black45,
+                                   color: Colors.white70,
                                    fontWeight: FontWeight.bold),
                              )),
                        ),
