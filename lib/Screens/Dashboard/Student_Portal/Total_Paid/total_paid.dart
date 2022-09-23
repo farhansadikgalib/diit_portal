@@ -109,7 +109,7 @@ class _TOTALPAIDState extends State<TOTALPAID> {
                                     padding:  EdgeInsets.only(
                                         top: 8, left: 7, right: 8, bottom: 8),
                                     child: Text(
-                                     'Type',
+                                     'Method',
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 20,
@@ -204,8 +204,10 @@ class _TOTALPAIDState extends State<TOTALPAID> {
               )
           );
         } else {
-          return Center(
-            child: Lottie.asset('assets/lotti_file/loading_animation.json',height:100,width: 100),
+          return Scaffold(
+            body: Center(
+              child: Lottie.asset('assets/lotti_file/loading_animation.json',height:100,width: 100),
+            ),
           );
         }
       },

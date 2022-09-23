@@ -7,12 +7,12 @@ final AppBar AppBarString = AppBar(
 
   title: Shimmer.fromColors(
     baseColor: Colors.white,
-    highlightColor: Colors.orangeAccent,
+    highlightColor: Colors.orange,
     child: Column(
       children: const [
 
         Text(
-          'DiiT Portal',
+          'DiiT  Portal',
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 18.0,

@@ -230,15 +230,15 @@ class _HomePageState extends State<HomePage> {
                       Card(
                         shape: RoundedRectangleBorder(
                           side: BorderSide(
-                            color: Colors.orangeAccent,
+                            color: Colors.white10,
                           ),
                           borderRadius: BorderRadius.circular(20.0),
                         ),
-                        color : Color(0xff00DCA8),
+                        color : Colors.white12,
                         elevation: 3,
-                        shadowColor: Color(0xff00DCA8),
+                        shadowColor: Colors.white10,
                         child: SizedBox(
-                          height: Get.height/4.9,
+                          height: Get.height/4.8,
                           width: Get.width,
                           child: Row(
                             children: <Widget>[
@@ -255,6 +255,8 @@ class _HomePageState extends State<HomePage> {
                                         style: const TextStyle(
                                           fontSize: 18,
                                           fontFamily: 'Poppins',
+                                            color: Colors.white
+
                                         ),
                                       ),
                                     ),
@@ -269,6 +271,7 @@ class _HomePageState extends State<HomePage> {
                                             style: const TextStyle(
                                               fontSize: 15,
                                               fontFamily: 'Poppins',
+                                              color: Colors.white
                                             ),
                                           ),
                                         ),
@@ -285,6 +288,8 @@ class _HomePageState extends State<HomePage> {
                                             style: TextStyle(
                                               fontSize: 15,
                                               fontFamily: 'Poppins',
+                                                color: Colors.white
+
                                             ),
                                           ),
                                         ),
@@ -300,6 +305,8 @@ class _HomePageState extends State<HomePage> {
                                             style: const TextStyle(
                                               fontSize: 15,
                                               fontFamily: 'Poppins',
+                                                color: Colors.white
+
                                             ),
                                           ),
                                         ),
@@ -316,6 +323,8 @@ class _HomePageState extends State<HomePage> {
                                             style: TextStyle(
                                               fontSize: 15,
                                               fontFamily: 'Poppins',
+                                                color: Colors.white
+
                                             ),
                                           ),
                                         ),
@@ -331,6 +340,8 @@ class _HomePageState extends State<HomePage> {
                                             style: const TextStyle(
                                               fontSize: 15,
                                               fontFamily: 'Poppins',
+                                                color: Colors.white
+
                                             ),
                                           ),
                                         ),
@@ -345,6 +356,8 @@ class _HomePageState extends State<HomePage> {
                                             style: const TextStyle(
                                               fontSize: 15,
                                               fontFamily: 'Poppins',
+                                                color: Colors.white
+
                                             ),
                                           ),
                                         ),
@@ -361,6 +374,8 @@ class _HomePageState extends State<HomePage> {
                                             style:  TextStyle(
                                               fontSize: 15,
                                               fontFamily: 'Poppins',
+                                                color: Colors.white
+
                                             ),
                                           ),
                                         ),
@@ -375,6 +390,8 @@ class _HomePageState extends State<HomePage> {
                                             style: const TextStyle(
                                               fontSize: 15,
                                               fontFamily: 'Poppins',
+                                                color: Colors.white
+
                                             ),
                                           ),
                                         ),
@@ -403,13 +420,14 @@ class _HomePageState extends State<HomePage> {
                       Card(
                         shape: RoundedRectangleBorder(
                           side: BorderSide(
-                            color: Colors.orangeAccent,
+                            color: Colors.white24,
                           ),
                           borderRadius: BorderRadius.circular(20.0),
                         ),
-                        color : Color.fromRGBO(120, 100, 220,1.0),
+                        // color : Color.fromRGBO(120, 100, 220,1.0),
+                        color: Colors.white10,
                         elevation: 3,
-                        shadowColor: Colors.orange,
+                        shadowColor: Colors.white24,
                         child: Clock(),
                       ),
 
@@ -423,23 +441,23 @@ class _HomePageState extends State<HomePage> {
                         child: Card(
                           shape: RoundedRectangleBorder(
                             side: BorderSide(
-                              color: Colors.deepPurpleAccent, //<-- SEE HERE
+                              color: Colors.white24, //<-- SEE HERE
                             ),
                             borderRadius: BorderRadius.circular(20.0),
                           ),
-                          color: Colors.orange,
+                          color: Colors.white10,
                           elevation: 3,
-                          shadowColor: Colors.orange,
+                          shadowColor: Colors.white24,
                           child: SizedBox(
                             height: 65.0.h,
                             child: Row(
                               children: <Widget>[
                                 Container(
-                                  margin: const EdgeInsets.only(left: 20),
+                                  margin: const EdgeInsets.only(left: 15),
                                   child: Image.asset(
                                     'assets/calendar.png',
-                                    height: 50.h,
-                                    width: 50.w,
+                                    height: 45.h,
+                                    width: 45.w,
                                   ),
                                 ),
                                 SizedBox(
@@ -453,6 +471,7 @@ class _HomePageState extends State<HomePage> {
                                       style: TextStyle(
                                           fontSize: 18,
                                           fontFamily: "Poppins",
+                                          color: Colors.white,
                                           fontWeight: FontWeight.w700),
                                     ),
                                     Row(
@@ -462,6 +481,8 @@ class _HomePageState extends State<HomePage> {
                                           style: TextStyle(
                                               fontSize: 16,
                                               fontFamily: "Poppins",
+                                              color: Colors.white,
+
                                               fontWeight: FontWeight.w300),
                                         ),
                                         // ${snapshot.data!.docs.length}
@@ -470,12 +491,16 @@ class _HomePageState extends State<HomePage> {
                                           style: TextStyle(
                                               fontSize: 16,
                                               fontFamily: "Poppins",
+                                              color: Colors.white,
+
                                               fontWeight: FontWeight.w300),
                                         ),
                                         Text(
                                           " Class Today",
                                           style: TextStyle(
                                               fontSize: 16,
+                                              color: Colors.white,
+
                                               fontFamily: "Poppins",
                                               fontWeight: FontWeight.w300),
                                         ),
@@ -489,188 +514,164 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       SizedBox(
-                        height: 5,
+                        height: 15.h,
                       ),
 
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 10.w,
+                            ),
+                            SizedBox(
+                              height: Get.height / 13,
+                              width: Get.width / 2.25,
+                              child: NeumorphicButton(
+                                onPressed: ()=>Get.toNamed('/TutionFees'),
+                                style: NeumorphicStyle(
+                                    shape: NeumorphicShape.concave,
+                                    boxShape: NeumorphicBoxShape.roundRect(
+                                        BorderRadius.circular(12)),
+                                    depth: 1,
+                                    lightSource: LightSource.topLeft,
+                                    color: Colors.white12),
+                                child: const Center(
+                                    child: Text(
+                                      "TUTION FEES",
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    )),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10.w,
+                            ),
+                            SizedBox(
+                              height: Get.height / 13,
+                              width: Get.width / 2.25,
+                              child: NeumorphicButton(
+                                onPressed: () =>
+                                    Get.toNamed('/FacultyProfile'),
+                                style: NeumorphicStyle(
+                                    shape: NeumorphicShape.concave,
+                                    boxShape: NeumorphicBoxShape.roundRect(
+                                        BorderRadius.circular(12)),
+                                    depth: 1,
+                                    lightSource: LightSource.topLeft,
+                                    color: Colors.white12),
+                                child: const Center(
+                                    child: Text(
+                                      "FACULTY MEMBER",
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    )),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10.w,
+                            ),
+                            SizedBox(
+                              height: Get.height / 13,
+                              width: Get.width / 2.25,
+                              child: NeumorphicButton(
+                                onPressed: ()=>
+                                    Get.toNamed('/AcademicResult'),
 
-                      SizedBox(
-                        width: double.maxFinite,
-                        child: GFCarousel(
-                          autoPlay: true,
-                          items: imageList.map(
-                                (url) {
-                              return Container(
-                                margin: const EdgeInsets.only(
-                                    left: 5, right: 5, top: 10, bottom: 10),
-                                child: ClipRRect(
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(5.0)),
-                                  child: Image.asset(url,
-                                      fit: BoxFit.cover,
-                                      width: double.maxFinite),
-                                ),
-                              );
-                            },
-                          ).toList(),
-                          onPageChanged: (index) {
-                            setState(() {
-                              index;
-                            });
+                                style: NeumorphicStyle(
+                                    shape: NeumorphicShape.concave,
+                                    boxShape: NeumorphicBoxShape.roundRect(
+                                        BorderRadius.circular(12)),
+                                    depth: 1,
+                                    lightSource: LightSource.topLeft,
+                                    color: Colors.white12),
+                                child: const Center(
+                                    child: Text(
+                                      "ACADEMIC RESULT",
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    )),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10.w,
+                            ),
+                            SizedBox(
+                              height: Get.height / 13,
+                              width: Get.width / 2.25,
+                              child: NeumorphicButton(
+                                onPressed: () {
+                                  Get.toNamed('/NU_Portal');
+                                },
+                                style: NeumorphicStyle(
+                                    shape: NeumorphicShape.concave,
+                                    boxShape: NeumorphicBoxShape.roundRect(
+                                        BorderRadius.circular(12)),
+                                    depth: 1,
+                                    lightSource: LightSource.topLeft,
+                                    color: Colors.white12),
+                                child: const Center(
+                                    child: Text(
+                                      "NU PROTAL",
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    )),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10.w,
+                            ),
+
+                            SizedBox(
+                              width: 10.w,
+                            )
+
+                          ],
+                        ),
+                      ),
+
+                      SizedBox(height: 15.h),
+
+                      GFCarousel(
+                        autoPlay: true,
+                        items: imageList.map(
+                              (url) {
+                            return Container(
+                              color: Colors.white12,
+                              margin: const EdgeInsets.only(
+                                  left: 5, right: 5, top: 10, bottom: 10),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.all(
+                                    Radius.circular(15.0)),
+                                child: Image.asset(url,
+                                    fit: BoxFit.cover,
+                                    width: double.maxFinite),
+                              ),
+                            );
                           },
-                        ),
+                        ).toList(),
+                        onPageChanged: (index) {
+                          setState(() {
+                            index;
+                          });
+                        },
                       ),
-                      SizedBox(
-                        height: 90,
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: 10.w,
-                              ),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 15,
-                                width: MediaQuery.of(context).size.width / 2.40,
-                                child: NeumorphicButton(
-                                  onPressed: ()=>Get.toNamed('/TutionFees'),
-                                  style: NeumorphicStyle(
-                                      shape: NeumorphicShape.concave,
-                                      boxShape: NeumorphicBoxShape.roundRect(
-                                          BorderRadius.circular(12)),
-                                      depth: 1,
-                                      lightSource: LightSource.topLeft,
-                                      color: Colors.white),
-                                  child: const Center(
-                                      child: Text(
-                                        "TUTION FEES",
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.black45,
-                                            fontWeight: FontWeight.bold),
-                                      )),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 10.w,
-                              ),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 15,
-                                width: MediaQuery.of(context).size.width / 2.30,
-                                child: NeumorphicButton(
-                                  onPressed: () =>
-                                      Get.toNamed('/FacultyProfile'),
-                                  style: NeumorphicStyle(
-                                      shape: NeumorphicShape.concave,
-                                      boxShape: NeumorphicBoxShape.roundRect(
-                                          BorderRadius.circular(12)),
-                                      depth: 1,
-                                      lightSource: LightSource.topLeft,
-                                      color: Colors.white),
-                                  child: const Center(
-                                      child: Text(
-                                        "FACULTY MEMBER",
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.black45,
-                                            fontWeight: FontWeight.bold),
-                                      )),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 10.w,
-                              ),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 15,
-                                width: MediaQuery.of(context).size.width / 2.10,
-                                child: NeumorphicButton(
-                                  onPressed: ()=>
-                                      Get.toNamed('/AcademicResult'),
+                      SizedBox(height: 15.h,),
 
-                                  style: NeumorphicStyle(
-                                      shape: NeumorphicShape.concave,
-                                      boxShape: NeumorphicBoxShape.roundRect(
-                                          BorderRadius.circular(12)),
-                                      depth: 1,
-                                      lightSource: LightSource.topLeft,
-                                      color: Colors.white),
-                                  child: const Center(
-                                      child: Text(
-                                        "ACADEMIC RESULT",
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.black45,
-                                            fontWeight: FontWeight.bold),
-                                      )),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 10.w,
-                              ),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 15,
-                                width: MediaQuery.of(context).size.width / 2.30,
-                                child: NeumorphicButton(
-                                  onPressed: () {
-                                    Get.toNamed('/NU_Portal');
-                                  },
-                                  style: NeumorphicStyle(
-                                      shape: NeumorphicShape.concave,
-                                      boxShape: NeumorphicBoxShape.roundRect(
-                                          BorderRadius.circular(12)),
-                                      depth: 1,
-                                      lightSource: LightSource.topLeft,
-                                      color: Colors.white),
-                                  child: const Center(
-                                      child: Text(
-                                        "NU PROTAL",
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.black45,
-                                            fontWeight: FontWeight.bold),
-                                      )),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 10.w,
-                              ),
-                              // SizedBox(
-                              //   height: MediaQuery.of(context).size.height / 15,
-                              //   width: MediaQuery.of(context).size.width / 2.30,
-                              //   child: NeumorphicButton(
-                              //     onPressed: ()=>Get.toNamed('/DiitNotics'),
-                              //     style: NeumorphicStyle(
-                              //         shape: NeumorphicShape.concave,
-                              //         boxShape: NeumorphicBoxShape.roundRect(
-                              //             BorderRadius.circular(12)),
-                              //         depth: 1,
-                              //         lightSource: LightSource.topLeft,
-                              //         color: Colors.white),
-                              //     child: const Center(
-                              //         child: Text(
-                              //           "DIIT NOTICS",
-                              //           style: TextStyle(
-                              //               fontSize: 15,
-                              //               color: Colors.black45,
-                              //               fontWeight: FontWeight.bold),
-                              //         )),
-                              //   ),
-                              // ),
-
-                              SizedBox(
-                                width: 10.w,
-                              )
-
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 10.h),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SizedBox(
-                            height: MediaQuery.of(context).size.height / 4.6,
-                            width: MediaQuery.of(context).size.width / 2.50,
+                            height: Get.height /5,
+                            width: Get.width / 2.5,
                             child: NeumorphicButton(
                               onPressed: () => Get.toNamed('/QuestionBank'),
                               style: NeumorphicStyle(
@@ -679,7 +680,7 @@ class _HomePageState extends State<HomePage> {
                                       BorderRadius.circular(12)),
                                   depth: 1,
                                   lightSource: LightSource.topLeft,
-                                  color: Colors.white),
+                                  color: Colors.white24),
                               child: Column(
                                 children: [
                                   Column(
@@ -702,7 +703,7 @@ class _HomePageState extends State<HomePage> {
                                         style: TextStyle(
                                             fontFamily: "Poppins",
                                             fontSize: 15,
-                                            color: Colors.black54,
+                                            color: Colors.white,
                                             fontWeight: FontWeight.w300),
                                       ),
                                     ],
@@ -718,8 +719,8 @@ class _HomePageState extends State<HomePage> {
                           ),
 
                           SizedBox(
-                            height: MediaQuery.of(context).size.height / 4.6,
-                            width: MediaQuery.of(context).size.width / 2.50,
+                            height: Get.height /5,
+                            width: Get.width / 2.5,
                             child: NeumorphicButton(
                               onPressed: () =>
                                   Get.toNamed('/ClassRoutineViewer'),
@@ -729,7 +730,7 @@ class _HomePageState extends State<HomePage> {
                                       BorderRadius.circular(12)),
                                   depth: 1,
                                   lightSource: LightSource.topLeft,
-                                  color: Colors.white),
+                                  color: Colors.white24),
                               child: Column(
                                 children: [
                                   Column(
@@ -752,7 +753,7 @@ class _HomePageState extends State<HomePage> {
                                         style: TextStyle(
                                             fontFamily: "Poppins",
                                             fontSize: 15,
-                                            color: Colors.black54,
+                                            color: Colors.white,
                                             fontWeight: FontWeight.w300),
                                       ),
                                     ],
@@ -771,8 +772,8 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SizedBox(
-                            height: MediaQuery.of(context).size.height / 4.6,
-                            width: MediaQuery.of(context).size.width / 2.50,
+                            height: Get.height /5,
+                            width: Get.width / 2.5,
                             child: NeumorphicButton(
                               onPressed:()=>Get.toNamed('/IT_Clube'),
 
@@ -782,7 +783,7 @@ class _HomePageState extends State<HomePage> {
                                       BorderRadius.circular(12)),
                                   depth: 1,
                                   lightSource: LightSource.topLeft,
-                                  color: Colors.white),
+                                  color: Colors.white24),
                               child: Column(children: [
                                 Image.asset(
                                   "assets/ic_club.png",
@@ -798,7 +799,8 @@ class _HomePageState extends State<HomePage> {
                                   style: TextStyle(
                                       fontFamily: "Poppins",
                                       fontSize: 15,
-                                      color: Colors.black54,
+
+                                      color: Colors.white,
                                       fontWeight: FontWeight.w300),
                                 ),
                               ]),
@@ -809,8 +811,8 @@ class _HomePageState extends State<HomePage> {
                             width: 10.h,
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height / 4.6,
-                            width: MediaQuery.of(context).size.width / 2.50,
+                            height: Get.height /5,
+                            width: Get.width / 2.5,
                             child: NeumorphicButton(
                               onPressed: () =>
                                   Get.toNamed('/CourseAttendanceView'),
@@ -820,7 +822,7 @@ class _HomePageState extends State<HomePage> {
                                       BorderRadius.circular(12)),
                                   depth: 1,
                                   lightSource: LightSource.topLeft,
-                                  color: Colors.white),
+                                  color: Colors.white24),
                               child: Column(
                                 children: [
                                   Column(
@@ -843,7 +845,7 @@ class _HomePageState extends State<HomePage> {
                                         style: TextStyle(
                                             fontFamily: "Poppins",
                                             fontSize: 15,
-                                            color: Colors.black54,
+                                            color: Colors.white,
                                             fontWeight: FontWeight.w300),
                                       ),
                                     ],
@@ -862,8 +864,8 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SizedBox(
-                            height: MediaQuery.of(context).size.height / 5,
-                            width: MediaQuery.of(context).size.width / 2.50,
+                            height: Get.height /5,
+                            width: Get.width / 2.5,
                             child: NeumorphicButton(
                               onPressed: () => Get.toNamed('/bKash'),
                               style: NeumorphicStyle(
@@ -872,7 +874,7 @@ class _HomePageState extends State<HomePage> {
                                       BorderRadius.circular(12)),
                                   depth: 0,
                                   lightSource: LightSource.topLeft,
-                                  color: Colors.white),
+                                  color: Colors.white24),
                               child: Column(
                                 children: [
                                   Column(
@@ -893,7 +895,7 @@ class _HomePageState extends State<HomePage> {
                                         style: TextStyle(
                                             fontFamily: "Poppins",
                                             fontSize: 15,
-                                            color: Colors.black54,
+                                            color: Colors.white,
                                             fontWeight: FontWeight.w300),
                                       ),
                                     ],
@@ -907,8 +909,8 @@ class _HomePageState extends State<HomePage> {
 
 
                           SizedBox(
-                            height: MediaQuery.of(context).size.height / 5,
-                            width: MediaQuery.of(context).size.width / 2.50,
+                            height: Get.height /5,
+                            width: Get.width / 2.5,
                             child: NeumorphicButton(
                               onPressed: () =>
                                   Get.toNamed('/Community'),
@@ -918,7 +920,7 @@ class _HomePageState extends State<HomePage> {
                                       BorderRadius.circular(12)),
                                   depth: 0,
                                   lightSource: LightSource.topLeft,
-                                  color: Colors.white),
+                                  color: Colors.white24),
                               child: Column(
                                 children: [
                                   Column(
@@ -939,7 +941,7 @@ class _HomePageState extends State<HomePage> {
                                         style: TextStyle(
                                             fontFamily: "Poppins",
                                             fontSize: 15,
-                                            color: Colors.black54,
+                                            color: Colors.white,
                                             fontWeight: FontWeight.w300),
                                       ),
                                     ],

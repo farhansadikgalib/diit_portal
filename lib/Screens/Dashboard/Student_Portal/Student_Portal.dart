@@ -144,7 +144,7 @@ class _StudentPortalState extends State<StudentPortal> {
                           height: 120,
                           width: 400,
                           decoration: BoxDecoration(
-                              color: const Color(0xffCDC845),
+                              color: Colors.white10,
                               borderRadius: BorderRadius.circular(20)),
                           child: Row(
                             children: [
@@ -161,7 +161,7 @@ class _StudentPortalState extends State<StudentPortal> {
                                       style: TextStyle(
                                           fontSize: 30,
                                           fontWeight: FontWeight.w500,
-                                          color: Colors.white),
+                                          color: Colors.white70),
                                     ),
                                     SizedBox(
                                       height: 10,
@@ -171,7 +171,7 @@ class _StudentPortalState extends State<StudentPortal> {
                                       style: TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.w500,
-                                          color: Colors.white,
+                                          color: Colors.white70,
                                           fontFamily: 'Poppins'),
                                     )
                                   ],
@@ -189,7 +189,7 @@ class _StudentPortalState extends State<StudentPortal> {
                             height: 120,
                             width: 400,
                             decoration: BoxDecoration(
-                                color: const Color(0xff81E85E),
+                                color: Colors.white10,
                                 borderRadius: BorderRadius.circular(20)),
                             child: Row(
                               children: [
@@ -206,7 +206,7 @@ class _StudentPortalState extends State<StudentPortal> {
                                         style: TextStyle(
                                             fontSize: 30,
                                             fontWeight: FontWeight.w500,
-                                            color: Colors.white),
+                                            color: Colors.white70),
                                       ),
                                       SizedBox(
                                         height: 10,
@@ -216,7 +216,7 @@ class _StudentPortalState extends State<StudentPortal> {
                                         style: TextStyle(
                                             fontSize: 20,
                                             fontWeight: FontWeight.w500,
-                                            color: Colors.white,
+                                            color: Colors.white70,
                                             fontFamily: 'Poppins'),
                                       )
                                     ],
@@ -235,7 +235,7 @@ class _StudentPortalState extends State<StudentPortal> {
                             height: 120,
                             width: 400,
                             decoration: BoxDecoration(
-                                color: const Color(0xff5DD8D0),
+                                color: Colors.white10,
                                 borderRadius: BorderRadius.circular(20)),
                             child: Row(
                               children: [
@@ -252,7 +252,7 @@ class _StudentPortalState extends State<StudentPortal> {
                                         style: TextStyle(
                                             fontSize: 30,
                                             fontWeight: FontWeight.w500,
-                                            color: Colors.white),
+                                            color: Colors.white70),
                                       ),
                                       SizedBox(
                                         height: 10,
@@ -281,7 +281,7 @@ class _StudentPortalState extends State<StudentPortal> {
                             height: 120,
                             width: 400,
                             decoration: BoxDecoration(
-                                color: const Color(0xbc4fa4cd),
+                                color: Colors.white10,
                                 borderRadius: BorderRadius.circular(20)),
                             child: Row(
                               children: [
@@ -298,7 +298,7 @@ class _StudentPortalState extends State<StudentPortal> {
                                         style: TextStyle(
                                             fontSize: 30,
                                             fontWeight: FontWeight.w500,
-                                            color: Colors.white),
+                                            color: Colors.white70),
                                       ),
                                       SizedBox(
                                         height: 10,
@@ -308,7 +308,7 @@ class _StudentPortalState extends State<StudentPortal> {
                                         style: TextStyle(
                                             fontSize: 20,
                                             fontWeight: FontWeight.w500,
-                                            color: Colors.white,
+                                            color: Colors.white70,
                                             fontFamily: 'Poppins'),
                                       )
                                     ],
