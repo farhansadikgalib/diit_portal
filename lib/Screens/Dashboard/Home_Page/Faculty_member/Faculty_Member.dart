@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -178,8 +179,11 @@ class FacultyProfile extends StatelessWidget {
                 },
               ));
         } else {
-          return Center(
-            child: Lottie.asset('assets/lotti_file/loading_animation.json',height:100,width: 100),
+          return Scaffold(
+            backgroundColor: ColorChanger.scaffoldcolor,
+            body: Center(
+              child: Lottie.asset('assets/lotti_file/loading_animation.json',height:100,width: 100),
+            ),
           );
         }
       },

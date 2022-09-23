@@ -44,10 +44,10 @@ class _StudentPortalState extends State<StudentPortal> {
         .collection('Student_Information')
         .doc('Portal_Info')
         .set({
-      "payable": "0",
-      "paid": "0",
-      "due": "0",
-      "fine": "0",
+      "payable": "",
+      "paid": "",
+      "due": "",
+      "fine": "",
     }).then((_) {
       print("database created!");
     });
@@ -329,9 +329,14 @@ class _StudentPortalState extends State<StudentPortal> {
             ),
           );
         } else {
-          return Center(
-            child: Lottie.asset('assets/lotti_file/loading_animation.json',height:100,width: 100),
+          return Scaffold(
+            backgroundColor: ColorChanger.scaffoldcolor,
+            body: Center(
+              child: Lottie.asset('assets/lotti_file/loading_animation.json',
+                  height: 100, width: 100),
+            ),
           );
+
         }
       },
     );

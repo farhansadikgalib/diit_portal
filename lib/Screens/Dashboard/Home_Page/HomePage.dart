@@ -406,7 +406,7 @@ class _HomePageState extends State<HomePage> {
                                 flex: 1,
                                 child: Container(
                                   child: Image.network(
-                                    _response!.iconUrl,
+                                    _response!.iconUrl,color: Colors.white,
                                   ),
                                 ),
                               )
@@ -966,9 +966,14 @@ class _HomePageState extends State<HomePage> {
             ),
           );
         } else {
-          return Center(
-            child: Lottie.asset('assets/lotti_file/loading_animation.json',height:100,width: 100),
+          return Scaffold(
+            backgroundColor: ColorChanger.scaffoldcolor,
+            body: Center(
+              child: Lottie.asset('assets/lotti_file/loading_animation.json',
+                  height: 100, width: 100),
+            ),
           );
+
         }
       },
     );

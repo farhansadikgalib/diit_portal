@@ -572,9 +572,12 @@ class _StudentProfileState extends State<StudentProfile> {
                 ]),
               )));
         } else {
-          return Center(
-            child: Lottie.asset('assets/lotti_file/loading_animation.json',
-                height: 100, width: 100),
+          return Scaffold(
+            backgroundColor: ColorChanger.scaffoldcolor,
+            body: Center(
+              child: Lottie.asset('assets/lotti_file/loading_animation.json',
+                  height: 100, width: 100),
+            ),
           );
         }
       },
