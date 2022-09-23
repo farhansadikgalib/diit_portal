@@ -30,15 +30,11 @@ class QuestionBank extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.topCenter,
-              child:  DefaultTextStyle(
-                  style: TextStyle(
-                      fontSize: 22.0,
-                      color: Colors.white,
-
-                      fontWeight: FontWeight.bold),
-                  child: Text("Select Your Department")
-
-              ),
+              child:  Text("Select Your Department",    style: TextStyle(
+                  color: Colors.white70,
+                  fontSize: 25,
+                  fontFamily: 'Baloo',
+                  fontWeight: FontWeight.w500)),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 25, right: 25, top: 30),
@@ -46,17 +42,16 @@ class QuestionBank extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SizedBox(
-                    height: Get.height/4.6,
-                    width: Get.width/2.50,
+                    height: Get.height /5,
+                    width: Get.width / 2.5,
                     child: NeumorphicButton(
                       onPressed: () => Get.toNamed('/CseDepertment'),
                       style: NeumorphicStyle(
                           shape: NeumorphicShape.concave,
                           boxShape: NeumorphicBoxShape.roundRect(
                               BorderRadius.circular(12)),
-                          depth: 1,
-                          lightSource: LightSource.topLeft,
-                          color: Colors.white),
+                          depth: 0,
+                          color: Colors.white24),
                       child: Column(
                         children: [
                           Column(
@@ -70,7 +65,7 @@ class QuestionBank extends StatelessWidget {
                            Text(
                                 'CSE',
                                 style: TextStyle(
-                                  color: Colors.black45,
+                                  color: Colors.white,
                                     fontSize: 25,
                                     fontFamily: 'Baloo',
                                     fontWeight: FontWeight.w500),
@@ -89,17 +84,16 @@ class QuestionBank extends StatelessWidget {
 
 
                   SizedBox(
-                    height: MediaQuery.of(context).size.height/4.6,
-                    width: MediaQuery.of(context).size.width/2.50,
+                    height: Get.height /5,
+                    width: Get.width / 2.5,
                     child: NeumorphicButton(
                       onPressed: () => Get.toNamed('/BbaDepertment'),
                       style: NeumorphicStyle(
                           shape: NeumorphicShape.concave,
                           boxShape: NeumorphicBoxShape.roundRect(
                               BorderRadius.circular(12)),
-                          depth: 1,
-                          lightSource: LightSource.topLeft,
-                          color: Colors.white),
+                          depth: 0,
+                          color: Colors.white24),
                       child: Column(
                         children: [
                           Column(
@@ -112,11 +106,11 @@ class QuestionBank extends StatelessWidget {
                               ),
                               const Text(
                                 'BBA',
-                                style: TextStyle(
-                                    color: Colors.black45,
-                                    fontSize: 25,
-                                    fontFamily: 'Baloo',
-                                    fontWeight: FontWeight.w500),
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 25,
+                                      fontFamily: 'Baloo',
+                                      fontWeight: FontWeight.w500)
                               )
                             ],
                           ),
@@ -137,17 +131,16 @@ class QuestionBank extends StatelessWidget {
                 children: [
 
                   SizedBox(
-                    height: MediaQuery.of(context).size.height/4.6,
-                    width: MediaQuery.of(context).size.width/2.50,
+                    height: Get.height /5,
+                    width: Get.width / 2.5,
                     child: NeumorphicButton(
                       onPressed: () => Get.toNamed('/BthmDepertment'),
                       style: NeumorphicStyle(
                           shape: NeumorphicShape.concave,
                           boxShape: NeumorphicBoxShape.roundRect(
                               BorderRadius.circular(12)),
-                          depth: 1,
-                          lightSource: LightSource.topLeft,
-                          color: Colors.white),
+                          depth: 0,
+                          color: Colors.white24),
                       child: Column(
                         children: [
                           Column(
@@ -160,11 +153,11 @@ class QuestionBank extends StatelessWidget {
                               ),
                               const Text(
                                 'BTHM',
-                                style: TextStyle(
-                                    color: Colors.black45,
-                                    fontSize: 25,
-                                    fontFamily: 'Baloo',
-                                    fontWeight: FontWeight.w500),
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 25,
+                                      fontFamily: 'Baloo',
+                                      fontWeight: FontWeight.w500)
                               )
                             ],
                           ),
@@ -179,17 +172,16 @@ class QuestionBank extends StatelessWidget {
                   const SizedBox(width: 18,),
 
                   SizedBox(
-                    height: MediaQuery.of(context).size.height/4.6,
-                    width: MediaQuery.of(context).size.width/2.50,
+                    height: Get.height /5,
+                    width: Get.width / 2.5,
                     child: NeumorphicButton(
                       onPressed: ()=> Get.toNamed('/MBADepertment'),
                       style: NeumorphicStyle(
                           shape: NeumorphicShape.concave,
                           boxShape: NeumorphicBoxShape.roundRect(
                               BorderRadius.circular(12)),
-                          depth: 1,
-                          lightSource: LightSource.topLeft,
-                          color: Colors.white),
+                          depth: 0,
+                          color: Colors.white24),
                       child: Column(
                         children: [
                           Column(
@@ -203,7 +195,7 @@ class QuestionBank extends StatelessWidget {
                               const Text(
                                 'MBA',
                                 style: TextStyle(
-                                    color: Colors.black45,
+                                    color: Colors.white,
                                     fontSize: 25,
                                     fontFamily: 'Baloo',
                                     fontWeight: FontWeight.w500),
@@ -218,34 +210,6 @@ class QuestionBank extends StatelessWidget {
                     ),
                   ),
 
-                  // Card(
-                  //   elevation: 3,
-                  //   shadowColor: Colors.orange,
-                  //   child: GestureDetector(
-                  //     onTap: () => Get.toNamed('/MBADepertment'),
-                  //     child: Container(
-                  //       height: MediaQuery.of(context).size.height/6,
-                  //       width: MediaQuery.of(context).size.width/2.75,
-                  //
-                  //       child: Column(
-                  //         children: [
-                  //           Image.asset(
-                  //             'assets/questions.png',
-                  //             height: 100,
-                  //             width: 100,
-                  //           ),
-                  //           Text(
-                  //             'MBA',
-                  //             style: TextStyle(
-                  //                 fontSize: 25,
-                  //                 fontFamily: 'Baloo',
-                  //                 fontWeight: FontWeight.w500),
-                  //           )
-                  //         ],
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
             ),

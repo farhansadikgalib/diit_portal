@@ -133,7 +133,7 @@ class _Helping_BirdsState extends State<Helping_Birds> {
                           style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: Colors.white70,
                           ),
                         ),
                       ))
@@ -171,7 +171,7 @@ class _Helping_BirdsState extends State<Helping_Birds> {
                   itemHeight: 40,
                   dropdownDecoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
-                    color: Colors.orange,
+                    color: Colors.grey,
                   ),
                   dropdownElevation: 8,
                   scrollbarRadius: const Radius.circular(40),
@@ -197,12 +197,11 @@ class _Helping_BirdsState extends State<Helping_Birds> {
                             child: Padding(
                               padding:  EdgeInsets.only(left: 15,right: 15),
                               child: Card(
-                                elevation: 5,
-                                color:Colors.orange[300],
+                                color:Colors.white12,
                                 child: ListTile(
-                                  title: Text(readyData[index]['name'],style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                                  subtitle: Text( "Contact: ${readyData[index]['phone']}",style: TextStyle(fontWeight: FontWeight.w600 ),),
-                                  trailing: Text(readyData[index]['group'],style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.red),),
+                                  title: Text(readyData[index]['name'],style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white70),),
+                                  subtitle: Text( "Contact: ${readyData[index]['phone']}",style: TextStyle(fontWeight: FontWeight.w600,color: Colors.white70 ),),
+                                  trailing: Text(readyData[index]['group'],style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white70),),
                                 ),
                               ),
                             ),

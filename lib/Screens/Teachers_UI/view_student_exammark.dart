@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+import 'package:lottie/lottie.dart';
 
 class exam_marks extends StatefulWidget {
   const exam_marks({Key? key}) : super(key: key);

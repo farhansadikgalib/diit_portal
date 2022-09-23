@@ -36,25 +36,9 @@ class _StudentPortalState extends State<StudentPortal> {
 
   final firestoreInstance = FirebaseFirestore.instance;
 
-  _setStudent_Portal_info() async {
-    var firebaseUser = await FirebaseAuth.instance.currentUser!;
-    firestoreInstance
-        .collection("UserData")
-        .doc(firebaseUser.uid)
-        .collection('Student_Information')
-        .doc('Portal_Info')
-        .set({
-      "payable": "",
-      "paid": "",
-      "due": "",
-      "fine": "",
-    }).then((_) {
-      print("database created!");
-    });
-  }
 
   getFirebaseUserData() async {
-    var firebaseUser = await FirebaseAuth.instance.currentUser!;
+    final firebaseUser = await FirebaseAuth.instance.currentUser!;
     final snapshot = await FirebaseFirestore.instance
         .collection('UserData')
         .doc(firebaseUser.uid)
@@ -90,6 +74,24 @@ class _StudentPortalState extends State<StudentPortal> {
       print('database is not created');
     }
   }
+
+  _setStudent_Portal_info() async {
+    var firebaseUser = await FirebaseAuth.instance.currentUser!;
+    firestoreInstance
+        .collection("UserData")
+        .doc(firebaseUser.uid)
+        .collection('Student_Information')
+        .doc('Portal_Info')
+        .set({
+      "payable": "",
+      "paid": "",
+      "due": "",
+      "fine": "",
+    }).then((_) {
+      print("database created!");
+    });
+  }
+
 
   CollectionReference ref = FirebaseFirestore.instance
       .collection('UserData')

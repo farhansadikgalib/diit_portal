@@ -41,8 +41,8 @@ class _All_ClubsState extends State<All_Clubs> {
 
               children: [
                 SizedBox(
-                  height:Get.height / 4.6,
-                  width: Get.width / 2.50,
+                  height: Get.height /5,
+                  width: Get.width / 2.5,
                   child: NeumorphicButton(
                     onPressed:()=>Get.toNamed('/Helping_Birds'),
 
@@ -50,26 +50,24 @@ class _All_ClubsState extends State<All_Clubs> {
                         shape: NeumorphicShape.concave,
                         boxShape: NeumorphicBoxShape.roundRect(
                             BorderRadius.circular(12)),
-                        depth: 1,
-                        lightSource: LightSource.topLeft,
-                        color: Colors.white),
+                        depth: 0,
+                        color: Colors.white24),
                     child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                       Image.asset(
                         "assets/club_icons/helping_birds.png",
                         height:
-                        MediaQuery.of(context).size.height / 9,
-                        width: MediaQuery.of(context).size.width / 4,
+                        Get.height / 10,
+                        width: Get.width / 5,
                       ),
-
-                      SizedBox(height: 10.h,),
 
                       const Text(
                         "Helping Birds",
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 15,
-                            color: Colors.black54,
+                            color: Colors.white70,
                             fontWeight: FontWeight.w300),
                       ),
                     ]),
@@ -80,8 +78,8 @@ class _All_ClubsState extends State<All_Clubs> {
                   width: 10.h,
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height / 4.6,
-                  width: MediaQuery.of(context).size.width / 2.50,
+                  height: Get.height /5,
+                  width: Get.width / 2.5,
                   child: NeumorphicButton(
                     onPressed: () =>
                         Get.toNamed('/AttendanceTake'),
@@ -89,34 +87,27 @@ class _All_ClubsState extends State<All_Clubs> {
                         shape: NeumorphicShape.concave,
                         boxShape: NeumorphicBoxShape.roundRect(
                             BorderRadius.circular(12)),
-                        depth: 1,
-                        lightSource: LightSource.topLeft,
-                        color: Colors.white),
+                        depth: 0,
+                        color: Colors.white24),
                     child: Column(
-                      children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/club_icons/programming.png",
-                              height:
-                              MediaQuery.of(context).size.height /
-                                  9,
-                              width:
-                              MediaQuery.of(context).size.width /
-                                  4,
-                            ),
+                      mainAxisAlignment: MainAxisAlignment.center,
 
-                            const Text(
-                              "Programming Club",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 15,
-                                  color: Colors.black54,
-                                  fontWeight: FontWeight.w300),
-                            ),
-                          ],
+                      children: [
+                        Image.asset(
+                          "assets/club_icons/programming.png",
+                          height:
+                          Get.height / 10,
+                          width: Get.width / 5,
+                        ),
+
+                        const Text(
+                          "Programming Club",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontFamily: "Poppins",
+                              fontSize: 15,
+                              color: Colors.white70,
+                              fontWeight: FontWeight.w300),
                         ),
                       ],
                     ),

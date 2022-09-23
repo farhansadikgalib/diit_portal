@@ -53,143 +53,137 @@ class FacultyProfile extends StatelessWidget {
                 itemCount: snapshot.data!.docs.length,
                 itemBuilder: (context, index) {
                   final snap = snapshot.data!.docs;
-                  return Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                  return Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          color: Colors.orangeAccent,
+                        ),
+                        borderRadius: BorderRadius.circular(20.0),
 
-                      Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Card(
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                              color: Colors.orangeAccent,
-                            ),
-                            borderRadius: BorderRadius.circular(20.0),
+                      ),
+                       color: Colors.white12,
+                      // color: Colors.orangeAccent,
+                      elevation: 10,
+                      child: Padding(
+                        padding:
+                        EdgeInsets.only(left: 10, right: 10, top: 10),
+                        child: SizedBox(
+                          // height: MediaQuery.of(context).size.height / 4,
+                          width: MediaQuery.of(context).size.width,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment:
+                            CrossAxisAlignment.center,
+                            children: [
 
-                          ),
-                           color: Color.fromRGBO(194, 205, 255,1),
-                          // color: Colors.orangeAccent,
-                          elevation: 10,
-                          child: Padding(
-                            padding:
-                            EdgeInsets.only(left: 10, right: 10, top: 10),
-                            child: SizedBox(
-                              // height: MediaQuery.of(context).size.height / 4,
-                              width: MediaQuery.of(context).size.width,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment:
-                                CrossAxisAlignment.center,
-                                children: [
+                              //  CircleAvatar(
+                              //    radius: 55,
+                              //    backgroundImage:
+                              //    NetworkImage(snap[index]['img']),
+                              //    backgroundColor: Colors.transparent,
+                              //
+                              // ),
 
-                                  //  CircleAvatar(
-                                  //    radius: 55,
-                                  //    backgroundImage:
-                                  //    NetworkImage(snap[index]['img']),
-                                  //    backgroundColor: Colors.transparent,
-                                  //
-                                  // ),
-
-                                  CachedNetworkImage(
-                                    imageUrl: snap[index]['img'],
-                                    imageBuilder: (context, imageProvider) => Container(
-                                      width: 100.0,
-                                      height: 100.0,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        image: DecorationImage(
-                                            image: imageProvider, fit: BoxFit.fill),
-                                      ),
-                                    ),
-                                    placeholder: (context, url) => CircularProgressIndicator(),
-                                    errorWidget: (context, url, error) => Icon(Icons.error),
+                              CachedNetworkImage(
+                                imageUrl: snap[index]['img'],
+                                imageBuilder: (context, imageProvider) => Container(
+                                  width: 100.0,
+                                  height: 100.0,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: DecorationImage(
+                                        image: imageProvider, fit: BoxFit.fill),
                                   ),
-
-
-
-
-
-
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-
-                                  Text(
-                                    snap[index]['name'],
-                                    textAlign: TextAlign.center,
-
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-
-
-
-                                  InkWell(
-                                    onTap: (){
-                                      launch("tel://${snap[index]
-                                      ['phone']}");
-                                    },
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.call,
-                                          size: 22,
-                                          color: Colors.black,
-                                        ),
-                                        SizedBox(width: 5,),
-                                        Text(
-                                          snap[index]['phone'],
-                                          style: TextStyle(
-                                              fontSize: 12,
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-
-
-                                  Text(
-                                    snap[index]['title'],
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Text(
-                                    snap[index]['edu'],
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                ],
+                                ),
+                                placeholder: (context, url) => CircularProgressIndicator(),
+                                errorWidget: (context, url, error) => Icon(Icons.error),
                               ),
-                            ),
+
+
+
+
+
+
+                              SizedBox(
+                                height: 5,
+                              ),
+
+                              Text(
+                                snap[index]['name'],
+                                textAlign: TextAlign.center,
+
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.white70,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+
+
+
+                              InkWell(
+                                onTap: (){
+                                  launch("tel://${snap[index]
+                                  ['phone']}");
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.call,
+                                      size: 22,
+                                      color: Colors.white70,
+                                    ),
+                                    SizedBox(width: 5,),
+                                    Text(
+                                      snap[index]['phone'],
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.white70,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                              ),
+
+                              SizedBox(
+                                height: 5,
+                              ),
+
+
+                              Text(
+                                snap[index]['title'],
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.white70,
+                                    fontWeight: FontWeight.w500),
+                              ),
+
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                snap[index]['edu'],
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.white70,
+                                    fontWeight: FontWeight.w400),
+                              ),
+
+                              SizedBox(
+                                height: 10,
+                              ),
+                            ],
                           ),
                         ),
                       ),
-                    ],
+                    ),
                   );
                 },
               ));

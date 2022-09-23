@@ -1,5 +1,6 @@
 import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class TutionFees extends StatefulWidget {
@@ -39,7 +40,7 @@ class _TutionFeesState extends State<TutionFees> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: Get.height / 15,
+                    height:10.h,
                   ),
                   Text(
                     'Computer Science and Engineering',
@@ -767,9 +768,6 @@ class _TutionFeesState extends State<TutionFees> {
                 ),
               ),
               // CSE //
-              SizedBox(
-                height: 25,
-              ),
               // BBA //
               Padding(
                 padding: const EdgeInsets.only(top: 30, left: 10, right: 10),
@@ -1455,9 +1453,7 @@ class _TutionFeesState extends State<TutionFees> {
                 ),
               ),
               // BBA //
-              SizedBox(
-                height: 25,
-              ),
+
               // THM //
               Padding(
                 padding: const EdgeInsets.only(top: 30, left: 10, right: 10),
@@ -2144,9 +2140,7 @@ class _TutionFeesState extends State<TutionFees> {
               ),
               // THM //
 
-              SizedBox(
-                height: 25,
-              ),
+
               // MBA //
               Padding(
                 padding: const EdgeInsets.only(top: 30, left: 10, right: 10),

@@ -237,7 +237,7 @@ class _HomePageState extends State<HomePage> {
                         elevation: 3,
                         shadowColor: Colors.white10,
                         child: SizedBox(
-                          height: Get.height/4.8,
+                          height: Get.height/5.5,
                           width: Get.width,
                           child: Row(
                             children: <Widget>[

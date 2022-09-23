@@ -3,6 +3,7 @@ import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:lottie/lottie.dart';
 
 class MBADepertment extends StatelessWidget {
 
@@ -40,62 +41,106 @@ class MBADepertment extends StatelessWidget {
                     itemCount: snap.length,
                     itemBuilder: (context, index) {
                       return Card(
+                        color: Colors.white24,
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            color: Colors.white10,
+                            width: 5, //<-- SEE HERE
+                          ),
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
                         elevation: 5,
-                        child: Container(
-                          alignment: Alignment.centerLeft,
+                        child: SizedBox(
                           height: 75,
                           width: double.infinity,
-                          decoration: const BoxDecoration(
-                            border: Border(
-                              top: BorderSide(color: Colors.orange, width: 4),
-                              left: BorderSide(color: Colors.orange, width: 4),
-                              right: BorderSide(color: Colors.orange, width: 4),
-                              bottom: BorderSide(color: Colors.orange, width: 4),
-                            ),
-                          ),
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 10, right: 10),
+                            padding: EdgeInsets.only(left: 10, right: 10),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(snap[index]['name'],
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 18,
-                                      fontFamily: 'Baloo'),
-                                ),
-                                GFButton(
-                                  size: 50,
-                                  color: Colors.green,
-                                  onPressed: () {
-                                    var first= snap[index]['link'];
-                                    print(first);
-                                    Get.toNamed('/pdf_viewPage',arguments: [first]);
-                                  },
-                                  text: "View",
-                                  textStyle: const TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 18,
-                                      fontFamily: 'Baloo'),
-                                  position: GFPosition.end,
-                                  icon: const Icon(
-                                    Icons.arrow_downward_outlined,
-                                    size: 22,
-                                    color: Colors.white,
+
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: Text(
+                                    snap[index]['name'],
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 18,
+                                        color: Colors.white70,
+                                        fontFamily: 'Baloo'),
                                   ),
-                                  type: GFButtonType.solid,
-                                  shape: GFButtonShape.standard,
                                 ),
+                                // GFButton(
+                                //   size: 50,
+                                //   color: Colors.green,
+                                //   onPressed: () {
+                                //
+                                //   },
+                                //   text: "View",
+                                //   textStyle: const TextStyle(
+                                //       fontWeight: FontWeight.w500,
+                                //       fontSize: 18,
+                                //       fontFamily: 'Baloo'),
+                                //   position: GFPosition.end,
+                                //   icon: const Icon(
+                                //     Icons.arrow_downward_outlined,
+                                //     size: 22,
+                                //     color: Colors.white,
+                                //   ),
+                                //   type: GFButtonType.solid,
+                                //   shape: GFButtonShape.square,
+                                // ),
+                                SizedBox(
+                                  height: 50,
+                                  child: ElevatedButton(
+                                      onPressed: () {
+                                        var first = snap[index]['link'];
+                                        print(first);
+                                        Get.toNamed('/pdf_viewPage',
+                                            arguments: [first]);
+                                      },
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                        children: [
+
+                                          Text("View",
+                                            style:  TextStyle(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 18,
+                                                fontFamily: 'Baloo'),),
+                                          Icon(
+                                            Icons.arrow_downward_outlined,
+                                            size: 22,
+                                            color: Colors.white,
+                                          ),
+                                        ],
+                                      ),
+                                      style: ButtonStyle(
+                                          foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                                          backgroundColor: MaterialStateProperty.all<Color>(Colors.white12),
+                                          shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                              RoundedRectangleBorder(
+                                                  borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                                  side: BorderSide(
+                                                      color: Colors.white10))))),
+                                )
                               ],
                             ),
                           ),
                         ),
                       );
-
                     },
                   );
                 } else {
-                  return const SizedBox();
+                  return Scaffold(
+                    backgroundColor: ColorChanger.scaffoldcolor,
+                    body: Center(
+                      child: Lottie.asset('assets/lotti_file/loading_animation.json',
+                          height: 100, width: 100),
+                    ),
+                  );
                 }
               },
             )

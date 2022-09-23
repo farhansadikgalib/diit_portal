@@ -54,13 +54,13 @@ class _ClassRoutineViewerState extends State<ClassRoutineViewer>
             selectedHeight: 48,
             unselectedHeight: 40,
             tabs: [
-              TabItem(color: const Color(0xffecafe8), title: const Text('Saturday')),
+              TabItem(color: const Color(0xb870999a), title: const Text('Saturday')),
               TabItem(color: const Color(0xff8aec95), title: const Text(' Sunday')),
               TabItem(color: const Color(0xff6cc9d0), title: const Text('Monday')),
               TabItem(color: const Color(0xff7297fc), title: const Text('Tuesday')),
               TabItem(color: const Color(0xffefdd84), title: const Text('Wednesday')),
               TabItem(color: const Color(0xbe748c60), title: const Text('Thrusday')),
-              TabItem(color: const Color(0xb870999a), title: const Text(' Friday')),
+              TabItem(color: const Color(0xffecafe8), title: const Text(' Friday')),
             ],
           ),
           Expanded(

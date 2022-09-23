@@ -12,10 +12,10 @@ final AppBar AppBarString = AppBar(
       children: const [
 
         Text(
-          'DiiT  Portal',
+          'DiiT Portal',
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 18.0,
+            fontSize: 20,
             fontFamily: "azonix",
             fontWeight: FontWeight.bold,
           ),

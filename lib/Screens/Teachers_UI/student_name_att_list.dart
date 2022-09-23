@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_glow/flutter_glow.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+import 'package:lottie/lottie.dart';
 
 class StudentAttennameList extends StatefulWidget {
   @override
@@ -353,8 +354,12 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
                   ],
                 ));
           } else {
-            return Center(
-              child:Lottie.asset('assets/lotti_file/loading_animation.json',height:100,width: 100),
+            return Scaffold(
+              backgroundColor: ColorChanger.scaffoldcolor,
+              body: Center(
+                child: Lottie.asset('assets/lotti_file/loading_animation.json',
+                    height: 100, width: 100),
+              ),
             );
           }
         },
