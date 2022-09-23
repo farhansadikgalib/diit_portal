@@ -14,13 +14,20 @@ class _TOTALDUEState extends State<TOTALDUE> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: ColorChanger.scaffoldcolor,
-        appBar:AppBar(title: Text('Due Information',
-          style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20,),
+      appBar: AppBar(
+        backgroundColor: ColorChanger.appbarColor,
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: Text('Due',
+          style: TextStyle(
+            fontSize: 18.0,
+            fontFamily: "azonix",
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+
         ),
-          centerTitle: true,
-          automaticallyImplyLeading: false,
-          backgroundColor:ColorChanger.scaffoldcolor,
-        ) ,
+      ),
         body:Column(
           children: <Widget>[
             SizedBox(height: 10,),

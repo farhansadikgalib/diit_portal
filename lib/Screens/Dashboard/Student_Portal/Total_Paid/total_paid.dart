@@ -45,14 +45,19 @@ class _TOTALPAIDState extends State<TOTALPAID> {
           }
           return Scaffold(
               backgroundColor: ColorChanger.scaffoldcolor,
-              appBar: AppBar(title: Text('Paid Information',
-                style: TextStyle(color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,),
-              ),
-                centerTitle: true,
+              appBar: AppBar(
+                backgroundColor: ColorChanger.appbarColor,
                 automaticallyImplyLeading: false,
-                backgroundColor: ColorChanger.scaffoldcolor,
+                centerTitle: true,
+                title: Text('Paid',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontFamily: "azonix",
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+
+                ),
               ),
               body: Column(
                 children: <Widget>[

@@ -19,14 +19,24 @@ class _TeacherViewAttendanceState extends State<TeacherViewAttendance> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: ColorChanger.scaffoldcolor,
+        appBar: AppBar(
+          backgroundColor: ColorChanger.appbarColor,
+          automaticallyImplyLeading: false,
+          centerTitle: true,
+          title: Text('View Attendance',
+            style: TextStyle(
+              fontSize: 18.0,
+              fontFamily: "azonix",
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+
+          ),
+        ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 30),
-                child: Text('View Attendance',style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
-              ),
 
               Padding(
                 padding: const EdgeInsets.only(top: 25),

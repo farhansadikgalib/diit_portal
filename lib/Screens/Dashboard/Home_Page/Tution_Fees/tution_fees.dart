@@ -14,6 +14,20 @@ class _TutionFeesState extends State<TutionFees> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorChanger.scaffoldcolor,
+      appBar: AppBar(
+        backgroundColor: ColorChanger.appbarColor,
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: Text('Tuition Fees',
+          style: TextStyle(
+            fontSize: 18.0,
+            fontFamily: "azonix",
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+
+        ),
+      ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(

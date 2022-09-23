@@ -15,6 +15,20 @@ class _CseDepertmentState extends State<CseDepertment> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorChanger.scaffoldcolor,
+      appBar: AppBar(
+        backgroundColor: ColorChanger.appbarColor,
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: Text('CSE',
+          style: TextStyle(
+            fontSize: 18.0,
+            fontFamily: "azonix",
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+
+        ),
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(

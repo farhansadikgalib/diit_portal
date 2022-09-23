@@ -64,6 +64,20 @@ class _SelectCourceAttendenceState extends State<SelectCourceAttendence> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: ColorChanger.scaffoldcolor,
+        appBar: AppBar(
+          backgroundColor: ColorChanger.appbarColor,
+          automaticallyImplyLeading: false,
+          centerTitle: true,
+          title: Text('Take Attendance',
+            style: TextStyle(
+              fontSize: 18.0,
+              fontFamily: "azonix",
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+
+          ),
+        ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Padding(

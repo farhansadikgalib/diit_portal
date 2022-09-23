@@ -16,17 +16,19 @@ class _ExamTypeState extends State<ExamType> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: ColorChanger.scaffoldcolor,
-        appBar: AppBar(title:   Text(
-          "Exam Type",
-          style: TextStyle(
-              fontFamily: "Poppins",
-              fontSize:25,
-              color: Colors.white,
-              fontWeight: FontWeight.bold),
-        ),
-        centerTitle: true,
+        appBar: AppBar(
+          backgroundColor: ColorChanger.appbarColor,
           automaticallyImplyLeading: false,
-          backgroundColor: ColorChanger.scaffoldcolor,
+          centerTitle: true,
+          title: Text('Exam Type',
+            style: TextStyle(
+              fontSize: 18.0,
+              fontFamily: "azonix",
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+
+          ),
         ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,

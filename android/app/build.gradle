@@ -47,7 +47,7 @@ android {
         applicationId "com.farhan.diit_portal"
         minSdkVersion 21
         //noinspection ExpiringTargetSdkVersion
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true

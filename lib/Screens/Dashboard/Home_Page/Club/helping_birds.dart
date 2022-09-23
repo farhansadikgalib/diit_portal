@@ -85,7 +85,20 @@ class _Helping_BirdsState extends State<Helping_Birds> {
     return SafeArea(
       child: Scaffold(
         backgroundColor:  ColorChanger.scaffoldcolor,
+        appBar: AppBar(
+          backgroundColor: ColorChanger.appbarColor,
+          automaticallyImplyLeading: false,
+          centerTitle: true,
+          title: Text('Helping Birds',
+            style: TextStyle(
+              fontSize: 18.0,
+              fontFamily: "azonix",
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
 
+          ),
+        ),
 
         body: Column(
           children: [

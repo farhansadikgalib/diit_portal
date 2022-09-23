@@ -33,7 +33,22 @@ class FacultyProfile extends StatelessWidget {
           }
 
           return Scaffold(
+
               backgroundColor: const Color.fromRGBO(1, 60, 88, 1),
+              appBar: AppBar(
+                backgroundColor: ColorChanger.appbarColor,
+                automaticallyImplyLeading: false,
+                centerTitle: true,
+                title: Text('Faculty Member',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontFamily: "azonix",
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+
+                ),
+              ),
               body: ListView.builder(
                 itemCount: snapshot.data!.docs.length,
                 itemBuilder: (context, index) {

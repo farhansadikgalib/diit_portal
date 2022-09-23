@@ -8,6 +8,20 @@ class QuestionBank extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorChanger.scaffoldcolor,
+      appBar: AppBar(
+        backgroundColor: ColorChanger.appbarColor,
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: Text('Question Bank',
+          style: TextStyle(
+            fontSize: 18.0,
+            fontFamily: "azonix",
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+
+        ),
+      ),
 
       body: Center(
         child: Column(
@@ -20,7 +34,7 @@ class QuestionBank extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 22.0,
                       color: Colors.white,
-                      fontFamily: "azonix",
+
                       fontWeight: FontWeight.bold),
                   child: Text("Select Your Department")
 

@@ -29,6 +29,20 @@ class _ClassRoutineViewerState extends State<ClassRoutineViewer>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorChanger.scaffoldcolor,
+        appBar: AppBar(
+          backgroundColor: ColorChanger.appbarColor,
+          automaticallyImplyLeading: false,
+          centerTitle: true,
+          title: Text('Class Routine',
+            style: TextStyle(
+              fontSize: 18.0,
+              fontFamily: "azonix",
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+
+          ),
+        ),
         body: SafeArea(
       child: Column(
         children: <Widget>[

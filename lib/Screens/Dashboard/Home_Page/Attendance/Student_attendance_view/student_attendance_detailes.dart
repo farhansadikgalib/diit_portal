@@ -44,6 +44,20 @@ class _StudentAttendanceDetailesState extends State<StudentAttendanceDetailes> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorChanger.scaffoldcolor,
+      appBar: AppBar(
+        backgroundColor: ColorChanger.appbarColor,
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: Text('View Attendance',
+          style: TextStyle(
+            fontSize: 18.0,
+            fontFamily: "azonix",
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+
+        ),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

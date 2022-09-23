@@ -19,6 +19,20 @@ class _All_ClubsState extends State<All_Clubs> {
     return SafeArea(
       child: Scaffold(
        backgroundColor: ColorChanger.scaffoldcolor,
+        appBar: AppBar(
+          backgroundColor: ColorChanger.appbarColor,
+          automaticallyImplyLeading: false,
+          centerTitle: true,
+          title: Text('Club',
+            style: TextStyle(
+              fontSize: 18.0,
+              fontFamily: "azonix",
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+
+          ),
+        ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

@@ -43,8 +43,19 @@ class _QuickPaymentState extends State<QuickPayment> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: ColorChanger.scaffoldcolor,
-      appBar: const CupertinoNavigationBar(
-        middle: Text("Quick Pay"),
+      appBar: AppBar(
+        backgroundColor: ColorChanger.appbarColor,
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: Text('Quick Pay',
+          style: TextStyle(
+            fontSize: 18.0,
+            fontFamily: "azonix",
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+
+        ),
       ),
       body: SizedBox(
         height: size.height,

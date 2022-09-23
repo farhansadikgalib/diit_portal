@@ -153,7 +153,6 @@ class _HomePageState extends State<HomePage> {
   ///Get Firebase Data
   String user_email = '';
   String user_number = '';
-
   String user_name = '';
   String user_department = '';
   String user_batch = '';

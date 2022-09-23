@@ -39,10 +39,25 @@ void initState() {
     return SafeArea(
       child: Scaffold(
         backgroundColor: ColorChanger.scaffoldcolor,
+          appBar: AppBar(
+            backgroundColor: ColorChanger.appbarColor,
+            automaticallyImplyLeading: false,
+            centerTitle: true,
+            title: Text('Class Test',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontFamily: "azonix",
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+
+            ),
+          ),
            body: Padding(
              padding: const EdgeInsets.only(left: 10,right: 10,bottom: 10,top: 5),
              child: Column(
                children: [
+                    SizedBox(height: 20,),
                  Expanded(
                      flex: 1,
                    child:  Table(

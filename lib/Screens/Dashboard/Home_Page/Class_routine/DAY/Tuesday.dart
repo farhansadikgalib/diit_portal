@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable/expandable.dart';
 import 'package:flutter_expandable/expander.dart';
+import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -430,7 +431,7 @@ class _TuesdayState extends State<Tuesday>  with TickerProviderStateMixin {
               ));
         } else {
           return Center(
-            child: CircularProgressIndicator(),
+            child: Lottie.asset('assets/lotti_file/loading_animation.json',height:100,width: 100),
           );
         }
       },

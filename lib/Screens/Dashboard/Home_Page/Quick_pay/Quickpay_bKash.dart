@@ -74,7 +74,7 @@ class _BkashPaymentState extends State<BkashPayment> {
       appBar: AppBar(
           elevation: 0.0,
           backgroundColor: Colors.redAccent,
-          automaticallyImplyLeading: true,
+          automaticallyImplyLeading: false,
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             color: Colors.white,
