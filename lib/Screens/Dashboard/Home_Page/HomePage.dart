@@ -645,12 +645,11 @@ class _HomePageState extends State<HomePage> {
                         items: imageList.map(
                               (url) {
                             return Container(
-                              color: Colors.white12,
-                              margin: const EdgeInsets.only(
-                                  left: 5, right: 5, top: 10, bottom: 10),
+                              margin:  EdgeInsets.only(
+                                  left: 10, right: 10, top: 10, bottom: 10),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.all(
-                                    Radius.circular(15.0)),
+                                    Radius.circular(18.0)),
                                 child: Image.asset(url,
                                     fit: BoxFit.cover,
                                     width: double.maxFinite),
