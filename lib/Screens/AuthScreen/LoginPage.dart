@@ -249,8 +249,7 @@ class _LoginPageState extends State<LoginPage> {
                                         user_department == 'BBA' ||
                                         user_department == 'MBA' ||
                                         user_department == 'THM') {
-                                      if ((user_name == '' ||
-                                          user_name == 'null')) {
+                                      if ((user_name == '')) {
                                         Get.offAndToNamed('/IntroScreen');
                                       } else {
                                         Get.offAndToNamed('/Dashboard');

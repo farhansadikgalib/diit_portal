@@ -151,6 +151,8 @@ class _HomePageState extends State<HomePage> {
 
   ///Get Firebase Data
   String user_email = '';
+  String user_number = '';
+
   String user_name = '';
   String user_department = '';
   String user_batch = '';
@@ -173,20 +175,20 @@ class _HomePageState extends State<HomePage> {
     user_department = snapshot['department'];
     user_batch = snapshot['batch'];
     user_section = snapshot['section'];
+    user_name=snapshot['name'];
+    user_number= snapshot['number'];
 
-    //
-    // if ((user_name == '' ||
-    //     user_name == 'null')) {
-    //   Get.offAndToNamed('/IntroScreen');
-    // }
 
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('department', user_department);
     prefs.setString('batch', user_batch);
     prefs.setString('section', user_section);
-    var x=   prefs.getString('blood');
+    prefs.setString('name', user_name);
+
+    var x=  prefs.getString('blood');
     print(x);
+
 
 
 
@@ -199,17 +201,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-
-    // CollectionReference ref=  FirebaseFirestore.instance
-    //     .collection("ClassRoutine")
-    //     .doc('Department')
-    //     .collection(user_department)
-    //     .doc(user_batch)
-    //     .collection('Section')
-    //     .doc(user_section)
-    //     .collection('Day')
-    //     .doc(todaysWeeklyName)
-    //     .collection('ClassList');
     return FutureBuilder<QuerySnapshot>(
       future: ref.get(),
       builder: (context, snapshot) {

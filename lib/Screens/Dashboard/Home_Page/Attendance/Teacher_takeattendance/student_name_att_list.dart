@@ -181,18 +181,18 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
 
                                                         print(stData);
 
-                                                        //
-                                                        // final firestoreInstance = FirebaseFirestore.instance;
-                                                        //
-                                                        // var firebaseUser =  FirebaseAuth.instance.currentUser!;
-                                                        // firestoreInstance.collection("TeachersData").doc(firebaseUser.uid).collection('Student_Information').doc('Attendance').set(
-                                                        //     {
-                                                        //       "id" : "$_sendId",
-                                                        //       "attendance" : "$_sendAttendance",
-                                                        //
-                                                        //     }).then((_){
-                                                        //   print("database send on firebase!");
-                                                        // });
+
+                                                        final firestoreInstance = FirebaseFirestore.instance;
+
+                                                        var firebaseUser =  FirebaseAuth.instance.currentUser!;
+                                                        firestoreInstance.collection("TeachersData").doc(firebaseUser.uid).collection('Student_Information').doc('Attendance').collection('20-21-23').doc().set(
+                                                            {
+                                                              "id" : "$_sendId",
+                                                              "attendance" : "$_sendAttendance",
+
+                                                            }).then((_){
+                                                          print("database send on firebase!");
+                                                        });
 
 
                                                       });

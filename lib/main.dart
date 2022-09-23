@@ -138,7 +138,6 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        var thing;
         return GetMaterialApp(
           title: 'DiiT Portal',
           initialRoute: '/',
