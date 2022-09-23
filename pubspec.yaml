@@ -50,7 +50,7 @@ dependencies:
   flutter_screenutil: ^5.5.3+2
   #  State Management
   get: 4.6.1
-  provider: ^6.0.1
+  provider: any
   #  State Management
 
   #  progressbar
@@ -111,6 +111,9 @@ dependencies:
   dots_indicator: ^2.1.0
   #dots_indicator
 
+  # flutter_inset_box_shadow
+  flutter_inset_box_shadow: ^1.0.8
+  # flutter_inset_box_shadow
 
   # Apps Name & Icon
   flutter_app_name: ^0.1.0
@@ -238,6 +241,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    - assets/lotti_file/
     - assets/icons/
     - assets/intro_asset/
     - assets/slider_image/

@@ -6,6 +6,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:glass_kit/glass_kit.dart';
+import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // import 'package:glass_kit/glass_kit.dart';
@@ -608,7 +609,7 @@ class _StudentProfileState extends State<StudentProfile> {
               )));
         } else {
           return Center(
-            child: CircularProgressIndicator(),
+            child: Lottie.asset('assets/lotti_file/loading_animation.json',height:100,width: 100),
           );
         }
       },

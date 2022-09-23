@@ -15,6 +15,7 @@ import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 
 import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -508,30 +509,6 @@ class _HomePageState extends State<HomePage> {
                           scrollDirection: Axis.horizontal,
                           child: Row(
                             children: [
-                              // SizedBox(
-                              //   height: MediaQuery.of(context).size.height / 15,
-                              //   width: MediaQuery.of(context).size.width / 2.40,
-                              //   child: NeumorphicButton(
-                              //     onPressed: () {
-                              //       Get.toNamed('/StudentDashBoard');
-                              //     },
-                              //     style: NeumorphicStyle(
-                              //       // shape: NeumorphicShape.concave,
-                              //         boxShape: NeumorphicBoxShape.roundRect(
-                              //             BorderRadius.circular(12)),
-                              //         depth: 1,
-                              //         lightSource: LightSource.topLeft,
-                              //         color: Colors.white),
-                              //     child: const Center(
-                              //         child: Text(
-                              //           "STUDENT PROTAL",
-                              //           style: TextStyle(
-                              //               fontSize: 15,
-                              //               color: Colors.black45,
-                              //               fontWeight: FontWeight.bold),
-                              //         )),
-                              //   ),
-                              // ),
                               SizedBox(
                                 width: 10.w,
                               ),
@@ -973,7 +950,7 @@ class _HomePageState extends State<HomePage> {
           );
         } else {
           return Center(
-            child: CircularProgressIndicator(),
+            child: Lottie.asset('assets/lotti_file/loading_animation.json',height:100,width: 100),
           );
         }
       },

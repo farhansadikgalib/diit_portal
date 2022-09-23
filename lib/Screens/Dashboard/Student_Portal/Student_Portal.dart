@@ -5,6 +5,7 @@ import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:multi_charts/multi_charts.dart';
 
 class StudentPortal extends StatefulWidget {
@@ -329,7 +330,7 @@ class _StudentPortalState extends State<StudentPortal> {
           );
         } else {
           return Center(
-            child: SizedBox(),
+            child: Lottie.asset('assets/lotti_file/loading_animation.json',height:100,width: 100),
           );
         }
       },

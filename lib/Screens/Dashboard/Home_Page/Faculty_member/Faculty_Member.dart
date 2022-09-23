@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -178,7 +179,7 @@ class FacultyProfile extends StatelessWidget {
               ));
         } else {
           return Center(
-            child: CircularProgressIndicator(),
+            child: Lottie.asset('assets/lotti_file/loading_animation.json',height:100,width: 100),
           );
         }
       },

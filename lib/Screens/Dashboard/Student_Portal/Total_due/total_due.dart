@@ -21,69 +21,145 @@ class _TOTALDUEState extends State<TOTALDUE> {
           automaticallyImplyLeading: false,
           backgroundColor:ColorChanger.scaffoldcolor,
         ) ,
-        body: Column(
-          children:<Widget> [
+        body:Column(
+          children: <Widget>[
             SizedBox(height: 10,),
             Padding(
-              padding: const EdgeInsets.only(left: 15,right: 15),
-              child: Container(
-                height: Get.height/14,
-                child: Card(
+              padding: const EdgeInsets.only(left: 10, right: 10),
+              child: Card(
+                color: Colors.lightBlueAccent,
+                child: Table(
+                  defaultColumnWidth: FixedColumnWidth(200.0),
+                  border: TableBorder.all(
+                      color: Colors.orangeAccent,
+                      style: BorderStyle.solid,
+                      width: 2),
+                  columnWidths: {
+                    0:FractionColumnWidth(0.34),
+                    1:FractionColumnWidth(0.34),
+                    2:FractionColumnWidth(0.32),
+                  },
 
-                  child:Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding:  EdgeInsets.only(left: 10),
-                        child: Text('Date',
-                          style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18,),
-                        ),
-                      ),
-                      Text('Paid',
-                        style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18,),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: Text('Type',
-                          style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18,),
-                        ),
-                      ),
-                    ],
-                  ),
+                  children: [
+
+                    TableRow(
+                        decoration: BoxDecoration(color: Colors.deepPurpleAccent.shade400),
+                        children: [
+                          Column(children: [
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  top: 8, left: 8, right: 8, bottom: 5),
+                              child: Text(
+                                'Date',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ]),
+                          Column(children: [
+                            Padding(
+                              padding:  EdgeInsets.only(
+                                  top: 8, left: 7, right: 8, bottom: 8),
+                              child: Text(
+                                'Paid',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ]),
+                          Column(children: [
+                            Padding(
+                              padding:  EdgeInsets.only(
+                                  top: 8, left: 7, right: 8, bottom: 8),
+                              child: Text(
+                                'Type',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ]),
+                        ]),
+
+                  ],
                 ),
               ),
             ),
             SizedBox(height: 2,),
             Expanded(
               child: ListView.builder(
-                  itemCount: 100,
-                  itemBuilder: (BuildContext context,index){
-                    return Padding(
-                      padding: const EdgeInsets.only(left: 15,right: 15),
-                      child: Container(
-                        height: Get.height/13,
-                        child: Card(
+                  itemCount: 10,
+                  itemBuilder: (BuildContext context, index) {
+                    // final snap = snapshot.data!.docs;
 
-                          child:Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 10),
-                                child: Text('10/06/22',
-                                  style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 16,),
-                                ),
-                              ),
-                              Text('-',
-                                style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 16,),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 10),
-                                child: Text('-',
-                                  style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 16,),
-                                ),
-                              ),
-                            ],
-                          ),
+                    return Padding(
+                      padding: const EdgeInsets.only(top:5,left: 10, right: 10),
+                      child: Card(
+
+                        child:Table(
+                          defaultColumnWidth: FixedColumnWidth(180.0),
+                          border: TableBorder.all(
+                              color: Colors.orangeAccent,
+                              style: BorderStyle.solid,
+                              width: 2),
+                          columnWidths: {
+                            0:FractionColumnWidth(0.25),
+                            1:FractionColumnWidth(0.30),
+                            2:FractionColumnWidth(0.25),
+                          },
+
+                          children: [
+
+                            TableRow(
+                                decoration: BoxDecoration(color: Colors.teal.shade400),
+                                children: [
+                                  Column(children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                          top: 8, left: 8, right: 8, bottom: 5),
+                                      child: Text(
+                                        '10/06/22',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                  ]),
+                                  Column(children: [
+                                    Padding(
+                                      padding:  EdgeInsets.only(
+                                          top: 8, left: 7, right: 8, bottom: 8),
+                                      child: Text(
+                                       '-',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                  ]),
+                                  Column(children: [
+                                    Padding(
+                                      padding:  EdgeInsets.only(
+                                          top: 8, left: 7, right: 8, bottom: 8),
+                                      child: Text(
+                                       '-',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                  ]),
+                                ]),
+
+                          ],
                         ),
                       ),
                     );
