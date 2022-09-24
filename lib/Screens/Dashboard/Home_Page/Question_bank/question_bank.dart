@@ -50,7 +50,7 @@ class QuestionBank extends StatelessWidget {
                           shape: NeumorphicShape.concave,
                           boxShape: NeumorphicBoxShape.roundRect(
                               BorderRadius.circular(12)),
-                          depth: 0,
+                          depth: 1,
                           color: Colors.white24),
                       child: Column(
                         children: [
@@ -59,8 +59,8 @@ class QuestionBank extends StatelessWidget {
                             children: [
                               Image.asset(
                                 'assets/paper.png',
-                                height: MediaQuery.of(context).size.height/8.2,
-                                width: MediaQuery.of(context).size.width/3,
+                                height: Get.height/8.5,
+                                width: Get.width/5,
                               ),
                            Text(
                                 'CSE',
@@ -92,7 +92,7 @@ class QuestionBank extends StatelessWidget {
                           shape: NeumorphicShape.concave,
                           boxShape: NeumorphicBoxShape.roundRect(
                               BorderRadius.circular(12)),
-                          depth: 0,
+                          depth: 1,
                           color: Colors.white24),
                       child: Column(
                         children: [
@@ -101,8 +101,8 @@ class QuestionBank extends StatelessWidget {
                             children: [
                               Image.asset(
                                 'assets/paper.png',
-                                height: MediaQuery.of(context).size.height/8.2,
-                                width: MediaQuery.of(context).size.width/3,
+                                height: Get.height/8.5,
+                                width: Get.width/5,
                               ),
                               const Text(
                                 'BBA',
@@ -139,7 +139,7 @@ class QuestionBank extends StatelessWidget {
                           shape: NeumorphicShape.concave,
                           boxShape: NeumorphicBoxShape.roundRect(
                               BorderRadius.circular(12)),
-                          depth: 0,
+                          depth: 1,
                           color: Colors.white24),
                       child: Column(
                         children: [
@@ -148,8 +148,8 @@ class QuestionBank extends StatelessWidget {
                             children: [
                               Image.asset(
                                 'assets/paper.png',
-                                height: MediaQuery.of(context).size.height/8.2,
-                                width: MediaQuery.of(context).size.width/3,
+                                height: Get.height/8.5,
+                                width: Get.width/5,
                               ),
                               const Text(
                                 'BTHM',
@@ -180,7 +180,7 @@ class QuestionBank extends StatelessWidget {
                           shape: NeumorphicShape.concave,
                           boxShape: NeumorphicBoxShape.roundRect(
                               BorderRadius.circular(12)),
-                          depth: 0,
+                          depth: 1,
                           color: Colors.white24),
                       child: Column(
                         children: [
@@ -189,8 +189,8 @@ class QuestionBank extends StatelessWidget {
                             children: [
                               Image.asset(
                                 'assets/paper.png',
-                                height: MediaQuery.of(context).size.height/8.2,
-                                width: MediaQuery.of(context).size.width/3,
+                                height: Get.height/8.5,
+                                width: Get.width/5,
                               ),
                               const Text(
                                 'MBA',

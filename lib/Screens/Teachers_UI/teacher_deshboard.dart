@@ -225,10 +225,10 @@ class _TeacherDashbordState extends State<TeacherDashbord> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image.asset(
-                            "assets/viewattendence.png",
-                            height: Get.height / 9.2,
+                            "assets/attendance_ic.png",
+                            height: Get.height / 9.9,
                             width: Get.width / 3,
-                            color: Colors.orangeAccent,
+
                           ),
                           const SizedBox(
                             height: 10,
