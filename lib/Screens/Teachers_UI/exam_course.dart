@@ -69,7 +69,7 @@ class _Exam_CourseState extends State<Exam_Course> {
                                    Image.asset("assets/attendance_ic.png",
                                      height: Get.height/10,
                                      width: Get.width/2,
-                                     color: Colors.white70,
+
                                    ),
                              SizedBox(height: 10,),
                                Text(subname[index],style: TextStyle(fontSize: 18,color: Colors.white70,fontWeight: FontWeight.bold),)

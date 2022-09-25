@@ -2,6 +2,7 @@ import 'package:diit_portal/Utility/App_Colors/app_color.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 class ForgetPassPage extends StatefulWidget {
   @override
@@ -48,19 +49,27 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: ColorChanger.scaffoldcolor,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.lightGreen),
-          onPressed: () => Get.back(),
-        ),
-      ),
+      // appBar: AppBar(
+      //
+      //   // backgroundColor: ColorChanger.scaffoldcolor,
+      //   // elevation: 0,
+      //   //
+      //   // leading: IconButton(
+      //   //   icon: const Icon(Icons.arrow_back, color: Colors.orangeAccent),
+      //   //   onPressed: () => Get.back(),
+      //   // ),
+      // ),
       backgroundColor: ColorChanger.scaffoldcolor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+
+          Center(
+            child: Lottie.asset('assets/lotti_file/forget-password.json',
+                height: 100, width: 100),
+          ),
+          SizedBox(height: 50,),
+          
           Container(
             child: Form(
                 key: formkey,
@@ -117,7 +126,7 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                         height: 40,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.lightGreen,
+                            primary: Colors.orangeAccent,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15)),
                           ),
