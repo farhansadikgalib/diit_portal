@@ -135,7 +135,7 @@ class _StudentPortalState extends State<StudentPortal> {
                       ],
                       animationDuration: Duration(milliseconds: 2000),
                       legendPosition: LegendPosition.Bottom,
-                      legendTextSize: 14,
+                      legendTextSize: 16,
                     ),
                   ),
                   Padding(
@@ -146,7 +146,7 @@ class _StudentPortalState extends State<StudentPortal> {
                           height: 120,
                           width: 400,
                           decoration: BoxDecoration(
-                              color: Colors.white10,
+                              color: Colors.white12,
                               borderRadius: BorderRadius.circular(20)),
                           child: Row(
                             children: [
@@ -191,7 +191,7 @@ class _StudentPortalState extends State<StudentPortal> {
                             height: 120,
                             width: 400,
                             decoration: BoxDecoration(
-                                color: Colors.white10,
+                                color: Colors.white12,
                                 borderRadius: BorderRadius.circular(20)),
                             child: Row(
                               children: [
@@ -237,7 +237,7 @@ class _StudentPortalState extends State<StudentPortal> {
                             height: 120,
                             width: 400,
                             decoration: BoxDecoration(
-                                color: Colors.white10,
+                                color: Colors.white12,
                                 borderRadius: BorderRadius.circular(20)),
                             child: Row(
                               children: [
@@ -283,7 +283,7 @@ class _StudentPortalState extends State<StudentPortal> {
                             height: 120,
                             width: 400,
                             decoration: BoxDecoration(
-                                color: Colors.white10,
+                                color: Colors.white12,
                                 borderRadius: BorderRadius.circular(20)),
                             child: Row(
                               children: [
