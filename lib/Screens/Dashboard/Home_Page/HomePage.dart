@@ -223,7 +223,7 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     children: <Widget>[
                       SizedBox(
-                        height: 10,
+                        height: 10.h,
                       ),
 
                       Card(
@@ -236,185 +236,179 @@ class _HomePageState extends State<HomePage> {
                         color : Colors.white12,
                         elevation: 3,
                         shadowColor: Colors.white10,
-                        child: SizedBox(
-                          height: Get.height/5.5,
-                          width: Get.width,
-                          child: Row(
-                            children: <Widget>[
-                              Expanded(
-                                flex: 2,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Padding(
-                                      padding:
-                                      EdgeInsets.only(top: 8, left: 15),
-                                      child: Text(
-                                        '${_response?.weatherInfo.description.toUpperCase()}',
-                                        style: const TextStyle(
-                                          fontSize: 18,
-                                          fontFamily: 'Poppins',
-                                            color: Colors.white
+                        child: Row(
+                          children: <Widget>[
+                            Expanded(
+                              flex: 2,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Padding(
+                                    padding:
+                                    EdgeInsets.only(top: 8, left: 15),
+                                    child: Text(
+                                      '${_response?.weatherInfo.description.toUpperCase()}',
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        fontFamily: 'Poppins',
+                                          color: Colors.white
 
-                                        ),
                                       ),
                                     ),
+                                  ),
 
-                                    Row(
-                                      children: <Widget>[
-                                        Padding(
-                                          padding:
-                                          EdgeInsets.only(top: 8, left: 15),
-                                          child: Text(
-                                            "Max Temp".toUpperCase(),
-                                            style: const TextStyle(
-                                              fontSize: 15,
-                                              fontFamily: 'Poppins',
+                                  Row(
+                                    children: <Widget>[
+                                      Padding(
+                                        padding:
+                                        EdgeInsets.only(top: 8, left: 15),
+                                        child: Text(
+                                          "Max Temp".toUpperCase(),
+                                          style: const TextStyle(
+                                            fontSize: 15,
+                                            fontFamily: 'Poppins',
+                                            color: Colors.white
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 10.w,
+                                      ),
+                                      Padding(
+                                        padding:
+                                        EdgeInsets.only(top: 8, left: 15),
+                                        child: Text(
+                                          max != null
+                                              ? "${max.ceil()+3}° C"
+                                              : '36° C',
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            fontFamily: 'Poppins',
                                               color: Colors.white
-                                            ),
+
                                           ),
                                         ),
-                                        SizedBox(
-                                          width: 10.w,
-                                        ),
-                                        Padding(
-                                          padding:
-                                          EdgeInsets.only(top: 8, left: 15),
-                                          child: Text(
-                                            max != null
-                                                ? "${max.ceil()+3}° C"
-                                                : '36° C',
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              fontFamily: 'Poppins',
-                                                color: Colors.white
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: <Widget>[
+                                      Padding(
+                                        padding:
+                                        EdgeInsets.only(top: 8, left: 15),
+                                        child: Text(
+                                          "min temp  ".toUpperCase(),
+                                          style: const TextStyle(
+                                            fontSize: 15,
+                                            fontFamily: 'Poppins',
+                                              color: Colors.white
 
-                                            ),
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: <Widget>[
-                                        Padding(
-                                          padding:
-                                          EdgeInsets.only(top: 8, left: 15),
-                                          child: Text(
-                                            "min temp  ".toUpperCase(),
-                                            style: const TextStyle(
-                                              fontSize: 15,
-                                              fontFamily: 'Poppins',
-                                                color: Colors.white
+                                      ),
+                                      SizedBox(
+                                        width: 10.w,
+                                      ),
+                                      Padding(
+                                        padding:
+                                        EdgeInsets.only(top: 8, left: 15),
+                                        child: Text(
+                                          min != null
+                                              ? "${min.ceil()-2}° C"
+                                              : '29° C',
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            fontFamily: 'Poppins',
+                                              color: Colors.white
 
-                                            ),
                                           ),
                                         ),
-                                        SizedBox(
-                                          width: 10.w,
-                                        ),
-                                        Padding(
-                                          padding:
-                                          EdgeInsets.only(top: 8, left: 15),
-                                          child: Text(
-                                            min != null
-                                                ? "${min.ceil()-2}° C"
-                                                : '29° C',
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              fontFamily: 'Poppins',
-                                                color: Colors.white
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: <Widget>[
+                                      Padding(
+                                        padding:
+                                        EdgeInsets.only(top: 8, left: 15),
+                                        child: Text(
+                                          "Current Temp".toUpperCase(),
+                                          style: const TextStyle(
+                                            fontSize: 15,
+                                            fontFamily: 'Poppins',
+                                              color: Colors.white
 
-                                            ),
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: <Widget>[
-                                        Padding(
-                                          padding:
-                                          EdgeInsets.only(top: 8, left: 15),
-                                          child: Text(
-                                            "Current Temp".toUpperCase(),
-                                            style: const TextStyle(
-                                              fontSize: 15,
-                                              fontFamily: 'Poppins',
-                                                color: Colors.white
+                                      ),
+                                      Padding(
+                                        padding:
+                                        EdgeInsets.only(top: 8, left: 15),
+                                        child: Text(
+                                          "${temp.ceil()}° C",
+                                          style: const TextStyle(
+                                            fontSize: 15,
+                                            fontFamily: 'Poppins',
+                                              color: Colors.white
 
-                                            ),
                                           ),
                                         ),
-                                        SizedBox(
-                                          width: 0.h,
-                                        ),
-                                        Padding(
-                                          padding:
-                                          EdgeInsets.only(top: 8, left: 15),
-                                          child: Text(
-                                            "${temp.ceil()}° C",
-                                            style: const TextStyle(
-                                              fontSize: 15,
-                                              fontFamily: 'Poppins',
-                                                color: Colors.white
+                                      ),
+                                    ],
+                                  ),
 
-                                            ),
+                                  Row(
+                                    children: <Widget>[
+                                      Padding(
+                                        padding:
+                                        EdgeInsets.only(top: 8, left: 15),
+                                        child: Text(
+                                          'Today’s  Date'.toUpperCase(),
+                                          style:  TextStyle(
+                                            fontSize: 15,
+                                            fontFamily: 'Poppins',
+                                              color: Colors.white
+
                                           ),
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                      SizedBox(
+                                        width: 5.w,
+                                      ),
+                                      Padding(
+                                        padding:
+                                        EdgeInsets.only(top: 8, left: 11),
+                                        child: Text(
+                                          '$todaysDate',
+                                          style: const TextStyle(
+                                            fontSize: 15,
+                                            fontFamily: 'Poppins',
+                                              color: Colors.white
 
-                                    Row(
-                                      children: <Widget>[
-                                        Padding(
-                                          padding:
-                                          EdgeInsets.only(top: 8, left: 15),
-                                          child: Text(
-                                            'Today’s  Date'.toUpperCase(),
-                                            style:  TextStyle(
-                                              fontSize: 15,
-                                              fontFamily: 'Poppins',
-                                                color: Colors.white
-
-                                            ),
                                           ),
                                         ),
-                                        SizedBox(
-                                          width: 5.w,
-                                        ),
-                                        Padding(
-                                          padding:
-                                          EdgeInsets.only(top: 8, left: 11),
-                                          child: Text(
-                                            '$todaysDate',
-                                            style: const TextStyle(
-                                              fontSize: 15,
-                                              fontFamily: 'Poppins',
-                                                color: Colors.white
+                                      ),
+                                      SizedBox(height: 10,)
 
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(height: 10,)
-
-                                      ],
-                                    ),
-                                  ],
+                                    ],
+                                  ),
+                                  SizedBox(height: 5,)
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Container(
+                                child: Image.network(
+                                  _response!.iconUrl,color: Colors.white,
                                 ),
                               ),
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                  child: Image.network(
-                                    _response!.iconUrl,color: Colors.white,
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
+                            )
+                          ],
                         ),
                       ),
                       SizedBox(
-                        height: 5,
+                        height: 5.h,
                       ),
                       Card(
                         shape: RoundedRectangleBorder(
