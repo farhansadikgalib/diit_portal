@@ -140,7 +140,7 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           title: 'DiiT Portal',
           initialRoute: '/',
-          defaultTransition: Transition.leftToRight,
+          defaultTransition: Transition.rightToLeftWithFade,
           getPages: [
             GetPage(
                 name: '/',

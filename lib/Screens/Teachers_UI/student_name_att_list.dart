@@ -214,6 +214,7 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
                                                             {
                                                               "id" : "$_sendId",
                                                               "attendance" : "$_sendAttendance",
+                                                              "name":"${snap[index]['name']}"
 
                                                             }).then((_){
                                                           print("database send on firebase!");
