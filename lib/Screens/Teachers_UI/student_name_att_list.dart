@@ -210,7 +210,7 @@ class _StudentAttennameListState extends State<StudentAttennameList> {
                                                         final firestoreInstance = FirebaseFirestore.instance;
 
                                                         var firebaseUser =  FirebaseAuth.instance.currentUser!;
-                                                        firestoreInstance.collection("TeachersData").doc(firebaseUser.uid).collection('Student_Information').doc('Attendance').collection('26-09-23').doc().set(
+                                                        firestoreInstance.collection("TeachersData").doc(firebaseUser.uid).collection('Student_Information').doc('Attendance').collection('27-09-23').doc().set(
                                                             {
                                                               "id" : "$_sendId",
                                                               "attendance" : "$_sendAttendance",
