@@ -81,8 +81,8 @@ class _All_ClubsState extends State<All_Clubs> {
                   height: Get.height /5,
                   width: Get.width / 2.5,
                   child: NeumorphicButton(
-                    onPressed: () =>
-                        Get.toNamed('/AttendanceTake'),
+                    onPressed: () {},
+                        // Get.toNamed('/AttendanceTake'),
                     style: NeumorphicStyle(
                         shape: NeumorphicShape.concave,
                         boxShape: NeumorphicBoxShape.roundRect(
