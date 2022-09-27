@@ -480,7 +480,7 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                         // ${snapshot.data!.docs.length}
                                         Text(
-                                          "0",
+                                          "1",
                                           style: TextStyle(
                                               fontSize: 16,
                                               fontFamily: "Poppins",
