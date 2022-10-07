@@ -4,81 +4,59 @@ DIIT PORTAL is one of the apps similar to the Student Portal type. There are two
 
 
 ## Feature
-* Optimized Splash Screen.
-* Intro Slider Screen with SharedPreference.
-* Attractive UI design.
-* Recyceler View, Tab Layout, Custom Appbar, Custom many components.
-* Three Users: 1.Admin 2.Teacher,3.Student .
-* Admin Can added information of  student and teacher information,can allocated course to student.
-* Teacher can take sutdent attendance live,can view studennt attendance.
-* Student can view their attendance with selecting spicific course.
 
-## ScreenShots
+* Daily Forecast
+* Class Schedule
+* Class Routine
+* Attendance 
+* Question Bank
+* Tuition Fees 
+* Student Payment Info
+* Notice with Notification
+* Quick Pay
+* Admission & Payment Info
+* NU Portal
+* Academic Result
+* Clubs Activity
+
+
+## ScreenShots For Student's User Interface
 [splash]: https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/splash%20screen.PNG
 [loginpage]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/student_loginpage.PNG
 [welcome]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/welcome%20screen.PNG
 [homepage1]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/homepage1.PNG
-[student homepage2]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/homepage1.PNG
-[student fees]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/fees.PNG
-[student class routine]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/class%20routine.PNG
-[student questionbank]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/question%20bank.PNG
-[student depertment]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/select%20depertment.PNG
-[student attendance]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/view%20addtendance.PNG
-[student sub attendance]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/view%20subattendance.PNG
-[student helping birds]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/helping%20birds.PNG
-[student quick pay]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/quick%20pay.PNG
-[student notification]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/notification.PNG
-[student dashboard]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/student%20dashboard.PNG
-[student profile]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/student%20profile.PNG
+[homepage2]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/homepage.PNG
+[fees]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/fees.PNG
+[classroutine]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/class%20routine.PNG
+[questionbank]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/question%20bank.PNG
+[depertment]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/select%20depertment.PNG
+[attendance]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/view%20addtendance.PNG
+[subattendance]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/view%20subattendance.PNG
+[helpingbirds]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/helping%20birds.PNG
+[quickpay]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/quick%20pay.PNG
+[notification]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/notification.PNG
+[dashboard]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/student%20dashboard.PNG
+[profile]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/student%20profile.PNG
 
 
 
 
 
-
-[teacher loginpage]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/TEACHER/teacher%20loginpage.PNG
-[teacher profile]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/TEACHER/teacher%20profile.PNG
-[take attendance]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/TEACHER/take%20attendance.PNG
-[faculty profile]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/TEACHER/faculty%20profile.PNG
-[class no]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/TEACHER/class%20no.PNG
-[exam type]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/TEACHER/exam%20type.PNG
-[exam mark]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/TEACHER/student%20exammark.PNG
-
-
-<!-- [splash]: https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/splashscreen.PNG
-[auth]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/auth%20screen.PNG
-[intro]: https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/intro.png
-[Dashboard]: https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/Student%20Dashboard.PNG
-[Dashboard1]: https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/StudentDashboard2.PNG
-[portal]: https://github.com/farhansadikgalib/raw/blob/master/Attendence%20Management%20System/SelectBatchDept.png
-[profile]: https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/sProfile.PNG
-[routine]: https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/classroutine.PNG
-[addCourse]: https://github.com/farhansadikgalib/raw/blob/master/Attendence%20Management%20System/addCourse.png
-[CourseList]: https://github.com/farhansadikgalib/raw/blob/master/Attendence%20Management%20System/CourseList.png
-[addTeacher]: https://github.com/farhansadikgalib/raw/blob/master/Attendence%20Management%20System/addTeacher.png
-[techerPanlen]: https://github.com/farhansadikgalib/raw/blob/master/Attendence%20Management%20System/techerPanlen.png
-[TakeAttendence]: https://github.com/farhansadikgalib/raw/blob/master/Attendence%20Management%20System/TakeAttendence.png
-[TeacherViewAttendance]: https://github.com/farhansadikgalib/raw/blob/master/Attendence%20Management%20System/TeacherViewAttendance.png
-[studentViewAttendance]: https://github.com/farhansadikgalib/raw/blob/master/Attendence%20Management%20System/studentViewAttendance.png -->
-
-
-
-
-|Splash Screen|  Auth Screen|Intro Screen| Home Screen |
+|    Splash Screen   |    Login Screen    |    Intro Screen    |    Home Screen     |
 | :-------------: | :-------------: | :-------------: | :-------------: |
 |![alt text][splash]|![alt text][loginpage]|![alt text][welcome]|![alt text][homepage1]|
 
-|Splash Screen|  Auth Screen|Intro Screen| Home Screen |
+|   Home    Screen   |     Dash  Board    |   Notify  Screen   |  Profile   Screen  |
 | :-------------: | :-------------: | :-------------: | :-------------: |
-|![alt text][splash]|![alt text][loginpage]|![alt text][welcome]|![alt text][homepage1]|
+|![alt text][homepage2]|![alt text][dashboard]|![alt text][notification]|![alt text][profile]|
 
-|Splash Screen|  Auth Screen|Intro Screen| Home Screen |
+|   Class  Routine   |   Question Bank    |Attendance  Screen |     Quick Payment |
 | :-------------: | :-------------: | :-------------: | :-------------: |
-|![alt text][splash]|![alt text][loginpage]|![alt text][welcome]|![alt text][homepage1]|
+|![alt text][classroutine]|![alt text][questionbank]|![alt text][subattendance]|![alt text][quickpay]|
 
-|Splash Screen|  Auth Screen|Intro Screen| Home Screen |
+<!-- | Attendance  Screen |  Auth Screen|Intro Screen| Home Screen |
 | :-------------: | :-------------: | :-------------: | :-------------: |
-|![alt text][splash]|![alt text][loginpage]|![alt text][welcome]|![alt text][homepage1]|
+|![alt text][]|![alt text][depertment]|![alt text][quickpay]|![alt text][helpingbirds]| -->
 
 
 <!-- |  Student Portal |   Profile | Class Routine  | Add Course |
@@ -95,7 +73,61 @@ DIIT PORTAL is one of the apps similar to the Student Portal type. There are two
 
 
 
+
+## ScreenShots For Teacher's User Interface
+
+
+
+
+
+
+
+
+
+
+[teacherloginpage]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/TEACHER/teacher%20loginpage.PNG
+[teachersprofile]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/TEACHER/teacher%20profile.PNG
+[takeattendance]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/TEACHER/take%20attendance.PNG
+[faculty profile]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/TEACHER/faculty%20profile.PNG
+[classno]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/TEACHER/class%20no.PNG
+[examtype]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/TEACHER/exam%20type.PNG
+[exammark]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/TEACHER/student%20exammark.PNG
+
+
+
+
+
+|    Splash Screen   |    Login Screen    |    Intro Screen    |
+| :-------------: | :-------------: | :-------------: |
+|![alt text][splash]|![alt text][teacherloginpage]|![alt text][teachersprofile]|
+
+|   Home    Screen   |     Dash  Board    |   Notify  Screen   | 
+| :-------------: | :-------------: | :-------------: | 
+|![alt text][takeattendance]|![alt text][classno]|![alt text][exammark]|
+
+
+
+## Download & Sample user
+
+Demo user for student & teacher
+
+Email: farhan@diit.info
+Password: 654321
+
+<a href="https://gamergirl.pro/KBMSNA" title="Download Student Portal" download> Download Student Portal</a>
+
+
+## Support
+For any kind of quaries feel free to contact me
+
+WhatsApp : +8801773076754
+  
+Email :    <a href="mailto:farhansadikgalib@gmail.com?">Click Here</a>
+
+
+
+<!-- 
 ## Prototype
 
 <a href="https://www.figma.com/proto/IeIYYLEYNQaNKzkzsGRBEs/DiiT-Portal?node-id=1%3A9&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A9">
-DiiT Portal</a>
+DiiT Portal</a> -->
