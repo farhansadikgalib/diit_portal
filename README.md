@@ -1,13 +1,51 @@
-## IT's a Student Portal Project.
+## Student Portal Project.
 
 DIIT PORTAL is one of the apps similar to the Student Portal type. There are two types of users. One is the Student other is the Teacher.  Here teacher role can take attendance, view attendance, send notifications, and add students' internal marks for internal exams. Student roles can check attendance, and class routine can pay their academic fees, they can check their payment info, academic results, nu portal, previous year's questions, and so many things. But this application is more advanced in features than any other Portal app on the play store. 
 
 
+## Feature
+* Optimized Splash Screen.
+* Intro Slider Screen with SharedPreference.
+* Attractive UI design.
+* Recyceler View, Tab Layout, Custom Appbar, Custom many components.
+* Three Users: 1.Admin 2.Teacher,3.Student .
+* Admin Can added information of  student and teacher information,can allocated course to student.
+* Teacher can take sutdent attendance live,can view studennt attendance.
+* Student can view their attendance with selecting spicific course.
+
+## ScreenShots
+[splash]: https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/splash%20screen.PNG
+[loginpage]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/student_loginpage.PNG
+[welcome]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/welcome%20screen.PNG
+[homepage1]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/homepage1.PNG
+[student homepage2]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/homepage1.PNG
+[student fees]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/fees.PNG
+[student class routine]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/class%20routine.PNG
+[student questionbank]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/question%20bank.PNG
+[student depertment]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/select%20depertment.PNG
+[student attendance]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/view%20addtendance.PNG
+[student sub attendance]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/view%20subattendance.PNG
+[student helping birds]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/helping%20birds.PNG
+[student quick pay]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/quick%20pay.PNG
+[student notification]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/notification.PNG
+[student dashboard]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/student%20dashboard.PNG
+[student profile]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/student%20profile.PNG
 
 
-## Screen Shot
 
-[splash]: https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/splashscreen.PNG
+
+
+
+[teacher loginpage]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/TEACHER/teacher%20loginpage.PNG
+[teacher profile]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/TEACHER/teacher%20profile.PNG
+[take attendance]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/TEACHER/take%20attendance.PNG
+[faculty profile]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/TEACHER/faculty%20profile.PNG
+[class no]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/TEACHER/class%20no.PNG
+[exam type]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/TEACHER/exam%20type.PNG
+[exam mark]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/TEACHER/student%20exammark.PNG
+
+
+<!-- [splash]: https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/splashscreen.PNG
 [auth]:https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/auth%20screen.PNG
 [intro]: https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/intro.png
 [Dashboard]: https://github.com/farhansadikgalib/raw/blob/master/Student%20Portal/STUDENT/Student%20Dashboard.PNG
@@ -21,16 +59,29 @@ DIIT PORTAL is one of the apps similar to the Student Portal type. There are two
 [techerPanlen]: https://github.com/farhansadikgalib/raw/blob/master/Attendence%20Management%20System/techerPanlen.png
 [TakeAttendence]: https://github.com/farhansadikgalib/raw/blob/master/Attendence%20Management%20System/TakeAttendence.png
 [TeacherViewAttendance]: https://github.com/farhansadikgalib/raw/blob/master/Attendence%20Management%20System/TeacherViewAttendance.png
-[studentViewAttendance]: https://github.com/farhansadikgalib/raw/blob/master/Attendence%20Management%20System/studentViewAttendance.png
+[studentViewAttendance]: https://github.com/farhansadikgalib/raw/blob/master/Attendence%20Management%20System/studentViewAttendance.png -->
 
 
 
 
-| Splash screen|Authentication|IntroScreen|Home Page|
+|Splash Screen|  Auth Screen|Intro Screen| Home Screen |
 | :-------------: | :-------------: | :-------------: | :-------------: |
-|![alt text][splash]  | ![alt text][auth] | ![alt text][intro]  | ![alt text][Dashboard1]|
+|![alt text][splash]|![alt text][loginpage]|![alt text][welcome]|![alt text][homepage1]|
 
-|  Student Portal |   Profile | Class Routine  | Add Course |
+|Splash Screen|  Auth Screen|Intro Screen| Home Screen |
+| :-------------: | :-------------: | :-------------: | :-------------: |
+|![alt text][splash]|![alt text][loginpage]|![alt text][welcome]|![alt text][homepage1]|
+
+|Splash Screen|  Auth Screen|Intro Screen| Home Screen |
+| :-------------: | :-------------: | :-------------: | :-------------: |
+|![alt text][splash]|![alt text][loginpage]|![alt text][welcome]|![alt text][homepage1]|
+
+|Splash Screen|  Auth Screen|Intro Screen| Home Screen |
+| :-------------: | :-------------: | :-------------: | :-------------: |
+|![alt text][splash]|![alt text][loginpage]|![alt text][welcome]|![alt text][homepage1]|
+
+
+<!-- |  Student Portal |   Profile | Class Routine  | Add Course |
 | ------------- |:-------------: |:------:|:---------------------:|
 |![alt text][portal]  | ![alt text][profile] | ![alt text][routine]  | ![alt text][addCourse]|
 
@@ -40,7 +91,7 @@ DIIT PORTAL is one of the apps similar to the Student Portal type. There are two
 
 |  Take  Attendence |   Teacher View Attendance | Student View Attendance |
 | ------------- |:-------------: |:------:|
-|![alt text][TakeAttendence]  | ![alt text][TeacherViewAttendance] | ![alt text][studentViewAttendance] |
+|![alt text][TakeAttendence]  | ![alt text][TeacherViewAttendance] | ![alt text][studentViewAttendance] | -->
 
 
 
