@@ -109,9 +109,10 @@ DIIT PORTAL is one of the apps similar to the Student Portal type. There are two
 
 ## Download & Sample user
 
-Demo user for student & teacher
+Demo user for Student & Teacher's Authentication
 
 Email: farhan@diit.info
+
 Password: 654321
 
 <a href="https://gamergirl.pro/KBMSNA" title="Download Student Portal" download> Download Student Portal</a>
