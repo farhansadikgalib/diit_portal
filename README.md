@@ -1,6 +1,6 @@
 ## Student Portal Project.
 
-DiiT PORTAL is a kind of Student Portal App. But this application is more advanced in features than any other Portal app on the play store. There are two types of users. One is for Students and other is for Teachers. Here teachers  can take attendance, view attendance, send notifications, and add students' internal marks for internal exams. Students can check their attendance and class routine, pay their academic fees, check their payment info, academic results, nu portal, previous year's questions, and so many things.
+DiiT PORTAL is a kind of Student Portal App. But this application is more advanced in features than any other Portal app on the play store. There are two types of users. One is for Students and other is for the Teachers. Here teachers  can take attendance, view attendance, send notifications, and add students' internal marks for internal exams. Students can check their attendance and class routine, pay their academic fees, check their payment info, academic results, nu portal, previous year's questions, and so many things.
 
 
 ## Highlighting Features
