@@ -123,7 +123,7 @@ For any kind of quaries feel free to contact me
 
 WhatsApp : +8801773076754
   
-Email :    <a href="mailto:farhansadikgalib@gmail.com?">Click Here</a>
+Email : farhansadikgalib@gmail.com
 
 
 
